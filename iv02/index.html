@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -602,6 +602,46 @@
       text-transform: uppercase;
     }
 
+
+    /* Barra de vagas */
+    .vagas-box {
+      background: rgba(228, 10, 45, 0.08);
+      border: 1px solid rgba(228, 10, 45, 0.3);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      width: 100%;
+      max-width: 360px;
+    }
+    .vagas-topo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .vagas-restantes { color: var(--vermelho); }
+    .vagas-total { color: var(--cinza-texto); }
+    .vagas-barra {
+      height: 6px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .vagas-progresso {
+      height: 100%;
+      width: 85%;
+      background: linear-gradient(90deg, var(--vermelho), #ff4d5e);
+      border-radius: 6px;
+      animation: pulse-bar 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse-bar {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
     /* Footer */
     .footer {
       background: #061425;
@@ -726,7 +766,7 @@
 
   <!-- BARRA DE URGÊNCIA -->
   <div class="urgencia">
-    Vagas limitadas para assessoria em Março
+    <span id="urgencia-txt">⚡ Atenção: Esta oferta encerra em <strong><span id="countdown">00:00:00</span></strong> — Garanta sua vaga agora</span>
   </div>
 
   <!-- ========== DOBRA 1: HERO ========== -->
@@ -743,7 +783,7 @@
     <div class="hero-content">
       <img src="assets/logo.png" alt="Instituto Veon" class="hero-logo animate delay-1" loading="eager">
 
-      <div class="hero-badge animate delay-2">Assessoria Comercial para o Varejo</div>
+      <div class="hero-badge animate delay-2">🔴 APENAS 3 VAGAS ABERTAS EM MARÇO</div>
 
       <h1 class="animate delay-2">
         Dobre o faturamento da sua loja de colchões<br>
@@ -755,9 +795,18 @@
         O método que já <strong>transformou lojas de colchões em máquinas de vendas</strong> — com tráfego pago, CRM, gestão comercial e acompanhamento lado a lado por <strong>6 meses</strong>.
       </p>
 
+      <div class="vagas-box animate delay-3">
+        <div class="vagas-topo">
+          <span class="vagas-restantes">&#x1F534; 3 vagas restantes</span>
+          <span class="vagas-total">de 20 este m&#xEA;s</span>
+        </div>
+        <div class="vagas-barra">
+          <div class="vagas-progresso"></div>
+        </div>
+      </div>
       <a href="#formulario" class="cta-btn animate delay-4">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        Falar com Time Veon
+        Quero Garantir Minha Vaga Agora
       </a>
     </div>
 
@@ -928,7 +977,7 @@
         <div class="form-submit">
           <button type="submit" class="cta-btn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            Falar com Time Veon
+            Quero Garantir Minha Vaga Agora
           </button>
         </div>
       </form>
@@ -948,6 +997,29 @@
   </footer>
 
   <script>
+
+    // Countdown regressivo - 24h a partir do primeiro acesso
+    (function() {
+      const KEY = 'veon_iv02_deadline';
+      let deadline = localStorage.getItem(KEY);
+      if (!deadline) {
+        deadline = Date.now() + 24 * 60 * 60 * 1000;
+        localStorage.setItem(KEY, deadline);
+      }
+      function tick() {
+        const diff = parseInt(deadline) - Date.now();
+        if (diff <= 0) {
+          document.getElementById('countdown').textContent = '00:00:00';
+          return;
+        }
+        const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
+        const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+        const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+        document.getElementById('countdown').textContent = h + ':' + m + ':' + s;
+        setTimeout(tick, 1000);
+      }
+      tick();
+    })();
     // Máscara WhatsApp
     document.getElementById('whatsapp').addEventListener('input', function(e) {
       let v = e.target.value.replace(/\D/g, '');
