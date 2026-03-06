@@ -1282,32 +1282,38 @@
 
     // Mobile — detecção do gesto de VOLTAR
 
-    // 1) History trick: injeta estado falso; popstate dispara quando usuário tenta voltar
-    //    Funciona: botão back Android, swipe back Android Chrome, swipe back iOS Safari
+    // 1) History API: back button/swipe Android + iOS
     history.pushState(null, '');
     window.addEventListener('popstate', function() {
       abrirExit();
-      // Reinsere estado para continuar bloqueando
       history.pushState(null, '');
     });
 
-    // 2) Toque na borda esquerda + arrastar pra direita = swipe back iOS/Android
-    //    Backup para casos onde popstate não dispara a tempo (ex: in-app browsers)
-    var tsX = 0, tsY = 0, tsT = 0;
+    // 2) iOS Safari: touchmove NÃO-PASSIVO na borda esquerda/direita
+    //    preventDefault() aqui PARA a animação de slide-back antes de começar
+    var edgeX = 0, edgeActive = false;
+
     document.addEventListener('touchstart', function(e) {
-      tsX = e.touches[0].clientX;
-      tsY = e.touches[0].clientY;
-      tsT = Date.now();
+      edgeX = e.touches[0].clientX;
+      edgeActive = (edgeX < 35 || edgeX > window.innerWidth - 35);
     }, { passive: true });
+
+    document.addEventListener('touchmove', function(e) {
+      if (!edgeActive || exitShown) return;
+      var dx = e.touches[0].clientX - edgeX;
+      var isBack = (edgeX < 35 && dx > 10) || (edgeX > window.innerWidth - 35 && dx < -10);
+      if (isBack) {
+        e.preventDefault();
+        abrirExit();
+        edgeActive = false;
+      }
+    }, { passive: false });
+
     document.addEventListener('touchend', function(e) {
-      if (exitShown) return;
-      var dx = e.changedTouches[0].clientX - tsX;
-      var dy = e.changedTouches[0].clientY - tsY;
-      var dt = Date.now() - tsT;
-      // Borda esquerda → swipe pra direita = voltar
-      if (tsX < 30 && dx > 60 && Math.abs(dy) < 100 && dt < 400) abrirExit();
-      // Borda direita → swipe pra esquerda = voltar (iOS botão direito)
-      if (tsX > window.innerWidth - 30 && dx < -60 && Math.abs(dy) < 100 && dt < 400) abrirExit();
+      if (!edgeActive || exitShown) { edgeActive = false; return; }
+      var dx = e.changedTouches[0].clientX - edgeX;
+      if ((edgeX < 35 && dx > 50) || (edgeX > window.innerWidth - 35 && dx < -50)) abrirExit();
+      edgeActive = false;
     }, { passive: true });
 
     // 3) Scroll de volta ao topo depois de ter scrollado bastante
@@ -1317,7 +1323,7 @@
       if (!exitShown && maxScrollY > 400 && window.scrollY < 60) abrirExit();
     }, { passive: true });
 
-    // 4) Minimizar, trocar de aba ou fechar in-app browser
+    // 4) Minimizar / trocar de aba / fechar in-app browser
     document.addEventListener('visibilitychange', function() {
       if (document.visibilityState === 'hidden' && !exitShown) {
         sessionStorage.setItem('showExit', '1');
@@ -1328,7 +1334,6 @@
       }
     });
 
-    // 5) pagehide: captura fechamento de in-app browser (WhatsApp, Instagram etc)
     window.addEventListener('pagehide', function() {
       if (!exitShown) sessionStorage.setItem('showExit', '1');
     });
