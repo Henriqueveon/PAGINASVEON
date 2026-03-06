@@ -565,6 +565,281 @@
     /* ===== ANIMAÇÕES ===== */
     .animate { opacity:0; transform:translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .animate.visible { opacity:1; transform:none; }
+
+    /* ===== MODAL ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(8,30,51,0.75);
+      z-index: 999;
+      align-items: flex-end;
+      justify-content: center;
+      backdrop-filter: blur(3px);
+    }
+
+    .modal-overlay.open {
+      display: flex;
+      animation: fadeIn 0.2s ease;
+    }
+
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+    .modal {
+      background: var(--azul);
+      border-radius: 20px 20px 0 0;
+      padding: 24px 20px 36px;
+      width: 100%;
+      max-width: 520px;
+      max-height: 92svh;
+      overflow-y: auto;
+      position: relative;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp { from { transform: translateY(60px); opacity:0; } to { transform: none; opacity:1; } }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .modal-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .modal-titulo {
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .modal-titulo span { color: var(--vermelho); }
+
+    .modal-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .modal-sub strong { color: #fff; }
+
+    .modal .form-group { margin-bottom: 12px; }
+
+    .modal .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    .modal .form-group input {
+      width: 100%;
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 13px 15px;
+      font-size: 16px;
+      font-family: inherit;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.15s, background 0.15s;
+      -webkit-appearance: none;
+    }
+
+    .modal .form-group input:focus {
+      border-color: rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .modal .form-group input::placeholder { color: rgba(255,255,255,0.22); }
+
+    .modal-success { display:none; text-align:center; padding: 16px 0; }
+    .modal-success.show { display:block; }
+    .modal-success .s-icon {
+      width:52px; height:52px; border-radius:50%; background:#00aa55;
+      display:flex; align-items:center; justify-content:center; margin: 0 auto 12px;
+    }
+    .modal-success .s-icon svg { width:24px; height:24px; color:#fff; }
+    .modal-success .s-title { font-size:20px; font-weight:900; color:#fff; margin-bottom:6px; }
+    .modal-success .s-sub { font-size:13px; color:rgba(255,255,255,0.6); line-height:1.6; }
+
+    /* ===== EXIT INTENT POPUP ===== */
+    .exit-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(4,12,25,0.96);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      backdrop-filter: blur(8px);
+    }
+
+    .exit-overlay.open {
+      display: flex;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .exit-modal {
+      background: var(--branco);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 430px;
+      position: relative;
+      animation: popIn 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      text-align: center;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    @keyframes popIn { from { transform: scale(0.75) translateY(40px); opacity:0; } to { transform: scale(1) translateY(0); opacity:1; } }
+    @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
+
+    .exit-modal.shake { animation: shake 0.5s ease; }
+
+    .exit-banner {
+      background: var(--vermelho);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 10px 20px;
+    }
+
+    .exit-body {
+      padding: 24px 22px 22px;
+    }
+
+    .exit-close {
+      position: absolute;
+      top: 48px; right: 12px;
+      background: rgba(90,102,128,0.15);
+      border: none;
+      color: var(--cinza-texto);
+      font-size: 14px;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-family: inherit;
+    }
+
+    .exit-close.visible { display: flex; }
+
+    .exit-emoji { font-size: 40px; margin-bottom: 12px; display: block; }
+
+    .exit-modal h3 {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--azul);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .exit-modal h3 span { color: var(--vermelho); }
+
+    .exit-modal p {
+      font-size: 14px;
+      color: var(--cinza-texto);
+      line-height: 1.65;
+      margin-bottom: 8px;
+    }
+
+    .exit-modal p strong { color: var(--preto-soft); }
+
+    .exit-timer-wrap {
+      background: var(--azul);
+      border-radius: 10px;
+      padding: 10px 16px;
+      margin: 14px 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .exit-timer-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .exit-timer-count {
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 2px;
+    }
+
+    .exit-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--vermelho);
+      color: #fff;
+      font-weight: 900;
+      font-size: 16px;
+      padding: 17px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(228,10,45,0.4);
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .exit-cta:active { transform: scale(0.97); }
+
+    .exit-skip {
+      display: none;
+      margin-top: 14px;
+      font-size: 10px;
+      color: #bcc5d3;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+      width: 100%;
+      text-align: center;
+    }
+
+    .exit-skip.visible { display: block; }
   </style>
 </head>
 <body>
@@ -778,6 +1053,68 @@
     </div>
   </section>
 
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="fecharModal(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="document.getElementById('modalOverlay').classList.remove('open')">✕</button>
+
+      <span class="modal-tag">Você se identificou — garanta sua vaga</span>
+      <h2 class="modal-titulo">Candidate sua loja<br><span>agora, antes que acabe.</span></h2>
+      <p class="modal-sub">Nossa equipe entra em contato para uma <strong>análise gratuita do seu negócio.</strong></p>
+
+      <form id="modalForm" onsubmit="handleModalSubmit(event)">
+        <div class="form-group">
+          <label for="m-nome">Seu nome</label>
+          <input type="text" id="m-nome" name="nome" placeholder="Como prefere ser chamado?" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="m-whatsapp">WhatsApp</label>
+          <input type="tel" id="m-whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required autocomplete="tel">
+        </div>
+        <div class="form-group">
+          <label for="m-email">E-mail</label>
+          <input type="email" id="m-email" name="email" placeholder="seu@email.com" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="m-instagram">Instagram da loja</label>
+          <input type="text" id="m-instagram" name="instagram" placeholder="@sualoja" required>
+        </div>
+        <button type="submit" class="cta" style="margin-top:4px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Quero Falar com o Time Comercial
+        </button>
+      </form>
+
+      <div class="modal-success" id="modalSuccess">
+        <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="s-title">Vaga garantida!</div>
+        <div class="s-sub">Nosso time entra em contato pelo WhatsApp em até 1 hora.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXIT INTENT POPUP -->
+  <div class="exit-overlay" id="exitOverlay">
+    <div class="exit-modal" id="exitModal">
+      <button class="exit-close" id="exitClose" onclick="fecharExit()">✕</button>
+      <div class="exit-banner">⚠️ Última chance — vaga quase esgotada</div>
+      <div class="exit-body">
+        <span class="exit-emoji">🔒</span>
+        <h3>Espera! Sua vaga ainda<br>está <span>reservada para você.</span></h3>
+        <p>Restam apenas <strong>3 vagas</strong> para março. Quando acabar, não abrimos mais.</p>
+        <div class="exit-timer-wrap">
+          <span class="exit-timer-label">Reservada por:</span>
+          <span class="exit-timer-count" id="exitCountdown">05:00</span>
+        </div>
+        <a href="https://wa.me/5500000000000" target="_blank" class="exit-cta" onclick="fecharExitForced()">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.522 3.659 1.432 5.17L2.05 22l4.952-1.354A9.954 9.954 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 0 1-4.29-1.253l-.308-.183-3.168.866.85-3.082-.2-.316A7.954 7.954 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+          Quero falar com a equipe pelo WhatsApp
+        </a>
+        <button class="exit-skip" id="exitSkip" onclick="fecharExitForced()">Não quero crescer, pode fechar.</button>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer">
     <img src="assets/logo.png" alt="Instituto Veon" class="footer-logo">
@@ -837,9 +1174,133 @@
       document.getElementById('formSuccess').classList.add('show');
     }
 
-    // Checklist
+    // Checklist — abre modal ao marcar 3
     document.querySelectorAll('.check-item').forEach(item => {
-      item.addEventListener('click', function() { this.classList.toggle('marcado'); });
+      item.addEventListener('click', function() {
+        this.classList.toggle('marcado');
+        const marcados = document.querySelectorAll('.check-item.marcado').length;
+        if (marcados >= 3) {
+          setTimeout(() => document.getElementById('modalOverlay').classList.add('open'), 400);
+        }
+      });
+    });
+
+    function fecharModal(e) {
+      if (e.target === document.getElementById('modalOverlay')) {
+        document.getElementById('modalOverlay').classList.remove('open');
+      }
+    }
+
+    // Máscara WhatsApp modal
+    document.getElementById('m-whatsapp').addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g,'');
+      if (v.length > 11) v = v.slice(0,11);
+      if (v.length > 6) v = '('+v.slice(0,2)+') '+v.slice(2,7)+'-'+v.slice(7);
+      else if (v.length > 2) v = '('+v.slice(0,2)+') '+v.slice(2);
+      else if (v.length > 0) v = '('+v;
+      e.target.value = v;
+    });
+
+    async function handleModalSubmit(e) {
+      e.preventDefault();
+      const nome = document.getElementById('m-nome').value;
+      const whatsapp = document.getElementById('m-whatsapp').value;
+      const email = document.getElementById('m-email').value;
+      const instagram = document.getElementById('m-instagram').value;
+      const btn = e.target.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      try {
+        await fetch('https://formsubmit.co/ajax/contato@institutoveon.com.br', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ nome, whatsapp, email, instagram, _subject: 'Nova lead iv02 (modal)', _captcha: 'false' })
+        });
+      } catch(_) {}
+      document.getElementById('modalForm').style.display = 'none';
+      document.getElementById('modalSuccess').classList.add('show');
+    }
+
+    // Exit intent — popup agressivo
+    let exitShown = false;
+    let exitOpenTime = 0;
+
+    function abrirExit() {
+      if (exitShown) return;
+      exitShown = true;
+      exitOpenTime = Date.now();
+      document.getElementById('exitOverlay').classList.add('open');
+      iniciarTimerExit();
+      // X aparece após 15s
+      setTimeout(function() {
+        document.getElementById('exitClose').classList.add('visible');
+      }, 15000);
+      // Skip aparece após 10s
+      setTimeout(function() {
+        document.getElementById('exitSkip').classList.add('visible');
+      }, 10000);
+    }
+
+    function iniciarTimerExit() {
+      let segundos = 300; // 5 minutos
+      const el = document.getElementById('exitCountdown');
+      const iv = setInterval(function() {
+        if (!document.getElementById('exitOverlay').classList.contains('open')) {
+          clearInterval(iv); return;
+        }
+        segundos--;
+        if (segundos <= 0) { segundos = 0; clearInterval(iv); }
+        const m = String(Math.floor(segundos / 60)).padStart(2,'0');
+        const s = String(segundos % 60).padStart(2,'0');
+        el.textContent = m + ':' + s;
+        if (segundos <= 60) el.style.color = '#e40a2d';
+      }, 1000);
+    }
+
+    // Fechar só pela função dedicada (X ou skip)
+    function fecharExit() {
+      // Sacudir o modal se clicar fora ou pressionar ESC antes do X aparecer
+      const closeVisible = document.getElementById('exitClose').classList.contains('visible');
+      if (!closeVisible) {
+        const modal = document.getElementById('exitModal');
+        modal.classList.remove('shake');
+        void modal.offsetWidth; // reflow
+        modal.classList.add('shake');
+        return;
+      }
+      document.getElementById('exitOverlay').classList.remove('open');
+    }
+
+    function fecharExitForced() {
+      document.getElementById('exitOverlay').classList.remove('open');
+    }
+
+    // Desktop: mouse sai pelo topo
+    document.addEventListener('mouseleave', function(e) {
+      if (e.clientY <= 10) abrirExit();
+    });
+
+    // Mobile: usuário muda de aba ou minimiza
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'hidden' && !exitShown) {
+        sessionStorage.setItem('showExit', '1');
+      }
+      if (document.visibilityState === 'visible' && sessionStorage.getItem('showExit')) {
+        sessionStorage.removeItem('showExit');
+        abrirExit();
+      }
+    });
+
+    // Clicar fora NÃO fecha — apenas sacode
+    document.getElementById('exitOverlay').addEventListener('click', function(e) {
+      if (e.target === this) fecharExit();
+    });
+
+    // ESC NÃO fecha — apenas sacode
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.getElementById('exitOverlay').classList.contains('open')) {
+        fecharExit();
+      }
     });
 
     // Botões ficam azuis ao clicar
