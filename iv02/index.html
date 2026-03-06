@@ -1,1 +1,1299 @@
-test
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <base href="/iv02/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Instituto Veon | Sua Loja Está Perdendo Vendas Agora</title>
+  <meta name="description" content="Descubra quanto dinheiro sua loja de colchões está deixando na mesa. Análise gratuita com o time Veon.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Sweet Sans Pro';
+      src: url('assets/fonts/SweetSansPro-Regular.woff2') format('woff2');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Sweet Sans Pro';
+      src: url('assets/fonts/SweetSansPro-Bold.woff2') format('woff2');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+  </style>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --azul: #0c3c5f;
+      --azul-escuro: #081e33;
+      --vermelho: #e40a2d;
+      --branco: #ffffff;
+      --cinza-f: #f5f7fa;
+      --cinza-e: #eef1f5;
+      --cinza-texto: #5a6680;
+      --cinza-borda: #dde2ea;
+      --preto-soft: #1a1f2e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Sweet Sans Pro', 'DM Sans', -apple-system, sans-serif;
+      background: var(--branco);
+      color: var(--preto-soft);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== STICKY HEADER ===== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--azul);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 16px rgba(8,30,51,0.18);
+    }
+
+    .header-logo {
+      height: 32px;
+      width: auto;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-timer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .header-timer-label {
+      font-size: 9px;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1;
+    }
+
+    .header-timer-count {
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 1px;
+    }
+
+    .header-cta {
+      background: var(--vermelho);
+      color: #fff;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    /* ===== URGENCY STRIP ===== */
+    .urgency-strip {
+      background: var(--vermelho);
+      color: #fff;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 16px;
+      letter-spacing: 0.4px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: var(--cinza-f);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100svh - 52px);
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      object-position: center 10%;
+      filter: grayscale(15%);
+      display: block;
+    }
+
+    .hero-copy {
+      padding: 28px 22px 32px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(228,10,45,0.1);
+      color: var(--vermelho);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 4px;
+      border-left: 3px solid var(--vermelho);
+      width: fit-content;
+    }
+
+    .hero h1 {
+      font-size: 27px;
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--azul);
+    }
+
+    .hero h1 .destaque {
+      color: var(--vermelho);
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--cinza-texto);
+    }
+
+    .hero-sub strong {
+      color: var(--preto-soft);
+    }
+
+    .hero-vagas {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--azul);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero-vagas-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--vermelho);
+      flex-shrink: 0;
+      animation: pulse-dot 1.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    .cta-btn-main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--vermelho);
+      color: #fff;
+      font-weight: 900;
+      font-size: 16px;
+      padding: 16px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      letter-spacing: 0.2px;
+      box-shadow: 0 6px 24px rgba(228,10,45,0.35);
+    }
+
+    .cta-btn-main svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .hero-garantia {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--cinza-texto);
+      margin-top: -4px;
+    }
+
+    .hero-garantia svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      color: #00aa55;
+    }
+
+    /* ===== SEÇÃO: VOCÊ SE IDENTIFICA? ===== */
+    .identifica {
+      background: var(--branco);
+      padding: 48px 22px;
+      border-bottom: 1px solid var(--cinza-borda);
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--vermelho);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--azul);
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: var(--cinza-texto);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--cinza-f);
+      border: 1px solid var(--cinza-borda);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+
+    .check-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(228,10,45,0.1);
+      border: 2px solid var(--vermelho);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .check-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--preto-soft);
+      line-height: 1.4;
+    }
+
+    .check-text span {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--cinza-texto);
+      margin-top: 2px;
+    }
+
+    .identifica-conclusao {
+      margin-top: 24px;
+      background: var(--azul);
+      color: #fff;
+      border-radius: 12px;
+      padding: 20px 18px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .identifica-conclusao strong {
+      color: #fff;
+    }
+
+    .identifica-conclusao .numero-destaque {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--vermelho);
+      display: block;
+      margin-top: 8px;
+    }
+
+    /* ===== NÚMEROS ===== */
+    .numeros {
+      background: var(--azul);
+      padding: 40px 22px;
+    }
+
+    .numeros-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .numeros-header .section-tag {
+      color: rgba(255,255,255,0.5);
+    }
+
+    .numeros-header .section-title {
+      color: #fff;
+    }
+
+    .numeros-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .numero-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .numero-card .num {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--vermelho);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .numero-card .num-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.4;
+    }
+
+    .numero-card.full {
+      grid-column: 1 / -1;
+    }
+
+    .numero-card.full .num {
+      font-size: 40px;
+      color: #fff;
+    }
+
+    .numero-card.full .num-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* ===== DEPOIMENTOS ===== */
+    .depoimentos {
+      background: var(--cinza-f);
+      padding: 48px 0;
+    }
+
+    .depoimentos-header {
+      padding: 0 22px;
+      margin-bottom: 24px;
+    }
+
+    .depoimentos-scroll {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 4px 22px 12px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .depoimentos-scroll::-webkit-scrollbar { display: none; }
+
+    .dep-card {
+      flex-shrink: 0;
+      width: 220px;
+      border-radius: 12px;
+      overflow: hidden;
+      scroll-snap-align: start;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    }
+
+    .dep-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .dep-scroll-hint {
+      text-align: center;
+      font-size: 11px;
+      color: var(--cinza-texto);
+      margin-top: 8px;
+      padding: 0 22px;
+    }
+
+    .cta-block {
+      padding: 0 22px;
+      margin-top: 28px;
+    }
+
+    /* ===== VÍDEOS ===== */
+    .videos {
+      background: var(--branco);
+      padding: 48px 22px;
+      border-bottom: 1px solid var(--cinza-borda);
+    }
+
+    .videos-titulo {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--cinza-texto);
+      margin-bottom: 16px;
+    }
+
+    .videos-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .video-card {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      background: #000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    }
+
+    .video-card iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ===== MÉTODO ===== */
+    .metodo {
+      background: var(--cinza-f);
+      padding: 48px 22px;
+      border-top: 1px solid var(--cinza-borda);
+    }
+
+    .metodo-intro {
+      margin-bottom: 32px;
+    }
+
+    .roadmap {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .roadmap-item {
+      display: flex;
+      gap: 16px;
+      position: relative;
+    }
+
+    .roadmap-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 44px;
+      bottom: -16px;
+      width: 2px;
+      background: var(--cinza-borda);
+    }
+
+    .roadmap-step {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--azul);
+      color: #fff;
+      font-weight: 900;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .roadmap-content {
+      padding-bottom: 32px;
+      flex: 1;
+    }
+
+    .roadmap-content h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--azul);
+      margin-bottom: 4px;
+    }
+
+    .roadmap-content p {
+      font-size: 13px;
+      color: var(--cinza-texto);
+      line-height: 1.6;
+    }
+
+    .roadmap-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .roadmap-tag {
+      background: var(--azul);
+      color: rgba(255,255,255,0.85);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    .metodo-garantia {
+      margin-top: 8px;
+      background: var(--branco);
+      border: 2px solid var(--azul);
+      border-radius: 12px;
+      padding: 20px 18px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .garantia-icon-wrap {
+      width: 40px;
+      height: 40px;
+      background: var(--azul);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .garantia-icon-wrap svg {
+      width: 20px;
+      height: 20px;
+      color: #fff;
+    }
+
+    .garantia-text h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--azul);
+      margin-bottom: 4px;
+    }
+
+    .garantia-text p {
+      font-size: 13px;
+      color: var(--cinza-texto);
+      line-height: 1.6;
+    }
+
+    /* ===== FORMULÁRIO ===== */
+    .formulario {
+      background: var(--azul);
+      padding: 48px 22px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .formulario::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -60px;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .formulario::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: -40px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(228,10,45,0.06);
+    }
+
+    .form-wrapper {
+      position: relative;
+      z-index: 2;
+    }
+
+    .form-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(228,10,45,0.15);
+      color: #ff6b6b;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 4px;
+      border-left: 3px solid var(--vermelho);
+      margin-bottom: 14px;
+    }
+
+    .form-titulo {
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .form-titulo span {
+      color: var(--vermelho);
+    }
+
+    .form-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .form-sub strong {
+      color: #fff;
+    }
+
+    .form-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 24px 20px;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--azul);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .form-group input {
+      width: 100%;
+      background: var(--cinza-f);
+      border: 1.5px solid var(--cinza-borda);
+      border-radius: 8px;
+      padding: 13px 14px;
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--preto-soft);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .form-group input:focus {
+      border-color: var(--azul);
+    }
+
+    .form-group input::placeholder {
+      color: #b0b8c8;
+    }
+
+    .form-submit .cta-btn-main {
+      width: 100%;
+      font-size: 17px;
+      padding: 18px;
+    }
+
+    .form-nota {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      margin-top: 12px;
+    }
+
+    .form-nota svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+
+    /* ===== FAQ ===== */
+    .faq {
+      background: var(--branco);
+      padding: 48px 22px;
+      border-bottom: 1px solid var(--cinza-borda);
+    }
+
+    .faq-list {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--cinza-borda);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--cinza-borda);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 16px 18px;
+      text-align: left;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--azul);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .faq-question .faq-icon {
+      font-size: 18px;
+      color: var(--vermelho);
+      flex-shrink: 0;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1;
+      transition: transform 0.2s;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 18px 16px;
+      font-size: 13px;
+      color: var(--cinza-texto);
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--azul-escuro);
+      padding: 32px 22px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      height: 36px;
+      width: auto;
+      margin-bottom: 14px;
+      filter: brightness(0) invert(1);
+      opacity: 0.75;
+    }
+
+    .footer p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      line-height: 1.8;
+    }
+
+    /* ===== ANIMAÇÕES ===== */
+    .animate {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .animate.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ===== SUCCESS STATE ===== */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 32px 20px;
+    }
+
+    .form-success.show {
+      display: block;
+    }
+
+    .success-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #00aa55;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .success-icon svg {
+      width: 28px;
+      height: 28px;
+      color: #fff;
+    }
+
+    .success-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .success-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY HEADER -->
+  <header class="header">
+    <img src="assets/logo.png" alt="Instituto Veon" class="header-logo">
+    <div class="header-right">
+      <div class="header-timer">
+        <span class="header-timer-label">Oferta expira em</span>
+        <span class="header-timer-count" id="countdown">00:00:00</span>
+      </div>
+      <a href="#formulario" class="header-cta">Garantir Vaga</a>
+    </div>
+  </header>
+
+  <!-- URGENCY STRIP -->
+  <div class="urgency-strip">
+    🔴 Restam apenas 3 vagas em março — 17 de 20 já preenchidas
+  </div>
+
+  <!-- ========== DOBRA 1: HERO ========== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <img src="assets/expert.jpg" alt="Especialista Instituto Veon" class="hero-photo">
+      <div class="hero-copy">
+        <div class="hero-eyebrow animate">⚡ Para donos de loja de colchão</div>
+        <h1 class="animate">
+          Sua loja está perdendo dinheiro<br>
+          <span class="destaque">enquanto você lê isso.</span>
+        </h1>
+        <p class="hero-sub animate">
+          Cada dia sem tráfego pago, CRM e time treinado é faturamento que vai pro bolso do seu concorrente. <strong>Veja quanto sua loja está deixando na mesa.</strong>
+        </p>
+        <div class="hero-vagas animate">
+          <div class="hero-vagas-dot"></div>
+          3 vagas abertas em março de 20 disponíveis
+        </div>
+        <a href="#formulario" class="cta-btn-main animate">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Quero Minha Análise Gratuita
+        </a>
+        <div class="hero-garantia animate">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Garantia blindada: não dobrou o faturamento? Trabalhamos de graça.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DOBRA 2: VOCÊ SE IDENTIFICA? ========== -->
+  <section class="identifica">
+    <span class="section-tag animate">Você se identifica?</span>
+    <h2 class="section-title animate">Se você marcou<br>3 ou mais, sua loja<br>está sangrada.</h2>
+    <p class="section-sub animate">Essas são as razões pelas quais lojas de colchão não chegam no dobro do faturamento.</p>
+
+    <div class="checklist">
+      <div class="check-item animate">
+        <div class="check-icon"></div>
+        <div class="check-text">
+          Showroom vazio na maioria dos dias
+          <span>Depende do fluxo de rua, sem controle sobre quem entra na loja</span>
+        </div>
+      </div>
+      <div class="check-item animate">
+        <div class="check-icon"></div>
+        <div class="check-text">
+          Já tentou anúncios — não deu resultado
+          <span>Impulsionou post ou rodou campanha e perdeu dinheiro sem converter</span>
+        </div>
+      </div>
+      <div class="check-item animate">
+        <div class="check-icon"></div>
+        <div class="check-text">
+          Vendedores não batem meta
+          <span>Time sem processo, sem follow-up, sem CRM — cada um vende do seu jeito</span>
+        </div>
+      </div>
+      <div class="check-item animate">
+        <div class="check-icon"></div>
+        <div class="check-text">
+          A loja depende de você para vender
+          <span>Se você sai, as vendas caem — não tem operação que funciona sem o dono</span>
+        </div>
+      </div>
+      <div class="check-item animate">
+        <div class="check-icon"></div>
+        <div class="check-text">
+          Sente que poderia vender muito mais
+          <span>O produto é bom, o preço é justo — mas o faturamento não cresce</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="identifica-conclusao animate">
+      Se você marcou 3 ou mais, isso não é falta de produto nem de preço.
+      <strong>É falta de método.</strong>
+      <span class="numero-destaque">+R$100k</span>
+      <span style="font-size:12px; color:rgba(255,255,255,0.65); margin-top:4px; display:block;">em vendas adicionais — média dos nossos clientes em 90 dias</span>
+    </div>
+  </section>
+
+  <!-- ========== DOBRA 3: NÚMEROS ========== -->
+  <section class="numeros">
+    <div class="numeros-header">
+      <span class="section-tag animate">Resultados reais</span>
+      <h2 class="section-title animate">Números de quem<br>aplicou o método.</h2>
+    </div>
+    <div class="numeros-grid">
+      <div class="numero-card animate">
+        <div class="num">2x</div>
+        <div class="num-label">faturamento<br>em 90 dias</div>
+      </div>
+      <div class="numero-card animate">
+        <div class="num">&lt;24h</div>
+        <div class="num-label">para a<br>1ª venda</div>
+      </div>
+      <div class="numero-card animate">
+        <div class="num">6 meses</div>
+        <div class="num-label">para dobrar<br>o resultado</div>
+      </div>
+      <div class="numero-card animate">
+        <div class="num">0 risco</div>
+        <div class="num-label">garantia total<br>180 dias</div>
+      </div>
+      <div class="numero-card full animate">
+        <div class="num">+R$100k</div>
+        <div class="num-label">em vendas adicionais por loja — em média nos primeiros 90 dias</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DOBRA 4: DEPOIMENTOS ========== -->
+  <section class="depoimentos">
+    <div class="depoimentos-header">
+      <span class="section-tag animate">Prova real</span>
+      <h2 class="section-title animate" style="color: var(--azul);">O que donos de loja<br>estão dizendo.</h2>
+    </div>
+    <div class="depoimentos-scroll">
+      <div class="dep-card"><img src="assets/depoimento1.jpg" alt="Depoimento de cliente" loading="lazy"></div>
+      <div class="dep-card"><img src="assets/depoimento2.jpg" alt="Depoimento de cliente" loading="lazy"></div>
+      <div class="dep-card"><img src="assets/depoimento3.jpg" alt="Depoimento de cliente" loading="lazy"></div>
+      <div class="dep-card"><img src="assets/depoimento4.jpg" alt="Depoimento de cliente" loading="lazy"></div>
+      <div class="dep-card"><img src="assets/depoimento5.jpg" alt="Depoimento de cliente" loading="lazy"></div>
+    </div>
+    <p class="dep-scroll-hint">← deslize para ver mais →</p>
+    <div class="cta-block animate">
+      <a href="#formulario" class="cta-btn-main">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Quero Ser o Próximo Case
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== DOBRA 5: VÍDEOS ========== -->
+  <section class="videos">
+    <div class="videos-titulo">Depoimentos em vídeo</div>
+    <div class="videos-grid">
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/Da41i-aU7TQ" title="Depoimento 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/FhXbibfAvF4" title="Depoimento 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/DSFbLhEsjOk" title="Depoimento 3" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DOBRA 6: MÉTODO ========== -->
+  <section class="metodo">
+    <div class="metodo-intro">
+      <span class="section-tag animate">Como funciona</span>
+      <h2 class="section-title animate">3 pilares.<br>6 meses.<br>Resultado garantido.</h2>
+      <p class="section-sub animate">O método que já transformou lojas de colchão em máquinas de vendas.</p>
+    </div>
+
+    <div class="roadmap">
+      <div class="roadmap-item animate">
+        <div class="roadmap-step">1G</div>
+        <div class="roadmap-content">
+          <h3>Geração de Demanda</h3>
+          <p>Paramos de esperar cliente entrar pela porta. Lotamos sua loja com tráfego pago estratégico — pessoas prontas para comprar colchão.</p>
+          <div class="roadmap-tags">
+            <span class="roadmap-tag">Tráfego Pago</span>
+            <span class="roadmap-tag">Criativos</span>
+            <span class="roadmap-tag">Ofertas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-item animate">
+        <div class="roadmap-step">2G</div>
+        <div class="roadmap-content">
+          <h3>Gestão Comercial</h3>
+          <p>Todo lead sem acompanhamento é dinheiro jogado fora. Implantamos CRM, follow-up e metas para nenhuma venda escapar.</p>
+          <div class="roadmap-tags">
+            <span class="roadmap-tag">CRM</span>
+            <span class="roadmap-tag">Follow-up</span>
+            <span class="roadmap-tag">Metas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-item animate">
+        <div class="roadmap-step">3G</div>
+        <div class="roadmap-content">
+          <h3>Gestão de Pessoas</h3>
+          <p>Loja que depende do dono tem teto. Construímos uma equipe que vende sem você — com cultura, processo e contratação certa.</p>
+          <div class="roadmap-tags">
+            <span class="roadmap-tag">Cultura</span>
+            <span class="roadmap-tag">DISC</span>
+            <span class="roadmap-tag">Contratação</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="metodo-garantia animate">
+      <div class="garantia-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="garantia-text">
+        <h3>Garantia Blindada de 180 Dias</h3>
+        <p>Se o faturamento <strong>não dobrar em 6 meses</strong>, trabalhamos de graça até dobrar. Sem letras miúdas. <strong>O risco é 100% nosso.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DOBRA 7: FORMULÁRIO ========== -->
+  <section class="formulario" id="formulario">
+    <div class="form-wrapper">
+      <div class="form-eyebrow animate">🚨 Últimas 3 vagas — março</div>
+      <h2 class="form-titulo animate">
+        Descubra quanto sua loja está<br>
+        <span>deixando na mesa.</span>
+      </h2>
+      <p class="form-sub animate">
+        Em <strong>30 minutos</strong>, nosso time mostra exatamente <strong>quanto dinheiro você está perdendo</strong> e o caminho para dobrar o faturamento em 6 meses. Análise 100% gratuita.
+      </p>
+
+      <div class="form-card animate">
+        <form id="leadForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="nome">Seu nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Como te chamamos?" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="whatsapp">WhatsApp</label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required autocomplete="tel">
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="cta-btn-main" style="width:100%; border:none; cursor:pointer; font-family:inherit;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Quero Minha Análise Gratuita
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="success-title">Vaga garantida!</div>
+        <div class="success-sub">Nosso time vai entrar em contato pelo WhatsApp em até 1 hora. Fique atento ao número salvo como "Instituto Veon".</div>
+      </div>
+
+      <p class="form-nota animate">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Dados seguros. Não compartilhamos com terceiros.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="faq">
+    <span class="section-tag animate">Dúvidas frequentes</span>
+    <h2 class="section-title animate" style="color: var(--azul);">Perguntas que<br>todo lojista faz.</h2>
+
+    <div class="faq-list animate">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Funciona para lojas pequenas?
+          <i class="faq-icon">+</i>
+        </button>
+        <div class="faq-answer">Sim. A maioria dos nossos clientes começou com faturamento abaixo de R$100k/mês. O método escala independente do tamanho. O que importa é a disposição do dono em mudar o processo.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Quanto tempo até ver resultado?
+          <i class="faq-icon">+</i>
+        </button>
+        <div class="faq-answer">A primeira venda via tráfego pago pode vir em menos de 24 horas. O dobro do faturamento acontece em 90 a 180 dias, dependendo do ponto de partida. E é exatamente isso que garantimos.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Como funciona a garantia?
+          <i class="faq-icon">+</i>
+        </button>
+        <div class="faq-answer">Se em 180 dias o seu faturamento não dobrar, continuamos trabalhando de graça até dobrar. Sem burocracia, sem letras miúdas. O risco é todo nosso — não o seu.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Preciso ter verba para anúncios?
+          <i class="faq-icon">+</i>
+        </button>
+        <div class="faq-answer">Sim, você vai precisar de investimento em mídia paga. O valor ideal varia por loja e é definido na análise gratuita. Trabalhamos para que cada real investido traga retorno medido.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          A análise gratuita é mesmo gratuita?
+          <i class="faq-icon">+</i>
+        </button>
+        <div class="faq-answer">Sim. É uma reunião de 30 minutos onde mapeamos sua operação atual, identificamos os gargalos e mostramos o potencial de crescimento da sua loja. Sem compromisso de contratação.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <img src="assets/logo.png" alt="Instituto Veon" class="footer-logo">
+    <p>Instituto Veon &copy; 2026 — A Escola do Varejo</p>
+    <p>Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Countdown 24h
+    (function() {
+      const KEY = 'veon_iv02_deadline';
+      let deadline = localStorage.getItem(KEY);
+      if (!deadline) {
+        deadline = Date.now() + 24 * 60 * 60 * 1000;
+        localStorage.setItem(KEY, deadline);
+      }
+      function tick() {
+        const diff = parseInt(deadline) - Date.now();
+        if (diff <= 0) {
+          document.getElementById('countdown').textContent = '00:00:00';
+          return;
+        }
+        const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
+        const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+        const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+        document.getElementById('countdown').textContent = h + ':' + m + ':' + s;
+        setTimeout(tick, 1000);
+      }
+      tick();
+    })();
+
+    // WhatsApp mask
+    document.getElementById('whatsapp').addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 6) {
+        v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+      } else if (v.length > 2) {
+        v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+      } else if (v.length > 0) {
+        v = '(' + v;
+      }
+      e.target.value = v;
+    });
+
+    // Form submit
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value;
+      const whatsapp = document.getElementById('whatsapp').value;
+      const btn = e.target.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      try {
+        await fetch('https://formsubmit.co/ajax/contato@institutoveon.com.br', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ nome, whatsapp, _subject: 'Nova lead iv02', _captcha: 'false' })
+        });
+      } catch(_) {}
+      document.getElementById('leadForm').style.display = 'none';
+      document.getElementById('formSuccess').classList.add('show');
+    }
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) {
+          el.target.classList.add('visible');
+          observer.unobserve(el.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+
+    // FAQ toggle
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      item.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
