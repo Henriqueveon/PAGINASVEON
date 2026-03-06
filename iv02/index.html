@@ -655,13 +655,59 @@
 
     /* Urgência */
     .urgencia {
-      background: var(--vermelho);
+      background: linear-gradient(135deg, #c4001f 0%, var(--vermelho) 50%, #c4001f 100%);
       text-align: center;
-      padding: 10px 20px;
-      font-size: 12px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .urgencia-label {
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .urgencia-sep {
+      opacity: 0.5;
+      font-size: 14px;
+    }
+
+    .urgencia-timer-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 6px;
+      padding: 4px 12px;
+    }
+
+    .urgencia-timer-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: 0.75;
+    }
+
+    #countdown {
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .urgencia-cta {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.9;
     }
 
 
@@ -828,7 +874,12 @@
 
   <!-- BARRA DE URGÊNCIA -->
   <div class="urgencia">
-    <span id="urgencia-txt">⚡ Atenção: Esta oferta encerra em <strong><span id="countdown">00:00:00</span></strong> — Garanta sua vaga agora</span>
+    <span class="urgencia-label">⚡ Oferta encerra em</span>
+    <div class="urgencia-timer-wrap">
+      <span id="countdown">00:00:00</span>
+    </div>
+    <span class="urgencia-sep">—</span>
+    <span class="urgencia-cta">Garanta sua vaga agora</span>
   </div>
 
   <!-- ========== DOBRA 1: HERO ========== -->
