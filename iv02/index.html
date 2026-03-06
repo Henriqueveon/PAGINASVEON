@@ -8,7 +8,34 @@
   <meta name="description" content="Método comprovado para dobrar o faturamento de lojas de colchões em 6 meses. Garantia total ou trabalhamos de graça.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fallback: DM Sans via Google Fonts (remova quando hospedar Sweet Sans Pro localmente) -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    /* ===== TIPOGRAFIA: Sweet Sans Pro (fonte secundária do Manual de Marca) =====
+       Adicione os arquivos .woff2 em assets/fonts/ para ativar a fonte correta.
+       Pesos necessários: 400 (Regular), 500 (Medium), 700 (Bold) */
+    @font-face {
+      font-family: 'Sweet Sans Pro';
+      src: url('assets/fonts/SweetSansPro-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Sweet Sans Pro';
+      src: url('assets/fonts/SweetSansPro-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Sweet Sans Pro';
+      src: url('assets/fonts/SweetSansPro-Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -17,7 +44,7 @@
       --azul-escuro: #081e33;
       --azul-medio: #0a2e4a;
       --vermelho: #e40a2d;
-      --verde: #00E87B;
+      --verde: #00E87B; /* Cor funcional (sucesso/formulário) — fora da paleta oficial da marca */
       --branco: #FFFFFF;
       --cinza-claro: #F4F6F9;
       --cinza-texto: #8A96A8;
@@ -26,7 +53,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Sweet Sans Pro', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--azul);
       color: var(--branco);
       overflow-x: hidden;
@@ -116,7 +143,7 @@
     }
 
     .hero h1 .verde {
-      color: var(--verde);
+      color: var(--branco);
     }
 
     .hero-sub {
@@ -266,7 +293,7 @@
     .metodo-divider {
       width: 60px;
       height: 3px;
-      background: linear-gradient(90deg, var(--vermelho), var(--verde));
+      background: linear-gradient(90deg, var(--vermelho), var(--azul));
       border-radius: 3px;
       margin: 0 auto 28px;
     }
@@ -297,7 +324,7 @@
 
     .pilar:nth-child(1)::before { background: var(--vermelho); }
     .pilar:nth-child(2)::before { background: var(--azul); }
-    .pilar:nth-child(3)::before { background: var(--verde); }
+    .pilar:nth-child(3)::before { background: var(--azul); }
 
     .pilar-numero {
       font-size: 11px;
@@ -309,7 +336,7 @@
 
     .pilar:nth-child(1) .pilar-numero { color: var(--vermelho); }
     .pilar:nth-child(2) .pilar-numero { color: var(--azul-medio); }
-    .pilar:nth-child(3) .pilar-numero { color: #00B865; }
+    .pilar:nth-child(3) .pilar-numero { color: var(--azul-medio); }
 
     .pilar h3 {
       font-size: 18px;
@@ -347,7 +374,7 @@
       padding: 56px 20px;
     }
 
-    .prova .section-tag { color: var(--verde); }
+    .prova .section-tag { color: var(--vermelho); }
 
     .prova .section-title {
       color: var(--branco);
@@ -380,7 +407,7 @@
     .resultado-card .numero {
       font-size: 22px;
       font-weight: 900;
-      color: var(--verde);
+      color: var(--branco);
       line-height: 1;
       margin-bottom: 6px;
     }
@@ -456,8 +483,8 @@
 
     /* Garantia */
     .garantia-box {
-      background: linear-gradient(135deg, rgba(0, 232, 123, 0.08), rgba(0, 232, 123, 0.02));
-      border: 1px solid rgba(0, 232, 123, 0.2);
+      background: linear-gradient(135deg, rgba(12, 60, 95, 0.15), rgba(12, 60, 95, 0.05));
+      border: 1px solid rgba(12, 60, 95, 0.4);
       border-radius: 16px;
       padding: 28px 24px;
       text-align: center;
@@ -466,7 +493,7 @@
     .garantia-icon {
       width: 48px;
       height: 48px;
-      background: rgba(0, 232, 123, 0.15);
+      background: rgba(228, 10, 45, 0.15);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -477,14 +504,14 @@
     .garantia-icon svg {
       width: 24px;
       height: 24px;
-      color: var(--verde);
+      color: var(--vermelho);
     }
 
     .garantia-box h3 {
       font-size: 18px;
       font-weight: 800;
       margin-bottom: 10px;
-      color: var(--verde);
+      color: var(--branco);
     }
 
     .garantia-box p {
@@ -859,7 +886,7 @@
       <!-- Pilar 3 -->
       <div class="pilar">
         <div class="pilar-numero">3o G</div>
-        <h3><span style="color: #00B865;">G</span>estão de Pessoas</h3>
+        <h3><span style="color: var(--azul);">G</span>estão de Pessoas</h3>
         <p>Construímos uma equipe que vende sem depender de você o tempo todo.</p>
         <div class="pilar-items">
           <span class="pilar-item">Cultura</span>
@@ -1058,8 +1085,8 @@
         });
 
         btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Enviado com sucesso!';
-        btn.style.background = '#00B865';
-        btn.style.boxShadow = '0 4px 30px rgba(0, 184, 101, 0.4)';
+        btn.style.background = '#0c3c5f';
+        btn.style.boxShadow = '0 4px 30px rgba(12, 60, 95, 0.5)';
         btn.style.animation = 'none';
 
         setTimeout(() => {
