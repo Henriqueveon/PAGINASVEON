@@ -963,28 +963,46 @@
     });
 
     // Submit do form
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
       e.preventDefault();
       const btn = e.target.querySelector('button[type="submit"]');
       const originalText = btn.innerHTML;
 
-      btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Enviado com sucesso!';
-      btn.style.background = '#00B865';
-      btn.style.boxShadow = '0 4px 30px rgba(0, 184, 101, 0.4)';
-      btn.style.animation = 'none';
+      btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg> Enviando...';
       btn.disabled = true;
 
-      // Aqui você conecta com o formulário/webhook da Hostgator
-      // Exemplo: fetch('URL_DO_FORMULARIO', { method: 'POST', body: new FormData(e.target) })
+      const payload = {
+        nome: document.getElementById('nome').value,
+        whatsapp: document.getElementById('whatsapp').value,
+        email: document.getElementById('email').value,
+        instagram: document.getElementById('instagram').value,
+      };
 
-      setTimeout(() => {
+      try {
+        await fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_iv01', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Enviado com sucesso!';
+        btn.style.background = '#00B865';
+        btn.style.boxShadow = '0 4px 30px rgba(0, 184, 101, 0.4)';
+        btn.style.animation = 'none';
+
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.background = '';
+          btn.style.boxShadow = '';
+          btn.style.animation = '';
+          btn.disabled = false;
+          e.target.reset();
+        }, 3000);
+      } catch (err) {
         btn.innerHTML = originalText;
-        btn.style.background = '';
-        btn.style.boxShadow = '';
-        btn.style.animation = '';
         btn.disabled = false;
-        e.target.reset();
-      }, 3000);
+        alert('Erro ao enviar. Tente novamente.');
+      }
     }
 
     // Smooth scroll
