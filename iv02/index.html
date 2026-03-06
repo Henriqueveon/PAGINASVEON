@@ -85,11 +85,11 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(180deg,
-        #f5f7fa 0%,
-        #e8edf2 10%,
-        rgba(12, 60, 95, 0.92) 28%,
-        #0a2540 50%,
-        #3d1520 75%,
+        #f0f4f8 0%,
+        #dde5ef 14%,
+        rgba(12, 60, 95, 0.90) 34%,
+        #0a2540 55%,
+        #3d1520 78%,
         #5c1a1a 100%
       );
       z-index: 0;
@@ -118,27 +118,51 @@
     }
 
     .hero-logo-wrap {
-      margin-bottom: 36px;
+      margin-bottom: 40px;
       display: inline-block;
     }
 
     .hero-logo {
-      width: 160px;
+      width: 220px;
       display: block;
     }
 
     .hero-badge {
-      display: inline-block;
-      background: rgba(228, 10, 45, 0.15);
-      border: 1px solid var(--vermelho);
-      color: var(--vermelho);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(8, 14, 26, 0.55);
+      border: 1px solid rgba(228, 10, 45, 0.55);
+      color: var(--branco);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 2.5px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      padding: 8px 20px;
+      padding: 11px 20px 11px 14px;
       border-radius: 50px;
       margin-bottom: 24px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 2px 16px rgba(228, 10, 45, 0.15), inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--vermelho);
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: dot-pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes dot-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(228, 10, 45, 0.55); transform: scale(1); }
+      50% { box-shadow: 0 0 0 7px rgba(228, 10, 45, 0); transform: scale(1.15); }
+    }
+
+    .badge-vagas {
+      color: var(--vermelho);
+      font-size: 13px;
     }
 
     .hero h1 {
@@ -823,7 +847,10 @@
         <img src="assets/logo.png" alt="Instituto Veon" class="hero-logo" loading="eager">
       </div>
 
-      <div class="hero-badge animate delay-2">🔴 APENAS 3 VAGAS ABERTAS EM MARÇO</div>
+      <div class="hero-badge animate delay-2">
+        <span class="badge-dot"></span>
+        Apenas <span class="badge-vagas">3 vagas</span> abertas em março
+      </div>
 
       <h1 class="animate delay-2">
         Dobre o faturamento da sua loja de colchões<br>
