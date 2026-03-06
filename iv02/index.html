@@ -110,10 +110,18 @@
       padding: 60px 0 30px;
     }
 
+    .hero-logo-wrap {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 16px 28px;
+      margin-bottom: 32px;
+      display: inline-block;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 2px 8px rgba(0,0,0,0.15);
+    }
+
     .hero-logo {
-      width: 160px;
-      margin-bottom: 28px;
-      filter: brightness(0) invert(1) drop-shadow(0 2px 12px rgba(0,0,0,0.4));
+      width: 150px;
+      display: block;
     }
 
     .hero-badge {
@@ -808,7 +816,9 @@
       <div class="floating-icon fi-5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="currentColor" opacity="0.3"/></svg></div>
     </div>
     <div class="hero-content">
-      <img src="assets/logo.png" alt="Instituto Veon" class="hero-logo animate delay-1" loading="eager">
+      <div class="hero-logo-wrap animate delay-1">
+        <img src="assets/logo.png" alt="Instituto Veon" class="hero-logo" loading="eager">
+      </div>
 
       <div class="hero-badge animate delay-2">🔴 APENAS 3 VAGAS ABERTAS EM MARÇO</div>
 
@@ -843,7 +853,54 @@
     </div>
   </section>
 
-  <!-- ========== DOBRA 2: MÉTODO ========== -->
+  <!-- ========== DOBRA 2: FORMULÁRIO ========== -->
+  <section class="formulario" id="formulario">
+    <div class="floating-icons">
+      <div class="floating-icon" style="top:15%;right:5%;width:32px;animation:floatSlow 9s ease-in-out infinite;opacity:0.05;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="12,2 14.5,9.5 12,7 9.5,9.5" fill="currentColor" stroke="none"/></svg></div>
+      <div class="floating-icon" style="bottom:20%;left:3%;width:20px;animation:floatDrift 7s ease-in-out infinite;opacity:0.04;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+    </div>
+    <div class="form-wrapper">
+      <span class="section-tag">Últimas vagas</span>
+      <h2 class="section-title">Candidate sua loja de colchões agora</h2>
+      <p class="form-sub">Preencha abaixo e nossa equipe entrará em contato para uma análise gratuita do seu negócio.</p>
+
+      <form id="leadForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="nome">Seu nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Como prefere ser chamado?" required autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp</label>
+          <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required autocomplete="tel">
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="instagram">Instagram da loja</label>
+          <input type="text" id="instagram" name="instagram" placeholder="@sualoja" required>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="cta-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Quero Garantir Minha Vaga Agora
+          </button>
+        </div>
+      </form>
+
+      <p class="form-nota">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Seus dados estão seguros. Não compartilhamos com terceiros.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== DOBRA 3: MÉTODO ========== -->
   <section class="metodo">
     <div class="metodo-problema">
       <div class="red-line"></div>
@@ -966,53 +1023,6 @@
       </div>
       <h3>Garantia Blindada de 180 Dias</h3>
       <p>Se o seu faturamento <strong>não dobrar em 6 meses</strong>, nós trabalhamos de graça até dobrar. Sem letras miúdas. <strong>O risco é todo nosso.</strong></p>
-    </div>
-  </section>
-
-  <!-- ========== DOBRA 4: FORMULÁRIO ========== -->
-  <section class="formulario" id="formulario">
-    <div class="floating-icons">
-      <div class="floating-icon" style="top:15%;right:5%;width:32px;animation:floatSlow 9s ease-in-out infinite;opacity:0.05;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="12,2 14.5,9.5 12,7 9.5,9.5" fill="currentColor" stroke="none"/></svg></div>
-      <div class="floating-icon" style="bottom:20%;left:3%;width:20px;animation:floatDrift 7s ease-in-out infinite;opacity:0.04;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-    </div>
-    <div class="form-wrapper">
-      <span class="section-tag">Últimas vagas</span>
-      <h2 class="section-title">Candidate sua loja de colchões agora</h2>
-      <p class="form-sub">Preencha abaixo e nossa equipe entrará em contato para uma análise gratuita do seu negócio.</p>
-
-      <form id="leadForm" onsubmit="handleSubmit(event)">
-        <div class="form-group">
-          <label for="nome">Seu nome</label>
-          <input type="text" id="nome" name="nome" placeholder="Como prefere ser chamado?" required autocomplete="name">
-        </div>
-
-        <div class="form-group">
-          <label for="whatsapp">WhatsApp</label>
-          <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required autocomplete="tel">
-        </div>
-
-        <div class="form-group">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email">
-        </div>
-
-        <div class="form-group">
-          <label for="instagram">Instagram da loja</label>
-          <input type="text" id="instagram" name="instagram" placeholder="@sualoja" required>
-        </div>
-
-        <div class="form-submit">
-          <button type="submit" class="cta-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            Quero Garantir Minha Vaga Agora
-          </button>
-        </div>
-      </form>
-
-      <p class="form-nota">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        Seus dados estão seguros. Não compartilhamos com terceiros.
-      </p>
     </div>
   </section>
 
