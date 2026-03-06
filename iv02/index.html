@@ -403,6 +403,43 @@
       border-radius: 20px;
     }
 
+    /* Bloco escassez pós-pilares */
+    .metodo-escassez {
+      margin-top: 32px;
+      background: linear-gradient(135deg, rgba(228, 10, 45, 0.12), rgba(228, 10, 45, 0.05));
+      border: 1px solid rgba(228, 10, 45, 0.4);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .escassez-alerta {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--vermelho);
+      background: rgba(228, 10, 45, 0.1);
+      border: 1px solid rgba(228, 10, 45, 0.3);
+      border-radius: 20px;
+      padding: 4px 14px;
+      margin-bottom: 14px;
+    }
+    .escassez-texto {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--branco);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .escassez-texto strong { color: var(--vermelho); }
+    .escassez-sub {
+      font-size: 13px;
+      color: var(--cinza-texto);
+      font-style: italic;
+      margin-bottom: 4px;
+    }
+
     /* ========== DOBRA 3 - PROVA SOCIAL + DEPOIMENTOS ========== */
     .prova {
       background: var(--azul);
@@ -941,9 +978,9 @@
       <div class="floating-icon" style="bottom:20%;left:3%;width:20px;animation:floatDrift 7s ease-in-out infinite;opacity:0.04;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
     </div>
     <div class="form-wrapper">
-      <span class="section-tag">Últimas vagas</span>
-      <h2 class="section-title">Candidate sua loja de colchões agora</h2>
-      <p class="form-sub">Preencha abaixo e nossa equipe entrará em contato para uma análise gratuita do seu negócio.</p>
+      <span class="section-tag">&#x1F6A8; Apenas 3 vagas restantes</span>
+      <h2 class="section-title">Reserve sua análise gratuita antes que seu concorrente tome sua vaga.</h2>
+      <p class="form-sub">Em 30 minutos, nosso time comercial mostra <strong>exatamente quanto dinheiro sua loja está deixando na mesa</strong> — e o caminho para dobrar o faturamento em 6 meses.</p>
 
       <form id="leadForm" onsubmit="handleSubmit(event)">
         <div class="form-group">
@@ -969,7 +1006,7 @@
         <div class="form-submit">
           <button type="submit" class="cta-btn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            Quero Garantir Minha Vaga Agora
+            Quero Minha Reunião Gratuita Agora
           </button>
         </div>
       </form>
@@ -985,17 +1022,17 @@
   <section class="metodo">
     <div class="metodo-problema">
       <div class="red-line"></div>
-      <span class="section-tag">O problema</span>
+      <span class="section-tag">A realidade que dói</span>
       <p>
-        Você investe em anúncios, mas <span class="red">não converte</span>. Tem vendedores, mas <span class="red">não batem meta</span>. Sente que sua loja de colchões podia vender <strong>o dobro</strong> — mas falta direção.
+        Sua loja está perdendo dinheiro <span class="red">agora mesmo</span>. Cada dia sem um processo comercial estruturado é faturamento que vai direto pro bolso do seu concorrente — que <strong>já usa esse método</strong>.
       </p>
     </div>
 
     <div style="text-align: center; margin-bottom: 24px;">
-      <span class="section-tag">A solução</span>
-      <h2 class="ponto-g-title">O <span class="g-highlight">Ponto G</span> do Varejo</h2>
+      <span class="section-tag">O método</span>
+      <h2 class="ponto-g-title">Os <span class="g-highlight">3 pilares</span> para dobrar o seu faturamento.</h2>
       <div class="metodo-divider"></div>
-      <p class="ponto-g-sub">3 pilares. 6 meses. O faturamento que sua loja merece.</p>
+      <p class="ponto-g-sub">Geramos sua demanda, estruturamos seu processo comercial e lideramos seu time. Organizamos sua operação em semanas para dobrar as vendas da sua loja em 6 meses.</p>
     </div>
 
     <div class="pilares">
@@ -1003,7 +1040,7 @@
       <div class="pilar">
         <div class="pilar-numero">1o G</div>
         <h3><span style="color: var(--vermelho);">G</span>eração de Demanda</h3>
-        <p>Lotamos sua loja de colchões de clientes prontos para comprar com tráfego pago estratégico.</p>
+        <p>Lotamos sua loja de clientes prontos para comprar. Enquanto você lê isso, seu concorrente já está rodando anúncios que funcionam.</p>
         <div class="pilar-items">
           <span class="pilar-item">Tráfego Pago</span>
           <span class="pilar-item">Criativos</span>
@@ -1014,7 +1051,7 @@
       <div class="pilar">
         <div class="pilar-numero">2o G</div>
         <h3><span style="color: var(--azul-medio);">G</span>estão Comercial</h3>
-        <p>Transformamos cada lead interessado em colchão em venda com CRM, follow-up e metas inteligentes.</p>
+        <p>Todo lead que não é trabalhado é dinheiro jogado fora. Implantamos CRM, follow-up e metas para nenhuma venda escapar.</p>
         <div class="pilar-items">
           <span class="pilar-item">CRM</span>
           <span class="pilar-item">Follow-up</span>
@@ -1025,13 +1062,24 @@
       <div class="pilar">
         <div class="pilar-numero">3o G</div>
         <h3><span style="color: var(--azul);">G</span>estão de Pessoas</h3>
-        <p>Construímos uma equipe que vende sem depender de você o tempo todo.</p>
+        <p>Uma equipe que vende independente de você — porque loja que depende do dono tem teto. A sua não vai ter.</p>
         <div class="pilar-items">
           <span class="pilar-item">Cultura</span>
           <span class="pilar-item">DISC</span>
           <span class="pilar-item">Contratação</span>
         </div>
       </div>
+    </div>
+
+    <!-- Bloco de escassez pós-pilares -->
+    <div class="metodo-escassez">
+      <div class="escassez-alerta">&#x26A0;&#xFE0F; Atenção</div>
+      <p class="escassez-texto">Só aceitamos <strong>3 lojas por mês</strong> para garantir dedicação total a cada cliente. Das 20 vagas de março, <strong>17 já foram preenchidas.</strong></p>
+      <p class="escassez-sub">A loja do seu concorrente pode estar se candidatando agora.</p>
+      <a href="#formulario" class="cta-btn" style="margin-top: 20px; display: inline-flex;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Quero Minha Vaga Antes Que Acabe
+      </a>
     </div>
   </section>
 
