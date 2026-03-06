@@ -1280,7 +1280,48 @@
       if (e.clientY <= 10) abrirExit();
     });
 
-    // Mobile: usuário muda de aba ou minimiza
+    // Mobile — gestos de saída
+    let touchStartX = 0, touchStartY = 0, touchStartTime = 0;
+    let lastScrollY = window.scrollY, lastScrollTime = Date.now(), lastScrollDelta = 0;
+
+    document.addEventListener('touchstart', function(e) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      touchStartTime = Date.now();
+    }, { passive: true });
+
+    document.addEventListener('touchend', function(e) {
+      if (exitShown) return;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      const dt = Date.now() - touchStartTime;
+      const H = window.innerHeight;
+
+      // Swipe pra cima na borda inferior = gesto home (iPhone/Android)
+      if (touchStartY > H - 60 && dy < -40 && dt < 350) { abrirExit(); return; }
+
+      // Swipe da borda esquerda pra direita = voltar (Android)
+      if (touchStartX < 25 && dx > 60 && Math.abs(dy) < 80 && dt < 350) { abrirExit(); return; }
+
+      // Swipe pra baixo na borda superior = barra de notificações (Android)
+      if (touchStartY < 25 && dy > 50 && dt < 350) { abrirExit(); return; }
+    }, { passive: true });
+
+    // Scroll rápido pra cima próximo ao topo = intenção de sair
+    window.addEventListener('scroll', function() {
+      if (exitShown) return;
+      const now = Date.now();
+      const currentY = window.scrollY;
+      const dt = now - lastScrollTime;
+      if (dt > 0 && dt < 80) {
+        const velocity = (currentY - lastScrollY) / dt; // px/ms
+        if (velocity < -4 && currentY < 150) abrirExit();
+      }
+      lastScrollY = currentY;
+      lastScrollTime = now;
+    }, { passive: true });
+
+    // Visibilitychange: muda de aba ou minimiza
     document.addEventListener('visibilitychange', function() {
       if (document.visibilityState === 'hidden' && !exitShown) {
         sessionStorage.setItem('showExit', '1');
