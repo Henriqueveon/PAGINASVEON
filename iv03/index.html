@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <base href="/iv03/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>EXCLUSIVO: Método que Dobra Faturamento de Lojas de Colchões</title>
+  <meta name="description" content="Lojistas de colchões estagnados em R$50 mil estão dobrando o faturamento em 180 dias com este método. Vagas limitadas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --vermelho: #c41020;
+      --vermelho-escuro: #8b0a16;
+      --vermelho-vivo: #e40a2d;
+      --preto: #0a0a0a;
+      --preto-card: #111111;
+      --dourado: #d4a843;
+      --branco: #ffffff;
+      --cinza: #999;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--preto);
+      color: var(--branco);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ========== BREAKING BAR ========== */
+    .breaking-bar {
+      background: var(--vermelho-vivo);
+      padding: 10px 16px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: pulseBar 2s infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .breaking-bar::before {
+      content: '⚡ URGENTE';
+      background: var(--preto);
+      color: var(--vermelho-vivo);
+      padding: 3px 10px;
+      border-radius: 3px;
+      font-size: 9px;
+      margin-right: 10px;
+      letter-spacing: 1.5px;
+    }
+
+    @keyframes pulseBar {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+
+    /* ========== DOBRA 1: HERO REPORTAGEM ========== */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 60%;
+      filter: contrast(1.08) brightness(1.05) saturate(1.1);
+    }
+
+    .hero-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10,10,10,0.15) 0%,
+        rgba(10,10,10,0.3) 30%,
+        rgba(10,10,10,0.7) 55%,
+        rgba(10,10,10,0.95) 80%,
+        var(--preto) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 20px 36px;
+    }
+
+    .hero-logo {
+      width: 120px;
+      filter: brightness(0) invert(1);
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    .hero-flag {
+      display: inline-block;
+      background: var(--vermelho-vivo);
+      color: var(--branco);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 26px;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+    }
+
+    .hero h1 .highlight {
+      color: var(--vermelho-vivo);
+      text-decoration: underline;
+      text-decoration-color: var(--dourado);
+      text-underline-offset: 4px;
+    }
+
+    .hero h1 .gold {
+      color: var(--dourado);
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: #ccc;
+      line-height: 1.55;
+      margin-bottom: 24px;
+    }
+
+    .hero-sub strong {
+      color: var(--branco);
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--vermelho-vivo);
+      color: var(--branco);
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 18px 32px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      width: 100%;
+      max-width: 380px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 30px rgba(228, 10, 45, 0.5);
+      animation: ctaPulse 2s infinite;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px rgba(228, 10, 45, 0.6);
+    }
+
+    .cta-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 4px 30px rgba(228, 10, 45, 0.5); }
+      50% { box-shadow: 0 4px 50px rgba(228, 10, 45, 0.8); }
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 0;
+      margin-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 16px;
+    }
+
+    .hero-stat {
+      flex: 1;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-stat:last-child { border-right: none; }
+
+    .hero-stat .num {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--vermelho-vivo);
+    }
+
+    .hero-stat .lbl {
+      font-size: 9px;
+      color: var(--cinza);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    /* ========== DOBRA 2: DOR / PROVOCAÇÃO ========== */
+    .dor {
+      background: var(--preto);
+      padding: 48px 20px;
+      border-top: 3px solid var(--vermelho-vivo);
+    }
+
+    .dor-tag {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--vermelho-vivo);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .dor h2 {
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .dor h2 .red { color: var(--vermelho-vivo); }
+
+    .dor-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .dor-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #ccc;
+    }
+
+    .dor-list li .icon {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      background: rgba(228,10,45,0.15);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .dor-list li strong { color: var(--branco); }
+
+    .dor-quote {
+      background: linear-gradient(135deg, rgba(228,10,45,0.1), rgba(196,16,32,0.05));
+      border-left: 3px solid var(--vermelho-vivo);
+      padding: 20px;
+      border-radius: 0 10px 10px 0;
+      font-size: 16px;
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.4;
+      color: var(--branco);
+    }
+
+    .dor-quote span { color: var(--dourado); font-weight: 900; }
+
+    /* ========== DOBRA 3: SOLUÇÃO / MÉTODO ========== */
+    .solucao {
+      background: linear-gradient(180deg, var(--vermelho-escuro) 0%, var(--preto) 100%);
+      padding: 48px 20px;
+      text-align: center;
+    }
+
+    .solucao-tag {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .solucao h2 {
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .solucao h2 .gold { color: var(--dourado); }
+
+    .solucao-sub {
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 28px;
+    }
+
+    .pilares {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    .pilar {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 22px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pilar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+    }
+
+    .pilar:nth-child(1)::before { background: var(--vermelho-vivo); }
+    .pilar:nth-child(2)::before { background: var(--dourado); }
+    .pilar:nth-child(3)::before { background: #00E87B; }
+
+    .pilar-num {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .pilar:nth-child(1) .pilar-num { color: var(--vermelho-vivo); }
+    .pilar:nth-child(2) .pilar-num { color: var(--dourado); }
+    .pilar:nth-child(3) .pilar-num { color: #00E87B; }
+
+    .pilar h3 {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .pilar p {
+      font-size: 13px;
+      color: #999;
+      line-height: 1.5;
+    }
+
+    .garantia-strip {
+      background: rgba(212,168,67,0.1);
+      border: 1px solid rgba(212,168,67,0.3);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .garantia-strip h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--dourado);
+      margin-bottom: 8px;
+    }
+
+    .garantia-strip p {
+      font-size: 13px;
+      color: #aaa;
+      line-height: 1.5;
+    }
+
+    .garantia-strip p strong { color: var(--branco); }
+
+    /* ========== DOBRA 4: PROVA SOCIAL ========== */
+    .prova {
+      background: var(--preto);
+      padding: 48px 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .prova-tag {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--vermelho-vivo);
+      margin-bottom: 12px;
+      display: block;
+      text-align: center;
+    }
+
+    .prova h2 {
+      font-size: 22px;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .prova-sub {
+      font-size: 13px;
+      color: var(--cinza);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .depoimentos-scroll {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    .depoimentos-scroll::-webkit-scrollbar { display: none; }
+
+    .dep-card {
+      flex: 0 0 240px;
+      scroll-snap-align: start;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .dep-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .prova-cta {
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .prova-cta .cta-btn {
+      max-width: 340px;
+      margin: 0 auto;
+    }
+
+    /* ========== DOBRA 5: FORMULÁRIO ========== */
+    .formulario {
+      background: linear-gradient(180deg, var(--preto) 0%, var(--vermelho-escuro) 100%);
+      padding: 48px 20px 40px;
+    }
+
+    .form-wrapper {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .form-tag {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--vermelho-vivo);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .formulario h2 {
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .form-sub {
+      font-size: 13px;
+      color: var(--cinza);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--cinza);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-group input {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 15px 16px;
+      font-size: 15px;
+      color: var(--branco);
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input::placeholder { color: rgba(255,255,255,0.2); }
+    .form-group input:focus { border-color: var(--vermelho-vivo); }
+
+    .form-submit { margin-top: 18px; }
+    .form-submit .cta-btn { width: 100%; max-width: 100%; }
+
+    .form-nota {
+      text-align: center;
+      font-size: 10px;
+      color: rgba(255,255,255,0.25);
+      margin-top: 14px;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      background: #050505;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .footer-logo {
+      width: 80px;
+      filter: brightness(0) invert(1);
+      opacity: 0.3;
+      margin-bottom: 8px;
+    }
+
+    .footer p {
+      font-size: 10px;
+      color: rgba(255,255,255,0.15);
+    }
+
+    /* ========== EXIT INTENT POPUP ========== */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .popup-overlay.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-6px); }
+      40% { transform: translateX(6px); }
+      60% { transform: translateX(-4px); }
+      80% { transform: translateX(4px); }
+    }
+
+    .popup-box {
+      background: linear-gradient(180deg, #1a0a0e 0%, var(--preto) 100%);
+      border: 2px solid var(--vermelho-vivo);
+      border-radius: 16px;
+      padding: 28px 22px;
+      max-width: 380px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      animation: slideUp 0.4s ease;
+      box-shadow: 0 0 60px rgba(228,10,45,0.3);
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      background: none;
+      border: none;
+      color: #555;
+      font-size: 22px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .popup-flag {
+      display: inline-block;
+      background: var(--vermelho-vivo);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      margin-bottom: 16px;
+      animation: pulseBar 1.5s infinite;
+    }
+
+    .popup-discount {
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--vermelho-vivo);
+      line-height: 1;
+      margin-bottom: 4px;
+      text-shadow: 0 0 30px rgba(228,10,45,0.4);
+    }
+
+    .popup-discount-label {
+      font-size: 13px;
+      color: var(--dourado);
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .popup-box h3 {
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .popup-box h3 .gold { color: var(--dourado); }
+
+    .popup-text {
+      font-size: 13px;
+      color: #999;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .popup-text strong { color: var(--branco); }
+
+    .popup-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #25D366;
+      color: var(--branco);
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 18px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      width: 100%;
+      transition: all 0.3s;
+      box-shadow: 0 4px 25px rgba(37,211,102,0.4);
+      animation: shake 0.6s ease 0.5s;
+    }
+
+    .popup-cta:hover {
+      box-shadow: 0 8px 35px rgba(37,211,102,0.5);
+      transform: translateY(-2px);
+    }
+
+    .popup-cta svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    .popup-timer {
+      margin-top: 14px;
+      font-size: 11px;
+      color: var(--vermelho-vivo);
+      font-weight: 700;
+    }
+
+    /* ========== ANIMATIONS ========== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate {
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+
+    /* ========== DESKTOP ========== */
+    @media (min-width: 768px) {
+      .hero h1 { font-size: 38px; max-width: 600px; }
+      .hero-sub { font-size: 17px; max-width: 500px; }
+      .pilares { flex-direction: row; }
+      .pilar { flex: 1; }
+      .form-wrapper { max-width: 450px; }
+      .dor h2 { font-size: 30px; }
+      .popup-box { padding: 36px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BREAKING BAR -->
+  <div class="breaking-bar">
+    Vagas para Março estão encerrando
+  </div>
+
+  <!-- ========== DOBRA 1: HERO REPORTAGEM ========== -->
+  <section class="hero">
+    <div class="hero-img">
+      <img src="assets/equipe.jpg" alt="Equipe Instituto Veon - Assessoria para lojas de colchões" loading="eager">
+    </div>
+    <div class="hero-content">
+      <img src="assets/logo.png" alt="Instituto Veon" class="hero-logo animate delay-1">
+      <div class="hero-flag animate delay-1">INVESTIGAÇÃO EXCLUSIVA</div>
+
+      <h1 class="animate delay-2">
+        Como lojistas de colchões <span class="highlight">estagnados em R$50 mil</span> estão <span class="gold">dobrando o faturamento</span> em 180 dias
+      </h1>
+
+      <p class="hero-sub animate delay-3">
+        Enquanto <strong>seus concorrentes já aplicaram o método</strong> e estão faturando o dobro, você ainda está tentando descobrir o que está dando errado. <strong>A diferença entre eles e você é uma decisão.</strong>
+      </p>
+
+      <a href="#formulario" class="cta-btn animate delay-4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Quero Dobrar Meu Faturamento
+      </a>
+
+      <div class="hero-stats animate delay-4">
+        <div class="hero-stat">
+          <div class="num">+R$100k</div>
+          <div class="lbl">Vendas adicionais</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">2x</div>
+          <div class="lbl">Faturamento</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">180d</div>
+          <div class="lbl">Ou grátis</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DOBRA 2: DOR / PROVOCAÇÃO ========== -->
+  <section class="dor">
+    <span class="dor-tag">Eles estavam no mesmo lugar que você</span>
+    <h2>
+      Lojistas que <span class="red">destravaram o faturamento</span> com o Instituto Veon.
+    </h2>
+
+    <ul class="dor-list">
+      <li>
+        <div class="icon" style="background:rgba(212,168,67,0.15);font-size:16px;font-weight:900;color:var(--dourado);">1</div>
+        <div><strong>Vanderlei, franqueado Ortobom de Concórdia/SC</strong> — vendeu 1 colchão a cada 90 minutos. Resultado que parecia impossível antes da assessoria Veon.</div>
+      </li>
+      <li>
+        <div class="icon" style="background:rgba(212,168,67,0.15);font-size:16px;font-weight:900;color:var(--dourado);">2</div>
+        <div><strong>Beatriz, lojista de colchão de Estreito/MA</strong> — duvidava do Instituto Veon. Hoje diz que encontrou aqui tudo que precisava para destravar sua loja.</div>
+      </li>
+      <li>
+        <div class="icon" style="background:rgba(212,168,67,0.15);font-size:16px;font-weight:900;color:var(--dourado);">3</div>
+        <div><strong>Fábio Gosman, franqueado Ortobom de SC</strong> — fez uma Black Friday extraordinária com o Instituto Veon. Resultado que deixou a concorrência sem entender.</div>
+      </li>
+    </ul>
+
+    <div class="dor-quote">
+      "Enquanto você pensa, <span>seus concorrentes agem.</span> A cada dia parado, é dinheiro que fica na mesa — e vai pro bolso de quem já decidiu."
+    </div>
+
+    <!-- Vídeos dos depoimentos -->
+    <div style="margin-top: 28px;">
+      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--cinza);text-align:center;margin-bottom:14px;">Veja os depoimentos</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+        <div style="border-radius:10px;overflow:hidden;aspect-ratio:9/16;background:#000;">
+          <iframe src="https://www.youtube.com/embed/Da41i-aU7TQ" title="Depoimento Vanderlei" loading="lazy" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="width:100%;height:100%;border:none;"></iframe>
+        </div>
+        <div style="border-radius:10px;overflow:hidden;aspect-ratio:9/16;background:#000;">
+          <iframe src="https://www.youtube.com/embed/FhXbibfAvF4" title="Depoimento Beatriz" loading="lazy" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="width:100%;height:100%;border:none;"></iframe>
+        </div>
+        <div style="border-radius:10px;overflow:hidden;aspect-ratio:9/16;background:#000;">
+          <iframe src="https://www.youtube.com/embed/DSFbLhEsjOk" title="Depoimento Fábio" loading="lazy" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="width:100%;height:100%;border:none;"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DOBRA 3: SOLUÇÃO / MÉTODO ========== -->
+  <section class="solucao">
+    <span class="solucao-tag">O método que muda o jogo</span>
+    <h2>O <span class="gold">Ponto G</span> do Varejo</h2>
+    <p class="solucao-sub">3 pilares que transformam lojas de colchões estagnadas em máquinas de venda.</p>
+
+    <div class="pilares">
+      <div class="pilar">
+        <div class="pilar-num">1° G — Geração</div>
+        <h3>Geração de Demanda</h3>
+        <p>Lotamos sua loja de colchões com clientes prontos para comprar. Tráfego pago estratégico que faz o telefone tocar e a loja encher.</p>
+      </div>
+      <div class="pilar">
+        <div class="pilar-num">2° G — Gestão</div>
+        <h3>Gestão Comercial</h3>
+        <p>Cada lead vira venda. CRM, follow-up implacável e metas que sua equipe bate com orgulho. Sem deixar dinheiro na mesa.</p>
+      </div>
+      <div class="pilar">
+        <div class="pilar-num">3° G — Gente</div>
+        <h3>Gestão de Pessoas</h3>
+        <p>Equipe que vende sem depender de você. Contratação certa, cultura de resultado e vendedores que acordam querendo bater meta.</p>
+      </div>
+    </div>
+
+    <div class="garantia-strip">
+      <h3>⚡ Garantia Blindada de 180 Dias</h3>
+      <p>Se seu faturamento <strong>não dobrar em 6 meses</strong>, trabalhamos de graça até dobrar. <strong>Sem letras miúdas. O risco é 100% nosso.</strong></p>
+    </div>
+  </section>
+
+  <!-- ========== DOBRA 4: PROVA SOCIAL ========== -->
+  <section class="prova">
+    <span class="prova-tag">Resultados que falam sozinhos</span>
+    <h2>Eles duvidaram. Depois, dobraram.</h2>
+    <p class="prova-sub">Lojistas de colchões que tomaram a decisão certa.</p>
+
+    <div class="depoimentos-scroll">
+      <div class="dep-card"><img src="assets/depoimento1.jpg" alt="Resultado real" loading="lazy"></div>
+      <div class="dep-card"><img src="assets/depoimento2.jpg" alt="Resultado real" loading="lazy"></div>
+      <div class="dep-card"><img src="assets/depoimento3.jpg" alt="Resultado real" loading="lazy"></div>
+      <div class="dep-card"><img src="assets/depoimento4.jpg" alt="Resultado real" loading="lazy"></div>
+      <div class="dep-card"><img src="assets/depoimento5.jpg" alt="Resultado real" loading="lazy"></div>
+    </div>
+
+    <div class="prova-cta">
+      <a href="#formulario" class="cta-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Não Fique Para Trás — Fale Agora
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== DOBRA 5: FORMULÁRIO ========== -->
+  <section class="formulario" id="formulario">
+    <div class="form-wrapper">
+      <span class="form-tag">Últimas vagas em Março</span>
+      <h2>Sua loja de colchões merece faturar o dobro.</h2>
+      <p class="form-sub">Preencha abaixo. Nossa equipe vai analisar seu negócio e mostrar como chegar lá em 180 dias.</p>
+
+      <form id="leadForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="nome">Seu nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Como prefere ser chamado?" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp</label>
+          <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required autocomplete="tel">
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="instagram">Instagram da loja</label>
+          <input type="text" id="instagram" name="instagram" placeholder="@sualoja">
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="cta-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Garantir Minha Vaga Agora
+          </button>
+        </div>
+      </form>
+      <p class="form-nota">🔒 Seus dados estão protegidos. Não compartilhamos com terceiros.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <img src="assets/logo.png" alt="Instituto Veon" class="footer-logo" loading="lazy">
+    <p>Instituto Veon &copy; 2026 — A Escola do Varejo</p>
+    <p>Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- ========== EXIT INTENT POPUP ========== -->
+  <div class="popup-overlay" id="exitPopup">
+    <div class="popup-box">
+      <button class="popup-close" id="popupClose">&times;</button>
+      <div class="popup-flag">🚨 OFERTA EXCLUSIVA</div>
+      <div class="popup-discount">R$2.400</div>
+      <div class="popup-discount-label">de desconto no Plano Atlântico</div>
+      <h3>Espera! Antes de sair, essa oferta <span class="gold">não vai se repetir.</span></h3>
+      <p class="popup-text">
+        Lojistas que hesitam <strong>perdem para quem age rápido</strong>. Seu concorrente não vai esperar você decidir. Essa é sua chance de entrar com <strong>R$2.400 de desconto</strong> — direto, sem burocracia.
+      </p>
+      <a href="https://wa.me/5545991294761?text=Ol%C3%A1%2C%20vim%20pelo%20site%20de%20voc%C3%AAs%20e%20quero%20conhecer%20a%20assessoria%20Veon%20para%20minha%20loja%20de%20colch%C3%A3o.%20Vi%20a%20oferta%20de%20R%242.400%20de%20desconto%20no%20Plano%20Atl%C3%A2ntico!" class="popup-cta" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar Agora com Time Veon
+      </a>
+      <div class="popup-timer">⏳ Oferta válida apenas agora</div>
+    </div>
+  </div>
+
+  <script>
+    // ========== MÁSCARA WHATSAPP ==========
+    document.getElementById('whatsapp').addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 6) {
+        v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+      } else if (v.length > 2) {
+        v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+      } else if (v.length > 0) {
+        v = '(' + v;
+      }
+      e.target.value = v;
+    });
+
+    // ========== FORM SUBMIT ==========
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '⏳ Enviando...';
+      btn.disabled = true;
+
+      const payload = {
+        nome: document.getElementById('nome').value,
+        whatsapp: document.getElementById('whatsapp').value,
+        email: document.getElementById('email').value,
+        instagram: document.getElementById('instagram').value,
+      };
+
+      try {
+        await fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_iv03', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        btn.innerHTML = '✅ Enviado com sucesso!';
+        btn.style.background = '#00B865';
+        btn.style.boxShadow = '0 4px 30px rgba(0,184,101,0.4)';
+        btn.style.animation = 'none';
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.background = '';
+          btn.style.boxShadow = '';
+          btn.style.animation = '';
+          btn.disabled = false;
+          e.target.reset();
+        }, 3000);
+      } catch (err) {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        alert('Erro ao enviar. Tente novamente.');
+      }
+    }
+
+    // ========== SMOOTH SCROLL ==========
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // ========== INTERSECTION OBSERVER ==========
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.pilar, .dep-card, .garantia-strip, .dor-quote').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+
+    // ========== EXIT INTENT POPUP (MOBILE-FIRST) ==========
+    (function() {
+      const popup = document.getElementById('exitPopup');
+      const closeBtn = document.getElementById('popupClose');
+      let popupShown = false;
+      let touchStartY = 0;
+      let scrollTimeout = null;
+      let lastScrollY = 0;
+      let hasScrolledDown = false;
+
+      function showPopup() {
+        if (popupShown) return;
+        popupShown = true;
+        popup.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function hidePopup() {
+        popup.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      closeBtn.addEventListener('click', hidePopup);
+      popup.addEventListener('click', function(e) {
+        if (e.target === popup) hidePopup();
+      });
+
+      // MOBILE: detect swipe up / scroll to top (exit behavior)
+      document.addEventListener('touchstart', function(e) {
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      document.addEventListener('touchmove', function(e) {
+        if (popupShown) return;
+        const touchY = e.touches[0].clientY;
+        const diff = touchY - touchStartY;
+
+        // User scrolled down at least 30% of page
+        if (window.scrollY > document.body.scrollHeight * 0.3) {
+          hasScrolledDown = true;
+        }
+
+        // User is pulling down fast from top area (trying to close/leave)
+        if (hasScrolledDown && window.scrollY < 100 && diff > 60) {
+          showPopup();
+        }
+      }, { passive: true });
+
+      // MOBILE: detect rapid scroll up (back to top = leaving)
+      window.addEventListener('scroll', function() {
+        if (popupShown) return;
+
+        if (window.scrollY > document.body.scrollHeight * 0.3) {
+          hasScrolledDown = true;
+        }
+
+        // Rapid scroll towards top after scrolling down
+        if (hasScrolledDown && lastScrollY > 300 && window.scrollY < 50) {
+          showPopup();
+        }
+
+        lastScrollY = window.scrollY;
+      }, { passive: true });
+
+      // MOBILE: page visibility change (switching tabs/apps)
+      document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState === 'hidden' && hasScrolledDown && !popupShown) {
+          // Mark to show on return
+          sessionStorage.setItem('showExitPopup', '1');
+        }
+        if (document.visibilityState === 'visible' && sessionStorage.getItem('showExitPopup') === '1') {
+          sessionStorage.removeItem('showExitPopup');
+          showPopup();
+        }
+      });
+
+      // DESKTOP: classic mouse leave
+      document.addEventListener('mouseleave', function(e) {
+        if (e.clientY < 5 && hasScrolledDown) {
+          showPopup();
+        }
+      });
+
+      // Track that user has engaged with content
+      setTimeout(function() {
+        if (window.scrollY > 200) hasScrolledDown = true;
+      }, 5000);
+
+      // Also trigger if user tries to use back gesture (popstate)
+      window.addEventListener('popstate', function() {
+        if (!popupShown && hasScrolledDown) {
+          showPopup();
+          history.pushState(null, '', window.location.href);
+        }
+      });
+
+      // Push initial state for back button detection
+      history.pushState(null, '', window.location.href);
+    })();
+  </script>
+
+</body>
+</html>
