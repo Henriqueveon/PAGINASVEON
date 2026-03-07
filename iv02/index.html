@@ -481,14 +481,22 @@
     }
 
     .bullet {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 0;
       border-bottom: 1px solid var(--cinza-borda);
+      cursor: pointer;
+      transition: background 0.15s;
     }
 
     .bullet:last-child { border-bottom: none; }
+
+    .bullet-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+    }
+
+    .bullet:hover .bullet-header,
+    .bullet.open .bullet-header { background: transparent; }
 
     .bullet-num {
       font-size: 11px;
@@ -500,12 +508,21 @@
       padding: 3px 7px;
       flex-shrink: 0;
       letter-spacing: 0.5px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .bullet.open .bullet-num,
+    .bullet:hover .bullet-num {
+      background: var(--vermelho);
+      color: #fff;
+      border-color: var(--vermelho);
     }
 
     .bullet-text {
       font-size: 13px;
       font-weight: 700;
       color: var(--preto-soft);
+      flex: 1;
     }
 
     .bullet-text span {
@@ -514,6 +531,68 @@
       font-weight: 400;
       color: var(--cinza-texto);
       margin-top: 2px;
+    }
+
+    .bullet-chevron {
+      width: 18px; height: 18px;
+      flex-shrink: 0;
+      color: var(--cinza-texto);
+      transition: transform 0.25s;
+    }
+
+    .bullet.open .bullet-chevron { transform: rotate(180deg); color: var(--vermelho); }
+
+    /* Entregáveis expandidos */
+    .bullet-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s;
+    }
+
+    .bullet.open .bullet-details { max-height: 600px; }
+
+    .bullet-details-inner {
+      padding: 0 0 16px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .detalhe-col {}
+
+    .detalhe-col-title {
+      font-size: 10px;
+      font-weight: 900;
+      color: var(--vermelho);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .detalhe-col ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .detalhe-col ul li {
+      font-size: 12px;
+      color: var(--cinza-texto);
+      padding-left: 12px;
+      position: relative;
+      line-height: 1.4;
+    }
+
+    .detalhe-col ul li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--vermelho);
+      font-weight: 900;
     }
 
     .form-group { margin-bottom: 16px; }
@@ -940,27 +1019,124 @@
   <section class="metodo-section">
     <span class="metodo-label">Como dobramos seu faturamento</span>
     <div class="metodo-bullets">
-      <div class="bullet animate">
-        <span class="bullet-num">1G</span>
-        <div class="bullet-text">
-          Geração de Demanda
-          <span>Tráfego pago que lota sua loja de clientes prontos</span>
+
+      <!-- 1G -->
+      <div class="bullet animate" onclick="toggleBullet(this)">
+        <div class="bullet-header">
+          <span class="bullet-num">1G</span>
+          <div class="bullet-text">
+            Geração de Demanda
+            <span>Tráfego pago que lota sua loja de clientes prontos</span>
+          </div>
+          <svg class="bullet-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="bullet-details">
+          <div class="bullet-details-inner">
+            <div class="detalhe-col">
+              <span class="detalhe-col-title">Gestão de Tráfego</span>
+              <ul>
+                <li>Criação de campanhas estratégicas para geração de demanda</li>
+                <li>Envio de relatórios de performance</li>
+                <li>Definição e escalonamento gradual de investimento em tráfego</li>
+              </ul>
+            </div>
+            <div class="detalhe-col">
+              <span class="detalhe-col-title">Geração de Criativos</span>
+              <ul>
+                <li>Desenvolvimento e edição de criativos que convertem</li>
+                <li>Desenvolvimento de copy, roteiros e folders</li>
+              </ul>
+            </div>
+            <div class="detalhe-col">
+              <span class="detalhe-col-title">Geração de Ofertas</span>
+              <ul>
+                <li>Análise e desenvolvimento de ofertas estratégicas</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="bullet animate">
-        <span class="bullet-num">2G</span>
-        <div class="bullet-text">
-          Gestão Comercial
-          <span>CRM, follow-up e metas — nenhuma venda escapa</span>
+
+      <!-- 2G -->
+      <div class="bullet animate" onclick="toggleBullet(this)">
+        <div class="bullet-header">
+          <span class="bullet-num">2G</span>
+          <div class="bullet-text">
+            Gestão Comercial
+            <span>CRM, follow-up e metas — nenhuma venda escapa</span>
+          </div>
+          <svg class="bullet-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="bullet-details">
+          <div class="bullet-details-inner">
+            <div class="detalhe-col">
+              <span class="detalhe-col-title">Gestão de Atendimento</span>
+              <ul>
+                <li>Diagnóstico de atendimento pelo WhatsApp</li>
+                <li>Diagnóstico de atendimento presencial</li>
+              </ul>
+            </div>
+            <div class="detalhe-col">
+              <span class="detalhe-col-title">Gestão de CRM</span>
+              <ul>
+                <li>Implantação de rotinas de follow-up em massa</li>
+                <li>Implantação de sistema CRM</li>
+                <li>Criação de funil kanban estratégico</li>
+                <li>Construção de mensagens para follow-up</li>
+              </ul>
+            </div>
+            <div class="detalhe-col">
+              <span class="detalhe-col-title">Gestão de Metas</span>
+              <ul>
+                <li>Desenvolvimento de meta realística</li>
+                <li>Definição de investimento para realizar a meta</li>
+                <li>Fracionamento e acompanhamento da meta</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="bullet animate">
-        <span class="bullet-num">3G</span>
-        <div class="bullet-text">
-          Gestão de Pessoas
-          <span>Time que vende sem depender do dono</span>
+
+      <!-- 3G -->
+      <div class="bullet animate" onclick="toggleBullet(this)">
+        <div class="bullet-header">
+          <span class="bullet-num">3G</span>
+          <div class="bullet-text">
+            Gestão de Pessoas
+            <span>Time que vende sem depender do dono</span>
+          </div>
+          <svg class="bullet-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="bullet-details">
+          <div class="bullet-details-inner">
+            <div class="detalhe-col">
+              <span class="detalhe-col-title">Gestão de Cultura</span>
+              <ul>
+                <li>Implantação e análise dos 3 R's</li>
+                <li>Criação de missão, visão e valores</li>
+                <li>Desenvolvimento de rituais e rotinas</li>
+              </ul>
+            </div>
+            <div class="detalhe-col">
+              <span class="detalhe-col-title">Perfil Comportamental</span>
+              <ul>
+                <li>Mentoria sobre perfis comportamentais</li>
+                <li>Aplicação do teste DISC em toda equipe</li>
+              </ul>
+            </div>
+            <div class="detalhe-col">
+              <span class="detalhe-col-title">Novas Contratações</span>
+              <ul>
+                <li>Desenvolvimento de criativos para candidatos</li>
+                <li>Criação de campanhas Meta Ads</li>
+                <li>Criação do formulário para candidatos</li>
+                <li>Conexão do WhatsApp ao formulário</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -1145,6 +1321,11 @@
       tick();
     })();
 
+
+    // 3G accordion
+    function toggleBullet(el) {
+      el.classList.toggle('open');
+    }
 
     // Checklist — abre modal ao marcar 3
     document.querySelectorAll('.check-item').forEach(item => {
