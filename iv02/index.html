@@ -1374,7 +1374,7 @@
       e.target.value = v;
     });
 
-    async function handleModalSubmit(e) {
+    function handleModalSubmit(e) {
       e.preventDefault();
       const nome = document.getElementById('m-nome').value;
       const whatsapp = document.getElementById('m-whatsapp').value;
@@ -1383,17 +1383,18 @@
       const btn = e.target.querySelector('button[type=submit]');
       btn.disabled = true;
       btn.textContent = 'Enviando...';
-      try {
-        await fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_iv02', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ nome, whatsapp, email, instagram, origem: 'iv02', utm_source: new URLSearchParams(window.location.search).get('utm_source') || '', utm_campaign: new URLSearchParams(window.location.search).get('utm_campaign') || '', utm_content: new URLSearchParams(window.location.search).get('utm_content') || '', fbclid: new URLSearchParams(window.location.search).get('fbclid') || '' })
-        });
-      } catch(_) {}
-      if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'iv02-modal-checklist' });
+      // Evento pixel + abre WhatsApp imediatamente (síncrono para não bloquear popup)
+      trackWhatsAppIV02('modal-form');
       window.open('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/track/unidade-start/assessoriaveon-iv02?utm_source={{site_source_name}}&utm_campaign={{campaign.name}}&utm_content={{ad.name}}&utm_adset={{adset.name}}&utm_placement={{placement}}&fbclid={{fbclid}}', '_blank');
       document.getElementById('modalForm').style.display = 'none';
       document.getElementById('modalSuccess').classList.add('show');
+      // Webhook em background — não bloqueia o redirecionamento
+      const params = new URLSearchParams(window.location.search);
+      fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_iv02', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, whatsapp, email, instagram, origem: 'iv02', utm_source: params.get('utm_source') || '', utm_campaign: params.get('utm_campaign') || '', utm_content: params.get('utm_content') || '', fbclid: params.get('fbclid') || '' })
+      }).catch(function(){});
     }
 
     // Evento customizado: clique direto no WhatsApp (não modal)
