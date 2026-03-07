@@ -1405,6 +1405,45 @@
     }
     function trackWpp() { trackWhatsAppIV02('exit-popup'); }
 
+    // Scroll depth tracking
+    (function() {
+      var fired = {};
+      var milestones = [25, 50, 75, 100];
+      function getScrollPct() {
+        var scrolled = window.scrollY || window.pageYOffset;
+        var total = document.documentElement.scrollHeight - window.innerHeight;
+        return total > 0 ? Math.round((scrolled / total) * 100) : 0;
+      }
+      function onScroll() {
+        var pct = getScrollPct();
+        milestones.forEach(function(m) {
+          if (!fired[m] && pct >= m) {
+            fired[m] = true;
+            if (typeof fbq !== 'undefined') {
+              fbq('trackCustom', 'Scroll_IV02', { profundidade: m + '%' });
+            }
+          }
+        });
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+    // Tempo na página
+    (function() {
+      var fired = {};
+      var tempos = [15, 30, 60, 120]; // segundos
+      tempos.forEach(function(t) {
+        setTimeout(function() {
+          if (!fired[t]) {
+            fired[t] = true;
+            if (typeof fbq !== 'undefined') {
+              fbq('trackCustom', 'TempoNaPagina_IV02', { segundos: t });
+            }
+          }
+        }, t * 1000);
+      });
+    })();
+
     // Exit intent — popup agressivo
     let exitShown = false;
     let exitOpenTime = 0;
