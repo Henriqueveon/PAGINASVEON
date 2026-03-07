@@ -1044,9 +1044,7 @@
           + '&fbclid=' + encodeURIComponent(p.get('fbclid')||'');
 
         setTimeout(function(){
-          window.location.href = 'https://wa.me/5545991294761?text=' + encodeURIComponent(
-            'Olá! Vim pela landing page iv01 e quero o diagnóstico gratuito para minha loja de colchões! Meu nome: ' + document.getElementById('nome').value + '\n\n' + trackUrl
-          );
+          window.location.href = trackUrl;
         }, 1200);
       } catch (err) {
         btn.innerHTML = originalText;
