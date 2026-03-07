@@ -1329,6 +1329,24 @@
       el.classList.toggle('open');
     }
 
+    // Auto-abre os bullets 3G conforme entram na tela
+    (function() {
+      var bullets = document.querySelectorAll('.bullet');
+      var opened = false;
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !opened) {
+            opened = true;
+            observer.disconnect();
+            bullets.forEach(function(b, i) {
+              setTimeout(function() { b.classList.add('open'); }, i * 600);
+            });
+          }
+        });
+      }, { threshold: 0.3 });
+      if (bullets.length) observer.observe(bullets[0]);
+    })();
+
     // Checklist — abre modal ao marcar 3
     document.querySelectorAll('.check-item').forEach(item => {
       item.addEventListener('click', function() {
