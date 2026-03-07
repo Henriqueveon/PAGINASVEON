@@ -483,7 +483,10 @@
     .bullet {
       border-bottom: 1px solid var(--cinza-borda);
       cursor: pointer;
-      transition: background 0.15s;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
     }
 
     .bullet:last-child { border-bottom: none; }
@@ -492,11 +495,9 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 12px 0;
+      padding: 16px 0;
+      min-height: 44px;
     }
-
-    .bullet:hover .bullet-header,
-    .bullet.open .bullet-header { background: transparent; }
 
     .bullet-num {
       font-size: 11px;
@@ -505,21 +506,20 @@
       background: rgba(228,10,45,0.1);
       border: 1px solid rgba(228,10,45,0.2);
       border-radius: 5px;
-      padding: 3px 7px;
+      padding: 4px 8px;
       flex-shrink: 0;
       letter-spacing: 0.5px;
       transition: background 0.15s, color 0.15s;
     }
 
-    .bullet.open .bullet-num,
-    .bullet:hover .bullet-num {
+    .bullet.open .bullet-num {
       background: var(--vermelho);
       color: #fff;
       border-color: var(--vermelho);
     }
 
     .bullet-text {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
       color: var(--preto-soft);
       flex: 1;
@@ -527,14 +527,14 @@
 
     .bullet-text span {
       display: block;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 400;
       color: var(--cinza-texto);
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
     .bullet-chevron {
-      width: 18px; height: 18px;
+      width: 22px; height: 22px;
       flex-shrink: 0;
       color: var(--cinza-texto);
       transition: transform 0.25s;
@@ -580,11 +580,13 @@
     }
 
     .detalhe-col ul li {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--cinza-texto);
-      padding-left: 12px;
+      padding-left: 14px;
       position: relative;
-      line-height: 1.4;
+      line-height: 1.5;
+      padding-top: 3px;
+      padding-bottom: 3px;
     }
 
     .detalhe-col ul li::before {
