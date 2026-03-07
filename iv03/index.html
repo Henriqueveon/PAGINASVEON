@@ -1064,31 +1064,48 @@
       btn.innerHTML = '⏳ Enviando...';
       btn.disabled = true;
 
+      const p = new URLSearchParams(window.location.search);
       const payload = {
         nome: document.getElementById('nome').value,
         whatsapp: document.getElementById('whatsapp').value,
         email: document.getElementById('email').value,
         instagram: document.getElementById('instagram').value,
+        utm_source: p.get('utm_source')||'',
+        utm_medium: p.get('utm_medium')||'',
+        utm_campaign: p.get('utm_campaign')||'',
+        utm_content: p.get('utm_content')||'',
+        utm_adset: p.get('utm_adset')||'',
+        utm_placement: p.get('utm_placement')||'',
+        fbclid: p.get('fbclid')||'',
       };
 
       try {
-        await fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_iv03', {
+        fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_iv03', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
-        });
+        }).catch(function(){});
+
+        if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'iv03-formulario' });
+
         btn.innerHTML = '✅ Enviado com sucesso!';
         btn.style.background = '#00B865';
         btn.style.boxShadow = '0 4px 30px rgba(0,184,101,0.4)';
         btn.style.animation = 'none';
-        setTimeout(() => {
-          btn.innerHTML = originalText;
-          btn.style.background = '';
-          btn.style.boxShadow = '';
-          btn.style.animation = '';
-          btn.disabled = false;
-          e.target.reset();
-        }, 3000);
+
+        var trackUrl = 'https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/track/unidade-start/assessoriaiv02'
+          + '?utm_source=' + encodeURIComponent(p.get('utm_source')||'')
+          + '&utm_campaign=' + encodeURIComponent(p.get('utm_campaign')||'')
+          + '&utm_content=' + encodeURIComponent(p.get('utm_content')||'')
+          + '&utm_adset=' + encodeURIComponent(p.get('utm_adset')||'')
+          + '&utm_placement=' + encodeURIComponent(p.get('utm_placement')||'')
+          + '&fbclid=' + encodeURIComponent(p.get('fbclid')||'');
+
+        setTimeout(function(){
+          window.location.href = 'https://wa.me/5545991294761?text=' + encodeURIComponent(
+            'Olá! Vim pela landing page iv03 e quero o diagnóstico gratuito para minha loja de colchões! Meu nome: ' + document.getElementById('nome').value + '\n\n' + trackUrl
+          );
+        }, 1200);
       } catch (err) {
         btn.innerHTML = originalText;
         btn.disabled = false;

@@ -1403,26 +1403,35 @@
       const whatsapp = document.getElementById('m-whatsapp').value;
       const email = document.getElementById('m-email').value;
       const instagram = document.getElementById('m-instagram').value;
+      const p = new URLSearchParams(window.location.search);
       const btn = e.target.querySelector('button[type=submit]');
       btn.disabled = true;
       btn.textContent = 'Enviando...';
       try {
-        await fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_iv02', {
+        fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_iv02', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ nome, whatsapp, email, instagram, origem: 'iv02', utm_source: new URLSearchParams(window.location.search).get('utm_source') || '', utm_campaign: new URLSearchParams(window.location.search).get('utm_campaign') || '', utm_content: new URLSearchParams(window.location.search).get('utm_content') || '', fbclid: new URLSearchParams(window.location.search).get('fbclid') || '' })
-        });
+          body: JSON.stringify({ nome, whatsapp, email, instagram, origem: 'iv02', utm_source: p.get('utm_source')||'', utm_medium: p.get('utm_medium')||'', utm_campaign: p.get('utm_campaign')||'', utm_content: p.get('utm_content')||'', utm_adset: p.get('utm_adset')||'', utm_placement: p.get('utm_placement')||'', fbclid: p.get('fbclid')||'' })
+        }).catch(function(){});
       } catch(_) {}
       if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'iv02-modal-checklist' });
-      document.getElementById('modalForm').style.display = 'none';
-      document.getElementById('modalSuccess').classList.add('show');
-      // Webhook em background — não bloqueia o redirecionamento
-      const params = new URLSearchParams(window.location.search);
-      fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_iv02', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, whatsapp, email, instagram, origem: 'iv02', utm_source: params.get('utm_source') || '', utm_campaign: params.get('utm_campaign') || '', utm_content: params.get('utm_content') || '', fbclid: params.get('fbclid') || '' })
-      }).catch(function(){});
+
+      btn.textContent = 'Enviado com sucesso!';
+      btn.style.background = '#00B865';
+
+      var trackUrl = 'https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/track/unidade-start/assessoriaiv02'
+        + '?utm_source=' + encodeURIComponent(p.get('utm_source')||'')
+        + '&utm_campaign=' + encodeURIComponent(p.get('utm_campaign')||'')
+        + '&utm_content=' + encodeURIComponent(p.get('utm_content')||'')
+        + '&utm_adset=' + encodeURIComponent(p.get('utm_adset')||'')
+        + '&utm_placement=' + encodeURIComponent(p.get('utm_placement')||'')
+        + '&fbclid=' + encodeURIComponent(p.get('fbclid')||'');
+
+      setTimeout(function(){
+        window.location.href = 'https://wa.me/5545991294761?text=' + encodeURIComponent(
+          'Olá! Vim pela landing page iv02 e quero o diagnóstico gratuito para minha loja de colchões! Meu nome: ' + nome + '\n\n' + trackUrl
+        );
+      }, 1200);
     }
 
     // Evento customizado: clique direto no WhatsApp (não modal)

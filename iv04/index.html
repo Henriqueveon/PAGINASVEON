@@ -524,9 +524,18 @@
       } catch(err){}
       btn.textContent = 'Enviado com sucesso!';
       btn.style.background = 'var(--azul-glow)'; btn.style.color = '#fff';
+
+      var trackUrl = 'https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/track/unidade-start/assessoriaiv04'
+        + '?utm_source=' + encodeURIComponent(p.get('utm_source')||'')
+        + '&utm_campaign=' + encodeURIComponent(p.get('utm_campaign')||'')
+        + '&utm_content=' + encodeURIComponent(p.get('utm_content')||'')
+        + '&utm_adset=' + encodeURIComponent(p.get('utm_adset')||'')
+        + '&utm_placement=' + encodeURIComponent(p.get('utm_placement')||'')
+        + '&fbclid=' + encodeURIComponent(p.get('fbclid')||'');
+
       setTimeout(function(){
         window.location.href = 'https://wa.me/5545991294761?text=' + encodeURIComponent(
-          'Ol\u00e1! Vim pela landing page iv04 e quero o diagn\u00f3stico gratuito para minha loja de colch\u00f5es! Meu nome: ' + document.getElementById('nome').value
+          'Ol\u00e1! Vim pela landing page iv04 e quero o diagn\u00f3stico gratuito para minha loja de colch\u00f5es! Meu nome: ' + document.getElementById('nome').value + '\n\n' + trackUrl
         );
       }, 1200);
     });
