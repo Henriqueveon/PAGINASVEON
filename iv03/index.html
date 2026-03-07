@@ -9,6 +9,41 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&display=swap" rel="stylesheet">
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1459060829132519');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1459060829132519&ev=PageView&noscript=1"/></noscript>
+
+  <!-- UTM Tracking -->
+  <script>
+  (function(){
+    var p = new URLSearchParams(window.location.search);
+    var src = p.get('utm_source')||'';
+    var camp = p.get('utm_campaign')||'';
+    var cont = p.get('utm_content')||'';
+    var adset = p.get('utm_adset')||'';
+    var plac = p.get('utm_placement')||'';
+    var fbc = p.get('fbclid')||'';
+    if(src || camp || fbc){
+      var u = 'https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/track/unidade-start/assessoriaiv02'
+        + '?utm_source=' + encodeURIComponent(src)
+        + '&utm_campaign=' + encodeURIComponent(camp)
+        + '&utm_content=' + encodeURIComponent(cont)
+        + '&utm_adset=' + encodeURIComponent(adset)
+        + '&utm_placement=' + encodeURIComponent(plac)
+        + '&fbclid=' + encodeURIComponent(fbc);
+      fetch(u, {method:'GET', mode:'no-cors'}).catch(function(){});
+    }
+  })();
+  </script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -1213,6 +1248,37 @@
           e.preventDefault();
           e.returnValue = '';
         }
+      });
+    })();
+
+    /* ===== EVENTOS DE CONVERSÃO META PIXEL ===== */
+    (function(){
+      /* Scroll depth tracking: 25%, 50%, 75%, 100% */
+      var scrollFired = {};
+      var thresholds = [25, 50, 75, 100];
+      window.addEventListener('scroll', function(){
+        var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        thresholds.forEach(function(t){
+          if(scrollPct >= t && !scrollFired[t]){
+            scrollFired[t] = true;
+            if(typeof fbq !== 'undefined') fbq('trackCustom', 'ScrollDepth', { percent: t, page: 'iv03' });
+          }
+        });
+      }, {passive:true});
+
+      /* Lead — dispara no submit do formulário */
+      var form = document.querySelector('form');
+      if(form){
+        form.addEventListener('submit', function(){
+          if(typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'iv03-formulario' });
+        });
+      }
+
+      /* Contact — dispara nos links de WhatsApp */
+      document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){
+        a.addEventListener('click', function(){
+          if(typeof fbq !== 'undefined') fbq('track', 'Contact', { content_name: 'iv03-whatsapp' });
+        });
       });
     })();
   </script>
