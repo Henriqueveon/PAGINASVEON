@@ -73,11 +73,12 @@
     .hero-inner { max-width: 800px; margin: 0 auto; }
 
     .hero-logo {
-      width: 180px;
-      height: auto;
-      margin: 0 auto 28px;
+      height: 72px;
+      margin-bottom: 28px;
       opacity: 0.95;
       display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .hero-badge {
