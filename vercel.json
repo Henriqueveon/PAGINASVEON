@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/diamond", "destination": "/diamond-colchoes/index.html" },
+    { "source": "/diamond/:path*", "destination": "/diamond-colchoes/:path*" }
+  ]
+}
