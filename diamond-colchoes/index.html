@@ -119,14 +119,44 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 
 /* Consultant mini table */
 .consultant-highlight{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.consultant-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;display:flex;flex-direction:column;gap:8px}
+.consultant-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;display:flex;flex-direction:column;gap:8px;cursor:pointer;transition:all 0.3s}
+.consultant-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,0.3);border-color:rgba(201,168,76,0.4)}
 .consultant-card .name{font-weight:700;font-size:14px}
+.consultant-card .click-hint{font-size:10px;color:var(--text-muted);text-align:center;margin-top:4px;opacity:0.6}
 .consultant-card .metric{display:flex;justify-content:space-between;font-size:12px;color:var(--text-secondary)}
 .consultant-card .metric span:last-child{font-weight:600;color:var(--text-primary)}
 .consultant-card.top-performer{border-color:rgba(34,197,94,0.3)}
 .consultant-card.top-performer .name{color:var(--green)}
 .consultant-card.under-performer{border-color:rgba(239,68,68,0.2)}
 .consultant-card.under-performer .name{color:var(--red)}
+
+/* Modal */
+.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
+.modal-overlay.active{display:flex}
+.modal{background:var(--bg-card);border:1px solid rgba(201,168,76,0.3);border-radius:var(--radius);max-width:680px;width:100%;max-height:90vh;overflow-y:auto;padding:32px;position:relative;animation:fadeUp 0.3s ease}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:1px solid var(--glass-border);border-radius:8px;color:var(--text-secondary);font-size:18px;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.modal-close:hover{border-color:var(--red);color:var(--red)}
+.modal-header{margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--glass-border)}
+.modal-header h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-bottom:4px}
+.modal-header .modal-badge{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 12px;border-radius:6px;margin-top:8px}
+.modal-badge.good{background:rgba(34,197,94,0.15);color:var(--green)}
+.modal-badge.bad{background:rgba(239,68,68,0.15);color:var(--red)}
+.modal-section{margin-bottom:24px}
+.modal-section h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.modal-section h4::before{content:'';width:3px;height:14px;background:var(--gold);border-radius:2px}
+.modal-metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.modal-metric{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:14px 16px}
+.modal-metric .label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+.modal-metric .value{font-size:20px;font-weight:800;color:var(--text-primary)}
+.modal-metric .value.good{color:var(--green)}
+.modal-metric .value.bad{color:var(--red)}
+.modal-metric .desc{font-size:11px;color:var(--text-muted);margin-top:4px;line-height:1.4}
+.modal-metric.full{grid-column:1/-1}
+.modal-verdict{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;line-height:1.8;font-size:13px;color:var(--text-secondary)}
+.modal-verdict strong{color:var(--text-primary)}
+.modal-bar{height:8px;background:rgba(255,255,255,0.06);border-radius:4px;margin-top:6px;overflow:hidden}
+.modal-bar-fill{height:100%;border-radius:4px;transition:width 0.6s ease}
+@media(max-width:600px){.modal-metrics{grid-template-columns:1fr}.modal{padding:20px}}
 
 /* Tabs */
 .tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
@@ -388,61 +418,69 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <h2 class="section-title">Análise por Consultor (Campanhas)</h2>
 <p style="color:var(--text-secondary);font-size:13px;margin-bottom:20px">Cada campanha representa um consultor PJ. Abaixo, os destaques positivos e negativos baseados em eficiência (custo por venda e custo por resposta no WhatsApp).</p>
 <div class="consultant-highlight">
-<div class="consultant-card top-performer">
+<div class="consultant-card top-performer" data-consultant="fernanda">
 <div class="name">🏆 Fernanda Abrão — Melhor Eficiência</div>
 <div class="metric"><span>Investimento</span><span>R$ 34.041</span></div>
 <div class="metric"><span>Custo por Resposta</span><span style="color:var(--green)">R$ 12,36</span></div>
 <div class="metric"><span>Compras</span><span>52</span></div>
 <div class="metric"><span>Custo por Venda</span><span style="color:var(--green)">R$ 654,64</span></div>
+<div class="click-hint">Clique para ver detalhes completos</div>
 </div>
-<div class="consultant-card top-performer">
-<div class="name">🏆 Delcio Estado — Maior Volume de Replies</div>
+<div class="consultant-card top-performer" data-consultant="delcio">
+<div class="name">🏆 Delcio Estado — Maior Volume de Respostas</div>
 <div class="metric"><span>Investimento</span><span>R$ 38.244</span></div>
 <div class="metric"><span>Respostas WhatsApp</span><span style="color:var(--green)">2.776</span></div>
 <div class="metric"><span>Custo por Resposta</span><span>R$ 13,78</span></div>
 <div class="metric"><span>Taxa de Cliques</span><span>1,55%</span></div>
+<div class="click-hint">Clique para ver detalhes completos</div>
 </div>
-<div class="consultant-card top-performer">
+<div class="consultant-card top-performer" data-consultant="inez">
 <div class="name">🏆 Inez Boaz — Melhor Conversão</div>
 <div class="metric"><span>Investimento</span><span>R$ 50.664</span></div>
 <div class="metric"><span>Compras</span><span style="color:var(--green)">118</span></div>
 <div class="metric"><span>Custo por Venda</span><span style="color:var(--green)">R$ 429,36</span></div>
 <div class="metric"><span>Leads</span><span>126</span></div>
+<div class="click-hint">Clique para ver detalhes completos</div>
 </div>
-<div class="consultant-card top-performer">
+<div class="consultant-card top-performer" data-consultant="mara">
 <div class="name">🏆 MARA — Alta Eficiência</div>
 <div class="metric"><span>Investimento</span><span>R$ 37.309</span></div>
 <div class="metric"><span>Compras</span><span>66</span></div>
 <div class="metric"><span>Custo por Venda</span><span style="color:var(--green)">R$ 565,29</span></div>
 <div class="metric"><span>Taxa de Cliques</span><span>1,79%</span></div>
+<div class="click-hint">Clique para ver detalhes completos</div>
 </div>
-<div class="consultant-card under-performer">
+<div class="consultant-card under-performer" data-consultant="jaque">
 <div class="name">⚠ Jaque 16/05 — Pior Custo por Venda</div>
 <div class="metric"><span>Investimento</span><span>R$ 69.612</span></div>
 <div class="metric"><span>Custo por Resposta</span><span style="color:var(--red)">R$ 28,25</span></div>
 <div class="metric"><span>Compras</span><span style="color:var(--red)">6</span></div>
 <div class="metric"><span>Custo por Venda</span><span style="color:var(--red)">R$ 11.602</span></div>
+<div class="click-hint">Clique para ver detalhes completos</div>
 </div>
-<div class="consultant-card under-performer">
+<div class="consultant-card under-performer" data-consultant="andressa">
 <div class="name">⚠ Andressa NOVA — Custo por Clique Altíssimo</div>
 <div class="metric"><span>Investimento</span><span>R$ 51.251</span></div>
 <div class="metric"><span>Custo por Clique</span><span style="color:var(--red)">R$ 5,62</span></div>
 <div class="metric"><span>Custo por Resposta</span><span style="color:var(--red)">R$ 24,81</span></div>
 <div class="metric"><span>Compras</span><span>76</span></div>
+<div class="click-hint">Clique para ver detalhes completos</div>
 </div>
-<div class="consultant-card under-performer">
+<div class="consultant-card under-performer" data-consultant="juliane">
 <div class="name">⚠ Juliane NOVA — Alto Custo por Resposta</div>
 <div class="metric"><span>Investimento</span><span>R$ 33.039</span></div>
 <div class="metric"><span>Custo por Resposta</span><span style="color:var(--red)">R$ 21,54</span></div>
 <div class="metric"><span>Compras</span><span>15</span></div>
 <div class="metric"><span>Custo por Venda</span><span style="color:var(--red)">R$ 2.202</span></div>
+<div class="click-hint">Clique para ver detalhes completos</div>
 </div>
-<div class="consultant-card under-performer">
+<div class="consultant-card under-performer" data-consultant="ines">
 <div class="name">⚠ Ines NOVA — Baixíssima Conversão</div>
 <div class="metric"><span>Investimento</span><span>R$ 38.140</span></div>
-<div class="metric"><span>Replies</span><span>2.139</span></div>
+<div class="metric"><span>Respostas WhatsApp</span><span>2.139</span></div>
 <div class="metric"><span>Compras</span><span style="color:var(--red)">3</span></div>
 <div class="metric"><span>Custo por Venda</span><span style="color:var(--red)">R$ 12.713</span></div>
+<div class="click-hint">Clique para ver detalhes completos</div>
 </div>
 </div>
 
@@ -918,6 +956,403 @@ const animObserver=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('animate');animObserver.unobserve(e.target)}});
 },{threshold:0.1});
 document.querySelectorAll('.insight-card,.roadmap-step,.targeting-card,.consultant-card,.chart-box').forEach(el=>animObserver.observe(el));
+
+// ──── CONSULTANT MODAL ────
+const consultantData = {
+  fernanda: {
+    name: 'Fernanda Abrão',
+    campaign: '[START] [MEN] [GERAL] Fernanda Abrão',
+    status: 'Ativa',
+    badge: 'good',
+    badgeText: 'Melhor Eficiência da Conta',
+    objective: 'Mensagens (WhatsApp)',
+    dailyBudget: 'R$ 200/dia',
+    startDate: '01/10/2025',
+    spend: 34041.45,
+    impressions: 1955000,
+    reach: 710000,
+    clicks: 24490,
+    cpc: 1.39,
+    ctr: 1.74,
+    cpm: 17.41,
+    msgConn: 3020,
+    replies: 2755,
+    costReply: 12.36,
+    leads: 82,
+    costLead: 415.14,
+    purchases: 52,
+    costPurchase: 654.64,
+    replyRate: 91.2,
+    leadToSale: 63.4,
+    verdict: 'Fernanda é a <strong>consultora mais eficiente</strong> da conta. Tem o menor custo por resposta (R$ 12,36) e um custo por venda muito competitivo (R$ 654,64). Sua taxa de cliques de 1,74% está acima da média da conta (1,37%). A taxa de conversão de lead para venda é de 63,4%, a mais alta entre todos os consultores. <strong>Recomendação:</strong> aumentar o orçamento diário desta campanha de R$ 200 para R$ 350-400/dia para escalar os resultados mantendo a eficiência.'
+  },
+  delcio: {
+    name: 'Delcio Estado',
+    campaign: '[START] [MEN] [GERAL] Delcio Estado',
+    status: 'Ativa',
+    badge: 'good',
+    badgeText: 'Maior Volume de Respostas',
+    objective: 'Mensagens (WhatsApp)',
+    dailyBudget: 'R$ 200/dia',
+    startDate: '12/05/2025',
+    spend: 38244.97,
+    impressions: 2520000,
+    reach: 860000,
+    clicks: 25160,
+    cpc: 1.52,
+    ctr: 1.55,
+    cpm: 15.18,
+    msgConn: 3050,
+    replies: 2776,
+    costReply: 13.78,
+    leads: 14,
+    costLead: 2731.78,
+    purchases: 4,
+    costPurchase: 9561.24,
+    replyRate: 91.0,
+    leadToSale: 28.6,
+    verdict: 'Delcio gera o <strong>maior volume de conversas</strong> no WhatsApp (2.776 respostas) com um custo por resposta baixo (R$ 13,78). Porém, a conversão para venda é muito baixa: apenas 4 compras em R$ 38K investidos. Isso indica que o atendimento ou a qualificação do público pode ser um gargalo. <strong>Recomendação:</strong> revisar o script de atendimento do Delcio e verificar se o público que chega é qualificado. O volume é excelente, mas precisa converter melhor.'
+  },
+  inez: {
+    name: 'Inez Boaz',
+    campaign: '[START] [MEN] [GERAL] Inez boaz',
+    status: 'Ativa',
+    badge: 'good',
+    badgeText: 'Melhor Conversão em Vendas',
+    objective: 'Mensagens (WhatsApp)',
+    dailyBudget: 'R$ 400/dia',
+    startDate: '29/09/2025',
+    spend: 50664.40,
+    impressions: 2780000,
+    reach: 950000,
+    clicks: 27830,
+    cpc: 1.82,
+    ctr: 1.43,
+    cpm: 18.22,
+    msgConn: 2890,
+    replies: 2631,
+    costReply: 19.26,
+    leads: 126,
+    costLead: 402.10,
+    purchases: 118,
+    costPurchase: 429.36,
+    replyRate: 91.0,
+    leadToSale: 93.7,
+    verdict: 'Inez tem a <strong>melhor taxa de conversão em vendas</strong> de toda a conta. Das 126 leads, 118 viraram compra — uma taxa absurda de 93,7%. Custo por venda de R$ 429 é o mais baixo e gera o maior volume de vendas (118). <strong>Recomendação:</strong> esta é a campanha mais importante da conta. Escalar urgentemente o orçamento. Se mantiver essa eficiência com R$ 600-800/dia, pode gerar 200+ vendas por período.'
+  },
+  mara: {
+    name: 'MARA',
+    campaign: '[START] [MEN] [GERAL] MARA',
+    status: 'Ativa',
+    badge: 'good',
+    badgeText: 'Alta Eficiência',
+    objective: 'Mensagens (WhatsApp)',
+    dailyBudget: 'R$ 200/dia',
+    startDate: '13/05/2025',
+    spend: 37309.08,
+    impressions: 2080000,
+    reach: 730000,
+    clicks: 22620,
+    cpc: 1.65,
+    ctr: 1.79,
+    cpm: 17.94,
+    msgConn: 2330,
+    replies: 2118,
+    costReply: 17.62,
+    leads: 144,
+    costLead: 259.09,
+    purchases: 66,
+    costPurchase: 565.29,
+    replyRate: 90.9,
+    leadToSale: 45.8,
+    verdict: 'MARA tem a <strong>melhor taxa de cliques</strong> da conta (1,79%) e custo por venda saudável (R$ 565). Com 66 compras, está entre as top 3 em volume de vendas. O custo por lead é o mais barato (R$ 259), mostrando boa qualidade de público. <strong>Recomendação:</strong> campanha consistente e eficiente. Aumentar orçamento para R$ 300/dia e testar novas variações de criativos para manter a performance.'
+  },
+  jaque: {
+    name: 'Jaque 16/05',
+    campaign: '[start] jaque 16/05',
+    status: 'Pausada',
+    badge: 'bad',
+    badgeText: 'Pior Custo por Venda da Conta',
+    objective: 'Mensagens (WhatsApp)',
+    dailyBudget: 'R$ 500/dia',
+    startDate: '15/05/2025',
+    spend: 69612.71,
+    impressions: 3040000,
+    reach: 1050000,
+    clicks: 23120,
+    cpc: 3.01,
+    ctr: 0.95,
+    cpm: 22.90,
+    msgConn: 2720,
+    replies: 2464,
+    costReply: 28.25,
+    leads: 11,
+    costLead: 6328.43,
+    purchases: 6,
+    costPurchase: 11602.12,
+    replyRate: 90.6,
+    leadToSale: 54.5,
+    verdict: 'Jaque é a campanha com <strong>pior resultado da conta</strong>. Gastou R$ 69.612 (a maior verba) e gerou apenas 6 vendas — custo de R$ 11.602 por venda. O custo por clique (R$ 3,01) é o dobro da média, e a taxa de cliques (0,95%) está abaixo do mínimo aceitável. O custo por resposta (R$ 28,25) é o mais alto. <strong>Recomendação:</strong> esta campanha já foi pausada corretamente. Não reativar sem reformular completamente os criativos, públicos e abordagem.'
+  },
+  andressa: {
+    name: 'Andressa NOVA',
+    campaign: '[START] [MEN] [GERAL] ANDRESSA',
+    status: 'Ativa',
+    badge: 'bad',
+    badgeText: 'Custo por Clique Altíssimo',
+    objective: 'Mensagens (WhatsApp)',
+    dailyBudget: 'R$ 200/dia',
+    startDate: '21/09/2025',
+    spend: 51251.44,
+    impressions: 1420000,
+    reach: 490000,
+    clicks: 9120,
+    cpc: 5.62,
+    ctr: 0.82,
+    cpm: 36.09,
+    msgConn: 2280,
+    replies: 2066,
+    costReply: 24.81,
+    leads: 253,
+    costLead: 202.57,
+    purchases: 76,
+    costPurchase: 674.36,
+    replyRate: 90.6,
+    leadToSale: 30.0,
+    verdict: 'Andressa tem o <strong>custo por clique mais alto</strong> de toda a conta: R$ 5,62 (a média é R$ 1,82). Isso significa que o criativo não atrai cliques, e a Meta cobra mais caro para cada interação. A taxa de cliques (0,82%) é a mais baixa. Apesar disso, tem 76 compras, mostrando que quem chega até o WhatsApp converte. <strong>Recomendação:</strong> trocar urgentemente os criativos desta campanha. O público está correto (gera vendas), mas os anúncios estão saturados ou pouco atrativos.'
+  },
+  juliane: {
+    name: 'Juliane NOVA',
+    campaign: '[START] [MEN] JULIANE - NOVA',
+    status: 'Pausada',
+    badge: 'bad',
+    badgeText: 'Alto Custo por Resposta',
+    objective: 'Mensagens (WhatsApp)',
+    dailyBudget: 'R$ 150/dia',
+    startDate: '25/07/2025',
+    spend: 33039.77,
+    impressions: 1370000,
+    reach: 480000,
+    clicks: 13650,
+    cpc: 2.42,
+    ctr: 1.01,
+    cpm: 24.12,
+    msgConn: 1690,
+    replies: 1534,
+    costReply: 21.54,
+    leads: 19,
+    costLead: 1738.93,
+    purchases: 15,
+    costPurchase: 2202.65,
+    replyRate: 90.8,
+    leadToSale: 78.9,
+    verdict: 'Juliane tem custo por resposta alto (R$ 21,54) e custo por venda de R$ 2.202 — quase 4x acima do ideal. Foram apenas 15 vendas em R$ 33K investidos. O custo por clique (R$ 2,42) e a taxa de cliques (1,01%) mostram criativos pouco performantes. <strong>Recomendação:</strong> campanha já pausada. Se for reativar, precisa de novos criativos, novos ângulos de copy e possivelmente novo público-alvo para reduzir custos.'
+  },
+  ines: {
+    name: 'Ines NOVA',
+    campaign: '[START] [MEN] [GERAL] Ines NOVA',
+    status: 'Ativa',
+    badge: 'bad',
+    badgeText: 'Baixíssima Conversão em Vendas',
+    objective: 'Mensagens (WhatsApp)',
+    dailyBudget: 'R$ 200/dia',
+    startDate: '17/11/2025',
+    spend: 38140.04,
+    impressions: 2350000,
+    reach: 820000,
+    clicks: 23540,
+    cpc: 1.62,
+    ctr: 1.10,
+    cpm: 16.23,
+    msgConn: 2340,
+    replies: 2139,
+    costReply: 17.83,
+    leads: 10,
+    costLead: 3814.00,
+    purchases: 3,
+    costPurchase: 12713.35,
+    replyRate: 91.4,
+    leadToSale: 30.0,
+    verdict: 'Ines gera um bom volume de respostas (2.139) com custo aceitável (R$ 17,83), mas a conversão em vendas é <strong>praticamente inexistente</strong>: apenas 3 compras em R$ 38K. Custo por venda de R$ 12.713 é insustentável. O problema não parece ser o anúncio (o custo por resposta está na média), mas sim o <strong>atendimento ou qualificação</strong> do público. <strong>Recomendação:</strong> avaliar se a consultora Ines está fazendo o atendimento correto. Se o script e abordagem estiverem bons, revisar o público da campanha.'
+  }
+};
+
+function openConsultantModal(key) {
+  const d = consultantData[key];
+  if (!d) return;
+  const avgCostReply = 17.68;
+  const avgCPC = 1.82;
+  const avgCTR = 1.37;
+  const avgCostPurchase = 1254.99;
+  const maxSpend = 69612.71;
+
+  const modal = document.getElementById('consultantModal');
+  modal.querySelector('.modal-content').innerHTML = `
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div class="modal-header">
+      <h3>${d.name}</h3>
+      <div style="font-size:12px;color:var(--text-muted);margin-top:4px">${d.campaign}</div>
+      <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+        <span class="modal-badge ${d.badge}">${d.badgeText}</span>
+        <span class="modal-badge" style="background:rgba(201,168,76,0.15);color:var(--gold)">${d.status}</span>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h4>Informações da Campanha</h4>
+      <div class="modal-metrics">
+        <div class="modal-metric">
+          <div class="label">Objetivo</div>
+          <div class="value" style="font-size:15px">${d.objective}</div>
+          <div class="desc">As pessoas veem o anúncio e clicam para conversar no WhatsApp</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Orçamento Diário</div>
+          <div class="value" style="font-size:15px">${d.dailyBudget}</div>
+          <div class="desc">Valor máximo que a Meta gasta por dia nesta campanha</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Início da Campanha</div>
+          <div class="value" style="font-size:15px">${d.startDate}</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Total Investido</div>
+          <div class="value" style="font-size:15px">R$ ${d.spend.toLocaleString('pt-BR',{minimumFractionDigits:2})}</div>
+          <div class="modal-bar"><div class="modal-bar-fill" style="width:${(d.spend/maxSpend*100).toFixed(0)}%;background:var(--gold)"></div></div>
+          <div class="desc">Quanto foi gasto no total desde o início</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h4>Alcance e Visibilidade</h4>
+      <div class="modal-metrics">
+        <div class="modal-metric">
+          <div class="label">Pessoas Alcançadas</div>
+          <div class="value">${(d.reach/1000).toFixed(0)}K</div>
+          <div class="desc">Quantas pessoas diferentes viram os anúncios</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Exibições do Anúncio</div>
+          <div class="value">${(d.impressions/1000000).toFixed(2)}M</div>
+          <div class="desc">Total de vezes que o anúncio apareceu (inclui repetições)</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Cliques no Anúncio</div>
+          <div class="value">${d.clicks.toLocaleString('pt-BR')}</div>
+          <div class="desc">Quantas vezes alguém clicou no anúncio</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Frequência Média</div>
+          <div class="value">${(d.impressions/d.reach).toFixed(1)}x</div>
+          <div class="desc">Cada pessoa viu o anúncio essa quantidade de vezes em média</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h4>Custos e Eficiência</h4>
+      <div class="modal-metrics">
+        <div class="modal-metric">
+          <div class="label">Custo por Clique</div>
+          <div class="value ${d.cpc <= avgCPC ? 'good' : 'bad'}">R$ ${d.cpc.toFixed(2).replace('.',',')}</div>
+          <div class="desc">Quanto custa cada clique · Média da conta: R$ ${avgCPC.toFixed(2).replace('.',',')}</div>
+          <div class="modal-bar"><div class="modal-bar-fill" style="width:${Math.min(d.cpc/6*100,100).toFixed(0)}%;background:${d.cpc<=avgCPC?'var(--green)':'var(--red)'}"></div></div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Taxa de Cliques</div>
+          <div class="value ${d.ctr >= avgCTR ? 'good' : 'bad'}">${d.ctr.toFixed(2).replace('.',',')}%</div>
+          <div class="desc">% de quem viu e clicou · Média da conta: ${avgCTR.toFixed(2).replace('.',',')}%</div>
+          <div class="modal-bar"><div class="modal-bar-fill" style="width:${Math.min(d.ctr/2.5*100,100).toFixed(0)}%;background:${d.ctr>=avgCTR?'var(--green)':'var(--red)'}"></div></div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Custo por 1.000 Exibições</div>
+          <div class="value">R$ ${d.cpm.toFixed(2).replace('.',',')}</div>
+          <div class="desc">Quanto custa para o anúncio aparecer 1.000 vezes</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Custo por Resposta no WhatsApp</div>
+          <div class="value ${d.costReply <= avgCostReply ? 'good' : 'bad'}">R$ ${d.costReply.toFixed(2).replace('.',',')}</div>
+          <div class="desc">Quanto custa cada resposta · Média da conta: R$ ${avgCostReply.toFixed(2).replace('.',',')}</div>
+          <div class="modal-bar"><div class="modal-bar-fill" style="width:${Math.min(d.costReply/30*100,100).toFixed(0)}%;background:${d.costReply<=avgCostReply?'var(--green)':'var(--red)'}"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h4>Conversões (WhatsApp, Leads e Vendas)</h4>
+      <div class="modal-metrics">
+        <div class="modal-metric">
+          <div class="label">Conversas Iniciadas no WhatsApp</div>
+          <div class="value">${d.msgConn.toLocaleString('pt-BR')}</div>
+          <div class="desc">Pessoas que clicaram para abrir conversa no WhatsApp</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Respostas no WhatsApp</div>
+          <div class="value">${d.replies.toLocaleString('pt-BR')}</div>
+          <div class="desc">Pessoas que de fato responderam a primeira mensagem</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Taxa de Resposta</div>
+          <div class="value">${d.replyRate.toFixed(1).replace('.',',')}%</div>
+          <div class="desc">% de quem abriu o chat e realmente respondeu</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Leads (Cadastros)</div>
+          <div class="value">${d.leads.toLocaleString('pt-BR')}</div>
+          <div class="desc">Custo por lead: R$ ${d.costLead.toFixed(2).replace('.',',')}</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Vendas Realizadas</div>
+          <div class="value ${d.purchases >= 20 ? 'good' : 'bad'}" style="font-size:28px">${d.purchases}</div>
+          <div class="desc">Total de compras atribuídas a esta campanha</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Custo por Venda</div>
+          <div class="value ${d.costPurchase <= avgCostPurchase ? 'good' : 'bad'}" style="font-size:28px">R$ ${d.costPurchase.toLocaleString('pt-BR',{minimumFractionDigits:2})}</div>
+          <div class="desc">Média da conta: R$ ${avgCostPurchase.toLocaleString('pt-BR',{minimumFractionDigits:2})}</div>
+          <div class="modal-bar"><div class="modal-bar-fill" style="width:${Math.min(d.costPurchase/13000*100,100).toFixed(0)}%;background:${d.costPurchase<=avgCostPurchase?'var(--green)':'var(--red)'}"></div></div>
+        </div>
+        <div class="modal-metric full">
+          <div class="label">Taxa de Conversão Lead → Venda</div>
+          <div class="value ${d.leadToSale >= 40 ? 'good' : 'bad'}">${d.leadToSale.toFixed(1).replace('.',',')}%</div>
+          <div class="desc">De cada 100 leads, ${d.leadToSale.toFixed(0)} viraram compra. ${d.leadToSale >= 50 ? 'Excelente taxa de fechamento!' : d.leadToSale >= 30 ? 'Taxa razoável, pode melhorar.' : 'Taxa baixa — revisar atendimento ou qualificação do público.'}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h4>Análise e Recomendação</h4>
+      <div class="modal-verdict">${d.verdict}</div>
+    </div>
+  `;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('consultantModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.consultant-card[data-consultant]').forEach(card => {
+  card.addEventListener('click', () => openConsultantModal(card.dataset.consultant));
+});
+
+document.getElementById('consultantModal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
 </script>
+
+<!-- Consultant Modal -->
+<div class="modal-overlay" id="consultantModal">
+<div class="modal">
+<div class="modal-content"></div>
+</div>
+</div>
 </body>
 </html>
