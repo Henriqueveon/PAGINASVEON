@@ -236,9 +236,38 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 .kpi-grid{grid-template-columns:1fr 1fr}
 .insight-grid{grid-template-columns:1fr}
 }
+/* Password Gate */
+.pw-gate{position:fixed;top:0;left:0;width:100%;height:100%;background:#060d18;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.pw-gate.hidden{display:none}
+.pw-box{background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius);padding:48px 40px;max-width:420px;width:90%;text-align:center;animation:fadeUp 0.5s ease}
+.pw-box h2{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;letter-spacing:2px;background:linear-gradient(135deg,#ffffff,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+.pw-box .pw-sub{font-size:13px;color:var(--text-muted);margin-bottom:28px}
+.pw-box input{width:100%;padding:14px 18px;border-radius:var(--radius-sm);border:1px solid var(--glass-border);background:rgba(255,255,255,0.04);color:var(--text-primary);font-size:15px;font-family:inherit;outline:none;transition:border-color 0.2s;text-align:center;letter-spacing:1px}
+.pw-box input:focus{border-color:var(--gold)}
+.pw-box input::placeholder{color:var(--text-muted);letter-spacing:0}
+.pw-box button{margin-top:16px;width:100%;padding:14px;border:none;border-radius:var(--radius-sm);background:linear-gradient(135deg,var(--gold),var(--veon-blue));color:#fff;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:all 0.2s;letter-spacing:1px}
+.pw-box button:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(58,159,216,0.3)}
+.pw-error{color:var(--accent);font-size:12px;margin-top:12px;min-height:18px}
+.pw-lock-icon{font-size:40px;margin-bottom:16px;opacity:0.6}
+.content-locked{display:none}
+.content-unlocked{display:block}
 </style>
 </head>
 <body>
+
+<!-- Password Gate -->
+<div class="pw-gate" id="pwGate">
+<div class="pw-box">
+<div class="pw-lock-icon">🔒</div>
+<h2>INSTITUTO VEON</h2>
+<p class="pw-sub">Área restrita — Dados confidenciais do cliente</p>
+<input type="password" id="pwInput" placeholder="Digite a senha de acesso" autocomplete="off">
+<button onclick="checkPassword()">Acessar Dashboard</button>
+<div class="pw-error" id="pwError"></div>
+</div>
+</div>
+
+<div id="dashContent" class="content-locked">
 
 <!-- Sticky Nav -->
 <nav class="nav-bar">
@@ -1581,5 +1610,44 @@ document.addEventListener('keydown', (e) => {
 <div class="modal-content"></div>
 </div>
 </div>
+
+</div><!-- /dashContent -->
+
+<script>
+async function hashPassword(pwd){
+  const enc = new TextEncoder().encode(pwd);
+  const buf = await crypto.subtle.digest('SHA-256', enc);
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+const HASH = '3031692f3f69ab3e69f50d1de582c10ec3f8ddcc90ef2eb2edeaa2bfc49f61c8';
+
+async function checkPassword(){
+  const input = document.getElementById('pwInput').value;
+  const hash = await hashPassword(input);
+  if(hash === HASH){
+    sessionStorage.setItem('veon_auth','1');
+    unlockDash();
+  } else {
+    document.getElementById('pwError').textContent = 'Senha incorreta. Tente novamente.';
+    document.getElementById('pwInput').value = '';
+    document.getElementById('pwInput').focus();
+  }
+}
+
+function unlockDash(){
+  document.getElementById('pwGate').classList.add('hidden');
+  document.getElementById('dashContent').classList.remove('content-locked');
+  document.getElementById('dashContent').classList.add('content-unlocked');
+}
+
+// Auto-unlock se já autenticou nesta sessão
+if(sessionStorage.getItem('veon_auth')==='1') unlockDash();
+
+// Enter para submeter
+document.getElementById('pwInput').addEventListener('keydown', e=>{
+  if(e.key==='Enter') checkPassword();
+});
+</script>
 </body>
 </html>
