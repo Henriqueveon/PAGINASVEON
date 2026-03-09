@@ -316,14 +316,24 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <div class="kpi-sub">Pessoas que preencheram formulário · Custo por lead: R$ 274,43</div>
 </div>
 <div class="kpi-card animate">
-<div class="kpi-label">Vendas Registradas</div>
-<div class="kpi-value" data-counter="980">0</div>
-<div class="kpi-sub">Custo por venda: R$ 1.254,99 · Ticket médio: ~R$ 4.000</div>
+<div class="kpi-label">Faturamento 2025 (Real)</div>
+<div class="kpi-value gold" data-counter="29.2" data-prefix="R$ " data-suffix="M" data-decimals="1">R$ 0</div>
+<div class="kpi-sub">Faturamento real confirmado: R$ 29.203.400</div>
 </div>
 <div class="kpi-card animate">
-<div class="kpi-label">Retorno sobre Investimento (ROAS)</div>
-<div class="kpi-value gold" data-counter="3.18" data-suffix="x" data-decimals="2">0x</div>
-<div class="kpi-sub">A cada R$ 1 investido, retornou R$ 3,18 em vendas</div>
+<div class="kpi-label">Faturamento Jan-Fev/2026 (Real)</div>
+<div class="kpi-value gold" data-counter="3.53" data-prefix="R$ " data-suffix="M" data-decimals="2">R$ 0</div>
+<div class="kpi-sub">2 meses · Média: R$ 1.765.000/mês</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Retorno Real sobre Investimento</div>
+<div class="kpi-value gold" data-counter="11.08" data-suffix="x" data-decimals="2">0x</div>
+<div class="kpi-sub">A cada R$ 1 investido, faturou R$ 11,08 · Período: Set/25-Fev/26</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Vendas Rastreadas pela Meta</div>
+<div class="kpi-value" data-counter="980">0</div>
+<div class="kpi-sub">A Meta só rastreia ~30% das vendas reais · 70% são "invisíveis"</div>
 </div>
 <div class="kpi-card animate">
 <div class="kpi-label">Respostas no WhatsApp</div>
@@ -613,7 +623,12 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <div class="insight-card problem">
 <div class="icon">⚡</div>
 <h4>Funil Único (Engajamento)</h4>
-<p>100% do verba alocado em campanhas de engajamento/mensagens. Sem campanhas de reconhecimento (topo do funil), consideração (meio) ou conversão otimizada (fundo). Limita o crescimento.</p>
+<p>100% da verba alocada em campanhas de engajamento/mensagens. Sem campanhas de reconhecimento (topo do funil), consideração (meio) ou conversão otimizada (fundo). Limita o crescimento.</p>
+</div>
+<div class="insight-card problem">
+<div class="icon">👻</div>
+<h4>70% das Vendas São Invisíveis para a Meta</h4>
+<p>A Meta rastreou apenas 980 vendas no período, mas o faturamento real (R$ 13,26M em 6 meses) indica aproximadamente 3.315 vendas reais. Ou seja, <strong>70% das vendas não são atribuídas aos anúncios</strong>. Isso acontece porque as vendas são fechadas pelo WhatsApp sem integração de dados. Sem esse rastreamento, o algoritmo da Meta não consegue otimizar para quem realmente compra — ele otimiza apenas para quem responde no WhatsApp, não para quem paga.</p>
 </div>
 </div>
 </div>
@@ -674,7 +689,7 @@ Cada perfil deve ter anúncio, texto e página de destino próprios. Potencial d
 <div class="insight-card strategy">
 <div class="icon">💰</div>
 <h4>Escalar Verba de R$ 200K para R$ 300K/mês</h4>
-<p>Com as otimizações acima, escalar verba gradualmente mantendo eficiência. Meta: R$ 300K/mês com custo por venda 20% menor. Resultado: +R$ 10M de receita anual (de R$ 30M para R$ 40M).</p>
+<p>Hoje: R$ 199K/mês gera R$ 2,21M de faturamento (retorno de 11x). Com as otimizações + escala para R$ 300K/mês, projeção conservadora: R$ 3,3M/mês → <strong>R$ 40M/ano</strong>. O retorno real de 11x mostra que há muita margem para escalar com segurança.</p>
 </div>
 </div>
 </div>
@@ -737,13 +752,13 @@ Cada perfil deve ter anúncio, texto e página de destino próprios. Potencial d
 </div>
 <div class="sim-card">
 <div class="sim-card-label">Vendas Estimadas</div>
-<div class="sim-card-value green" id="simVendas">140</div>
-<div class="sim-card-sub">Com base na taxa de conversão atual</div>
+<div class="sim-card-value green" id="simVendas">553</div>
+<div class="sim-card-sub">Baseado no faturamento real ÷ ticket médio R$ 4.000</div>
 </div>
 <div class="sim-card highlight">
-<div class="sim-card-label">Faturamento Projetado</div>
-<div class="sim-card-value gold" id="simFaturamento">R$ 560K</div>
-<div class="sim-card-sub">Ticket médio: R$ 4.000 por venda</div>
+<div class="sim-card-label">Faturamento Mensal Projetado</div>
+<div class="sim-card-value gold" id="simFaturamento">R$ 2,2M</div>
+<div class="sim-card-sub">Baseado no faturamento real da empresa</div>
 </div>
 <div class="sim-card highlight">
 <div class="sim-card-label">Retorno sobre Investimento</div>
@@ -757,8 +772,8 @@ Cada perfil deve ter anúncio, texto e página de destino próprios. Potencial d
 </div>
 </div>
 <div class="sim-note">
-Os cálculos consideram melhoria de 20% na eficiência após implementar as otimizações sugeridas (consolidar campanhas, novos criativos, segmentação por perfil).<br>
-<strong>Valores atuais da conta:</strong> R$ 175K/mês → 140 vendas → R$ 560K faturamento → ROAS 3,18x
+Os cálculos usam o <strong>faturamento real confirmado</strong> da empresa (R$ 29,2M em 2025 + R$ 3,53M Jan-Fev/2026) com melhoria de 15% na eficiência após otimizações.<br>
+<strong>Dados reais atuais:</strong> R$ 199K/mês em anúncios → R$ 2,21M/mês faturamento → Retorno real: 11,08x sobre o investimento
 </div>
 </div>
 </div>
@@ -790,7 +805,7 @@ Os cálculos consideram melhoria de 20% na eficiência após implementar as otim
 <div class="roadmap-step">
 <div class="phase">Fase 5 — Mês 7-12</div>
 <h4>Otimização Contínua + Meta R$ 40M</h4>
-<p>Verba em R$ 300K/mês com custo por venda otimizado. Todos os canais ativos e otimizados. Meta: 1.200+ vendas/mês (vs. 140 atual). Receita projetada: R$ 40M/ano.</p>
+<p>Verba em R$ 300K/mês com retorno otimizado. Todos os canais ativos. Meta: 825+ vendas/mês (vs. ~553 atual). Faturamento projetado: R$ 40M/ano (vs. R$ 29,2M em 2025).</p>
 </div>
 </div>
 </div>
@@ -1134,18 +1149,18 @@ const simBudgetLabel = document.getElementById('simBudgetLabel');
 
 function updateSimulator() {
   const budget = parseInt(simSlider.value);
-  const currentBudget = 175698;
-  const currentReplies = 9940;
-  const currentLeads = 640;
-  const currentPurchases = 140;
-  const ticket = 4000;
-  const efficiencyBoost = 1.20;
+  const currentBudget = 199481;
+  const currentReplies = 11580;
+  const currentLeads = 747;
+  const currentRevenue = 2210744;
+  const realROAS = 11.08;
+  const efficiencyBoost = 1.15;
 
   const scale = budget / currentBudget;
   const replies = Math.round(currentReplies * scale * efficiencyBoost);
   const leads = Math.round(currentLeads * scale * efficiencyBoost);
-  const purchases = Math.round(currentPurchases * scale * efficiencyBoost);
-  const revenue = purchases * ticket;
+  const revenue = Math.round(currentRevenue * scale * efficiencyBoost);
+  const purchases = Math.round(revenue / 4000);
   const roas = revenue / budget;
   const annual = revenue * 12;
 
@@ -1153,7 +1168,9 @@ function updateSimulator() {
   document.getElementById('simConversas').textContent = replies.toLocaleString('pt-BR');
   document.getElementById('simLeads').textContent = leads.toLocaleString('pt-BR');
   document.getElementById('simVendas').textContent = purchases.toLocaleString('pt-BR');
-  document.getElementById('simFaturamento').textContent = 'R$ ' + (revenue/1000).toFixed(0) + 'K';
+  document.getElementById('simFaturamento').textContent = revenue >= 1000000
+    ? 'R$ ' + (revenue/1000000).toFixed(1).replace('.',',') + 'M'
+    : 'R$ ' + (revenue/1000).toFixed(0) + 'K';
   document.getElementById('simROAS').textContent = roas.toFixed(1).replace('.',',') + 'x';
   document.getElementById('simAnual').textContent = annual >= 1000000
     ? 'R$ ' + (annual/1000000).toFixed(1).replace('.',',') + 'M'
