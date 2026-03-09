@@ -185,6 +185,37 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 .nav-link{font-size:12px;font-weight:500;color:var(--text-muted);padding:6px 14px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all 0.2s}
 .nav-link:hover,.nav-link.active{color:var(--gold);background:rgba(201,168,76,0.08)}
 
+/* ROI Simulator */
+.sim-container{background:var(--glass);border:1px solid rgba(201,168,76,0.3);border-radius:var(--radius);padding:32px;position:relative;overflow:hidden}
+.sim-container::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold))}
+.sim-slider-wrap{margin:24px 0}
+.sim-slider-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.sim-slider-label span{font-size:13px;color:var(--text-secondary)}
+.sim-slider-label .sim-val{font-size:24px;font-weight:800;color:var(--gold)}
+.sim-range{-webkit-appearance:none;width:100%;height:8px;border-radius:4px;background:rgba(255,255,255,0.08);outline:none;cursor:pointer}
+.sim-range::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));cursor:pointer;box-shadow:0 0 16px rgba(201,168,76,0.5);transition:transform 0.2s}
+.sim-range::-webkit-slider-thumb:hover{transform:scale(1.2)}
+.sim-range::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));cursor:pointer;border:none;box-shadow:0 0 16px rgba(201,168,76,0.5)}
+.sim-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:24px}
+.sim-card{background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;transition:all 0.3s}
+.sim-card .sim-card-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:8px}
+.sim-card .sim-card-value{font-size:28px;font-weight:800;transition:all 0.3s}
+.sim-card .sim-card-value.gold{background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sim-card .sim-card-value.green{color:var(--green)}
+.sim-card .sim-card-sub{font-size:11px;color:var(--text-muted);margin-top:6px}
+.sim-card.highlight{border-color:rgba(201,168,76,0.4);background:rgba(201,168,76,0.05)}
+.sim-note{font-size:12px;color:var(--text-muted);margin-top:20px;padding-top:16px;border-top:1px solid var(--glass-border);line-height:1.7;text-align:center}
+
+/* Quick Wins */
+.quickwin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.quickwin-card{background:var(--glass);border:1px solid rgba(34,197,94,0.3);border-radius:var(--radius);padding:24px;position:relative;overflow:hidden;transition:all 0.3s}
+.quickwin-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(34,197,94,0.1)}
+.quickwin-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--cyan))}
+.quickwin-number{width:36px;height:36px;border-radius:50%;background:rgba(34,197,94,0.15);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;margin-bottom:12px}
+.quickwin-card h4{font-size:15px;font-weight:700;margin-bottom:8px;color:var(--green)}
+.quickwin-card p{font-size:13px;color:var(--text-secondary);line-height:1.7}
+.quickwin-card .quickwin-impact{margin-top:12px;padding-top:12px;border-top:1px solid var(--glass-border);font-size:12px;font-weight:600;color:var(--gold)}
+
 /* Footer */
 .footer{text-align:center;padding:48px 0 32px;border-top:1px solid var(--glass-border);margin-top:64px}
 .footer p{font-size:12px;color:var(--text-muted)}
@@ -220,6 +251,8 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <a href="#targeting" class="nav-link">Segmentação</a>
 <a href="#problems" class="nav-link">Problemas</a>
 <a href="#strategy" class="nav-link">Estratégia</a>
+<a href="#quickwins" class="nav-link">Ações Imediatas</a>
+<a href="#simulator" class="nav-link">Simulador</a>
 <a href="#roadmap" class="nav-link">Plano de Ação</a>
 </div>
 </div>
@@ -249,62 +282,62 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <div class="kpi-grid" id="kpi-section">
 <div class="kpi-card animate">
 <div class="kpi-label">Investimento Total (Histórico)</div>
-<div class="kpi-value gold">R$ 3,36M</div>
+<div class="kpi-value gold" data-counter="3.36" data-prefix="R$ " data-suffix="M" data-decimals="2">R$ 0</div>
 <div class="kpi-sub">Desde a criação da conta: R$ 3.360.201,81</div>
 </div>
 <div class="kpi-card animate">
 <div class="kpi-label">Investido no Período Analisado</div>
-<div class="kpi-value">R$ 1,23M</div>
+<div class="kpi-value" data-counter="1.23" data-prefix="R$ " data-suffix="M" data-decimals="2">R$ 0</div>
 <div class="kpi-sub">Set/2025 a Mar/2026 · Média: R$ 175.698/mês</div>
 </div>
 <div class="kpi-card animate">
 <div class="kpi-label">Pessoas Alcançadas</div>
-<div class="kpi-value">17,98M</div>
+<div class="kpi-value" data-counter="17.98" data-suffix="M" data-decimals="2">0</div>
 <div class="kpi-sub">Quantas pessoas viram os anúncios</div>
 </div>
 <div class="kpi-card animate">
 <div class="kpi-label">Vezes que o Anúncio Apareceu</div>
-<div class="kpi-value">49,5M</div>
+<div class="kpi-value" data-counter="49.5" data-suffix="M" data-decimals="1">0</div>
 <div class="kpi-sub">Cada pessoa viu em média ~2,75 vezes</div>
 </div>
 <div class="kpi-card animate">
 <div class="kpi-label">Custo por Clique (CPC)</div>
-<div class="kpi-value">R$ 1,82</div>
+<div class="kpi-value" data-counter="1.82" data-prefix="R$ " data-decimals="2">R$ 0</div>
 <div class="kpi-sub">Quanto custa cada clique no anúncio · Melhor mês: Jan R$ 1,45</div>
 </div>
 <div class="kpi-card animate">
 <div class="kpi-label">Taxa de Cliques (CTR)</div>
-<div class="kpi-value">1,37%</div>
+<div class="kpi-value" data-counter="1.37" data-suffix="%" data-decimals="2">0%</div>
 <div class="kpi-sub">% de quem viu e clicou · Média do mercado: 0,90%</div>
 </div>
 <div class="kpi-card animate">
 <div class="kpi-label">Cadastros / Leads Gerados</div>
-<div class="kpi-value">4.483</div>
+<div class="kpi-value" data-counter="4483" data-separator="true">0</div>
 <div class="kpi-sub">Pessoas que preencheram formulário · Custo por lead: R$ 274,43</div>
 </div>
 <div class="kpi-card animate">
 <div class="kpi-label">Vendas Registradas</div>
-<div class="kpi-value">980</div>
+<div class="kpi-value" data-counter="980">0</div>
 <div class="kpi-sub">Custo por venda: R$ 1.254,99 · Ticket médio: ~R$ 4.000</div>
 </div>
 <div class="kpi-card animate">
 <div class="kpi-label">Retorno sobre Investimento (ROAS)</div>
-<div class="kpi-value gold">3,18x</div>
+<div class="kpi-value gold" data-counter="3.18" data-suffix="x" data-decimals="2">0x</div>
 <div class="kpi-sub">A cada R$ 1 investido, retornou R$ 3,18 em vendas</div>
 </div>
 <div class="kpi-card animate">
 <div class="kpi-label">Respostas no WhatsApp</div>
-<div class="kpi-value">69.579</div>
+<div class="kpi-value" data-counter="69579" data-separator="true">0</div>
 <div class="kpi-sub">Pessoas que responderam a 1ª mensagem · Custo: R$ 17,68 cada</div>
 </div>
 <div class="kpi-card animate">
 <div class="kpi-label">Conversas Iniciadas no WhatsApp</div>
-<div class="kpi-value">76.244</div>
+<div class="kpi-value" data-counter="76244" data-separator="true">0</div>
 <div class="kpi-sub">Pessoas que clicaram para conversar · 91,3% responderam</div>
 </div>
 <div class="kpi-card animate">
 <div class="kpi-label">Total de Campanhas no Período</div>
-<div class="kpi-value">89</div>
+<div class="kpi-value" data-counter="89">0</div>
 <div class="kpi-sub"><span class="down">Excesso de campanhas prejudica o resultado</span></div>
 </div>
 </div>
@@ -646,6 +679,90 @@ Cada perfil deve ter anúncio, texto e página de destino próprios. Potencial d
 </div>
 </div>
 
+<!-- Quick Wins -->
+<div class="section" id="quickwins">
+<h2 class="section-title">Próximos Passos Imediatos (Semana 1)</h2>
+<p style="color:var(--text-secondary);font-size:13px;margin-bottom:24px">Ações que podem ser executadas nos primeiros 7 dias e já geram resultado visível. Não dependem de grandes mudanças estruturais.</p>
+<div class="quickwin-grid">
+<div class="quickwin-card">
+<div class="quickwin-number">1</div>
+<h4>Pausar as 5 Campanhas que Queimam Verba</h4>
+<p>Jaque 16/05 (custo por venda: R$ 11.602), Ines NOVA (R$ 12.713), Juliane NOVA (R$ 2.202) e outras com custo por venda acima de R$ 3.000 devem ser pausadas imediatamente. Isso libera R$ 30-40K/mês para redistribuir nas campanhas que realmente vendem.</p>
+<div class="quickwin-impact">Economia estimada: R$ 35.000/mês em verba desperdiçada</div>
+</div>
+<div class="quickwin-card">
+<div class="quickwin-number">2</div>
+<h4>Dobrar a Verba das 3 Melhores Campanhas</h4>
+<p>Inez Boaz (custo por venda: R$ 429), MARA (R$ 565) e Fernanda Abrão (R$ 654) são as campeãs. Aumentar o orçamento diário de R$ 200-400 para R$ 500-800. Se mantiverem a eficiência, isso sozinho pode gerar +50 vendas/mês.</p>
+<div class="quickwin-impact">Projeção: +50 vendas/mês (R$ 200K em faturamento)</div>
+</div>
+<div class="quickwin-card">
+<div class="quickwin-number">3</div>
+<h4>Criar 3 Novos Criativos em Vídeo</h4>
+<p>A conta usa os mesmos 2 textos há meses. Gravar 3 vídeos curtos (15-30s) com ângulos diferentes: um focado em dor nas costas, um em tecnologia do colchão e um depoimento real de cliente. Subir como novos anúncios nas campanhas top 3. Criativos novos renovam o interesse e reduzem o custo por clique.</p>
+<div class="quickwin-impact">Potencial: reduzir custo por clique em 20-30% nas primeiras 2 semanas</div>
+</div>
+</div>
+</div>
+
+<!-- ROI Simulator -->
+<div class="section" id="simulator">
+<h2 class="section-title">Simulador de Resultados</h2>
+<p style="color:var(--text-secondary);font-size:13px;margin-bottom:24px">Arraste o controle abaixo para simular o que acontece ao aumentar a verba mensal em anúncios. Os cálculos usam as métricas reais da conta com melhoria de 20% na eficiência (resultado esperado com as otimizações sugeridas).</p>
+<div class="sim-container">
+<div class="sim-slider-wrap">
+<div class="sim-slider-label">
+<span>Verba Mensal em Anúncios</span>
+<span class="sim-val" id="simBudgetLabel">R$ 175.000</span>
+</div>
+<input type="range" class="sim-range" id="simSlider" min="100000" max="500000" step="10000" value="175000">
+<div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:6px">
+<span>R$ 100K</span>
+<span>R$ 200K</span>
+<span>R$ 300K</span>
+<span>R$ 400K</span>
+<span>R$ 500K</span>
+</div>
+</div>
+<div class="sim-results">
+<div class="sim-card">
+<div class="sim-card-label">Conversas no WhatsApp</div>
+<div class="sim-card-value" id="simConversas">10.886</div>
+<div class="sim-card-sub">Pessoas que vão responder no WhatsApp</div>
+</div>
+<div class="sim-card">
+<div class="sim-card-label">Leads Gerados</div>
+<div class="sim-card-value" id="simLeads">640</div>
+<div class="sim-card-sub">Cadastros / formulários preenchidos</div>
+</div>
+<div class="sim-card">
+<div class="sim-card-label">Vendas Estimadas</div>
+<div class="sim-card-value green" id="simVendas">140</div>
+<div class="sim-card-sub">Com base na taxa de conversão atual</div>
+</div>
+<div class="sim-card highlight">
+<div class="sim-card-label">Faturamento Projetado</div>
+<div class="sim-card-value gold" id="simFaturamento">R$ 560K</div>
+<div class="sim-card-sub">Ticket médio: R$ 4.000 por venda</div>
+</div>
+<div class="sim-card highlight">
+<div class="sim-card-label">Retorno sobre Investimento</div>
+<div class="sim-card-value gold" id="simROAS">3,2x</div>
+<div class="sim-card-sub">Para cada R$ 1 investido, retorna esse valor</div>
+</div>
+<div class="sim-card">
+<div class="sim-card-label">Faturamento Anual Projetado</div>
+<div class="sim-card-value gold" id="simAnual">R$ 6,7M</div>
+<div class="sim-card-sub">Projeção de 12 meses nesta verba</div>
+</div>
+</div>
+<div class="sim-note">
+Os cálculos consideram melhoria de 20% na eficiência após implementar as otimizações sugeridas (consolidar campanhas, novos criativos, segmentação por perfil).<br>
+<strong>Valores atuais da conta:</strong> R$ 175K/mês → 140 vendas → R$ 560K faturamento → ROAS 3,18x
+</div>
+</div>
+</div>
+
 <!-- Roadmap -->
 <div class="section" id="roadmap">
 <h2 class="section-title">Plano de Ação: de R$ 30M para R$ 40M</h2>
@@ -964,7 +1081,87 @@ sections.forEach(s=>observer.observe(s));
 const animObserver=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('animate');animObserver.unobserve(e.target)}});
 },{threshold:0.1});
-document.querySelectorAll('.insight-card,.roadmap-step,.targeting-card,.consultant-card,.chart-box').forEach(el=>animObserver.observe(el));
+document.querySelectorAll('.insight-card,.roadmap-step,.targeting-card,.consultant-card,.chart-box,.quickwin-card,.sim-container').forEach(el=>animObserver.observe(el));
+
+// ──── ANIMATED COUNTERS ────
+function animateCounter(el) {
+  const target = parseFloat(el.dataset.counter);
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const decimals = parseInt(el.dataset.decimals) || 0;
+  const useSeparator = el.dataset.separator === 'true';
+  const duration = 2000;
+  const startTime = performance.now();
+
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = target * eased;
+
+    let display;
+    if (decimals > 0) {
+      display = current.toFixed(decimals).replace('.', ',');
+    } else if (useSeparator) {
+      display = Math.round(current).toLocaleString('pt-BR');
+    } else {
+      display = Math.round(current).toString();
+    }
+
+    el.textContent = prefix + display + suffix;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+  requestAnimationFrame(update);
+}
+
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCounter(e.target);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observe(el));
+
+// ──── ROI SIMULATOR ────
+const simSlider = document.getElementById('simSlider');
+const simBudgetLabel = document.getElementById('simBudgetLabel');
+
+function updateSimulator() {
+  const budget = parseInt(simSlider.value);
+  const currentBudget = 175698;
+  const currentReplies = 9940;
+  const currentLeads = 640;
+  const currentPurchases = 140;
+  const ticket = 4000;
+  const efficiencyBoost = 1.20;
+
+  const scale = budget / currentBudget;
+  const replies = Math.round(currentReplies * scale * efficiencyBoost);
+  const leads = Math.round(currentLeads * scale * efficiencyBoost);
+  const purchases = Math.round(currentPurchases * scale * efficiencyBoost);
+  const revenue = purchases * ticket;
+  const roas = revenue / budget;
+  const annual = revenue * 12;
+
+  simBudgetLabel.textContent = 'R$ ' + (budget/1000).toFixed(0) + '.000';
+  document.getElementById('simConversas').textContent = replies.toLocaleString('pt-BR');
+  document.getElementById('simLeads').textContent = leads.toLocaleString('pt-BR');
+  document.getElementById('simVendas').textContent = purchases.toLocaleString('pt-BR');
+  document.getElementById('simFaturamento').textContent = 'R$ ' + (revenue/1000).toFixed(0) + 'K';
+  document.getElementById('simROAS').textContent = roas.toFixed(1).replace('.',',') + 'x';
+  document.getElementById('simAnual').textContent = annual >= 1000000
+    ? 'R$ ' + (annual/1000000).toFixed(1).replace('.',',') + 'M'
+    : 'R$ ' + (annual/1000).toFixed(0) + 'K';
+}
+
+simSlider.addEventListener('input', updateSimulator);
+updateSimulator();
 
 // ──── CONSULTANT MODAL ────
 const consultantData = {
