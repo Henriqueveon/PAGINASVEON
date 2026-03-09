@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diamond Colchões — Dashboard Meta Ads</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--gold:#C9A84C;--gold-light:#e8d48b;--gold-dark:#9a7a2e;
+--bg-primary:#0a0a1a;--bg-secondary:#12122a;--bg-card:#1a1a35;--bg-card-hover:#222250;
+--text-primary:#f0f0f5;--text-secondary:#a0a0c0;--text-muted:#6a6a8a;
+--glass:rgba(255,255,255,0.04);--glass-border:rgba(255,255,255,0.08);
+--green:#22c55e;--red:#ef4444;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316;--cyan:#06b6d4;
+--radius:16px;--radius-sm:10px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 20% 0%,rgba(201,168,76,0.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 100%,rgba(201,168,76,0.04) 0%,transparent 50%);pointer-events:none;z-index:0}
+
+.container{max-width:1440px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+/* Header */
+.header{padding:32px 0 24px;border-bottom:1px solid var(--glass-border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.brand{display:flex;align-items:center;gap:20px}
+.brand-logo{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:var(--bg-primary);font-family:'Playfair Display',serif;box-shadow:0 0 30px rgba(201,168,76,0.3);position:relative;overflow:hidden}
+.brand-logo::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 40%,rgba(255,255,255,0.2) 50%,transparent 60%);animation:shimmer 3s infinite}
+@keyframes shimmer{0%{transform:translateX(-100%) rotate(45deg)}100%{transform:translateX(100%) rotate(45deg)}}
+.brand-info h1{font-family:'Playfair Display',serif;font-size:32px;font-weight:800;background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:1px}
+.brand-info p{color:var(--text-secondary);font-size:13px;margin-top:2px}
+.header-meta{display:flex;gap:24px;flex-wrap:wrap}
+.header-tag{background:var(--glass);border:1px solid var(--glass-border);border-radius:8px;padding:8px 16px;font-size:12px;color:var(--text-secondary);backdrop-filter:blur(10px)}
+.header-tag span{color:var(--gold);font-weight:600}
+.status-active{display:inline-flex;align-items:center;gap:6px}
+.status-active::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.4)}50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+
+/* KPI Cards */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:32px 0}
+.kpi-card{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px;position:relative;overflow:hidden;transition:all 0.3s ease}
+.kpi-card:hover{transform:translateY(-4px);border-color:rgba(201,168,76,0.3);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));opacity:0;transition:opacity 0.3s}
+.kpi-card:hover::before{opacity:1}
+.kpi-label{font-size:12px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.kpi-value{font-size:28px;font-weight:800;color:var(--text-primary);line-height:1.1}
+.kpi-value.gold{background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.kpi-sub{font-size:12px;color:var(--text-muted);margin-top:6px;display:flex;align-items:center;gap:4px}
+.kpi-sub .up{color:var(--green)}
+.kpi-sub .down{color:var(--red)}
+
+/* Sections */
+.section{margin:48px 0}
+.section-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.section-title::before{content:'';width:4px;height:28px;background:linear-gradient(180deg,var(--gold),var(--gold-dark));border-radius:2px}
+
+/* Chart containers */
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.chart-box{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px;transition:border-color 0.3s}
+.chart-box:hover{border-color:rgba(201,168,76,0.2)}
+.chart-box h3{font-size:16px;font-weight:600;margin-bottom:16px;color:var(--text-secondary)}
+.chart-box.full{grid-column:1/-1}
+.chart-wrapper{position:relative;width:100%;max-height:360px}
+
+/* Tables */
+.table-wrap{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--radius);overflow:hidden}
+.table-wrap table{width:100%;border-collapse:collapse;font-size:13px}
+.table-wrap thead{background:rgba(201,168,76,0.08)}
+.table-wrap th{padding:14px 16px;text-align:left;font-weight:600;color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:0.5px;cursor:pointer;user-select:none;white-space:nowrap;position:relative}
+.table-wrap th:hover{color:var(--gold-light)}
+.table-wrap th .sort-icon{margin-left:4px;opacity:0.4;font-size:10px}
+.table-wrap th.sorted .sort-icon{opacity:1}
+.table-wrap td{padding:12px 16px;border-top:1px solid var(--glass-border);white-space:nowrap}
+.table-wrap tr:hover td{background:rgba(201,168,76,0.03)}
+.table-scroll{overflow-x:auto}
+.cell-campaign{max-width:200px;overflow:hidden;text-overflow:ellipsis;font-weight:500}
+.cell-value{font-variant-numeric:tabular-nums}
+.cell-good{color:var(--green)}
+.cell-bad{color:var(--red)}
+.cell-warn{color:var(--orange)}
+
+/* Problem / Recommendation cards */
+.insight-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.insight-card{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px;transition:all 0.3s}
+.insight-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,0.2)}
+.insight-card.problem{border-left:4px solid var(--red)}
+.insight-card.opportunity{border-left:4px solid var(--green)}
+.insight-card.strategy{border-left:4px solid var(--gold)}
+.insight-card .icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px}
+.insight-card.problem .icon{background:rgba(239,68,68,0.1);color:var(--red)}
+.insight-card.opportunity .icon{background:rgba(34,197,94,0.1);color:var(--green)}
+.insight-card.strategy .icon{background:rgba(201,168,76,0.1);color:var(--gold)}
+.insight-card h4{font-size:15px;font-weight:700;margin-bottom:8px}
+.insight-card p{font-size:13px;color:var(--text-secondary);line-height:1.7}
+
+/* Roadmap */
+.roadmap{display:flex;flex-direction:column;gap:0;position:relative;padding-left:40px}
+.roadmap::before{content:'';position:absolute;left:15px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--gold),var(--gold-dark),var(--gold))}
+.roadmap-step{position:relative;padding:20px 24px;background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);margin-bottom:16px;transition:all 0.3s}
+.roadmap-step:hover{border-color:rgba(201,168,76,0.3);transform:translateX(4px)}
+.roadmap-step::before{content:'';position:absolute;left:-33px;top:24px;width:16px;height:16px;border-radius:50%;background:var(--gold);border:3px solid var(--bg-primary);box-shadow:0 0 12px rgba(201,168,76,0.4)}
+.roadmap-step .phase{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:4px}
+.roadmap-step h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.roadmap-step p{font-size:13px;color:var(--text-secondary)}
+
+/* Targeting */
+.targeting-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.targeting-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px}
+.targeting-card h4{font-size:14px;font-weight:700;color:var(--gold);margin-bottom:12px}
+.targeting-card ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.targeting-card li{font-size:13px;color:var(--text-secondary);padding-left:16px;position:relative}
+.targeting-card li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+/* Copy Analysis */
+.copy-box{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px;margin-bottom:16px}
+.copy-box blockquote{font-style:italic;color:var(--text-secondary);border-left:3px solid var(--gold);padding-left:16px;margin:12px 0;line-height:1.8}
+
+/* Consultant mini table */
+.consultant-highlight{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.consultant-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;display:flex;flex-direction:column;gap:8px}
+.consultant-card .name{font-weight:700;font-size:14px}
+.consultant-card .metric{display:flex;justify-content:space-between;font-size:12px;color:var(--text-secondary)}
+.consultant-card .metric span:last-child{font-weight:600;color:var(--text-primary)}
+.consultant-card.top-performer{border-color:rgba(34,197,94,0.3)}
+.consultant-card.top-performer .name{color:var(--green)}
+.consultant-card.under-performer{border-color:rgba(239,68,68,0.2)}
+.consultant-card.under-performer .name{color:var(--red)}
+
+/* Tabs */
+.tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.tab-btn{background:var(--glass);border:1px solid var(--glass-border);border-radius:8px;padding:8px 20px;font-size:13px;font-weight:500;color:var(--text-secondary);cursor:pointer;transition:all 0.2s;font-family:inherit}
+.tab-btn.active,.tab-btn:hover{background:rgba(201,168,76,0.1);border-color:var(--gold);color:var(--gold)}
+
+/* Scroll to top */
+.scroll-top{position:fixed;bottom:32px;right:32px;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg-primary);border:none;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(201,168,76,0.3);z-index:100;transition:transform 0.2s}
+.scroll-top:hover{transform:scale(1.1)}
+.scroll-top.show{display:flex}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.animate{animation:fadeUp 0.6s ease forwards;opacity:0}
+.animate:nth-child(1){animation-delay:0.05s}
+.animate:nth-child(2){animation-delay:0.1s}
+.animate:nth-child(3){animation-delay:0.15s}
+.animate:nth-child(4){animation-delay:0.2s}
+.animate:nth-child(5){animation-delay:0.25s}
+.animate:nth-child(6){animation-delay:0.3s}
+
+/* Nav */
+.nav-bar{position:sticky;top:0;z-index:50;background:rgba(10,10,26,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);padding:12px 0}
+.nav-inner{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav-link{font-size:12px;font-weight:500;color:var(--text-muted);padding:6px 14px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all 0.2s}
+.nav-link:hover,.nav-link.active{color:var(--gold);background:rgba(201,168,76,0.08)}
+
+/* Footer */
+.footer{text-align:center;padding:48px 0 32px;border-top:1px solid var(--glass-border);margin-top:64px}
+.footer p{font-size:12px;color:var(--text-muted)}
+.footer .gold{color:var(--gold)}
+
+/* Responsive */
+@media(max-width:900px){
+.chart-grid{grid-template-columns:1fr}
+.header-inner{flex-direction:column;align-items:flex-start}
+.brand-info h1{font-size:24px}
+.kpi-value{font-size:22px}
+.kpi-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+}
+@media(max-width:600px){
+.container{padding:0 12px}
+.kpi-grid{grid-template-columns:1fr 1fr}
+.insight-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Sticky Nav -->
+<nav class="nav-bar">
+<div class="container">
+<div class="nav-inner">
+<a href="#top" class="nav-link active">Visão Geral</a>
+<a href="#monthly" class="nav-link">Mensal</a>
+<a href="#campaigns" class="nav-link">Campanhas</a>
+<a href="#ads" class="nav-link">Anúncios</a>
+<a href="#consultants" class="nav-link">Consultores</a>
+<a href="#conversions" class="nav-link">Conversões</a>
+<a href="#targeting" class="nav-link">Segmentação</a>
+<a href="#problems" class="nav-link">Problemas</a>
+<a href="#strategy" class="nav-link">Estratégia</a>
+<a href="#roadmap" class="nav-link">Roadmap</a>
+</div>
+</div>
+</nav>
+
+<div class="container" id="top">
+
+<!-- Header -->
+<header class="header">
+<div class="header-inner">
+<div class="brand">
+<div class="brand-logo">DC</div>
+<div class="brand-info">
+<h1>DIAMOND COLCHÕES</h1>
+<p>DIAMOND COLCHOES LTDA &mdash; Dashboard Meta Ads</p>
+</div>
+</div>
+<div class="header-meta">
+<div class="header-tag">Conta: <span>act_7381017585292687</span></div>
+<div class="header-tag">Período: <span>Set/2025 — Mar/2026</span></div>
+<div class="header-tag"><span class="status-active">Ativa</span></div>
+</div>
+</div>
+</header>
+
+<!-- KPI Cards -->
+<div class="kpi-grid" id="kpi-section">
+<div class="kpi-card animate">
+<div class="kpi-label">Investimento Total</div>
+<div class="kpi-value gold">R$ 3,36M</div>
+<div class="kpi-sub">All-time: R$ 3.360.201,81</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Investimento 7 Meses</div>
+<div class="kpi-value">R$ 1,23M</div>
+<div class="kpi-sub">Média: R$ 175.698/mês</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Alcance Total</div>
+<div class="kpi-value">17,98M</div>
+<div class="kpi-sub">Período Set/25 — Mar/26</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Impressões</div>
+<div class="kpi-value">49,5M</div>
+<div class="kpi-sub">Freq. média: ~2,75x</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">CPC Médio</div>
+<div class="kpi-value">R$ 1,82</div>
+<div class="kpi-sub"><span class="up">▼ Jan: R$ 1,45</span></div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">CTR Médio</div>
+<div class="kpi-value">1,37%</div>
+<div class="kpi-sub">Benchmark: 0,90%</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Leads Gerados</div>
+<div class="kpi-value">4.483</div>
+<div class="kpi-sub">CPL: R$ 274,73</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Compras</div>
+<div class="kpi-value">980</div>
+<div class="kpi-sub">CPA: R$ 1.256,98 | Ticket: ~R$ 4.000</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">ROAS Estimado</div>
+<div class="kpi-value gold">3,18x</div>
+<div class="kpi-sub">980 vendas × R$ 4.000 / R$ 1,23M</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">First Reply Total</div>
+<div class="kpi-value">69.579</div>
+<div class="kpi-sub">Custo/Reply: R$ 17,68</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Msg Connections</div>
+<div class="kpi-value">76.244</div>
+<div class="kpi-sub">Taxa conversão reply: 91,3%</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Campanhas Ativas</div>
+<div class="kpi-value">89</div>
+<div class="kpi-sub"><span class="down">Fragmentação extrema</span></div>
+</div>
+</div>
+
+<!-- Monthly Charts -->
+<div class="section" id="monthly">
+<h2 class="section-title">Performance Mensal</h2>
+<div class="chart-grid">
+<div class="chart-box">
+<h3>Investimento Mensal (R$)</h3>
+<div class="chart-wrapper"><canvas id="chartSpend"></canvas></div>
+</div>
+<div class="chart-box">
+<h3>CPC, CPM e CTR por Mês</h3>
+<div class="chart-wrapper"><canvas id="chartMetrics"></canvas></div>
+</div>
+<div class="chart-box">
+<h3>Alcance e Impressões</h3>
+<div class="chart-wrapper"><canvas id="chartReach"></canvas></div>
+</div>
+<div class="chart-box">
+<h3>Cliques por Mês</h3>
+<div class="chart-wrapper"><canvas id="chartClicks"></canvas></div>
+</div>
+</div>
+</div>
+
+<!-- Conversions -->
+<div class="section" id="conversions">
+<h2 class="section-title">Funil de Conversões</h2>
+<div class="chart-grid">
+<div class="chart-box full">
+<h3>Messaging Connections → First Reply → Leads → Compras</h3>
+<div class="chart-wrapper"><canvas id="chartConversions"></canvas></div>
+</div>
+</div>
+</div>
+
+<!-- Campaign Table -->
+<div class="section" id="campaigns">
+<h2 class="section-title">Top 15 Campanhas por Investimento</h2>
+<div class="table-wrap">
+<div class="table-scroll">
+<table id="campaignTable">
+<thead>
+<tr>
+<th data-col="0">Campanha <span class="sort-icon">▲▼</span></th>
+<th data-col="1" data-type="num">Investimento <span class="sort-icon">▲▼</span></th>
+<th data-col="2" data-type="num">First Reply <span class="sort-icon">▲▼</span></th>
+<th data-col="3" data-type="num">Custo/Reply <span class="sort-icon">▲▼</span></th>
+<th data-col="4" data-type="num">Leads <span class="sort-icon">▲▼</span></th>
+<th data-col="5" data-type="num">Compras <span class="sort-icon">▲▼</span></th>
+<th data-col="6" data-type="num">CPC <span class="sort-icon">▲▼</span></th>
+<th data-col="7" data-type="num">CTR% <span class="sort-icon">▲▼</span></th>
+<th data-col="8" data-type="num">CPL <span class="sort-icon">▲▼</span></th>
+<th data-col="9" data-type="num">CPA <span class="sort-icon">▲▼</span></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!-- Top Ads Table -->
+<div class="section" id="ads">
+<h2 class="section-title">Top Anúncios por Investimento</h2>
+<div class="table-wrap">
+<div class="table-scroll">
+<table id="adsTable">
+<thead>
+<tr>
+<th>Anúncio</th>
+<th>Campanha</th>
+<th>Investimento</th>
+<th>CPC</th>
+<th>CTR%</th>
+<th>CPM</th>
+<th>First Reply</th>
+<th>Custo/Reply</th>
+<th>Leads</th>
+<th>Compras</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+
+<!-- Copy Analysis -->
+<div style="margin-top:32px">
+<h3 style="font-size:16px;font-weight:600;margin-bottom:16px;color:var(--text-secondary)">Análise de Copies Ativos</h3>
+<div class="copy-box">
+<span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--orange)">Copy 1 — Usado em múltiplas campanhas</span>
+<blockquote>"O primeiro colchão magnético com ciclo infinito de massagens + bioquântico + cromoterapia + infravermelho, agora disponível!"</blockquote>
+</div>
+<div class="copy-box">
+<span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--orange)">Copy 2 — Usado em múltiplas campanhas</span>
+<blockquote>"O primeiro colchão magnético com CICLO DO SONO, vibromassagens e tecnologia premium! Agora disponível direto da fábrica!"</blockquote>
+</div>
+<div class="insight-card problem" style="margin-top:16px">
+<div class="icon">⚠</div>
+<h4>Copies Repetitivos — Zero A/B Testing</h4>
+<p>Praticamente todos os anúncios utilizam as mesmas duas variações de copy. Sem teste A/B estruturado, não há como descobrir qual mensagem realmente converte. Recomendamos 5 ângulos distintos: saúde, sono, dor, tecnologia e luxo.</p>
+</div>
+</div>
+</div>
+
+<!-- Consultant Performance -->
+<div class="section" id="consultants">
+<h2 class="section-title">Análise por Consultor (Campanhas)</h2>
+<p style="color:var(--text-secondary);font-size:13px;margin-bottom:20px">Cada campanha representa um consultor PJ. Abaixo, os destaques positivos e negativos baseados em eficiência (CPA e custo por reply).</p>
+<div class="consultant-highlight">
+<div class="consultant-card top-performer">
+<div class="name">🏆 Fernanda Abrão — Melhor Eficiência</div>
+<div class="metric"><span>Investimento</span><span>R$ 34.041</span></div>
+<div class="metric"><span>Custo/Reply</span><span style="color:var(--green)">R$ 12,36</span></div>
+<div class="metric"><span>Compras</span><span>52</span></div>
+<div class="metric"><span>CPA Estimado</span><span style="color:var(--green)">R$ 654,64</span></div>
+</div>
+<div class="consultant-card top-performer">
+<div class="name">🏆 Delcio Estado — Menor Custo/Reply</div>
+<div class="metric"><span>Investimento</span><span>R$ 38.244</span></div>
+<div class="metric"><span>Custo/Reply</span><span style="color:var(--green)">R$ 13,78</span></div>
+<div class="metric"><span>First Reply</span><span>2.776</span></div>
+<div class="metric"><span>CTR</span><span>1,55%</span></div>
+</div>
+<div class="consultant-card top-performer">
+<div class="name">🏆 Inez Boaz — Melhor Conversão</div>
+<div class="metric"><span>Investimento</span><span>R$ 50.664</span></div>
+<div class="metric"><span>Compras</span><span style="color:var(--green)">118</span></div>
+<div class="metric"><span>CPA Estimado</span><span style="color:var(--green)">R$ 429,36</span></div>
+<div class="metric"><span>Leads</span><span>126</span></div>
+</div>
+<div class="consultant-card top-performer">
+<div class="name">🏆 MARA — Alta Eficiência</div>
+<div class="metric"><span>Investimento</span><span>R$ 37.309</span></div>
+<div class="metric"><span>Compras</span><span>66</span></div>
+<div class="metric"><span>CPA Estimado</span><span style="color:var(--green)">R$ 565,29</span></div>
+<div class="metric"><span>CTR</span><span>1,79%</span></div>
+</div>
+<div class="consultant-card under-performer">
+<div class="name">⚠ Jaque 16/05 — Pior CPA</div>
+<div class="metric"><span>Investimento</span><span>R$ 69.612</span></div>
+<div class="metric"><span>Custo/Reply</span><span style="color:var(--red)">R$ 28,25</span></div>
+<div class="metric"><span>Compras</span><span style="color:var(--red)">6</span></div>
+<div class="metric"><span>CPA Estimado</span><span style="color:var(--red)">R$ 11.602</span></div>
+</div>
+<div class="consultant-card under-performer">
+<div class="name">⚠ Andressa NOVA — CPC Altíssimo</div>
+<div class="metric"><span>Investimento</span><span>R$ 51.251</span></div>
+<div class="metric"><span>CPC</span><span style="color:var(--red)">R$ 5,62</span></div>
+<div class="metric"><span>Custo/Reply</span><span style="color:var(--red)">R$ 24,81</span></div>
+<div class="metric"><span>Compras</span><span>76</span></div>
+</div>
+<div class="consultant-card under-performer">
+<div class="name">⚠ Juliane NOVA — Alto Custo/Reply</div>
+<div class="metric"><span>Investimento</span><span>R$ 33.039</span></div>
+<div class="metric"><span>Custo/Reply</span><span style="color:var(--red)">R$ 21,54</span></div>
+<div class="metric"><span>Compras</span><span>15</span></div>
+<div class="metric"><span>CPA Estimado</span><span style="color:var(--red)">R$ 2.202</span></div>
+</div>
+<div class="consultant-card under-performer">
+<div class="name">⚠ Ines NOVA — Baixíssima Conversão</div>
+<div class="metric"><span>Investimento</span><span>R$ 38.140</span></div>
+<div class="metric"><span>Replies</span><span>2.139</span></div>
+<div class="metric"><span>Compras</span><span style="color:var(--red)">3</span></div>
+<div class="metric"><span>CPA Estimado</span><span style="color:var(--red)">R$ 12.713</span></div>
+</div>
+</div>
+
+<div class="chart-grid" style="margin-top:32px">
+<div class="chart-box full">
+<h3>Custo por Reply vs. Compras — Top 15 Campanhas</h3>
+<div class="chart-wrapper"><canvas id="chartConsultant"></canvas></div>
+</div>
+</div>
+</div>
+
+<!-- Targeting Analysis -->
+<div class="section" id="targeting">
+<h2 class="section-title">Análise de Segmentação</h2>
+<div class="targeting-grid">
+<div class="targeting-card">
+<h4>Públicos Lookalike</h4>
+<ul>
+<li>1% dos compradores</li>
+<li>3% dos compradores</li>
+<li>5% dos compradores</li>
+</ul>
+<p style="font-size:12px;color:var(--text-muted);margin-top:12px">Observação: sem públicos de interesse, comportamento ou remarketing identificados.</p>
+</div>
+<div class="targeting-card">
+<h4>Regiões Alvo</h4>
+<ul>
+<li>Paraná (PR) — principal</li>
+<li>Santa Catarina (SC)</li>
+<li>São Paulo (SP)</li>
+<li>Rio Grande do Sul (RS)</li>
+<li>Rio de Janeiro (RJ)</li>
+</ul>
+<p style="font-size:12px;color:var(--text-muted);margin-top:12px">Limitação: 5 estados de 26. Potencial de expansão para MG, BA, GO, DF, PE.</p>
+</div>
+<div class="targeting-card">
+<h4>Idade e Gênero</h4>
+<ul>
+<li>Faixa: 18–65 (algumas 25–65)</li>
+<li>Gênero: Sem segmentação</li>
+<li>Plataforma: Mix Instagram-only e todas</li>
+</ul>
+<p style="font-size:12px;color:var(--text-muted);margin-top:12px">Problema: sem segmentação por gênero. Mulheres 35-55 provavelmente são o público principal.</p>
+</div>
+<div class="targeting-card">
+<h4>Estrutura de Funil</h4>
+<ul>
+<li>Topo: Inexistente</li>
+<li>Meio: Inexistente</li>
+<li>Fundo: 100% Engajamento (mensagens)</li>
+<li>Remarketing: Não identificado</li>
+</ul>
+<p style="font-size:12px;color:var(--text-muted);margin-top:12px">Crítico: todo investimento focado em um único estágio do funil.</p>
+</div>
+</div>
+</div>
+
+<!-- Problems & Opportunities -->
+<div class="section" id="problems">
+<h2 class="section-title">Problemas Identificados</h2>
+<div class="insight-grid">
+<div class="insight-card problem">
+<div class="icon">📉</div>
+<h4>Crash de Fevereiro 2026</h4>
+<p>Leads caíram <strong>50%</strong> (de 730 para 363) e compras despencaram <strong>64%</strong> (de 144 para 52). Possível fadiga criativa, saturação de público ou mudanças no algoritmo. Necessita investigação urgente.</p>
+</div>
+<div class="insight-card problem">
+<div class="icon">📋</div>
+<h4>89 Campanhas — Fragmentação Extrema</h4>
+<p>Uma campanha por consultor impede a otimização do algoritmo (fase de aprendizado). O Facebook precisa de 50+ conversões/semana por ad set. Com 89 campanhas, nenhuma atinge volume suficiente.</p>
+</div>
+<div class="insight-card problem">
+<div class="icon">🔄</div>
+<h4>Copies Repetitivos — Sem A/B Testing</h4>
+<p>Apenas 2 variações de copy em toda a conta. Sem diversificação de ângulos, o público satura rapidamente, aumentando CPM e reduzindo CTR ao longo do tempo.</p>
+</div>
+<div class="insight-card problem">
+<div class="icon">🎯</div>
+<h4>Zero Segmentação por Gênero</h4>
+<p>Anúncios são exibidos para todos os gêneros sem diferenciação. Mulheres 35-55 provavelmente convertem melhor para colchões magnéticos (saúde, bem-estar). Desperdício significativo de budget.</p>
+</div>
+<div class="insight-card problem">
+<div class="icon">💸</div>
+<h4>Campanhas com CPL &gt; R$ 2.000</h4>
+<p>Várias campanhas apresentam custo por lead acima de R$ 2.000, como Jaque 16/05 (CPA R$ 11.602) e Ines NOVA (CPA R$ 12.713). Budget sendo queimado sem retorno.</p>
+</div>
+<div class="insight-card problem">
+<div class="icon">🗺</div>
+<h4>Cobertura Geográfica Limitada</h4>
+<p>Apenas 5 estados sendo atingidos de 26. Minas Gerais, Bahia, Goiás e DF representam mercados inexplorados com alto potencial.</p>
+</div>
+<div class="insight-card problem">
+<div class="icon">🔁</div>
+<h4>Zero Remarketing</h4>
+<p>Nenhuma campanha de remarketing identificada. Visitantes do site, engajadores do Instagram e leads que não compraram não estão sendo reimpactados. ROAS perdido significativo.</p>
+</div>
+<div class="insight-card problem">
+<div class="icon">⚡</div>
+<h4>Funil Único (Engajamento)</h4>
+<p>100% do budget alocado em campanhas de engajamento/mensagens. Sem campanhas de awareness (topo), consideração (meio) ou conversão otimizada (fundo). Limita escalabilidade.</p>
+</div>
+</div>
+</div>
+
+<!-- Strategic Recommendations -->
+<div class="section" id="strategy">
+<h2 class="section-title">Recomendações Estratégicas</h2>
+<div class="insight-grid">
+<div class="insight-card strategy">
+<div class="icon">🏗</div>
+<h4>Consolidar para 5-8 Campanhas CBO</h4>
+<p>Migrar de 89 campanhas para 5-8 campanhas com Campaign Budget Optimization. Permitir que o algoritmo otimize a distribuição de budget entre ad sets, saindo mais rápido da fase de aprendizado.</p>
+</div>
+<div class="insight-card strategy">
+<div class="icon">✍</div>
+<h4>Diversificar Copies — 5 Ângulos</h4>
+<p><strong>Saúde:</strong> benefícios magnéticos e infravermelho. <strong>Sono:</strong> qualidade do sono e ciclo. <strong>Dor:</strong> alívio de dores crônicas. <strong>Tecnologia:</strong> inovação e engenharia. <strong>Luxo:</strong> premium, direto da fábrica.</p>
+</div>
+<div class="insight-card strategy">
+<div class="icon">🔗</div>
+<h4>Implementar Funil Completo</h4>
+<p>Topo (20% budget): awareness com vídeos. Meio (30%): consideração com depoimentos. Fundo (40%): conversão com oferta direta. Remarketing (10%): reimpactar visitantes e leads.</p>
+</div>
+<div class="insight-card strategy">
+<div class="icon">👥</div>
+<h4>Segmentação por Gênero + Idade</h4>
+<p>Criar ad sets separados: Mulheres 35-55, Mulheres 25-34, Homens 35-55. Personalizar copy e criativo para cada segmento. Potencial de redução de 20-30% no CPA.</p>
+</div>
+<div class="insight-card strategy">
+<div class="icon">🌎</div>
+<h4>Expansão Geográfica</h4>
+<p>Adicionar MG, BA, GO, DF, PE, CE nas campanhas. Testar com 10-15% do budget em novos estados. Monitorar CPA por região e escalar os que convertem.</p>
+</div>
+<div class="insight-card strategy">
+<div class="icon">🤖</div>
+<h4>Chatbot WhatsApp para Qualificação</h4>
+<p>Implementar chatbot que qualifica leads antes de direcionar ao consultor. Perguntas: interesse, orçamento, prazo de compra. Pode aumentar a taxa de conversão em 40-60%.</p>
+</div>
+<div class="insight-card strategy">
+<div class="icon">📱</div>
+<h4>Landing Pages por Segmento</h4>
+<p>Criar páginas específicas: uma para dor crônica, uma para sono, uma para tecnologia. Cada uma com copy direcionado e CTA otimizado. Aumentar conversão pré-WhatsApp.</p>
+</div>
+<div class="insight-card strategy">
+<div class="icon">🔍</div>
+<h4>Testar Google Ads</h4>
+<p>Capturar demanda ativa (quem já busca "colchão magnético"). Google Search Ads para termos de marca e produto. Potencial de CPA mais baixo por capturar intenção de compra.</p>
+</div>
+<div class="insight-card strategy">
+<div class="icon">💰</div>
+<h4>Escalar Budget de R$ 200K para R$ 300K/mês</h4>
+<p>Com as otimizações acima, escalar budget gradualmente mantendo eficiência. Meta: R$ 300K/mês com CPA 20% menor. Resultado: +R$ 10M de receita anual (de R$ 30M para R$ 40M).</p>
+</div>
+</div>
+</div>
+
+<!-- Roadmap -->
+<div class="section" id="roadmap">
+<h2 class="section-title">Roadmap: de R$ 30M para R$ 40M</h2>
+<div class="roadmap">
+<div class="roadmap-step">
+<div class="phase">Fase 1 — Semanas 1-4</div>
+<h4>Reestruturação de Conta</h4>
+<p>Consolidar 89 campanhas em 5-8 com CBO. Pausar campanhas com CPA &gt; R$ 3.000. Configurar pixel e CAPI para tracking correto. Setup de remarketing dinâmico.</p>
+</div>
+<div class="roadmap-step">
+<div class="phase">Fase 2 — Semanas 5-8</div>
+<h4>Diversificação Criativa</h4>
+<p>Produzir 15-20 novos criativos com 5 ângulos. Implementar A/B testing estruturado. Criar 3 landing pages segmentadas. Testar UGC e depoimentos em vídeo.</p>
+</div>
+<div class="roadmap-step">
+<div class="phase">Fase 3 — Semanas 9-12</div>
+<h4>Funil Completo + Automação</h4>
+<p>Implementar campanhas de topo e meio de funil. Configurar chatbot WhatsApp. Remarketing para visitantes e leads. Sequência de nutrição automatizada.</p>
+</div>
+<div class="roadmap-step">
+<div class="phase">Fase 4 — Mês 4-6</div>
+<h4>Escala + Novos Canais</h4>
+<p>Escalar budget para R$ 250K/mês. Lançar Google Ads (Search + Shopping). Expansão geográfica para novos estados. Testar YouTube Ads e TikTok.</p>
+</div>
+<div class="roadmap-step">
+<div class="phase">Fase 5 — Mês 7-12</div>
+<h4>Otimização Contínua + Meta R$ 40M</h4>
+<p>Budget em R$ 300K/mês com CPA otimizado. Todos os canais ativos e otimizados. Meta: 1.200+ vendas/mês (vs. 140 atual). Receita projetada: R$ 40M/ano.</p>
+</div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+<p>Dashboard gerado para <span class="gold">DIAMOND COLCHOES LTDA</span> | Dados: Meta Ads API | Período: Set/2025 — Mar/2026</p>
+<p style="margin-top:8px">@diamondcolchoes | Conta: act_7381017585292687</p>
+</footer>
+
+</div>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// ──── DATA ────
+const months = ['Set/25','Out/25','Nov/25','Dez/25','Jan/26','Fev/26','Mar/26*'];
+const spend = [195811.52,204469.19,255792.73,186082.49,184168.95,170564.33,32998.14];
+const impressions = [9274778,7565440,8446761,6206624,9001578,7670597,1370049];
+const clicks = [113875,94125,125261,88141,126797,109750,19052];
+const cpc = [1.72,2.17,2.04,2.11,1.45,1.55,1.73];
+const cpm = [21.11,27.03,30.28,29.98,20.46,22.24,24.09];
+const ctr = [1.23,1.24,1.48,1.42,1.41,1.43,1.39];
+const reach = [3541165,2543421,2903255,2324291,3383104,2545062,740568];
+const msgConn = [14050,12127,14490,10121,13029,10400,2027];
+const firstReply = [12853,10979,13218,9279,12045,9428,1777];
+const leads = [747,1010,915,638,730,363,80];
+const purchases = [231,185,253,102,144,52,13];
+
+const campaigns = [
+{name:'Jaque 16/05',spend:69612.71,reply:2464,costReply:28.25,leads:11,purchases:6,cpc:3.01,ctr:0.95},
+{name:'Suelen NOVA 07.08',spend:53246.24,reply:2893,costReply:18.41,leads:510,purchases:76,cpc:1.77,ctr:1.29},
+{name:'Andressa NOVA',spend:51251.44,reply:2066,costReply:24.81,leads:253,purchases:76,cpc:5.62,ctr:0.82},
+{name:'Inez Boaz',spend:50664.40,reply:2631,costReply:19.26,leads:126,purchases:118,cpc:1.82,ctr:1.43},
+{name:'Augusto Novo 25/06',spend:40195.96,reply:2016,costReply:19.94,leads:180,purchases:64,cpc:3.62,ctr:1.07},
+{name:'Delcio Estado',spend:38244.97,reply:2776,costReply:13.78,leads:14,purchases:4,cpc:1.52,ctr:1.55},
+{name:'Ines NOVA',spend:38140.04,reply:2139,costReply:17.83,leads:10,purchases:3,cpc:1.62,ctr:1.10},
+{name:'MARA',spend:37309.08,reply:2118,costReply:17.62,leads:144,purchases:66,cpc:1.65,ctr:1.79},
+{name:'Vanessa1nova 25/07',spend:36855.01,reply:2056,costReply:17.93,leads:61,purchases:53,cpc:2.50,ctr:0.75},
+{name:'Adriana Pires TESTE',spend:34810.57,reply:1705,costReply:20.42,leads:7,purchases:4,cpc:1.56,ctr:1.38},
+{name:'Adriana Sampaio 21.10',spend:34758.03,reply:1999,costReply:17.39,leads:98,purchases:2,cpc:1.30,ctr:1.39},
+{name:'Fernanda Abrão',spend:34041.45,reply:2755,costReply:12.36,leads:82,purchases:52,cpc:1.39,ctr:1.74},
+{name:'Juliane NOVA',spend:33039.77,reply:1534,costReply:21.54,leads:19,purchases:15,cpc:2.42,ctr:1.01},
+{name:'Miriam NOVA',spend:32630.89,reply:1866,costReply:17.49,leads:11,purchases:7,cpc:1.69,ctr:1.49},
+{name:'HELOISA',spend:31561.63,reply:1911,costReply:16.52,leads:13,purchases:4,cpc:1.92,ctr:1.56}
+];
+
+const ads = [
+{name:'AD - VÍDEO',campaign:'Suelen NOVA 07.08',spend:33671.85,cpc:1.61,ctr:1.31,cpm:20.99,reply:2005,costReply:16.79,leads:422,purchases:62},
+{name:'ADS8 - NOVO',campaign:'Augusto Novo 25/06',spend:27851.40,cpc:3.31,ctr:1.09,cpm:36.20,reply:1558,costReply:17.88,leads:148,purchases:53},
+{name:'ADS9',campaign:'Vanessa1nova 25/07',spend:27647.08,cpc:2.31,ctr:0.74,cpm:17.03,reply:1676,costReply:16.50,leads:51,purchases:44},
+{name:'VIDEO',campaign:'Adriana Sampaio 21.10',spend:22644.74,cpc:1.48,ctr:1.37,cpm:20.24,reply:1291,costReply:17.54,leads:70,purchases:1},
+{name:'00ADD00 — Cópia',campaign:'KARLA',spend:22332.45,cpc:1.25,ctr:3.26,cpm:40.80,reply:1901,costReply:11.75,leads:46,purchases:22},
+{name:'03ADD03',campaign:'Andressa NOVA',spend:21838.07,cpc:5.47,ctr:0.66,cpm:36.00,reply:925,costReply:23.61,leads:123,purchases:35},
+{name:'ADS2',campaign:'Jaque 16/05',spend:20447.65,cpc:3.56,ctr:0.64,cpm:22.93,reply:801,costReply:25.53,leads:1,purchases:1},
+{name:'04ADD4',campaign:'Inez Boaz',spend:10791.71,cpc:0.98,ctr:2.21,cpm:21.71,reply:754,costReply:14.31,leads:55,purchases:42}
+];
+
+// ──── CHART DEFAULTS ────
+Chart.defaults.color = '#a0a0c0';
+Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
+Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
+Chart.defaults.font.size = 12;
+Chart.defaults.plugins.legend.labels.usePointStyle = true;
+Chart.defaults.plugins.legend.labels.pointStyleWidth = 10;
+Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(20,20,50,0.95)';
+Chart.defaults.plugins.tooltip.borderColor = 'rgba(201,168,76,0.3)';
+Chart.defaults.plugins.tooltip.borderWidth = 1;
+Chart.defaults.plugins.tooltip.cornerRadius = 8;
+Chart.defaults.plugins.tooltip.padding = 12;
+
+const goldGrad = (ctx, h) => {
+  const g = ctx.createLinearGradient(0,0,0,h||300);
+  g.addColorStop(0,'rgba(201,168,76,0.6)');
+  g.addColorStop(1,'rgba(201,168,76,0.05)');
+  return g;
+};
+
+// ──── SPEND CHART ────
+new Chart(document.getElementById('chartSpend'), {
+  type:'bar',
+  data:{
+    labels:months,
+    datasets:[{
+      label:'Investimento (R$)',
+      data:spend,
+      backgroundColor: function(ctx) {
+        const c = ctx.chart.ctx;
+        return goldGrad(c, 300);
+      },
+      borderColor:'rgba(201,168,76,0.8)',
+      borderWidth:1,
+      borderRadius:6,
+      borderSkipped:false
+    }]
+  },
+  options:{
+    responsive:true,
+    maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'R$ '+c.raw.toLocaleString('pt-BR',{minimumFractionDigits:2})}}},
+    scales:{y:{ticks:{callback:v=>'R$ '+(v/1000).toFixed(0)+'K'},grid:{color:'rgba(255,255,255,0.04)'}},x:{grid:{display:false}}}
+  }
+});
+
+// ──── METRICS CHART ────
+new Chart(document.getElementById('chartMetrics'), {
+  type:'line',
+  data:{
+    labels:months,
+    datasets:[
+      {label:'CPC (R$)',data:cpc,borderColor:'#C9A84C',backgroundColor:'rgba(201,168,76,0.1)',tension:0.4,pointRadius:5,pointHoverRadius:8,yAxisID:'y'},
+      {label:'CPM (R$)',data:cpm,borderColor:'#3b82f6',backgroundColor:'rgba(59,130,246,0.1)',tension:0.4,pointRadius:5,pointHoverRadius:8,yAxisID:'y1'},
+      {label:'CTR (%)',data:ctr,borderColor:'#22c55e',backgroundColor:'rgba(34,197,94,0.1)',tension:0.4,pointRadius:5,pointHoverRadius:8,yAxisID:'y2'}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    interaction:{mode:'index',intersect:false},
+    scales:{
+      y:{position:'left',title:{display:true,text:'CPC (R$)'},grid:{color:'rgba(255,255,255,0.04)'}},
+      y1:{position:'right',title:{display:true,text:'CPM (R$)'},grid:{display:false}},
+      y2:{position:'right',title:{display:true,text:'CTR (%)'},grid:{display:false},ticks:{callback:v=>v+'%'}}
+    }
+  }
+});
+
+// ──── REACH CHART ────
+new Chart(document.getElementById('chartReach'), {
+  type:'bar',
+  data:{
+    labels:months,
+    datasets:[
+      {label:'Impressões',data:impressions,backgroundColor:'rgba(59,130,246,0.3)',borderColor:'rgba(59,130,246,0.7)',borderWidth:1,borderRadius:4,borderSkipped:false},
+      {label:'Alcance',data:reach,backgroundColor:'rgba(168,85,247,0.3)',borderColor:'rgba(168,85,247,0.7)',borderWidth:1,borderRadius:4,borderSkipped:false}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{tooltip:{callbacks:{label:c=>c.dataset.label+': '+(c.raw/1e6).toFixed(2)+'M'}}},
+    scales:{y:{ticks:{callback:v=>(v/1e6).toFixed(1)+'M'},grid:{color:'rgba(255,255,255,0.04)'}},x:{grid:{display:false}}}
+  }
+});
+
+// ──── CLICKS CHART ────
+new Chart(document.getElementById('chartClicks'), {
+  type:'line',
+  data:{
+    labels:months,
+    datasets:[{
+      label:'Cliques',data:clicks,
+      borderColor:'#06b6d4',backgroundColor:'rgba(6,182,212,0.1)',
+      fill:true,tension:0.4,pointRadius:5,pointHoverRadius:8
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{tooltip:{callbacks:{label:c=>c.raw.toLocaleString('pt-BR')+' cliques'}}},
+    scales:{y:{ticks:{callback:v=>(v/1000).toFixed(0)+'K'},grid:{color:'rgba(255,255,255,0.04)'}},x:{grid:{display:false}}}
+  }
+});
+
+// ──── CONVERSIONS CHART ────
+new Chart(document.getElementById('chartConversions'), {
+  type:'line',
+  data:{
+    labels:months,
+    datasets:[
+      {label:'Msg Connections',data:msgConn,borderColor:'#a855f7',backgroundColor:'rgba(168,85,247,0.08)',fill:true,tension:0.4,pointRadius:5,pointHoverRadius:8},
+      {label:'First Reply',data:firstReply,borderColor:'#3b82f6',backgroundColor:'rgba(59,130,246,0.08)',fill:true,tension:0.4,pointRadius:5,pointHoverRadius:8},
+      {label:'Leads',data:leads,borderColor:'#C9A84C',backgroundColor:'rgba(201,168,76,0.08)',fill:true,tension:0.4,pointRadius:5,pointHoverRadius:8},
+      {label:'Compras',data:purchases,borderColor:'#22c55e',backgroundColor:'rgba(34,197,94,0.08)',fill:true,tension:0.4,pointRadius:5,pointHoverRadius:8}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    interaction:{mode:'index',intersect:false},
+    scales:{y:{grid:{color:'rgba(255,255,255,0.04)'}},x:{grid:{display:false}}}
+  }
+});
+
+// ──── CONSULTANT CHART ────
+new Chart(document.getElementById('chartConsultant'), {
+  type:'bar',
+  data:{
+    labels:campaigns.map(c=>c.name),
+    datasets:[
+      {label:'Custo/Reply (R$)',data:campaigns.map(c=>c.costReply),backgroundColor:'rgba(239,68,68,0.4)',borderColor:'rgba(239,68,68,0.8)',borderWidth:1,borderRadius:4,yAxisID:'y'},
+      {label:'Compras',data:campaigns.map(c=>c.purchases),backgroundColor:'rgba(34,197,94,0.4)',borderColor:'rgba(34,197,94,0.8)',borderWidth:1,borderRadius:4,yAxisID:'y1'}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'top'}},
+    scales:{
+      y:{position:'left',title:{display:true,text:'Custo/Reply (R$)'},grid:{color:'rgba(255,255,255,0.04)'}},
+      y1:{position:'right',title:{display:true,text:'Compras'},grid:{display:false}},
+      x:{ticks:{maxRotation:45,minRotation:45,font:{size:10}},grid:{display:false}}
+    }
+  }
+});
+
+// ──── CAMPAIGN TABLE ────
+function fmt(v,d=2){return typeof v==='number'?v.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d}):v}
+function renderCampaigns(data){
+  const tbody=document.querySelector('#campaignTable tbody');
+  tbody.innerHTML='';
+  data.forEach(c=>{
+    const cpl=c.leads>0?(c.spend/c.leads):0;
+    const cpa=c.purchases>0?(c.spend/c.purchases):0;
+    const cplClass=cpl>1000?'cell-bad':cpl>500?'cell-warn':'cell-good';
+    const cpaClass=cpa>3000?'cell-bad':cpa>1500?'cell-warn':'cell-good';
+    tbody.innerHTML+=`<tr>
+      <td class="cell-campaign">${c.name}</td>
+      <td class="cell-value">R$ ${fmt(c.spend)}</td>
+      <td class="cell-value">${c.reply.toLocaleString('pt-BR')}</td>
+      <td class="cell-value">R$ ${fmt(c.costReply)}</td>
+      <td class="cell-value">${c.leads.toLocaleString('pt-BR')}</td>
+      <td class="cell-value">${c.purchases.toLocaleString('pt-BR')}</td>
+      <td class="cell-value">R$ ${fmt(c.cpc)}</td>
+      <td class="cell-value">${fmt(c.ctr)}%</td>
+      <td class="cell-value ${cplClass}">R$ ${c.leads>0?fmt(cpl):'—'}</td>
+      <td class="cell-value ${cpaClass}">R$ ${c.purchases>0?fmt(cpa):'—'}</td>
+    </tr>`;
+  });
+}
+renderCampaigns(campaigns);
+
+// Sorting
+let sortCol=-1, sortAsc=true;
+document.querySelectorAll('#campaignTable th').forEach(th=>{
+  th.addEventListener('click',()=>{
+    const col=parseInt(th.dataset.col);
+    if(col===undefined||isNaN(col))return;
+    if(sortCol===col)sortAsc=!sortAsc; else{sortCol=col;sortAsc=true}
+    document.querySelectorAll('#campaignTable th').forEach(h=>h.classList.remove('sorted'));
+    th.classList.add('sorted');
+    const keys=['name','spend','reply','costReply','leads','purchases','cpc','ctr'];
+    const sorted=[...campaigns].sort((a,b)=>{
+      if(col===8){const va=a.leads>0?a.spend/a.leads:Infinity;const vb=b.leads>0?b.spend/b.leads:Infinity;return sortAsc?va-vb:vb-va}
+      if(col===9){const va=a.purchases>0?a.spend/a.purchases:Infinity;const vb=b.purchases>0?b.spend/b.purchases:Infinity;return sortAsc?va-vb:vb-va}
+      const k=keys[col];
+      if(typeof a[k]==='string')return sortAsc?a[k].localeCompare(b[k]):b[k].localeCompare(a[k]);
+      return sortAsc?a[k]-b[k]:b[k]-a[k];
+    });
+    renderCampaigns(sorted);
+  });
+});
+
+// ──── ADS TABLE ────
+(function(){
+  const tbody=document.querySelector('#adsTable tbody');
+  ads.forEach(a=>{
+    tbody.innerHTML+=`<tr>
+      <td class="cell-campaign">${a.name}</td>
+      <td style="font-size:12px;color:var(--text-muted)">${a.campaign}</td>
+      <td class="cell-value">R$ ${fmt(a.spend)}</td>
+      <td class="cell-value">R$ ${fmt(a.cpc)}</td>
+      <td class="cell-value">${fmt(a.ctr)}%</td>
+      <td class="cell-value">R$ ${fmt(a.cpm)}</td>
+      <td class="cell-value">${a.reply.toLocaleString('pt-BR')}</td>
+      <td class="cell-value">R$ ${fmt(a.costReply)}</td>
+      <td class="cell-value">${a.leads.toLocaleString('pt-BR')}</td>
+      <td class="cell-value">${a.purchases.toLocaleString('pt-BR')}</td>
+    </tr>`;
+  });
+})();
+
+// ──── SCROLL TO TOP BUTTON ────
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('show',window.scrollY>400);
+});
+
+// ──── NAV ACTIVE STATE ────
+const sections=document.querySelectorAll('.section[id]');
+const navLinks=document.querySelectorAll('.nav-link');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(l=>l.classList.remove('active'));
+      const link=document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+      if(link)link.classList.add('active');
+    }
+  });
+},{threshold:0.2,rootMargin:'-80px 0px -50% 0px'});
+sections.forEach(s=>observer.observe(s));
+
+// ──── ANIMATE ON SCROLL ────
+const animObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('animate');animObserver.unobserve(e.target)}});
+},{threshold:0.1});
+document.querySelectorAll('.insight-card,.roadmap-step,.targeting-card,.consultant-card,.chart-box').forEach(el=>animObserver.observe(el));
+</script>
+</body>
+</html>
