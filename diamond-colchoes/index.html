@@ -274,6 +274,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <div class="container">
 <div class="nav-inner">
 <a href="#top" class="nav-link active">Visão Geral</a>
+<a href="#organizacao" class="nav-link">Organização</a>
 <a href="#monthly" class="nav-link">Mensal</a>
 <a href="#campaigns" class="nav-link">Campanhas</a>
 <a href="#ads" class="nav-link">Anúncios</a>
@@ -281,7 +282,6 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <a href="#conversions" class="nav-link">Conversões</a>
 <a href="#targeting" class="nav-link">Segmentação</a>
 <a href="#problems" class="nav-link">Problemas</a>
-<a href="#organizacao" class="nav-link">Organização</a>
 <a href="#strategy" class="nav-link">Estratégia</a>
 <a href="#quickwins" class="nav-link">Ações Imediatas</a>
 <a href="#simulator" class="nav-link">Simulador</a>
@@ -381,6 +381,88 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <div class="kpi-label">Total de Campanhas no Período</div>
 <div class="kpi-value" data-counter="89">0</div>
 <div class="kpi-sub"><span class="down">Excesso de campanhas prejudica o resultado</span></div>
+</div>
+</div>
+
+<!-- Diagnóstico de Organização da Conta -->
+<div class="section" id="organizacao">
+<h2 class="section-title">Diagnóstico de Organização da Conta</h2>
+<p style="font-size:14px;color:var(--text-secondary);margin-bottom:24px;line-height:1.7">Análise completa de como a conta de anúncios está estruturada. Uma conta bem organizada facilita a otimização, reduz desperdício e melhora a performance do algoritmo.</p>
+
+<div class="insight-grid">
+
+<!-- PONTOS NEGATIVOS -->
+<div class="insight-card problem">
+<div class="icon">🏷</div>
+<h4>Nomenclatura Sem Padrão</h4>
+<p>As campanhas não seguem um padrão de nomenclatura. Exemplos encontrados: <strong>"Jaque 16/05"</strong>, <strong>"Suelen NOVA 07.08"</strong>, <strong>"Vanessa1nova 25/07"</strong>, <strong>"MARA"</strong>, <strong>"HELOISA"</strong>. Problemas:<br><br>
+• Formatos de data misturados (16/05 vs 07.08 vs 25/07 vs 21.10)<br>
+• Maiúsculas inconsistentes (NOVA vs Novo vs nova)<br>
+• Algumas sem data, sem objetivo, sem público-alvo<br>
+• Nenhum prefixo indicando objetivo, etapa do funil ou região<br><br>
+<strong>Padrão recomendado:</strong> [Objetivo]_[Público]_[Consultor]_[Data] — Ex: MSG_Aposentados_Fernanda_2025-05</p>
+</div>
+
+<div class="insight-card problem">
+<div class="icon">📁</div>
+<h4>Nomenclatura dos Anúncios Caótica</h4>
+<p>Os anúncios usam nomes como <strong>"ADS2"</strong>, <strong>"ADS8 - NOVO"</strong>, <strong>"ADS9"</strong>, <strong>"03ADD03"</strong>, <strong>"04ADD4"</strong>, <strong>"00ADD00 — Cópia"</strong>, <strong>"VIDEO"</strong>. Não há como saber o que cada anúncio contém sem abrir um por um. Nomes devem indicar o formato (vídeo/imagem), o ângulo de comunicação e a versão.</p>
+</div>
+
+<div class="insight-card problem">
+<div class="icon">🧪</div>
+<h4>Campanhas de "TESTE" Gastando Verba Real</h4>
+<p>A campanha <strong>"Adriana Pires TESTE"</strong> já gastou <strong>R$ 34.810</strong> e gerou apenas <strong>4 vendas</strong> (custo de R$ 8.702 por venda). Campanhas de teste devem ter verba limitada e prazo definido. Quando um teste não performa, deve ser pausado rapidamente — não continuar rodando gastando verba como se fosse uma campanha definitiva.</p>
+</div>
+
+<div class="insight-card problem">
+<div class="icon">🎯</div>
+<h4>Públicos: Sem Diversidade Visível</h4>
+<p>Todas as 15 campanhas ativas usam o mesmo objetivo (Mensagens/WhatsApp) e aparentam mirar públicos semelhantes. Não foram identificados:<br><br>
+• Públicos personalizados (visitantes do site, engajadores do Instagram)<br>
+• Públicos semelhantes (Lookalike) baseados em compradores reais<br>
+• Segmentação por perfil demográfico (idade, gênero, interesse)<br>
+• Exclusão de quem já comprou (para evitar gastar com quem já é cliente)<br><br>
+<strong>Impacto:</strong> o algoritmo disputa o mesmo público entre todas as campanhas, inflacionando o custo.</p>
+</div>
+
+<div class="insight-card problem">
+<div class="icon">📊</div>
+<h4>Pixel e Rastreamento Incompleto</h4>
+<p>A Meta registrou apenas <strong>980 vendas</strong> enquanto o faturamento real indica ~3.315 vendas. Isso significa que o Pixel e a API de Conversões <strong>não estão configurados para rastrear vendas corretamente</strong>. Sem esse dado, o algoritmo não consegue otimizar para compradores — apenas para quem clica ou responde no WhatsApp. É o maior gargalo técnico da conta.</p>
+</div>
+
+<div class="insight-card problem">
+<div class="icon">🗂</div>
+<h4>89 Campanhas Ativas — Sem Estrutura de Pastas</h4>
+<p>A conta tem 89 campanhas sem organização por categoria, etapa do funil ou período. Isso torna a gestão impossível de escalar. O ideal é uma estrutura clara: <strong>Topo de Funil</strong> (reconhecimento), <strong>Meio</strong> (consideração), <strong>Fundo</strong> (conversão) e <strong>Remarketing</strong>, com no máximo 8-12 campanhas ativas.</p>
+</div>
+
+<!-- PONTOS POSITIVOS -->
+<div class="insight-card opportunity">
+<div class="icon">✅</div>
+<h4>Campanhas Separadas por Consultor</h4>
+<p>Cada consultor(a) tem sua própria campanha, o que permite <strong>medir a performance individual</strong> com clareza. Isso é um diferencial importante: sabe-se exatamente quanto cada vendedor custa e quanto gera. Poucos negócios têm essa visibilidade. Manter essa rastreabilidade na reorganização.</p>
+</div>
+
+<div class="insight-card opportunity">
+<div class="icon">✅</div>
+<h4>Foco em WhatsApp é Coerente com o Modelo</h4>
+<p>O modelo de venda da Diamond é via WhatsApp com atendimento consultivo. Ter campanhas de mensagens como principal objetivo <strong>faz sentido para o negócio</strong>. O problema não é o canal, mas sim a <strong>falta de funil complementar</strong> (topo e remarketing) para alimentar esse canal com leads mais qualificados.</p>
+</div>
+
+<div class="insight-card opportunity">
+<div class="icon">✅</div>
+<h4>Volume de Dados Robusto para Otimização</h4>
+<p>Com <strong>R$ 1,23M investidos</strong>, <strong>69.579 respostas no WhatsApp</strong> e <strong>980+ vendas rastreadas</strong>, a conta tem dados suficientes para criar <strong>públicos semelhantes de altíssima qualidade</strong>. Um Lookalike baseado nos compradores reais pode reduzir drasticamente o custo por venda. Esse volume de dados é um ativo valioso que ainda não está sendo aproveitado.</p>
+</div>
+
+<div class="insight-card opportunity">
+<div class="icon">✅</div>
+<h4>CPC Competitivo (R$ 1,82)</h4>
+<p>O custo por clique médio de R$ 1,82 está <strong>abaixo da média do mercado de e-commerce</strong> (R$ 2,50-4,00). Isso indica que os criativos (imagens/vídeos) geram interesse. O problema está nas etapas seguintes do funil (qualificação e conversão), não na atração inicial.</p>
+</div>
+
 </div>
 </div>
 
@@ -662,88 +744,6 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <h4>70% das Vendas São Invisíveis para a Meta</h4>
 <p>A Meta rastreou apenas 980 vendas no período, mas o faturamento real (R$ 13,26M em 6 meses) indica aproximadamente 3.315 vendas reais. Ou seja, <strong>70% das vendas não são atribuídas aos anúncios</strong>. Isso acontece porque as vendas são fechadas pelo WhatsApp sem integração de dados. Sem esse rastreamento, o algoritmo da Meta não consegue otimizar para quem realmente compra — ele otimiza apenas para quem responde no WhatsApp, não para quem paga.</p>
 </div>
-</div>
-</div>
-
-<!-- Diagnóstico de Organização da Conta -->
-<div class="section" id="organizacao">
-<h2 class="section-title">Diagnóstico de Organização da Conta</h2>
-<p style="font-size:14px;color:var(--text-secondary);margin-bottom:24px;line-height:1.7">Análise completa de como a conta de anúncios está estruturada. Uma conta bem organizada facilita a otimização, reduz desperdício e melhora a performance do algoritmo.</p>
-
-<div class="insight-grid">
-
-<!-- PONTOS NEGATIVOS -->
-<div class="insight-card problem">
-<div class="icon">🏷</div>
-<h4>Nomenclatura Sem Padrão</h4>
-<p>As campanhas não seguem um padrão de nomenclatura. Exemplos encontrados: <strong>"Jaque 16/05"</strong>, <strong>"Suelen NOVA 07.08"</strong>, <strong>"Vanessa1nova 25/07"</strong>, <strong>"MARA"</strong>, <strong>"HELOISA"</strong>. Problemas:<br><br>
-• Formatos de data misturados (16/05 vs 07.08 vs 25/07 vs 21.10)<br>
-• Maiúsculas inconsistentes (NOVA vs Novo vs nova)<br>
-• Algumas sem data, sem objetivo, sem público-alvo<br>
-• Nenhum prefixo indicando objetivo, etapa do funil ou região<br><br>
-<strong>Padrão recomendado:</strong> [Objetivo]_[Público]_[Consultor]_[Data] — Ex: MSG_Aposentados_Fernanda_2025-05</p>
-</div>
-
-<div class="insight-card problem">
-<div class="icon">📁</div>
-<h4>Nomenclatura dos Anúncios Caótica</h4>
-<p>Os anúncios usam nomes como <strong>"ADS2"</strong>, <strong>"ADS8 - NOVO"</strong>, <strong>"ADS9"</strong>, <strong>"03ADD03"</strong>, <strong>"04ADD4"</strong>, <strong>"00ADD00 — Cópia"</strong>, <strong>"VIDEO"</strong>. Não há como saber o que cada anúncio contém sem abrir um por um. Nomes devem indicar o formato (vídeo/imagem), o ângulo de comunicação e a versão.</p>
-</div>
-
-<div class="insight-card problem">
-<div class="icon">🧪</div>
-<h4>Campanhas de "TESTE" Gastando Verba Real</h4>
-<p>A campanha <strong>"Adriana Pires TESTE"</strong> já gastou <strong>R$ 34.810</strong> e gerou apenas <strong>4 vendas</strong> (custo de R$ 8.702 por venda). Campanhas de teste devem ter verba limitada e prazo definido. Quando um teste não performa, deve ser pausado rapidamente — não continuar rodando gastando verba como se fosse uma campanha definitiva.</p>
-</div>
-
-<div class="insight-card problem">
-<div class="icon">🎯</div>
-<h4>Públicos: Sem Diversidade Visível</h4>
-<p>Todas as 15 campanhas ativas usam o mesmo objetivo (Mensagens/WhatsApp) e aparentam mirar públicos semelhantes. Não foram identificados:<br><br>
-• Públicos personalizados (visitantes do site, engajadores do Instagram)<br>
-• Públicos semelhantes (Lookalike) baseados em compradores reais<br>
-• Segmentação por perfil demográfico (idade, gênero, interesse)<br>
-• Exclusão de quem já comprou (para evitar gastar com quem já é cliente)<br><br>
-<strong>Impacto:</strong> o algoritmo disputa o mesmo público entre todas as campanhas, inflacionando o custo.</p>
-</div>
-
-<div class="insight-card problem">
-<div class="icon">📊</div>
-<h4>Pixel e Rastreamento Incompleto</h4>
-<p>A Meta registrou apenas <strong>980 vendas</strong> enquanto o faturamento real indica ~3.315 vendas. Isso significa que o Pixel e a API de Conversões <strong>não estão configurados para rastrear vendas corretamente</strong>. Sem esse dado, o algoritmo não consegue otimizar para compradores — apenas para quem clica ou responde no WhatsApp. É o maior gargalo técnico da conta.</p>
-</div>
-
-<div class="insight-card problem">
-<div class="icon">🗂</div>
-<h4>89 Campanhas Ativas — Sem Estrutura de Pastas</h4>
-<p>A conta tem 89 campanhas sem organização por categoria, etapa do funil ou período. Isso torna a gestão impossível de escalar. O ideal é uma estrutura clara: <strong>Topo de Funil</strong> (reconhecimento), <strong>Meio</strong> (consideração), <strong>Fundo</strong> (conversão) e <strong>Remarketing</strong>, com no máximo 8-12 campanhas ativas.</p>
-</div>
-
-<!-- PONTOS POSITIVOS -->
-<div class="insight-card opportunity">
-<div class="icon">✅</div>
-<h4>Campanhas Separadas por Consultor</h4>
-<p>Cada consultor(a) tem sua própria campanha, o que permite <strong>medir a performance individual</strong> com clareza. Isso é um diferencial importante: sabe-se exatamente quanto cada vendedor custa e quanto gera. Poucos negócios têm essa visibilidade. Manter essa rastreabilidade na reorganização.</p>
-</div>
-
-<div class="insight-card opportunity">
-<div class="icon">✅</div>
-<h4>Foco em WhatsApp é Coerente com o Modelo</h4>
-<p>O modelo de venda da Diamond é via WhatsApp com atendimento consultivo. Ter campanhas de mensagens como principal objetivo <strong>faz sentido para o negócio</strong>. O problema não é o canal, mas sim a <strong>falta de funil complementar</strong> (topo e remarketing) para alimentar esse canal com leads mais qualificados.</p>
-</div>
-
-<div class="insight-card opportunity">
-<div class="icon">✅</div>
-<h4>Volume de Dados Robusto para Otimização</h4>
-<p>Com <strong>R$ 1,23M investidos</strong>, <strong>69.579 respostas no WhatsApp</strong> e <strong>980+ vendas rastreadas</strong>, a conta tem dados suficientes para criar <strong>públicos semelhantes de altíssima qualidade</strong>. Um Lookalike baseado nos compradores reais pode reduzir drasticamente o custo por venda. Esse volume de dados é um ativo valioso que ainda não está sendo aproveitado.</p>
-</div>
-
-<div class="insight-card opportunity">
-<div class="icon">✅</div>
-<h4>CPC Competitivo (R$ 1,82)</h4>
-<p>O custo por clique médio de R$ 1,82 está <strong>abaixo da média do mercado de e-commerce</strong> (R$ 2,50-4,00). Isso indica que os criativos (imagens/vídeos) geram interesse. O problema está nas etapas seguintes do funil (qualificação e conversão), não na atração inicial.</p>
-</div>
-
 </div>
 </div>
 
