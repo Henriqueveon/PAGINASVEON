@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instituto Veon | A Escola do Varejo</title>
+  <meta name="description" content="Assessoria especializada em lojas de colchão. +120 lojas atendidas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { overflow-x: hidden; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: #000102;
+      color: #fff;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 680px;
+      padding: 40px 24px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ===== PROFILE ===== */
+    .profile-pic {
+      height: 60px;
+      margin-bottom: 16px;
+      filter: brightness(0) invert(1);
+    }
+
+    .profile-name {
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 2px;
+    }
+
+    .profile-verified {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .profile-verified svg {
+      width: 16px;
+      height: 16px;
+      fill: #3b82f6;
+    }
+
+    .profile-bio {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .profile-stats {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .profile-stats .stat {
+      text-align: center;
+    }
+
+    .profile-stats .stat-val {
+      font-size: 18px;
+      font-weight: 900;
+      color: #ff2d2d;
+      text-shadow: 0 0 12px rgba(255,45,45,0.3);
+      line-height: 1;
+    }
+
+    .profile-stats .stat-lbl {
+      font-size: 9px;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    /* ===== LINKS ===== */
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px 20px;
+      background: #fff;
+      color: #020635;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 24px rgba(255,255,255,0.1);
+    }
+
+    .link-btn:active { transform: scale(0.98); }
+
+    .link-btn .link-icon {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    .link-btn.destaque {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(34,197,94,0.3);
+      font-size: 16px;
+      padding: 18px 20px;
+    }
+
+    .link-btn.destaque:hover {
+      box-shadow: 0 6px 30px rgba(34,197,94,0.4);
+    }
+
+    .link-btn.wpp {
+      background: #25D366;
+      color: #fff;
+    }
+
+    .link-btn.wpp:hover {
+      box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+    }
+
+    .link-btn.dark {
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .link-btn.dark:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .link-badge {
+      position: absolute;
+      top: -1px;
+      right: 16px;
+      background: #ef4444;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 0 0 6px 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== MODAL FORM ===== */
+    .modal-bg {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-bg.open { display: flex; }
+
+    .modal-box {
+      background: #0b1120;
+      border: 1px solid rgba(59,130,246,0.15);
+      border-radius: 20px;
+      padding: 28px 24px;
+      max-width: 420px;
+      width: 100%;
+      position: relative;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.4);
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .modal-box h3 {
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    .modal-box .msub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .fg { margin-bottom: 12px; }
+
+    .fg label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .fg input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      font-size: 14px;
+      font-family: inherit;
+      transition: border 0.2s;
+    }
+
+    .fg input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      background: rgba(59,130,246,0.06);
+    }
+
+    .fg input::placeholder { color: rgba(255,255,255,0.2); }
+
+    .form-submit {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      font-family: inherit;
+      margin-top: 4px;
+    }
+
+    .form-submit:active { transform: scale(0.98); }
+
+    .form-safe {
+      text-align: center;
+      font-size: 10px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 10px;
+    }
+
+    .form-ok {
+      display: none;
+      text-align: center;
+      padding: 16px 0;
+    }
+
+    .form-ok .ico { font-size: 36px; margin-bottom: 8px; }
+    .form-ok h4 { font-size: 17px; font-weight: 900; margin-bottom: 4px; }
+    .form-ok p { font-size: 12px; color: rgba(255,255,255,0.45); }
+
+    /* ===== SOCIAL ===== */
+    .social-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .social-icon:hover { background: rgba(255,255,255,0.12); }
+
+    .social-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: #fff;
+    }
+
+    /* ===== FOOTER ===== */
+    .lt-footer {
+      font-size: 10px;
+      color: rgba(255,255,255,0.2);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <!-- PROFILE -->
+    <img src="https://assessoriaveon.com/iv03/assets/logo.png" alt="Instituto Veon" class="profile-pic">
+
+    <div class="profile-verified">
+      <span class="profile-name">Instituto Veon</span>
+      <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    </div>
+
+    <p class="profile-bio">A Escola do Varejo de Colchão<br>Assessoria com IA, CRM e gestão comercial</p>
+
+    <div class="profile-stats">
+      <div class="stat"><div class="stat-val">120+</div><div class="stat-lbl">Lojas</div></div>
+      <div class="stat"><div class="stat-val">2x</div><div class="stat-lbl">Faturamento</div></div>
+      <div class="stat"><div class="stat-val">180d</div><div class="stat-lbl">Garantia</div></div>
+    </div>
+
+    <!-- LINKS -->
+    <div class="links">
+
+      <a href="#" class="link-btn destaque" onclick="event.preventDefault(); openModal()">
+        🚀 Quero um Diagnóstico Grátis da Minha Loja
+        <span class="link-badge">Vagas limitadas</span>
+      </a>
+
+      <a href="https://www.youtube.com/embed/Da41i-aU7TQ" target="_blank" class="link-btn">
+        <svg class="link-icon" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><path d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#fff"/></svg>
+        📹 Veja Depoimentos de Lojistas
+      </a>
+
+      <a href="https://chat.whatsapp.com/HwPn1Uap9Nm1Mhud0U76R2" target="_blank" class="link-btn wpp">
+        <svg class="link-icon" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.522 3.659 1.432 5.17L2.05 22l4.952-1.354A9.954 9.954 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 0 1-4.29-1.253l-.308-.183-3.168.866.85-3.082-.2-.316A7.954 7.954 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+        Oficinas Gratuitas — Terças 15:30h
+      </a>
+
+      <a href="https://www.instagram.com/institutoveon/" target="_blank" class="link-btn dark">
+        <svg class="link-icon" viewBox="0 0 24 24" fill="#fff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        Siga o Instituto Veon no Instagram
+      </a>
+
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="social-row">
+      <a href="https://www.instagram.com/institutoveon/" target="_blank" class="social-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@institutoveon" target="_blank" class="social-icon">
+        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><path d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#000102"/></svg>
+      </a>
+    </div>
+
+    <p class="lt-footer">Instituto Veon © 2026 — A Escola do Varejo</p>
+
+  </div>
+
+  <!-- MODAL FORM -->
+  <div class="modal-bg" id="modalBg" onclick="if(event.target===this)closeModal()">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h3>Diagnóstico Grátis</h3>
+      <p class="msub">Analisamos sua loja e mostramos onde está o dinheiro escondido.</p>
+      <form id="leadForm" onsubmit="return sendForm(event)">
+        <div class="fg"><label>Seu nome</label><input type="text" id="nome" placeholder="Como você se chama?" required></div>
+        <div class="fg"><label>WhatsApp</label><input type="tel" id="whatsapp" placeholder="(XX) XXXXX-XXXX" required></div>
+        <div class="fg"><label>E-mail</label><input type="email" id="email" placeholder="seu@email.com" required></div>
+        <div class="fg"><label>Instagram da loja</label><input type="text" id="instagram" placeholder="@sualoja" required></div>
+        <div class="fg"><label>Cidade</label><input type="text" id="cidade" placeholder="Ex: Concórdia/SC" required></div>
+        <button type="submit" class="form-submit">Quero o Diagnóstico Grátis →</button>
+      </form>
+      <p class="form-safe">🔒 Seus dados estão seguros.</p>
+      <div class="form-ok" id="formOk">
+        <div class="ico">✅</div>
+        <h4>Recebemos seus dados!</h4>
+        <p>Nosso time entra em contato pelo WhatsApp em até 1 hora.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Pixel
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1459060829132519');fbq('track','PageView');
+
+    // UTM
+    const P=new URLSearchParams(location.search),U={source:P.get('utm_source')||'instagram',campaign:P.get('utm_campaign')||'bio_link',content:P.get('utm_content')||'',adset:P.get('utm_adset')||'',placement:P.get('placement')||'',fbclid:P.get('fbclid')||''};
+
+    // Modal
+    function openModal(){document.getElementById('modalBg').classList.add('open');document.body.style.overflow='hidden'}
+    function closeModal(){document.getElementById('modalBg').classList.remove('open');document.body.style.overflow=''}
+
+    // Phone mask
+    document.getElementById('whatsapp').addEventListener('input',function(e){let v=e.target.value.replace(/\D/g,'');if(v.length>11)v=v.slice(0,11);if(v.length>6)v=`(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;else if(v.length>2)v=`(${v.slice(0,2)}) ${v.slice(2)}`;else if(v.length>0)v=`(${v}`;e.target.value=v});
+
+    // Form
+    async function sendForm(e){e.preventDefault();const b=e.target.querySelector('.form-submit');b.disabled=true;b.textContent='Enviando...';const d={nome:document.getElementById('nome').value,whatsapp:document.getElementById('whatsapp').value,email:document.getElementById('email').value,instagram:document.getElementById('instagram').value,cidade:document.getElementById('cidade').value,lp:'linktree',tipo:'lojista_colchao',...U};try{await fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_linktree',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})}catch(x){}try{await fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/tracking',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:'lead',lp:'linktree',...U})})}catch(x){}fbq('track','Lead');fbq('trackCustom','FormularioLinktree',{lp:'linktree',nome:d.nome,cidade:d.cidade,source:U.source,campaign:U.campaign});document.getElementById('leadForm').style.display='none';document.querySelector('.form-safe').style.display='none';document.getElementById('formOk').style.display='block';setTimeout(()=>{location.href=`https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/track/unidade-start/assessorialinktree?utm_source=${encodeURIComponent(U.source)}&utm_campaign=${encodeURIComponent(U.campaign)}&utm_content=${encodeURIComponent(U.content)}&utm_adset=${encodeURIComponent(U.adset)}&utm_placement=${encodeURIComponent(U.placement)}&fbclid=${encodeURIComponent(U.fbclid)}`},1500)}
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1459060829132519&ev=PageView&noscript=1"></noscript>
+</body>
+</html>
