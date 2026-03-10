@@ -7,7 +7,7 @@
   <title>Instituto Veon | Sua Loja Está Perdendo Vendas Agora</title>
   <meta name="description" content="Para donos de loja de colchão travados nos R$40k/mês. Análise gratuita com o time Veon.">
 
-  <!-- Meta Pixel -->
+  <!-- Facebook Pixel — substitua 1459060829132519 pelo ID real -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -19,29 +19,6 @@
   </script>
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1459060829132519&ev=PageView&noscript=1"/></noscript>
-
-  <!-- UTM Tracking -->
-  <script>
-  (function(){
-    var p = new URLSearchParams(window.location.search);
-    var src = p.get('utm_source')||'';
-    var camp = p.get('utm_campaign')||'';
-    var cont = p.get('utm_content')||'';
-    var adset = p.get('utm_adset')||'';
-    var plac = p.get('utm_placement')||'';
-    var fbc = p.get('fbclid')||'';
-    if(src || camp || fbc){
-      var u = 'https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/track/unidade-start/assessoriaveon-iv02'
-        + '?utm_source=' + encodeURIComponent(src)
-        + '&utm_campaign=' + encodeURIComponent(camp)
-        + '&utm_content=' + encodeURIComponent(cont)
-        + '&utm_adset=' + encodeURIComponent(adset)
-        + '&utm_placement=' + encodeURIComponent(plac)
-        + '&fbclid=' + encodeURIComponent(fbc);
-      fetch(u, {method:'GET', mode:'no-cors'}).catch(function(){});
-    }
-  })();
-  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1028,9 +1005,9 @@
         Apenas 3 lojas serão aceitas em março
       </div>
 
-      <a href="https://wa.me/5545991294761?text=Ol%C3%A1%2C%20vim%20pela%20landing%20page%20iv02%20e%20quero%20falar%20com%20a%20equipe%20Veon!" target="_blank" class="cta animate">
-        <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.522 3.659 1.432 5.17L2.05 22l4.952-1.354A9.954 9.954 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 0 1-4.29-1.253l-.308-.183-3.168.866.85-3.082-.2-.316A7.954 7.954 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
-        Quero Falar com a Equipe pelo WhatsApp
+      <a href="#formulario" class="cta animate" onclick="event.preventDefault(); document.getElementById('modalOverlay').classList.add('open')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex-shrink:0"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Quero Candidatar Minha Loja →
       </a>
 
       <div class="garantia-line animate">
@@ -1309,7 +1286,7 @@
           <span class="exit-timer-label">Reservada por:</span>
           <span class="exit-timer-count" id="exitCountdown">05:00</span>
         </div>
-        <a href="https://wa.me/5545991294761?text=Ol%C3%A1%2C%20vim%20pela%20landing%20page%20iv02%20e%20quero%20falar%20com%20a%20equipe%20Veon!" target="_blank" class="exit-cta" onclick="trackWpp(); fecharExitForced()">
+        <a href="https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/track/unidade-start/assessoriaveon-iv02?utm_source={{site_source_name}}&utm_campaign={{campaign.name}}&utm_content={{ad.name}}&utm_adset={{adset.name}}&utm_placement={{placement}}&fbclid={{fbclid}}" target="_blank" class="exit-cta" onclick="trackWpp(); fecharExitForced()">
           <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.522 3.659 1.432 5.17L2.05 22l4.952-1.354A9.954 9.954 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 0 1-4.29-1.253l-.308-.183-3.168.866.85-3.082-.2-.316A7.954 7.954 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
           Quero falar com a equipe pelo WhatsApp
         </a>
@@ -1407,33 +1384,21 @@
       const whatsapp = document.getElementById('m-whatsapp').value;
       const email = document.getElementById('m-email').value;
       const instagram = document.getElementById('m-instagram').value;
-      const p = new URLSearchParams(window.location.search);
       const btn = e.target.querySelector('button[type=submit]');
       btn.disabled = true;
       btn.textContent = 'Enviando...';
-      try {
-        fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_iv02', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ nome, whatsapp, email, instagram, origem: 'iv02', utm_source: p.get('utm_source')||'', utm_medium: p.get('utm_medium')||'', utm_campaign: p.get('utm_campaign')||'', utm_content: p.get('utm_content')||'', utm_adset: p.get('utm_adset')||'', utm_placement: p.get('utm_placement')||'', fbclid: p.get('fbclid')||'' })
-        }).catch(function(){});
-      } catch(_) {}
-      if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'iv02-modal-checklist' });
-
-      btn.textContent = 'Enviado com sucesso!';
-      btn.style.background = '#00B865';
-
-      var trackUrl = 'https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/track/unidade-start/assessoriaveon-iv02'
-        + '?utm_source=' + encodeURIComponent(p.get('utm_source')||'')
-        + '&utm_campaign=' + encodeURIComponent(p.get('utm_campaign')||'')
-        + '&utm_content=' + encodeURIComponent(p.get('utm_content')||'')
-        + '&utm_adset=' + encodeURIComponent(p.get('utm_adset')||'')
-        + '&utm_placement=' + encodeURIComponent(p.get('utm_placement')||'')
-        + '&fbclid=' + encodeURIComponent(p.get('fbclid')||'');
-
-      setTimeout(function(){
-        window.location.href = trackUrl;
-      }, 1200);
+      // Evento pixel + abre WhatsApp imediatamente (síncrono para não bloquear popup)
+      trackWhatsAppIV02('modal-form');
+      window.open('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/track/unidade-start/assessoriaveon-iv02?utm_source={{site_source_name}}&utm_campaign={{campaign.name}}&utm_content={{ad.name}}&utm_adset={{adset.name}}&utm_placement={{placement}}&fbclid={{fbclid}}', '_blank');
+      document.getElementById('modalForm').style.display = 'none';
+      document.getElementById('modalSuccess').classList.add('show');
+      // Webhook em background — não bloqueia o redirecionamento
+      const params = new URLSearchParams(window.location.search);
+      fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_iv02', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, whatsapp, email, instagram, origem: 'iv02', utm_source: params.get('utm_source') || '', utm_campaign: params.get('utm_campaign') || '', utm_content: params.get('utm_content') || '', fbclid: params.get('fbclid') || '' })
+      }).catch(function(){});
     }
 
     // Evento customizado: clique direto no WhatsApp (não modal)
@@ -1625,37 +1590,6 @@
       entries.forEach(el => { if (el.isIntersecting) { el.target.classList.add('visible'); obs.unobserve(el.target); } });
     }, { threshold: 0.1 });
     document.querySelectorAll('.animate').forEach(el => obs.observe(el));
-
-    /* ===== EVENTOS DE CONVERSÃO META PIXEL ===== */
-    (function(){
-      /* Scroll depth tracking: 25%, 50%, 75%, 100% */
-      var scrollFired = {};
-      var thresholds = [25, 50, 75, 100];
-      window.addEventListener('scroll', function(){
-        var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-        thresholds.forEach(function(t){
-          if(scrollPct >= t && !scrollFired[t]){
-            scrollFired[t] = true;
-            if(typeof fbq !== 'undefined') fbq('trackCustom', 'ScrollDepth', { percent: t, page: 'iv02' });
-          }
-        });
-      }, {passive:true});
-
-      /* Lead — dispara no submit do formulário (modal checklist) */
-      var modalForm = document.getElementById('modalForm');
-      if(modalForm){
-        modalForm.addEventListener('submit', function(){
-          if(typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'iv02-modal-checklist' });
-        });
-      }
-
-      /* Contact — dispara nos links de WhatsApp */
-      document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){
-        a.addEventListener('click', function(){
-          if(typeof fbq !== 'undefined') fbq('track', 'Contact', { content_name: 'iv02-whatsapp' });
-        });
-      });
-    })();
   </script>
 </body>
 </html>
