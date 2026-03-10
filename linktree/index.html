@@ -365,8 +365,7 @@
           <div class="ws"><div class="ws-val">2x</div><div class="ws-lbl">Faturamento</div></div>
           <div class="ws"><div class="ws-val">180d</div><div class="ws-lbl">Garantia</div></div>
         </div>
-        <button class="btn-start" onclick="formIntent='assessoria';goStep(1)">Conheça Nossa Assessoria →</button>
-        <button class="btn-start" onclick="formIntent='comunidade';goStep(1)" style="background:linear-gradient(135deg,#25D366,#1da851);box-shadow:0 4px 24px rgba(37,211,102,0.3);margin-top:12px;font-size:15px;">Entre na Comunidade Exclusiva</button>
+        <button class="btn-start" onclick="goStep(1)">Conheça Nossa Assessoria e Entre na Comunidade Exclusiva →</button>
         <div class="depo">
           <div class="depo-text">"Vendemos 1 colchão a cada 90 minutos. Resultado que parecia impossível antes do Instituto Veon."</div>
           <div class="depo-author">Vanderlei</div>
@@ -479,8 +478,6 @@
 
     const totalSteps = 5;
     let current = 0;
-    let formIntent = 'assessoria'; // 'assessoria' or 'comunidade'
-
     // Phone mask
     document.getElementById('whatsapp').addEventListener('input',function(e){let v=e.target.value.replace(/\D/g,'');if(v.length>11)v=v.slice(0,11);if(v.length>6)v=`(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;else if(v.length>2)v=`(${v.slice(0,2)}) ${v.slice(2)}`;else if(v.length>0)v=`(${v}`;e.target.value=v});
 
@@ -542,10 +539,6 @@
       fbq('track','Lead');
       fbq('trackCustom','FormularioLinktree',{lp:'linktree',nome:d.nome,cidade:d.cidade,source:U.source,campaign:U.campaign});
 
-      if (formIntent === 'comunidade') {
-        window.location.href = 'https://wa.me/5545991294761?text=Ol%C3%A1%2C%20vim%20pela%20bio%20do%20Instagram%20do%20Instituto%20Veon%20e%20quero%20entrar%20na%20comunidade%20exclusiva%20de%20varejistas!';
-        return;
-      }
       goStep(6);
     }
   </script>
