@@ -469,12 +469,7 @@
   </div>
 
   <script>
-    // Pixel
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init','1459060829132519');fbq('track','PageView');
-
-    // UTM
-    const P=new URLSearchParams(location.search),U={source:P.get('utm_source')||'instagram',campaign:P.get('utm_campaign')||'bio_link',content:P.get('utm_content')||'',adset:P.get('utm_adset')||'',placement:P.get('placement')||'',fbclid:P.get('fbclid')||''};
+    const U={};
 
     const totalSteps = 5;
     let current = 0;
@@ -532,16 +527,8 @@
         ...U
       };
 
-      // Send data
-      try{await fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_linktree02',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})}catch(x){}
-      try{await fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/tracking',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:'lead',lp:'linktree',...U})})}catch(x){}
-
-      fbq('track','Lead');
-      fbq('trackCustom','FormularioLinktree02',{lp:'linktree',nome:d.nome,cidade:d.cidade,source:U.source,campaign:U.campaign});
-
       goStep(6);
     }
   </script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1459060829132519&ev=PageView&noscript=1"></noscript>
 </body>
 </html>
