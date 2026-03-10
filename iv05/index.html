@@ -870,8 +870,8 @@
   <section class="hero">
     <div class="hero-inner">
       <img src="https://assessoriaveon.com/iv03/assets/logo.png" alt="Instituto Veon" class="hero-logo">
-      <div class="hero-badge">Uma das maiores assessorias para Ortobom do Brasil</div>
-      <h1>Dobre o faturamento da sua loja em 180 dias — <span class="hl-green">ou trabalhamos de graça</span></h1>
+      <div class="hero-badge">Uma das maiores assessorias para franquias Ortobom do Brasil</div>
+      <h1>Sua loja Ortobom estagnou entre R$50 e R$70 mil? Precisamos de apenas 180 dias para dobrar seu faturamento — <span class="hl-green">ou trabalhamos de graça para você</span></h1>
       <p class="hero-sub">Tráfego pago, CRM, IA, gestão comercial e acompanhamento diário por <strong>um time de +15 especialistas</strong> focados 100% em lojas de colchão.</p>
       <div class="hero-stats">
         <div class="hero-stat"><span class="val">+R$100k</span><span class="lbl">Vendas adicionais</span></div>
@@ -889,21 +889,21 @@
     <h2 class="video-proof-sub fade">Lojistas reais. Resultados reais.</h2>
     <div class="video-carousel fade">
       <div class="video-card">
-        <iframe src="about:blank" data-video="VIDEO_ID_1" title="Depoimento Vanderlei" loading="lazy"></iframe>
+        <iframe src="https://www.youtube.com/embed/Da41i-aU7TQ" title="Depoimento Vanderlei" loading="lazy" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
         <div class="video-card-info">
           <div class="video-card-name">Vanderlei</div>
           <div class="video-card-role">Franqueado — Concórdia/SC</div>
         </div>
       </div>
       <div class="video-card">
-        <iframe src="about:blank" data-video="VIDEO_ID_2" title="Depoimento Beatriz e Lucas" loading="lazy"></iframe>
+        <iframe src="https://www.youtube.com/embed/FhXbibfAvF4" title="Depoimento Beatriz e Lucas" loading="lazy" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
         <div class="video-card-info">
           <div class="video-card-name">Beatriz e Lucas</div>
           <div class="video-card-role">Lojistas — Estreito/MA</div>
         </div>
       </div>
       <div class="video-card">
-        <iframe src="about:blank" data-video="VIDEO_ID_3" title="Depoimento Fábio" loading="lazy"></iframe>
+        <iframe src="https://www.youtube.com/embed/DSFbLhEsjOk" title="Depoimento Fábio" loading="lazy" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
         <div class="video-card-info">
           <div class="video-card-name">Fábio Gosman</div>
           <div class="video-card-role">Franqueado — SC</div>
@@ -1162,7 +1162,7 @@
     function chkToggle(el){el.classList.toggle('on');el.querySelector('.chk-box').textContent=el.classList.contains('on')?'✓':'';const n=document.querySelectorAll('.chk.on').length;document.getElementById('chkRes').classList.toggle('show',n>=3)}
 
     // Form
-    async function sendForm(e){e.preventDefault();const b=e.target.querySelector('.form-submit');b.disabled=true;b.textContent='Enviando...';const d={nome:document.getElementById('nome').value,whatsapp:document.getElementById('whatsapp').value,email:document.getElementById('email').value,instagram:document.getElementById('instagram').value,cidade:document.getElementById('cidade').value,lp:'iv05',tipo:'franqueado_ortobom',...U};try{await fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_iv05',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})}catch(x){}try{await fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/tracking',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:'lead',lp:'iv05',...U})})}catch(x){}fbq('track','Lead');document.getElementById('leadForm').style.display='none';document.querySelector('.form-safe').style.display='none';document.getElementById('formOk').style.display='block';setTimeout(()=>{location.href=`https://wa.me/5545991294761?text=Olá, sou ${encodeURIComponent(d.nome)}, lojista de colchão de ${encodeURIComponent(d.cidade)}. Preenchi o formulário e quero conhecer a assessoria Veon!`},1500)}
+    async function sendForm(e){e.preventDefault();const b=e.target.querySelector('.form-submit');b.disabled=true;b.textContent='Enviando...';const d={nome:document.getElementById('nome').value,whatsapp:document.getElementById('whatsapp').value,email:document.getElementById('email').value,instagram:document.getElementById('instagram').value,cidade:document.getElementById('cidade').value,lp:'iv05',tipo:'franqueado_ortobom',...U};try{await fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_iv05',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})}catch(x){}try{await fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/tracking',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:'lead',lp:'iv05',...U})})}catch(x){}fbq('track','Lead');fbq('trackCustom','FormularioIV05',{lp:'iv05',nome:d.nome,cidade:d.cidade,source:U.source,campaign:U.campaign});document.getElementById('leadForm').style.display='none';document.querySelector('.form-safe').style.display='none';document.getElementById('formOk').style.display='block';setTimeout(()=>{location.href=`https://wa.me/5545991294761?text=Olá, sou ${encodeURIComponent(d.nome)}, lojista de colchão de ${encodeURIComponent(d.cidade)}. Preenchi o formulário e quero conhecer a assessoria Veon!`},1500)}
 
     // Scroll tracking
     (function(){const t=[25,50,75,100],f={};addEventListener('scroll',function(){const p=Math.round(scrollY/(document.body.scrollHeight-innerHeight)*100);t.forEach(v=>{if(p>=v&&!f[v]){f[v]=1;fbq('trackCustom','ScrollDepth',{depth:v,lp:'iv05'})}})},{passive:true})})();
