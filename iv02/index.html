@@ -1387,7 +1387,8 @@
       const btn = e.target.querySelector('button[type=submit]');
       btn.disabled = true;
       btn.textContent = 'Enviando...';
-      // Evento pixel + abre WhatsApp imediatamente (síncrono para não bloquear popup)
+      // Eventos de conversão Meta Pixel
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'iv02-formulario' });
       trackWhatsAppIV02('modal-form');
       window.open('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/track/unidade-start/assessoriaveon-iv02?utm_source={{site_source_name}}&utm_campaign={{campaign.name}}&utm_content={{ad.name}}&utm_adset={{adset.name}}&utm_placement={{placement}}&fbclid={{fbclid}}', '_blank');
       document.getElementById('modalForm').style.display = 'none';
@@ -1405,6 +1406,7 @@
     function trackWhatsAppIV02(origem) {
       if (typeof fbq !== 'undefined') {
         fbq('trackCustom', 'WhatsApp_IV02', { origem: origem });
+        fbq('track', 'Contact', { content_name: 'iv02-whatsapp' });
       }
     }
     function trackWpp() { trackWhatsAppIV02('exit-popup'); }
