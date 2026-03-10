@@ -14,7 +14,7 @@
 
     body {
       font-family: 'DM Sans', -apple-system, sans-serif;
-      background: #05080f;
+      background: #0a2a42;
       color: #fff;
       min-height: 100svh;
       -webkit-font-smoothing: antialiased;
@@ -52,7 +52,7 @@
 
     .progress-fill {
       height: 100%;
-      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      background: linear-gradient(90deg, #0c3c5f, #e40a2d);
       transition: width 0.4s ease;
       border-radius: 0 3px 3px 0;
     }
@@ -84,7 +84,7 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      color: #60a5fa;
+      color: #e40a2d;
       font-weight: 700;
       margin-bottom: 12px;
     }
@@ -123,7 +123,7 @@
     }
 
     .field input:focus {
-      border-color: #3b82f6;
+      border-color: #0c3c5f;
     }
 
     .field input::placeholder {
@@ -137,7 +137,7 @@
       align-items: center;
       gap: 8px;
       padding: 14px 32px;
-      background: #3b82f6;
+      background: #0c3c5f;
       color: #fff;
       border: none;
       border-radius: 10px;
@@ -150,7 +150,7 @@
       letter-spacing: 0.5px;
     }
 
-    .btn-next:hover { background: #2563eb; transform: scale(1.02); }
+    .btn-next:hover { background: #0a3050; transform: scale(1.02); }
     .btn-next:active { transform: scale(0.98); }
 
     .btn-next svg {
@@ -168,7 +168,7 @@
       align-items: center;
       gap: 8px;
       padding: 16px 36px;
-      background: linear-gradient(135deg, #22c55e, #16a34a);
+      background: linear-gradient(135deg, #e40a2d, #b8081f);
       color: #fff;
       border: none;
       border-radius: 10px;
@@ -213,8 +213,8 @@
     .welcome-stats .ws-val {
       font-size: 24px;
       font-weight: 900;
-      color: #ff2d2d;
-      text-shadow: 0 0 15px rgba(255,45,45,0.3);
+      color: #e40a2d;
+      text-shadow: 0 0 15px rgba(228,10,45,0.3);
       line-height: 1;
     }
 
@@ -231,7 +231,7 @@
       align-items: center;
       gap: 10px;
       padding: 18px 40px;
-      background: linear-gradient(135deg, #22c55e, #16a34a);
+      background: linear-gradient(135deg, #e40a2d, #b8081f);
       color: #fff;
       border: none;
       border-radius: 12px;
@@ -240,10 +240,10 @@
       font-family: inherit;
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 24px rgba(34,197,94,0.3);
+      box-shadow: 0 4px 24px rgba(228,10,45,0.3);
     }
 
-    .btn-start:hover { transform: scale(1.03); box-shadow: 0 6px 30px rgba(34,197,94,0.4); }
+    .btn-start:hover { transform: scale(1.03); box-shadow: 0 6px 30px rgba(228,10,45,0.4); }
     .btn-start:active { transform: scale(0.97); }
 
     /* ===== DEPOIMENTO ===== */
@@ -252,7 +252,7 @@
       padding: 20px;
       background: rgba(255,255,255,0.03);
       border-radius: 12px;
-      border-left: 3px solid #3b82f6;
+      border-left: 3px solid #0c3c5f;
     }
 
     .depo:first-of-type {
@@ -359,13 +359,14 @@
       <div class="step active" id="step0">
         <div class="step-label">Bem-vindo</div>
         <h2>É um prazer te receber aqui! 👋</h2>
-        <p class="sub">Somos a maior escola de varejo do Brasil. Vamos fazer um diagnóstico rápido e gratuito do seu negócio.</p>
+        <p class="sub">Somos a maior escola do varejo do Brasil. Conheça nossa assessoria e entre para nossa comunidade exclusiva.</p>
         <div class="welcome-stats">
           <div class="ws"><div class="ws-val">250+</div><div class="ws-lbl">Empresários</div></div>
           <div class="ws"><div class="ws-val">2x</div><div class="ws-lbl">Faturamento</div></div>
           <div class="ws"><div class="ws-val">180d</div><div class="ws-lbl">Garantia</div></div>
         </div>
-        <button class="btn-start" onclick="goStep(1)">Começar Diagnóstico Grátis →</button>
+        <button class="btn-start" onclick="formIntent='assessoria';goStep(1)">Conheça Nossa Assessoria →</button>
+        <button class="btn-start" onclick="formIntent='comunidade';goStep(1)" style="background:linear-gradient(135deg,#25D366,#1da851);box-shadow:0 4px 24px rgba(37,211,102,0.3);margin-top:12px;font-size:15px;">Entre na Comunidade Exclusiva</button>
         <div class="depo">
           <div class="depo-text">"Vendemos 1 colchão a cada 90 minutos. Resultado que parecia impossível antes do Instituto Veon."</div>
           <div class="depo-author">Vanderlei</div>
@@ -411,7 +412,7 @@
       <div class="step" id="step3">
         <div class="step-label">Etapa 3 de 5</div>
         <h2>Qual seu e-mail?</h2>
-        <p class="sub">Para enviarmos o relatório do diagnóstico.</p>
+        <p class="sub">Para te enviarmos mais informações.</p>
         <div class="field">
           <input type="email" id="email" placeholder="seu@email.com" onkeydown="if(event.key==='Enter'){event.preventDefault();goStep(4)}">
         </div>
@@ -435,22 +436,22 @@
       <div class="step" id="step5">
         <div class="step-label">Última etapa</div>
         <h2>Em qual cidade fica sua loja?</h2>
-        <p class="sub">Para direcionar ao especialista da sua região.</p>
+        <p class="sub">Para conectar você ao especialista da sua região.</p>
         <div class="field">
           <input type="text" id="cidade" placeholder="Ex: Concórdia/SC" onkeydown="if(event.key==='Enter'){event.preventDefault();submitForm()}">
         </div>
-        <button class="btn-submit" onclick="submitForm()">Quero meu Diagnóstico Grátis →</button>
+        <button class="btn-submit" onclick="submitForm()">Quero Conhecer a Assessoria →</button>
       </div>
 
       <!-- STEP 6: SUCCESS -->
       <div class="step" id="step6">
         <div class="success-ico">🎉</div>
         <h2>Pronto, <span id="nameBack"></span>!</h2>
-        <p class="sub">Recebemos seus dados. Nosso time entra em contato pelo WhatsApp em até 1 hora com o diagnóstico da sua loja.</p>
+        <p class="sub">Recebemos seus dados. Nosso time entra em contato pelo WhatsApp em até 1 hora.</p>
         <div class="success-links">
-          <a href="https://chat.whatsapp.com/HwPn1Uap9Nm1Mhud0U76R2" target="_blank" class="success-link wpp">
+          <a href="https://wa.me/5545991294761?text=Ol%C3%A1%2C%20vim%20pela%20bio%20do%20Instagram%20do%20Instituto%20Veon%20e%20quero%20entrar%20na%20comunidade%20exclusiva%20de%20varejistas!" target="_blank" class="success-link wpp">
             <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.522 3.659 1.432 5.17L2.05 22l4.952-1.354A9.954 9.954 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 0 1-4.29-1.253l-.308-.183-3.168.866.85-3.082-.2-.316A7.954 7.954 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
-            Entrar na Comunidade Gratuita
+            Receber Link da Comunidade Exclusiva
           </a>
           <a href="https://www.instagram.com/institutoveon/" target="_blank" class="success-link ig">
             <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
@@ -478,6 +479,7 @@
 
     const totalSteps = 5;
     let current = 0;
+    let formIntent = 'assessoria'; // 'assessoria' or 'comunidade'
 
     // Phone mask
     document.getElementById('whatsapp').addEventListener('input',function(e){let v=e.target.value.replace(/\D/g,'');if(v.length>11)v=v.slice(0,11);if(v.length>6)v=`(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;else if(v.length>2)v=`(${v.slice(0,2)}) ${v.slice(2)}`;else if(v.length>0)v=`(${v}`;e.target.value=v});
@@ -489,7 +491,7 @@
         const input = document.getElementById(fields[current]);
         if (input && !input.value.trim()) {
           input.focus();
-          input.style.borderColor = '#ef4444';
+          input.style.borderColor = '#e40a2d';
           setTimeout(() => input.style.borderColor = '', 1500);
           return;
         }
@@ -514,7 +516,7 @@
       const cidade = document.getElementById('cidade');
       if (!cidade.value.trim()) {
         cidade.focus();
-        cidade.style.borderColor = '#ef4444';
+        cidade.style.borderColor = '#e40a2d';
         setTimeout(() => cidade.style.borderColor = '', 1500);
         return;
       }
@@ -540,6 +542,10 @@
       fbq('track','Lead');
       fbq('trackCustom','FormularioLinktree',{lp:'linktree',nome:d.nome,cidade:d.cidade,source:U.source,campaign:U.campaign});
 
+      if (formIntent === 'comunidade') {
+        window.location.href = 'https://wa.me/5545991294761?text=Ol%C3%A1%2C%20vim%20pela%20bio%20do%20Instagram%20do%20Instituto%20Veon%20e%20quero%20entrar%20na%20comunidade%20exclusiva%20de%20varejistas!';
+        return;
+      }
       goStep(6);
     }
   </script>
