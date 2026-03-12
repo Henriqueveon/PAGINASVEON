@@ -777,34 +777,16 @@
             if(e.key==='End'){e.preventDefault();go(T-1,'down')}
         });
 
-        // SCROLL WHEEL - navigate between slides on ALL slides
-        // Accumulate deltaY to handle trackpad smooth scrolling
-        let wheelAccum = 0;
-        const WHEEL_THRESHOLD = 50; // minimum delta to trigger slide change
-        let wheelTimer = null;
-        let wheelCooldown = false;
+        // SCROLL WHEEL - instant response, 1 scroll = 1 slide
+        let lastWheel = 0;
 
         document.addEventListener('wheel', e => {
-            e.preventDefault(); // prevent any default scroll
-
-            if(wheelCooldown || busy) return;
-
-            wheelAccum += e.deltaY;
-
-            // Clear accumulator after inactivity
-            if(wheelTimer) clearTimeout(wheelTimer);
-            wheelTimer = setTimeout(() => { wheelAccum = 0; }, 200);
-
-            if(Math.abs(wheelAccum) >= WHEEL_THRESHOLD) {
-                if(wheelAccum > 0) {
-                    go(C + 1, 'down');
-                } else {
-                    go(C - 1, 'up');
-                }
-                wheelAccum = 0;
-                wheelCooldown = true;
-                setTimeout(() => { wheelCooldown = false; }, 700);
-            }
+            e.preventDefault();
+            const now = Date.now();
+            if(now - lastWheel < 500 || busy) return;
+            lastWheel = now;
+            if(e.deltaY > 0) go(C + 1, 'down');
+            else if(e.deltaY < 0) go(C - 1, 'up');
         }, {passive: false});
 
         // TOUCH SWIPE - navigate between slides on mobile
