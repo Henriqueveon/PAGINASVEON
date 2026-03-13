@@ -217,10 +217,6 @@
         .pl-price-pay{font-size:9px;color:rgba(255,255,255,.4);margin-top:8px;line-height:1.5}
         .pl-price-pay span{color:var(--red);font-weight:600}
 
-        /* OFERTA POPUP GLACIAL */
-        .oferta-ball{position:fixed;bottom:24px;right:24px;z-index:4000;width:18px;height:18px;border-radius:50%;background:var(--red);box-shadow:0 0 12px rgba(228,10,45,.5);cursor:pointer;display:none;transition:all .3s}
-        .oferta-ball.show{display:block}
-        .oferta-ball:hover{transform:scale(1.3);box-shadow:0 0 20px rgba(228,10,45,.7)}
 
         /* 13 GARANTIA */
         .gar-box{border:1px solid rgba(228,10,45,.3);padding:50px 60px;max-width:700px;position:relative}
@@ -741,14 +737,14 @@
 
 <div class="vid-overlay" id="vidOv" onclick="if(event.target===this)closeV()">        <div class="vid-overlay-box" id="vidBox"></div>        <div class="vid-overlay-x" onclick="closeV()">&times;</div>    </div>
 
-    <!-- OFERTA POPUP GLACIAL -->
-    <div class="oferta-ball" id="ofertaPopup"></div>
-        <div class="oferta-plan">PLANO GLACIAL</div>
-        <div class="oferta-mini">VER OFERTA</div>
-        <div class="oferta-old">R$ 1.397/mês</div>
-        <div class="oferta-new">R$ 799</div>
-        <div class="oferta-period">por mês &middot; 6 meses</div>
-        
+    <!-- OFERTA GLACIAL -->
+    <div id="ofertaBall" style="position:fixed;bottom:24px;right:24px;z-index:4000;width:18px;height:18px;border-radius:50%;background:#e40a2d;box-shadow:0 0 12px rgba(228,10,45,.5);cursor:pointer;display:none;transition:transform .3s" onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" onclick="toggleOferta()"></div>
+    <div id="ofertaBox" style="position:fixed;bottom:54px;right:24px;z-index:4001;background:#111;border:1px solid #e40a2d;border-radius:6px;padding:20px 28px;text-align:center;box-shadow:0 8px 40px rgba(228,10,45,.25);display:none">
+        <div style="font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:#e40a2d;color:#fff;display:inline-block;padding:4px 12px;border-radius:2px;margin-bottom:10px">Oferta Especial</div>
+        <div style="font-family:Bebas Neue,sans-serif;font-size:22px;letter-spacing:2px;color:#fff">PLANO GLACIAL</div>
+        <div style="font-size:14px;color:#888;text-decoration:line-through">R$ 1.397/mês</div>
+        <div style="font-family:Bebas Neue,sans-serif;font-size:44px;color:#e40a2d;line-height:1">R$ 799</div>
+        <div style="font-size:9px;color:#888;letter-spacing:2px;text-transform:uppercase;margin-top:4px">por mês · 6 meses</div>
     </div>
 
     <script>
@@ -810,8 +806,8 @@
             if(scrollHint)scrollHint.classList.add('hide');
 
             // Show Glacial promo popup on Plans slide
-            if(i===12)setTimeout(function(){document.getElementById('ofertaPopup').classList.add('show')},800);
-            if(i!==12)document.getElementById('ofertaPopup').classList.remove('show');
+            if(i===12)setTimeout(function(){document.getElementById('ofertaBall').style.display='block'},800);
+            if(i!==12){document.getElementById('ofertaBall').style.display='none';document.getElementById('ofertaBox').style.display='none';}
 
             setTimeout(function(){
                 old.classList.remove('leave-down','leave-up');
@@ -915,6 +911,12 @@
             stPos=Math.max(0,Math.min(maxPos,stPos+dir));
             const slotW=track.querySelector('.story-slot').offsetWidth+18;
             track.style.transform='translateX(-'+stPos*slotW+'px)';
+        }
+
+        // TOGGLE OFERTA
+        function toggleOferta(){
+            var b=document.getElementById('ofertaBox');
+            b.style.display=b.style.display==='block'?'none':'block';
         }
 
                 // REVEAL PRICE
