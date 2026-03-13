@@ -648,7 +648,7 @@
                         <p class="ey">Escolha seu Oceano</p>
                         <h2 class="bh">NOSSOS PLANOS</h2>
                     </div>
-                    <div class="pl-grid a d2" style="margin-top:40px;">
+                                        <div class="pl-grid a d2" style="margin-top:40px;">
                         <div class="pl">
                             <h3 class="pl-name">ÁRTICO</h3>
                             <p class="pl-type">Tráfego + Criativos + Ofertas</p>
@@ -659,15 +659,10 @@
                                 <li>Design de materiais estáticos</li>
                                 <li>Copy e roteiros de vendas</li>
                             </ul>
-                            <button class="reveal-btn">REVELAR PREÇO</button>
-                            <div class="pl-price-box" id="priceArtico">
-                                <div class="pl-price-val">R$ 1.697</div>
-                                <div class="pl-price-per">por mês · 6 meses</div>
-                                <div class="pl-price-pay">Cartão: <span>6x R$ 1.497</span></div>
-                            </div>
+                            <button class="reveal-btn" onclick="showPrice(this,'R$ 1.697','6x R$ 1.497')">REVELAR PREÇO</button>
                         </div>
                         <div class="pl feat">
-                            <div class="pl-badge">Mais Completo</div>
+                            <div class="pl-badge">Recomendável</div>
                             <h3 class="pl-name">ATLÂNTICO</h3>
                             <p class="pl-type">Demanda + Comercial + Pessoas</p>
                             <ul class="pl-feat">
@@ -677,12 +672,7 @@
                                 <li>Metas e acompanhamento</li>
                                 <li>Gestão de cultura e equipe</li>
                             </ul>
-                            <button class="reveal-btn">REVELAR PREÇO</button>
-                            <div class="pl-price-box" id="priceAtlantico">
-                                <div class="pl-price-val">R$ 1.997</div>
-                                <div class="pl-price-per">por mês · 6 meses</div>
-                                <div class="pl-price-pay">Cartão: <span>6x R$ 1.797</span></div>
-                            </div>
+                            <button class="reveal-btn" onclick="showPrice(this,'R$ 1.997','6x R$ 1.797')">REVELAR PREÇO</button>
                         </div>
                         <div class="pl">
                             <h3 class="pl-name">PACÍFICO</h3>
@@ -694,12 +684,7 @@
                                 <li>Consultores dedicados</li>
                                 <li>Reuniões semanais</li>
                             </ul>
-                            <button class="reveal-btn">REVELAR PREÇO</button>
-                            <div class="pl-price-box" id="pricePacifico">
-                                <div class="pl-price-val">R$ 2.597</div>
-                                <div class="pl-price-per">por mês · 6 meses</div>
-                                <div class="pl-price-pay">Cartão: <span>6x R$ 2.397</span></div>
-                            </div>
+                            <button class="reveal-btn" onclick="showPrice(this,'R$ 2.597','6x R$ 2.397')">REVELAR PREÇO</button>
                         </div>
                     </div>
                 </div>
@@ -932,16 +917,14 @@
             track.style.transform='translateX(-'+stPos*slotW+'px)';
         }
 
-        // REVEAL PRICE + OFERTA
-        document.addEventListener('click',function(e){
-            var btn=e.target.closest('.reveal-btn');
-            if(btn){
-                btn.style.display='none';
-                var box=btn.parentNode.querySelector('.pl-price-box');
-                if(box)box.classList.add('show');
-            }
-        });
-        function expandOferta(){/* reserved for future use */}
+                // REVEAL PRICE
+        function showPrice(btn,price,parcela){
+            var d=document.createElement('div');
+            d.style.cssText='margin-top:16px;text-align:center;animation:priceReveal .5s ease';
+            d.innerHTML='<div style="font-family:Bebas Neue,sans-serif;font-size:36px;color:#e40a2d;line-height:1">'+price+'</div><div style="font-size:9px;color:#888;letter-spacing:2px;text-transform:uppercase;margin-top:4px">por mês · 6 meses</div><div style="font-size:9px;color:rgba(255,255,255,.4);margin-top:8px">Cartão: <span style="color:#e40a2d;font-weight:600">'+parcela+'</span></div>';
+            btn.parentNode.appendChild(d);
+            btn.remove();
+        }
 
 
 function openVid(type, id){            var box=document.getElementById("vidBox");            box.className="vid-overlay-box";            if(type==="yt"){                box.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1" allow="autoplay;encrypted-media;fullscreen" allowfullscreen></iframe>';            }else{                box.classList.add("ig-embed");                box.innerHTML='<iframe src="https://www.instagram.com/reel/'+id+'/embed/?hidecaption=true" allow="autoplay;encrypted-media;fullscreen" allowfullscreen></iframe>';            }            document.getElementById("vidOv").classList.add("open");            document.body.style.overflow="hidden";        }        function closeV(){            document.getElementById("vidOv").classList.remove("open");            document.getElementById("vidBox").innerHTML="";            document.getElementById("vidBox").className="vid-overlay-box";            document.body.style.overflow="";        }        document.addEventListener("keydown",function(e){if(e.key==="Escape")closeV();});
