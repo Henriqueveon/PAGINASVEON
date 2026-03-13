@@ -673,7 +673,7 @@
                                 <li>Design de materiais estáticos</li>
                                 <li>Copy e roteiros de vendas</li>
                             </ul>
-                            <button class="reveal-btn" onclick="revealPrice(this,'ÁRTICO')">REVELAR PREÇO</button>
+                            <button class="reveal-btn" onclick="revealPrice(this)">REVELAR PREÇO</button>
                             <div class="pl-price-box" id="priceArtico">
                                 <div class="pl-price-val">R$ 1.697</div>
                                 <div class="pl-price-per">por mês · 6 meses</div>
@@ -691,7 +691,7 @@
                                 <li>Metas e acompanhamento</li>
                                 <li>Gestão de cultura e equipe</li>
                             </ul>
-                            <button class="reveal-btn" onclick="revealPrice(this,'ATLÂNTICO')">REVELAR PREÇO</button>
+                            <button class="reveal-btn" onclick="revealPrice(this)">REVELAR PREÇO</button>
                             <div class="pl-price-box" id="priceAtlantico">
                                 <div class="pl-price-val">R$ 1.997</div>
                                 <div class="pl-price-per">por mês · 6 meses</div>
@@ -708,7 +708,7 @@
                                 <li>Consultores dedicados</li>
                                 <li>Reuniões semanais</li>
                             </ul>
-                            <button class="reveal-btn" onclick="revealPrice(this,'PACÍFICO')">REVELAR PREÇO</button>
+                            <button class="reveal-btn" onclick="revealPrice(this)">REVELAR PREÇO</button>
                             <div class="pl-price-box" id="pricePacifico">
                                 <div class="pl-price-val">R$ 2.597</div>
                                 <div class="pl-price-per">por mês · 6 meses</div>
@@ -951,11 +951,10 @@
         // REVEAL PRICE INLINE
         function expandOferta(){var p=document.getElementById('ofertaPopup');if(!p.classList.contains('expanded')){p.classList.add('expanded');p.onclick=null;}}
 
-        function revealPrice(btn,plan){
-            btn.style.display='none';
-            var ids={'ÁRTICO':'priceArtico','ATLÂNTICO':'priceAtlantico','PACÍFICO':'pricePacifico'};
-            var box=document.getElementById(ids[plan]);
-            if(box)box.classList.add('show');
+        function revealPrice(el){
+            el.style.display='none';
+            var b=el.parentNode.querySelector('.pl-price-box');
+            if(b)b.classList.add('show');
         }
 
 
