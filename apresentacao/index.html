@@ -99,12 +99,10 @@
         .som p{font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--gray);margin-top:10px}
 
         /* 3 NASCIMENTO */
-        .nasc-bg{position:absolute;inset:0;background:url('img/pessoas/henrique.JPEG') center/cover no-repeat;filter:brightness(.2) contrast(1.1)}
+        .nasc-bg{position:absolute;inset:0;background:url('img/pessoas/henrique.JPEG') center/cover no-repeat;filter:brightness(.35) contrast(1.05)}
         .nasc-ov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.96) 0%,rgba(10,10,10,.6) 50%,transparent 100%)}
         .nasc-c{position:relative;z-index:2;max-width:560px}
-        .nasc-stats{display:flex;gap:30px;margin-top:30px}
-        .ns-v{font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--red);line-height:1}
-        .ns-l{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-top:3px}
+.nasc-stats{display:flex;gap:40px;margin-top:30px;align-items:flex-end}        .ns-v{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--red);line-height:1}        .ns-l{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:6px;font-weight:500}        .nasc-author{display:flex;align-items:center;gap:20px;margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08)}        .nasc-author-name{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--white);letter-spacing:1px;line-height:1}        .nasc-author-role{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);font-weight:600;margin-top:4px}        .nasc-author-line{width:40px;height:2px;background:var(--red)}
 
         /* 4 NUMEROS */
         .num-bg{position:absolute;inset:0;background:var(--red)}
@@ -114,17 +112,17 @@
         .ni::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(255,255,255,.15)}
         .ni:last-child::after{display:none}
         .nv{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,84px);line-height:1}
-        .nl{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:6px}
+        .nl{font-size:14px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.9);margin-top:10px;font-weight:500}
 
         /* 5 EQUIPE */
-        .eq-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
-        .eq-photos{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-        .eq-photos img{width:100%;height:180px;object-fit:cover;border-radius:4px;filter:brightness(.85);transition:all .4s}
-        .eq-photos img:hover{filter:brightness(1)}
-        .eq-photos img.wide{grid-column:span 2;height:180px}
-        .eq-stats{display:flex;gap:30px;margin-top:24px}
-        .es-v{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--red);line-height:1}
-        .es-l{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-top:3px}
+        .eq-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+        .eq-photos{display:grid;grid-template-columns:1fr;gap:12px}
+        .eq-photos img{width:100%;height:calc(50vh - 60px);object-fit:cover;border-radius:6px;filter:brightness(.85);transition:all .4s}
+        .eq-photos img:hover{filter:brightness(1);transform:scale(1.01)}
+        .eq-photos img.wide{grid-column:span 1;height:calc(50vh - 60px)}
+        .eq-stats{display:flex;gap:40px;margin-top:30px}
+        .es-v{font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--red);line-height:1}
+        .es-l{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.75);margin-top:6px;font-weight:500}
 
         /* 6 CAROUSEL */
         .car-wrap{overflow:hidden;margin-top:24px}
@@ -142,11 +140,20 @@
         .stories-wrap{display:flex;align-items:center;gap:20px;margin-top:24px}
         .stories-inner{flex:1;overflow:hidden}
         .stories-track{display:flex;gap:18px;transition:transform .5s cubic-bezier(.25,1,.5,1)}
-        .story-slot{flex:0 0 calc(25% - 14px);height:clamp(300px,50vh,420px);background:var(--dark2);border:1px solid rgba(255,255,255,.06);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;transition:all .4s}
-        .story-slot:hover{border-color:rgba(228,10,45,.3)}
-        .story-slot .play{width:56px;height:56px;border:2px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center}
+        .story-slot{flex:0 0 calc(25% - 14px);height:clamp(300px,50vh,420px);background:var(--dark2);border:1px solid rgba(255,255,255,.06);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;transition:all .4s;overflow:hidden;position:relative;cursor:pointer;text-decoration:none}
+        .story-slot:hover{border-color:rgba(228,10,45,.3);transform:scale(1.02)}
+        .story-slot .play{width:56px;height:56px;border:2px solid rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.5);position:relative;z-index:2;transition:all .3s}
+        .story-slot:hover .play{background:var(--red);border-color:var(--red);transform:scale(1.1)}
         .story-slot .play::after{content:'';width:0;height:0;border-left:16px solid var(--white);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:3px}
-        .story-slot span{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gray)}
+        .story-slot span{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.9);position:relative;z-index:2;text-align:center;padding:0 10px;font-weight:500;line-height:1.4}
+        .story-slot .st-thumb{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;filter:brightness(.45);transition:filter .4s}
+        .story-slot:hover .st-thumb{filter:brightness(.6)}
+        .story-slot .st-badge{position:absolute;top:12px;left:12px;background:var(--red);color:#fff;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:4px;font-weight:700;z-index:2}
+        .story-slot .st-badge.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+        .story-slot.ig-card{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);border-color:rgba(228,10,45,.15)}
+        .story-slot.ig-card .play{border-color:rgba(255,255,255,.6)}
+        .story-slot.ig-card::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;background:radial-gradient(circle,rgba(228,10,45,.12) 0%,transparent 70%);pointer-events:none}
+.vid-modal{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(8px)}        .vid-modal.active{display:flex}        .vid-modal-close{position:absolute;top:20px;right:30px;color:#fff;font-size:36px;cursor:pointer;z-index:10000;width:50px;height:50px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.1);transition:background .3s}        .vid-modal-close:hover{background:var(--red)}        .vid-modal-content{width:90vw;max-width:480px;height:85vh;max-height:850px;border-radius:12px;overflow:hidden;position:relative;background:#000}        .vid-modal-content iframe{width:100%;height:100%;border:none}        .vid-modal-content.yt-landscape{max-width:900px;height:auto;aspect-ratio:16/9;max-height:80vh}
 
         /* 8 METODO */
         .met-pills{display:flex;gap:20px;margin-top:40px;justify-content:center}
@@ -244,8 +251,8 @@
             .si{padding:20px}
             .pl-grid{grid-template-columns:1fr 1fr}
             .num-g{grid-template-columns:1fr 1fr}
-            .eq-photos img{height:130px}
-            .eq-photos img.wide{height:130px}
+            .eq-photos img{height:160px}
+            .eq-photos img.wide{height:160px}
             .story-slot{flex:0 0 calc(50% - 9px)!important;height:260px!important}
             .met-pills{flex-direction:column;align-items:center}
             .car-card{flex:0 0 80vw}
@@ -263,15 +270,15 @@
     <nav class="nav">
         <img src="img/idv/logo.png" class="nav-logo" alt="VEON">
         <div class="nav-tabs">
-            <button class="tab on" data-s="0"><span class="tn">01</span> Inicio</button>
+            <button class="tab on" data-s="0"><span class="tn">01</span> Início</button>
             <button class="tab" data-s="1"><span class="tn">02</span> DNA</button>
             <button class="tab" data-s="2"><span class="tn">03</span> Sobre</button>
-            <button class="tab" data-s="3"><span class="tn">04</span> Historia</button>
-            <button class="tab" data-s="4"><span class="tn">05</span> Numeros</button>
+            <button class="tab" data-s="3"><span class="tn">04</span> História</button>
+            <button class="tab" data-s="4"><span class="tn">05</span> Números</button>
             <button class="tab" data-s="5"><span class="tn">06</span> Equipe</button>
             <button class="tab" data-s="6"><span class="tn">07</span> Provas</button>
-            <button class="tab" data-s="7"><span class="tn">08</span> Videos</button>
-            <button class="tab" data-s="8"><span class="tn">09</span> Metodo</button>
+            <button class="tab" data-s="7"><span class="tn">08</span> Vídeos</button>
+            <button class="tab" data-s="8"><span class="tn">09</span> Método</button>
             <button class="tab" data-s="9"><span class="tn">10</span> Pilar 1</button>
             <button class="tab" data-s="10"><span class="tn">11</span> Pilar 2</button>
             <button class="tab" data-s="11"><span class="tn">12</span> Pilar 3</button>
@@ -297,7 +304,7 @@
                 <div class="hero-bg"></div>
                 <div class="hero-c a">
                     <h1 class="hero-t">Instituto Veon apresenta <span>A ESCOLA<br>DO VAREJO</span></h1>
-                    <p class="hero-sub">A bussola que aponta para o sucesso</p>
+                    <p class="hero-sub">A bússola que aponta para o sucesso</p>
                     <div class="hero-line"></div>
                 </div>
             </div>
@@ -308,11 +315,11 @@
             <div class="si">
                 <div class="cs">
                     <div class="nao-c a">
-                        <p class="ey">O Que Nao Somos</p>
+                        <p class="ey">O Que Não Somos</p>
                         <ul class="stk">
-                            <li>AGENCIA DE MARKETING DIGITAL</li>
-                            <li>AGENCIA DE TRAFEGO PAGO</li>
-                            <li>AGENCIA DE MIDIAS DIGITAIS</li>
+                            <li>AGÊNCIA DE MARKETING DIGITAL</li>
+                            <li>AGÊNCIA DE TRÁFEGO PAGO</li>
+                            <li>AGÊNCIA DE MÍDIAS DIGITAIS</li>
                         </ul>
                         <div class="som">
                             <h3>SOMOS A <span>ESCOLA<br>DO VAREJO</span></h3>
@@ -331,8 +338,8 @@
                         <p class="ey">VEON</p>
                         <h2 class="bh">Quem Somos</h2>
                     </div>
-                    <p class="bt a d2">Somos uma <strong>assessoria comercial</strong> especializada no varejo brasileiro. Com <em>metodologia propria</em> e software exclusivo, transformamos empresas do varejo em <strong>maquinas de resultado</strong>.</p>
-                    <p class="bt a d3">Combinamos <em>prestacao de servicos</em> com <strong>educacao empresarial</strong>, capacitando e servindo empresarios.</p>
+                    <p class="bt a d2">Somos uma <strong>assessoria comercial</strong> especializada no varejo brasileiro. Com <em>metodologia própria</em> e software exclusivo, transformamos empresas do varejo em <strong>máquinas de resultado</strong>.</p>
+                    <p class="bt a d3">Combinamos <em>prestação de serviços</em> com <strong>educação empresarial</strong>, capacitando e servindo empresários.</p>
                 </div>
             </div>
         </div>
@@ -348,26 +355,8 @@
                         <h2 class="bh">NASCIMENTO</h2>
                     </div>
                     <p class="bt a d2">Instituto Veon nasceu em um quarto de 2,5x2,5 em setembro de 2023. Sem dinheiro, sem investimento, apenas com:</p>
-                    <p class="bt a d3"><strong>Fe, Coragem e Vendas.</strong></p>
-                    <div class="nasc-stats a d4">
-                        <div>
-                            <div class="ns-v">22</div>
-                            <div class="ns-l">Anos Vendedor</div>
-                        </div>
-                        <div>
-                            <div class="ns-v">12</div>
-                            <div class="ns-l">Anos Empresario</div>
-                        </div>
-                        <div>
-                            <div class="ns-v"></div>
-                            <div class="ns-l">CEO</div>
-                        </div>
-                        <div>
-                            <div class="ns-v"></div>
-                            <div class="ns-l">Fundador VEON</div>
-                        </div>
-                    </div>
-                    <p class="bt a d5" style="margin-top:20px;">&mdash; Henrique Alves</p>
+                    <p class="bt a d3"><strong>Fé, Coragem e Vendas.</strong></p>
+<div class="nasc-stats a d4">                        <div>                            <div class="ns-v">22</div>                            <div class="ns-l">Anos Vendedor</div>                        </div>                        <div>                            <div class="ns-v">12</div>                            <div class="ns-l">Anos Empresário</div>                        </div>                    </div>                    <div class="nasc-author a d5">                        <div class="nasc-author-line"></div>                        <div>                            <div class="nasc-author-name">HENRIQUE ALVES</div>                            <div class="nasc-author-role">CEO &amp; Fundador &mdash; Instituto VEON</div>                        </div>                    </div>
                 </div>
             </div>
         </div>
@@ -379,13 +368,13 @@
                 <div class="num-ov"></div>
                 <div class="cs" style="position:relative;z-index:1;">
                     <div class="a d1">
-                        <p class="ey" style="color:rgba(255,255,255,.6);">Nossos Numeros</p>
+                        <p class="ey" style="color:rgba(255,255,255,.6);">Nossos Números</p>
                         <h2 class="bh" style="color:var(--white);">RESULTADOS QUE FALAM</h2>
                     </div>
                     <div class="num-g a d2" style="margin-top:60px;">
                         <div class="ni">
                             <div class="nv" data-t="4">~</div>
-                            <div class="nl">Anos de Operacao</div>
+                            <div class="nl">Anos de Operação</div>
                         </div>
                         <div class="ni">
                             <div class="nv" data-t="150000000" data-p="R$" data-sf="">150</div>
@@ -408,28 +397,29 @@
         <div class="s">
             <div class="si">
                 <div class="cs">
-                    <div class="a d1">
-                        <p class="ey">Nossa Equipe &amp; Estrutura</p>
-                        <h2 class="bh">DE EMPREENDEDORES<br>PARA EMPREENDEDORES</h2>
-                    </div>
-                    <p class="bt a d2" style="margin:20px 0;">Uma empresa que nasceu em um quarto de 2,5x2,5 hoje e uma franquia de sucesso nacional.</p>
-                    <div class="eq-grid a d3">
-                        <div class="eq-stats">
-                            <div>
-                                <div class="es-v">15+</div>
-                                <div class="es-l">Equipe Presencial</div>
-                            </div>
-                            <div>
-                                <div class="es-v">180m&sup2;</div>
-                                <div class="es-l">Escritorio</div>
-                            </div>
-                            <div>
-                                <div class="es-v">4+</div>
-                                <div class="es-l">Franquias</div>
+                    <div class="eq-grid a d1">
+                        <div>
+                            <p class="ey">Nossa Equipe &amp; Estrutura</p>
+                            <h2 class="bh">DE EMPREENDEDORES<br>PARA EMPREENDEDORES</h2>
+                            <p class="bt" style="margin:20px 0 30px;color:rgba(255,255,255,.6);">Uma empresa que nasceu em um quarto de 2,5x2,5 hoje é uma franquia de sucesso nacional.</p>
+                            <div style="width:60px;height:2px;background:var(--red);margin-bottom:24px;"></div>
+                            <div class="eq-stats">
+                                <div>
+                                    <div class="es-v">15+</div>
+                                    <div class="es-l">Equipe Presencial</div>
+                                </div>
+                                <div>
+                                    <div class="es-v">180m&sup2;</div>
+                                    <div class="es-l">Escritório</div>
+                                </div>
+                                <div>
+                                    <div class="es-v">4+</div>
+                                    <div class="es-l">Franquias</div>
+                                </div>
                             </div>
                         </div>
                         <div class="eq-photos">
-                            <img src="img/pessoas/design13.png" alt="Escritorio">
+                            <img src="img/pessoas/design13.png" alt="Escritório" class="wide">
                             <img src="img/pessoas/equipe-grupo.jpeg" alt="Equipe" class="wide">
                         </div>
                     </div>
@@ -469,21 +459,14 @@
             <div class="si">
                 <div class="cs">
                     <div class="a d1">
-                        <p class="ey">Depoimentos em Video</p>
-                        <h2 class="bh">HISTORIAS DE SUCESSO</h2>
+                        <p class="ey">Depoimentos em Vídeo</p>
+                        <h2 class="bh">HISTÓRIAS DE SUCESSO</h2>
                     </div>
                     <div class="stories-wrap a d2">
                         <button class="cb" onclick="storyMove(-1)">&larr;</button>
                         <div class="stories-inner">
                             <div id="stTrack" class="stories-track">
-                                <div class="story-slot"><div class="play"></div><span>Em breve</span></div>
-                                <div class="story-slot"><div class="play"></div><span>Em breve</span></div>
-                                <div class="story-slot"><div class="play"></div><span>Em breve</span></div>
-                                <div class="story-slot"><div class="play"></div><span>Em breve</span></div>
-                                <div class="story-slot"><div class="play"></div><span>Em breve</span></div>
-                                <div class="story-slot"><div class="play"></div><span>Em breve</span></div>
-                                <div class="story-slot"><div class="play"></div><span>Em breve</span></div>
-                                <div class="story-slot"><div class="play"></div><span>Em breve</span></div>
+<div class="story-slot" onclick="openVid('yt','DSFbLhEsjOk')"><img class="st-thumb" src="https://i.ytimg.com/vi/DSFbLhEsjOk/hqdefault.jpg" alt="Case Ortobom"><div class="st-badge">YouTube</div><div class="play"></div><span>Franqueada Ortobom encontra parceria com Instituto Veon</span></div>                                <div class="story-slot" onclick="openVid('yt','FhXbibfAvF4')"><img class="st-thumb" src="https://i.ytimg.com/vi/FhXbibfAvF4/hqdefault.jpg" alt="Black Friday Ortobom"><div class="st-badge">YouTube</div><div class="play"></div><span>Black Friday extraordinária com o Instituto Veon</span></div>                                <div class="story-slot" onclick="openVid('yt','Da41i-aU7TQ')"><img class="st-thumb" src="https://i.ytimg.com/vi/Da41i-aU7TQ/hqdefault.jpg" alt="1 colchão a cada 90 min"><div class="st-badge">YouTube</div><div class="play"></div><span>1 colchão vendido a cada 90 minutos</span></div>                                <div class="story-slot" onclick="openVid('yt','RECh7CHuu8E')"><img class="st-thumb" src="https://i.ytimg.com/vi/RECh7CHuu8E/hqdefault.jpg" alt="200 mil vendidos"><div class="st-badge">YouTube</div><div class="play"></div><span>R$200 mil vendidos em cidade de 16 mil habitantes</span></div>                                <div class="story-slot" onclick="openVid('ig','DR1tEBjDWHE')"><img class="st-thumb" src="img/depoimentos/ig1.jpg" alt="Case Instagram"><div class="st-badge ig">Instagram</div><div class="play"></div><span>Case de Sucesso</span></div>                                <div class="story-slot" onclick="openVid('ig','DRzL-fwDe6R')"><img class="st-thumb" src="img/depoimentos/ig2.jpg" alt="Resultado Real"><div class="st-badge ig">Instagram</div><div class="play"></div><span>Resultado Real</span></div>                                <div class="story-slot" onclick="openVid('ig','DQuHEs5DdSp')"><img class="st-thumb" src="img/depoimentos/ig3.jpg" alt="Prova Social"><div class="st-badge ig">Instagram</div><div class="play"></div><span>Prova Social</span></div>                                <div class="story-slot" onclick="openVid('ig','DQIfSIxjRUz')"><img class="st-thumb" src="img/depoimentos/ig4.jpg" alt="Depoimento"><div class="st-badge ig">Instagram</div><div class="play"></div><span>Depoimento Cliente</span></div>
                             </div>
                         </div>
                         <button class="cb" onclick="storyMove(1)">&rarr;</button>
@@ -498,21 +481,21 @@
                 <div class="cs">
                     <div class="a d1" style="text-align:center;">
                         <p class="ey" style="justify-content:center;">Metodologia Exclusiva</p>
-                        <h2 class="bh">METODO IV OFICIAL</h2>
+                        <h2 class="bh">MÉTODO IV OFICIAL</h2>
                         <p class="bt" style="text-align:center;margin:10px auto 0;">O Ponto G do Varejo</p>
                     </div>
                     <div class="met-pills a d2">
                         <div id="pill1" class="met-pill" onclick="go(9,'down')" style="cursor:pointer">
                             <div class="mp-n">01</div>
-                            <h3>GERACAO DE<br>DEMANDA</h3>
+                            <h3>GERAÇÃO DE<br>DEMANDA</h3>
                         </div>
                         <div id="pill2" class="met-pill" onclick="go(10,'down')" style="cursor:pointer">
                             <div class="mp-n">02</div>
-                            <h3>GESTAO<br>COMERCIAL</h3>
+                            <h3>GESTÃO<br>COMERCIAL</h3>
                         </div>
                         <div id="pill3" class="met-pill" onclick="go(11,'down')" style="cursor:pointer">
                             <div class="mp-n">03</div>
-                            <h3>GESTAO DE<br>PESSOAS</h3>
+                            <h3>GESTÃO DE<br>PESSOAS</h3>
                         </div>
                     </div>
                 </div>
@@ -527,33 +510,33 @@
                         <div>
                             <div class="a d1">
                                 <p class="ey">Pilar 01</p>
-                                <h2 class="bh">GERACAO DE<br>DEMANDA</h2>
+                                <h2 class="bh">GERAÇÃO DE<br>DEMANDA</h2>
                             </div>
                             <div class="pil-cols a d2">
                                 <div class="pil-col">
-                                    <h4>Gestao de Trafego</h4>
+                                    <h4>Gestão de Tráfego</h4>
                                     <ul>
-                                        <li>Gestao completa do Meta Ads</li>
-                                        <li>Criacao e otimizacao de campanhas</li>
-                                        <li>Segmentacao estrategica de publico</li>
-                                        <li>Relatorios de performance semanais</li>
+                                        <li>Gestão completa do Meta Ads</li>
+                                        <li>Criação e otimização de campanhas</li>
+                                        <li>Segmentação estratégica de público</li>
+                                        <li>Relatórios de performance semanais</li>
                                     </ul>
                                 </div>
                                 <div class="pil-col">
-                                    <h4>Geracao de Criativos</h4>
+                                    <h4>Geração de Criativos</h4>
                                     <ul>
-                                        <li>Producao de videos e imagens</li>
-                                        <li>Criacao de copys persuasivas</li>
+                                        <li>Produção de vídeos e imagens</li>
+                                        <li>Criação de copys persuasivas</li>
                                         <li>Testes A/B de criativos</li>
                                         <li>Banco de criativos validados</li>
                                     </ul>
                                 </div>
                                 <div class="pil-col">
-                                    <h4>Geracao de Ofertas</h4>
+                                    <h4>Geração de Ofertas</h4>
                                     <ul>
-                                        <li>Criacao de ofertas estrategicas</li>
-                                        <li>Calendarios promocionais</li>
-                                        <li>Estrategias de preco e margem</li>
+                                        <li>Criação de ofertas estratégicas</li>
+                                        <li>Calendários promocionais</li>
+                                        <li>Estratégias de preço e margem</li>
                                         <li>Ofertas sazonais e datas comemorativas</li>
                                     </ul>
                                 </div>
@@ -573,34 +556,34 @@
                         <div>
                             <div class="a d1">
                                 <p class="ey">Pilar 02</p>
-                                <h2 class="bh">GESTAO<br>COMERCIAL</h2>
+                                <h2 class="bh">GESTÃO<br>COMERCIAL</h2>
                             </div>
                             <div class="pil-cols a d2">
                                 <div class="pil-col">
-                                    <h4>Gestao de Atendimento</h4>
+                                    <h4>Gestão de Atendimento</h4>
                                     <ul>
-                                        <li>Diagnostico de atendimento com consultores</li>
-                                        <li>Implantacao de rotinas de follow-up em massa</li>
+                                        <li>Diagnóstico de atendimento com consultores</li>
+                                        <li>Implantação de rotinas de follow-up em massa</li>
                                         <li>Scripts de atendimento validados</li>
                                         <li>Treinamento de equipe comercial</li>
                                     </ul>
                                 </div>
                                 <div class="pil-col">
-                                    <h4>Gestao de CRM</h4>
+                                    <h4>Gestão de CRM</h4>
                                     <ul>
                                         <li>CRM completo incluso</li>
-                                        <li>Gestao de pipeline de vendas</li>
-                                        <li>Automacoes de follow-up</li>
+                                        <li>Gestão de pipeline de vendas</li>
+                                        <li>Automações de follow-up</li>
                                         <li>Dashboards de acompanhamento</li>
                                     </ul>
                                 </div>
                                 <div class="pil-col">
-                                    <h4>Gestao de Metas</h4>
+                                    <h4>Gestão de Metas</h4>
                                     <ul>
-                                        <li>Definicao e acompanhamento de metas</li>
+                                        <li>Definição e acompanhamento de metas</li>
                                         <li>Indicadores de performance (KPIs)</li>
-                                        <li>Reunioes semanais de resultado</li>
-                                        <li>Estrategias de conversao</li>
+                                        <li>Reuniões semanais de resultado</li>
+                                        <li>Estratégias de conversão</li>
                                     </ul>
                                 </div>
                             </div>
@@ -619,34 +602,34 @@
                         <div>
                             <div class="a d1">
                                 <p class="ey">Pilar 03</p>
-                                <h2 class="bh">GESTAO DE<br>PESSOAS</h2>
+                                <h2 class="bh">GESTÃO DE<br>PESSOAS</h2>
                             </div>
                             <div class="pil-cols a d2">
                                 <div class="pil-col">
-                                    <h4>Gestao de Cultura</h4>
+                                    <h4>Gestão de Cultura</h4>
                                     <ul>
-                                        <li>Implantacao de cultura organizacional</li>
-                                        <li>Rituais de gestao e alinhamento</li>
+                                        <li>Implantação de cultura organizacional</li>
+                                        <li>Rituais de gestão e alinhamento</li>
                                         <li>Fortalecimento de valores da equipe</li>
-                                        <li>Engajamento e motivacao do time</li>
+                                        <li>Engajamento e motivação do time</li>
                                     </ul>
                                 </div>
                                 <div class="pil-col">
                                     <h4>Perfil Comportamental</h4>
                                     <ul>
-                                        <li>Aplicacao do teste DISC em toda equipe</li>
+                                        <li>Aplicação do teste DISC em toda equipe</li>
                                         <li>Mapeamento de perfis comportamentais</li>
-                                        <li>Adequacao de funcoes ao perfil</li>
+                                        <li>Adequação de funções ao perfil</li>
                                         <li>Desenvolvimento individual</li>
                                     </ul>
                                 </div>
                                 <div class="pil-col">
-                                    <h4>Novas Contratacoes</h4>
+                                    <h4>Novas Contratações</h4>
                                     <ul>
                                         <li>Processo seletivo estruturado</li>
                                         <li>Onboarding de novos colaboradores</li>
-                                        <li>Estrategias de retencao de talentos</li>
-                                        <li>Gestao de RH estrategico</li>
+                                        <li>Estratégias de retenção de talentos</li>
+                                        <li>Gestão de RH estratégico</li>
                                     </ul>
                                 </div>
                             </div>
@@ -668,52 +651,52 @@
                     <div class="pl-grid a d2" style="margin-top:40px;">
                         <div class="pl">
                             <h3 class="pl-name">GLACIAL</h3>
-                            <p class="pl-type">Gestao de Trafego</p>
+                            <p class="pl-type">Gestão de Tráfego</p>
                             <ul class="pl-feat">
-                                <li>Criacao de campanhas Meta Ads</li>
-                                <li>Otimizacao continua</li>
-                                <li>Relatorios semanais</li>
-                                <li>Segmentacoes estrategicas</li>
-                                <li>Ajustes de lances e orcamentos</li>
+                                <li>Criação de campanhas Meta Ads</li>
+                                <li>Otimização contínua</li>
+                                <li>Relatórios semanais</li>
+                                <li>Segmentações estratégicas</li>
+                                <li>Ajustes de lances e orçamentos</li>
                             </ul>
-                            <button class="reveal-btn" onclick="openPrice('GLACIAL','Gestao de Trafego','A partir de')">REVELAR PRECO</button>
+                            <button class="reveal-btn" onclick="openPrice('GLACIAL','Gestão de Tráfego','A partir de')">REVELAR PREÇO</button>
                         </div>
                         <div class="pl">
-                            <h3 class="pl-name">ARTICO</h3>
-                            <p class="pl-type">Trafego + Criativos + Ofertas</p>
+                            <h3 class="pl-name">ÁRTICO</h3>
+                            <p class="pl-type">Tráfego + Criativos + Ofertas</p>
                             <ul class="pl-feat">
                                 <li>Tudo do Glacial</li>
-                                <li>Criacao de todos os materiais</li>
-                                <li>Videos promocionais</li>
-                                <li>Design de materiais estaticos</li>
+                                <li>Criação de todos os materiais</li>
+                                <li>Vídeos promocionais</li>
+                                <li>Design de materiais estáticos</li>
                                 <li>Copy e roteiros de vendas</li>
                             </ul>
-                            <button class="reveal-btn" onclick="openPrice('ARTICO','Trafego + Criativos + Ofertas','A partir de')">REVELAR PRECO</button>
+                            <button class="reveal-btn" onclick="openPrice('ÁRTICO','Tráfego + Criativos + Ofertas','A partir de')">REVELAR PREÇO</button>
                         </div>
                         <div class="pl feat">
                             <div class="pl-badge">Mais Completo</div>
-                            <h3 class="pl-name">ATLANTICO</h3>
+                            <h3 class="pl-name">ATLÂNTICO</h3>
                             <p class="pl-type">Demanda + Comercial + Pessoas</p>
                             <ul class="pl-feat">
-                                <li>Tudo do Artico incluso</li>
-                                <li>Diagnostico de atendimento</li>
+                                <li>Tudo do Ártico incluso</li>
+                                <li>Diagnóstico de atendimento</li>
                                 <li>CRM completo incluso</li>
                                 <li>Metas e acompanhamento</li>
-                                <li>Gestao de cultura e equipe</li>
+                                <li>Gestão de cultura e equipe</li>
                             </ul>
-                            <button class="reveal-btn" onclick="openPrice('ATLANTICO','Demanda + Comercial + Pessoas','A partir de')">REVELAR PRECO</button>
+                            <button class="reveal-btn" onclick="openPrice('ATLÂNTICO','Demanda + Comercial + Pessoas','A partir de')">REVELAR PREÇO</button>
                         </div>
                         <div class="pl">
-                            <h3 class="pl-name">PACIFICO</h3>
-                            <p class="pl-type">Experiencia Premium</p>
+                            <h3 class="pl-name">PACÍFICO</h3>
+                            <p class="pl-type">Experiência Premium</p>
                             <ul class="pl-feat">
-                                <li>Tudo do Atlantico</li>
-                                <li>Gestao Multiplataforma</li>
+                                <li>Tudo do Atlântico</li>
+                                <li>Gestão Multiplataforma</li>
                                 <li>Google Ads + YouTube Ads</li>
                                 <li>Consultores dedicados</li>
-                                <li>Reunioes semanais</li>
+                                <li>Reuniões semanais</li>
                             </ul>
-                            <button class="reveal-btn" onclick="openPrice('PACIFICO','Experiencia Premium','A partir de')">REVELAR PRECO</button>
+                            <button class="reveal-btn" onclick="openPrice('PACÍFICO','Experiência Premium','A partir de')">REVELAR PREÇO</button>
                         </div>
                     </div>
                 </div>
@@ -725,13 +708,13 @@
             <div class="si">
                 <div class="cs">
                     <div class="a d1">
-                        <p class="ey">Exclusivo Atlantico e Pacifico</p>
+                        <p class="ey">Exclusivo Atlântico e Pacífico</p>
                         <h2 class="bh">CONTRATO DE<br>GARANTIA</h2>
                     </div>
                     <div class="gar-box a d2" style="margin-top:40px;">
                         <span class="gar-badge">GARANTIA</span>
-                        <p class="bt">Se seguir o passo a passo e seu faturamento nao dobrar em 6 meses, trabalhamos por mais 6 meses <strong>totalmente de graca</strong> pra voce!</p>
-                        <p class="bt" style="margin-top:20px;"><strong>Risco zero. Confianca total.</strong></p>
+                        <p class="bt">Se seguir o passo a passo e seu faturamento não dobrar em 6 meses, trabalhamos por mais 6 meses <strong>totalmente de graça</strong> pra você!</p>
+                        <p class="bt" style="margin-top:20px;"><strong>Risco zero. Confiança total.</strong></p>
                     </div>
                 </div>
             </div>
@@ -742,14 +725,14 @@
             <div class="si">
                 <div class="cs">
                     <div class="a d1">
-                        <p class="ey">Isencao de Mensalidade</p>
+                        <p class="ey">Isenção de Mensalidade</p>
                         <h2 class="bh">PROJETO TMP</h2>
                         <p class="bt" style="margin-top:10px;">Tripulante Mensageiro da Prosperidade</p>
                     </div>
                     <div class="tmp-box a d2" style="margin-top:40px;">
                         <div class="tmp-perc">25%</div>
-                        <p class="bt">A cada indicacao que fizer, voce ganha <strong>25% de isencao</strong> da sua mensalidade.</p>
-                        <p class="bt" style="margin-top:20px;"><strong>4 indicacoes = mensalidade gratis</strong></p>
+                        <p class="bt">A cada indicação que fizer, você ganha <strong>25% de isenção</strong> da sua mensalidade.</p>
+                        <p class="bt" style="margin-top:20px;"><strong>4 indicações = mensalidade grátis</strong></p>
                     </div>
                 </div>
             </div>
@@ -778,6 +761,7 @@
         </div>
     </div>
 
+<!-- VIDEO MODAL -->    <div class="vid-modal" id="vidModal" onclick="closeVid(event)">        <div class="vid-modal-close" onclick="closeVid()">&times;</div>        <div class="vid-modal-content" id="vidContent"></div>    </div>
     <script>
         // LOADER
         window.addEventListener('load',()=>{
@@ -956,6 +940,7 @@
         document.addEventListener('keydown',e=>{
             if(e.key==='Escape')document.getElementById('priceModal').classList.remove('show')
         });
+// VIDEO MODAL        function openVid(type, id){            const modal=document.getElementById("vidModal");            const content=document.getElementById("vidContent");            if(type==="yt"){                content.className="vid-modal-content";                content.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0" allow="autoplay;encrypted-media" allowfullscreen></iframe>';            }else{                content.className="vid-modal-content";                content.innerHTML='<iframe src="https://www.instagram.com/p/'+id+'/embed/" allowfullscreen></iframe>';            }            modal.classList.add("active");            document.body.style.overflow="hidden";        }        function closeVid(e){            if(e && e.target!==e.currentTarget && !e.target.classList.contains("vid-modal-close")) return;            const modal=document.getElementById("vidModal");            const content=document.getElementById("vidContent");            modal.classList.remove("active");            content.innerHTML="";            document.body.style.overflow="";        }        document.addEventListener("keydown",function(e){if(e.key==="Escape")closeVid();});
     </script>
 </body>
 </html>
