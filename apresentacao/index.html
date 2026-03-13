@@ -158,12 +158,24 @@
         .met-pill h3{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin-top:8px}
 
         /* 9-11 PILAR */
-        .pil-detail{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+        .pil-detail{display:grid;grid-template-columns:1fr;gap:20px;align-items:start;position:relative}
         .pil-items{list-style:none;margin-top:24px}
         .pil-items li{font-size:15px;color:var(--gray);padding:12px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:center;gap:14px}
         .pil-items li::before{content:'';width:6px;height:6px;background:var(--red);border-radius:50%;flex-shrink:0}
         .pil-items li:last-child{border-bottom:none}
-        .pil-big-n{font-family:'Bebas Neue',sans-serif;font-size:20vw;color:rgba(228,10,45,.06);line-height:1;text-align:center}
+        .pil-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:24px}
+        .pil-col h4{color:var(--red);font-size:14px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;font-weight:700}
+        .pil-col ul{list-style:none;padding:0}
+        .pil-col li{font-size:14px;color:var(--gray);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:center;gap:10px}
+        .pil-col li::before{content:'';width:5px;height:5px;background:var(--red);border-radius:50%;flex-shrink:0}
+        .pil-col li:last-child{border-bottom:none}
+        @media(max-width:768px){.pil-cols{grid-template-columns:1fr;gap:20px}.pil-col h4{font-size:13px}.pil-col li{font-size:13px}}
+        .pil-big-n{font-family:'Bebas Neue',sans-serif;font-size:20vw;color:rgba(228,10,45,.06);line-height:1;text-align:right;position:absolute;right:0;top:50%;transform:translateY(-50%);pointer-events:none;z-index:0}
+        .pil-detail>div:first-child{position:relative;z-index:1}
+
+        .met-pill.visited{border-color:var(--red);background:rgba(228,10,45,.05)}
+        .met-pill.visited::before{transform:scaleX(1)}
+        .met-pill.visited .mp-n{color:var(--red)}
 
         /* 12 PLANOS */
         .pl-bg{position:absolute;inset:0;background:var(--dark2)}
@@ -490,15 +502,15 @@
                         <p class="bt" style="text-align:center;margin:10px auto 0;">O Ponto G do Varejo</p>
                     </div>
                     <div class="met-pills a d2">
-                        <div class="met-pill">
+                        <div id="pill1" class="met-pill" onclick="go(9,'down')" style="cursor:pointer">
                             <div class="mp-n">01</div>
                             <h3>GERACAO DE<br>DEMANDA</h3>
                         </div>
-                        <div class="met-pill">
+                        <div id="pill2" class="met-pill" onclick="go(10,'down')" style="cursor:pointer">
                             <div class="mp-n">02</div>
                             <h3>GESTAO<br>COMERCIAL</h3>
                         </div>
-                        <div class="met-pill">
+                        <div id="pill3" class="met-pill" onclick="go(11,'down')" style="cursor:pointer">
                             <div class="mp-n">03</div>
                             <h3>GESTAO DE<br>PESSOAS</h3>
                         </div>
@@ -517,14 +529,35 @@
                                 <p class="ey">Pilar 01</p>
                                 <h2 class="bh">GERACAO DE<br>DEMANDA</h2>
                             </div>
-                            <ul class="pil-items a d2">
-                                <li>Geracao de Ofertas Estrategicas</li>
-                                <li>Geracao de Criativos (Videos, Imagens, Copy)</li>
-                                <li>Gestao de Trafego Pago (Meta Ads)</li>
-                                <li>Otimizacao Continua Baseada em Resultados</li>
-                                <li>Relatorios de Performance Semanais</li>
-                                <li>Definicao de Segmentacoes Estrategicas</li>
-                            </ul>
+                            <div class="pil-cols a d2">
+                                <div class="pil-col">
+                                    <h4>Gestao de Trafego</h4>
+                                    <ul>
+                                        <li>Gestao completa do Meta Ads</li>
+                                        <li>Criacao e otimizacao de campanhas</li>
+                                        <li>Segmentacao estrategica de publico</li>
+                                        <li>Relatorios de performance semanais</li>
+                                    </ul>
+                                </div>
+                                <div class="pil-col">
+                                    <h4>Geracao de Criativos</h4>
+                                    <ul>
+                                        <li>Producao de videos e imagens</li>
+                                        <li>Criacao de copys persuasivas</li>
+                                        <li>Testes A/B de criativos</li>
+                                        <li>Banco de criativos validados</li>
+                                    </ul>
+                                </div>
+                                <div class="pil-col">
+                                    <h4>Geracao de Ofertas</h4>
+                                    <ul>
+                                        <li>Criacao de ofertas estrategicas</li>
+                                        <li>Calendarios promocionais</li>
+                                        <li>Estrategias de preco e margem</li>
+                                        <li>Ofertas sazonais e datas comemorativas</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                         <div class="pil-big-n a d3">01</div>
                     </div>
@@ -542,13 +575,35 @@
                                 <p class="ey">Pilar 02</p>
                                 <h2 class="bh">GESTAO<br>COMERCIAL</h2>
                             </div>
-                            <ul class="pil-items a d2">
-                                <li>Diagnostico de Atendimento com Consultores</li>
-                                <li>CRM Completo Incluso</li>
-                                <li>Gestao de CRM e Pipeline</li>
-                                <li>Desenvolvimento e Acompanhamento de Metas</li>
-                                <li>Estrategias de Conversao</li>
-                            </ul>
+                            <div class="pil-cols a d2">
+                                <div class="pil-col">
+                                    <h4>Gestao de Atendimento</h4>
+                                    <ul>
+                                        <li>Diagnostico de atendimento com consultores</li>
+                                        <li>Implantacao de rotinas de follow-up em massa</li>
+                                        <li>Scripts de atendimento validados</li>
+                                        <li>Treinamento de equipe comercial</li>
+                                    </ul>
+                                </div>
+                                <div class="pil-col">
+                                    <h4>Gestao de CRM</h4>
+                                    <ul>
+                                        <li>CRM completo incluso</li>
+                                        <li>Gestao de pipeline de vendas</li>
+                                        <li>Automacoes de follow-up</li>
+                                        <li>Dashboards de acompanhamento</li>
+                                    </ul>
+                                </div>
+                                <div class="pil-col">
+                                    <h4>Gestao de Metas</h4>
+                                    <ul>
+                                        <li>Definicao e acompanhamento de metas</li>
+                                        <li>Indicadores de performance (KPIs)</li>
+                                        <li>Reunioes semanais de resultado</li>
+                                        <li>Estrategias de conversao</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                         <div class="pil-big-n a d3">02</div>
                     </div>
@@ -566,13 +621,35 @@
                                 <p class="ey">Pilar 03</p>
                                 <h2 class="bh">GESTAO DE<br>PESSOAS</h2>
                             </div>
-                            <ul class="pil-items a d2">
-                                <li>Gestao de Cultura Organizacional</li>
-                                <li>Gestao de Perfil Comportamental</li>
-                                <li>Treinamento de Equipe Comercial</li>
-                                <li>Estrategias de Contratacao e Recrutamento</li>
-                                <li>Gestao de RH Estrategico</li>
-                            </ul>
+                            <div class="pil-cols a d2">
+                                <div class="pil-col">
+                                    <h4>Gestao de Cultura</h4>
+                                    <ul>
+                                        <li>Implantacao de cultura organizacional</li>
+                                        <li>Rituais de gestao e alinhamento</li>
+                                        <li>Fortalecimento de valores da equipe</li>
+                                        <li>Engajamento e motivacao do time</li>
+                                    </ul>
+                                </div>
+                                <div class="pil-col">
+                                    <h4>Perfil Comportamental</h4>
+                                    <ul>
+                                        <li>Aplicacao do teste DISC em toda equipe</li>
+                                        <li>Mapeamento de perfis comportamentais</li>
+                                        <li>Adequacao de funcoes ao perfil</li>
+                                        <li>Desenvolvimento individual</li>
+                                    </ul>
+                                </div>
+                                <div class="pil-col">
+                                    <h4>Novas Contratacoes</h4>
+                                    <ul>
+                                        <li>Processo seletivo estruturado</li>
+                                        <li>Onboarding de novos colaboradores</li>
+                                        <li>Estrategias de retencao de talentos</li>
+                                        <li>Gestao de RH estrategico</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                         <div class="pil-big-n a d3">03</div>
                     </div>
@@ -729,17 +806,21 @@
         let C=0,busy=false;
         document.getElementById('tot').textContent=T;
 
+        var pillMap={9:'pill1',10:'pill2',11:'pill3'};
+
         function go(i,direction){
+            // Hub: Pilar 1/2 forward → volta pro Método, Pilar 3 avança normal
+            var from=C;
+            if(direction==='down'&&(C===9||C===10)&&i===C+1){i=8;direction='up'}
             if(i===C||busy||i<0||i>=T)return;
             busy=true;
-            // Determine direction: down (forward) or up (backward)
-            const goingDown = (direction !== undefined) ? direction === 'down' : i > C;
+            var goingDown = (direction !== undefined) ? direction === 'down' : i > C;
 
             ss.forEach(s=>{
                 s.classList.remove('enter-down','enter-up','leave-down','leave-up');
                 s.style.animation='';
             });
-            const old=ss[C],nw=ss[i];
+            var old=ss[C],nw=ss[i];
             old.classList.remove('on');
             old.classList.add(goingDown ? 'leave-down' : 'leave-up');
             nw.classList.add('on', goingDown ? 'enter-down' : 'enter-up');
@@ -747,10 +828,15 @@
             ui();
             if(i===4)aCnt();
 
+            // Mark pill as visited when returning to hub from a pilar
+            if(i===8&&pillMap[from]){
+                document.getElementById(pillMap[from]).classList.add('visited');
+            }
+
             // Hide scroll hint after first interaction
             if(scrollHint)scrollHint.classList.add('hide');
 
-            setTimeout(()=>{
+            setTimeout(function(){
                 old.classList.remove('leave-down','leave-up');
                 nw.classList.remove('enter-down','enter-up');
                 busy=false
