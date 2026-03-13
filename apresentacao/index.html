@@ -194,7 +194,7 @@
 
         /* 12 PLANOS */
         .pl-bg{position:absolute;inset:0;background:var(--dark2)}
-        .pl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;z-index:1}
+        .pl-grid{display:grid;grid-template-columns:repeat(3,1fr);max-width:1100px;margin:0 auto;gap:0;position:relative;z-index:1}
         .pl{border:1px solid rgba(255,255,255,.05);padding:28px 20px;position:relative;transition:all .5s;overflow:hidden}
         .pl::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(228,10,45,.06),transparent 50%);opacity:0;transition:opacity .5s}
         .pl:hover::before{opacity:1}
@@ -659,23 +659,6 @@
                     </div>
                     <div class="pl-grid a d2" style="margin-top:40px;">
                         <div class="pl">
-                            <h3 class="pl-name">GLACIAL</h3>
-                            <p class="pl-type">Gestão de Tráfego</p>
-                            <ul class="pl-feat">
-                                <li>Criação de campanhas Meta Ads</li>
-                                <li>Otimização contínua</li>
-                                <li>Relatórios semanais</li>
-                                <li>Segmentações estratégicas</li>
-                                <li>Ajustes de lances e orçamentos</li>
-                            </ul>
-                            <button class="reveal-btn" onclick="revealPrice(this,'GLACIAL')">REVELAR PREÇO</button>
-                            <div class="pl-price-box" id="priceGlacial">
-                                <div class="pl-price-val">R$ 1.397</div>
-                                <div class="pl-price-per">por mês · 6 meses</div>
-                                <div class="pl-price-pay">Cartão: <span>6x R$ 1.197</span></div>
-                            </div>
-                        </div>
-                        <div class="pl">
                             <h3 class="pl-name">ÁRTICO</h3>
                             <p class="pl-type">Tráfego + Criativos + Ofertas</p>
                             <ul class="pl-feat">
@@ -851,6 +834,10 @@
             // Hide scroll hint after first interaction
             if(scrollHint)scrollHint.classList.add('hide');
 
+            // Show Glacial promo popup on Plans slide
+            if(i===12)setTimeout(function(){document.getElementById('ofertaPopup').classList.add('show')},800);
+            if(i!==12)document.getElementById('ofertaPopup').classList.remove('show');
+
             setTimeout(function(){
                 old.classList.remove('leave-down','leave-up');
                 nw.classList.remove('enter-down','enter-up');
@@ -960,9 +947,6 @@
             btn.style.display='none';
             var box=btn.nextElementSibling;
             box.classList.add('show');
-            if(plan==='GLACIAL'){
-                setTimeout(function(){document.getElementById('ofertaPopup').classList.add('show')},600);
-            }
         }
 
 
