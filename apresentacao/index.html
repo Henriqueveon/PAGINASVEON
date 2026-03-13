@@ -43,6 +43,26 @@
         .arr{width:36px;height:36px;border:1px solid rgba(255,255,255,.1);background:none;color:var(--white);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
         .arr:hover{background:var(--red);border-color:var(--red)}
 
+        /* HAMBURGER */
+        .hamburger{width:40px;height:40px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;margin-left:12px;z-index:1002}
+        .hamburger span{display:block;width:22px;height:2px;background:var(--white);transition:all .3s}
+        .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+        .hamburger.open span:nth-child(2){opacity:0}
+        .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+        .menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);z-index:999;opacity:0;visibility:hidden;transition:all .3s}
+        .menu-overlay.open{opacity:1;visibility:visible}
+        .menu-panel{position:fixed;top:0;right:-320px;width:320px;height:100vh;background:rgba(10,10,10,.98);border-left:1px solid rgba(228,10,45,.2);z-index:1001;transition:right .4s cubic-bezier(.25,1,.5,1);padding:80px 30px 30px;overflow-y:auto}
+        .menu-panel.open{right:0}
+        .menu-item{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer;transition:all .3s}
+        .menu-item:hover{padding-left:10px}
+        .menu-item:hover .menu-num{color:var(--red);opacity:1}
+        .menu-item:hover .menu-label{color:var(--white)}
+        .menu-item.active .menu-num{color:var(--red);opacity:1}
+        .menu-item.active .menu-label{color:var(--white)}
+        .menu-item.active{border-left:2px solid var(--red);padding-left:12px}
+        .menu-num{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--red);opacity:.4;letter-spacing:1px;min-width:28px}
+        .menu-label{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;transition:color .3s}
+
         /* PROGRESS */
         .prog{position:fixed;top:56px;left:0;right:0;height:2px;background:rgba(255,255,255,.03);z-index:999}
         .prog-fill{height:100%;background:var(--red);transition:width .5s cubic-bezier(.25,1,.5,1);box-shadow:0 0 10px var(--red-glow)}
@@ -298,8 +318,30 @@
             <div class="sc"><span id="cur">01</span> / <b id="tot">15</b></div>
             <button id="prev" class="arr">&larr;</button>
             <button id="next" class="arr">&rarr;</button>
+            <button class="hamburger" id="hambBtn" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
+
+    <div class="menu-overlay" id="menuOv" onclick="toggleMenu()"></div>
+    <div class="menu-panel" id="menuPanel">
+        <div class="menu-item active" onclick="menuGo(0)"><span class="menu-num">01</span><span class="menu-label">Início</span></div>
+        <div class="menu-item" onclick="menuGo(1)"><span class="menu-num">02</span><span class="menu-label">DNA</span></div>
+        <div class="menu-item" onclick="menuGo(2)"><span class="menu-num">03</span><span class="menu-label">Sobre</span></div>
+        <div class="menu-item" onclick="menuGo(3)"><span class="menu-num">04</span><span class="menu-label">História</span></div>
+        <div class="menu-item" onclick="menuGo(4)"><span class="menu-num">05</span><span class="menu-label">Números</span></div>
+        <div class="menu-item" onclick="menuGo(5)"><span class="menu-num">06</span><span class="menu-label">Equipe</span></div>
+        <div class="menu-item" onclick="menuGo(6)"><span class="menu-num">07</span><span class="menu-label">Provas</span></div>
+        <div class="menu-item" onclick="menuGo(7)"><span class="menu-num">08</span><span class="menu-label">Vídeos</span></div>
+        <div class="menu-item" onclick="menuGo(8)"><span class="menu-num">09</span><span class="menu-label">Método</span></div>
+        <div class="menu-item" onclick="menuGo(9)"><span class="menu-num">10</span><span class="menu-label">Pilar 1</span></div>
+        <div class="menu-item" onclick="menuGo(10)"><span class="menu-num">11</span><span class="menu-label">Pilar 2</span></div>
+        <div class="menu-item" onclick="menuGo(11)"><span class="menu-num">12</span><span class="menu-label">Pilar 3</span></div>
+        <div class="menu-item" onclick="menuGo(12)"><span class="menu-num">13</span><span class="menu-label">Planos</span></div>
+        <div class="menu-item" onclick="menuGo(13)"><span class="menu-num">14</span><span class="menu-label">Garantia</span></div>
+        <div class="menu-item" onclick="menuGo(14)"><span class="menu-num">15</span><span class="menu-label">TMP</span></div>
+    </div>
 
     <div class="prog">
         <div id="pf" class="prog-fill"></div>
@@ -829,6 +871,7 @@
             tabs.forEach(t=>t.classList.toggle('on',+t.dataset.s===C));
             pf.style.width=((C/(T-1))*100)+'%';
             curEl.textContent=String(C+1).padStart(2,'0');
+            updateMenuActive(C);
             const at=document.querySelector('.tab.on');
             if(at)at.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
         }
@@ -920,6 +963,24 @@
             stPos=Math.max(0,Math.min(maxPos,stPos+dir));
             const slotW=track.querySelector('.story-slot').offsetWidth+18;
             track.style.transform='translateX(-'+stPos*slotW+'px)';
+        }
+
+        // HAMBURGER MENU
+        function toggleMenu(){
+            document.getElementById('hambBtn').classList.toggle('open');
+            document.getElementById('menuOv').classList.toggle('open');
+            document.getElementById('menuPanel').classList.toggle('open');
+        }
+        function menuGo(i){
+            toggleMenu();
+            go(i,'down');
+        }
+        function updateMenuActive(i){
+            var items=document.querySelectorAll('.menu-item');
+            items.forEach(function(el,idx){
+                if(idx===i)el.classList.add('active');
+                else el.classList.remove('active');
+            });
         }
 
         // TOGGLE OFERTA
