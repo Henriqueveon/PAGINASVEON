@@ -209,26 +209,27 @@
         .pl-feat li::before{content:'—';color:var(--red);font-weight:700;flex-shrink:0}
         .reveal-btn{margin-top:16px;width:100%;padding:12px;border:1px solid var(--red);background:none;color:var(--red);font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:all .3s}
         .reveal-btn:hover{background:var(--red);color:var(--white)}
+        .pl-price-box{margin-top:16px;text-align:center;display:none;animation:priceReveal .5s ease}
+        .pl-price-box.show{display:block}
+        @keyframes priceReveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+        .pl-price-val{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--red);line-height:1}
+        .pl-price-per{font-size:9px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+        .pl-price-pay{font-size:9px;color:rgba(255,255,255,.4);margin-top:8px;line-height:1.5}
+        .pl-price-pay span{color:var(--red);font-weight:600}
 
-        /* MODAL */
-        .price-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:5000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .3s;backdrop-filter:blur(6px)}
-        .price-modal-overlay.show{opacity:1;visibility:visible}
-        .price-modal{background:var(--dark2);border:1px solid rgba(228,10,45,.4);padding:44px 48px;text-align:center;position:relative;max-width:480px;width:92%;transform:scale(.9);transition:transform .3s;border-radius:4px}
-        .price-modal-overlay.show .price-modal{transform:scale(1)}
-        .price-modal-close{position:absolute;top:14px;right:14px;background:none;border:none;color:var(--gray);font-size:22px;cursor:pointer;transition:color .3s;width:36px;height:36px;display:flex;align-items:center;justify-content:center}
-        .price-modal-close:hover{color:var(--white)}
-        .price-modal .pm-plan{font-family:'Bebas Neue',sans-serif;font-size:38px;letter-spacing:3px;margin-bottom:4px}
-        .price-modal .pm-type{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:20px}
-        .price-modal .pm-total{font-size:11px;color:var(--gray);letter-spacing:1px;margin-bottom:6px}
-        .price-modal .pm-total strong{color:rgba(255,255,255,.6)}
-        .price-modal .pm-price{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,8vw,72px);color:var(--red);line-height:1}
-        .price-modal .pm-period{font-size:11px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;margin-top:6px;margin-bottom:24px}
-        .pm-payments{text-align:left;border-top:1px solid rgba(255,255,255,.06);padding-top:20px}
-        .pm-payments h4{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:14px;font-weight:700}
-        .pm-pay-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:12px}
-        .pm-pay-method{color:var(--gray)}
-        .pm-pay-value{color:var(--white);font-weight:600}
-        .pm-pay-discount{font-size:9px;color:rgba(228,10,45,.7);margin-left:8px;font-weight:400}
+        /* OFERTA POPUP GLACIAL */
+        .oferta-popup{position:fixed;bottom:24px;right:24px;z-index:4000;background:var(--dark2);border:1px solid var(--red);border-radius:6px;padding:20px 28px;text-align:center;box-shadow:0 8px 40px rgba(228,10,45,.25);animation:ofertaIn .6s ease;display:none}
+        .oferta-popup.show{display:block}
+        @keyframes ofertaIn{from{opacity:0;transform:translateY(30px) scale(.9)}to{opacity:1;transform:translateY(0) scale(1)}}
+        .oferta-popup-close{position:absolute;top:8px;right:10px;background:none;border:none;color:var(--gray);font-size:16px;cursor:pointer;transition:color .3s}
+        .oferta-popup-close:hover{color:var(--white)}
+        .oferta-tag{display:inline-block;background:var(--red);color:var(--white);font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:10px}
+        .oferta-plan{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--white);margin-bottom:4px}
+        .oferta-old{font-size:14px;color:var(--gray);text-decoration:line-through;margin-bottom:2px}
+        .oferta-new{font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--red);line-height:1}
+        .oferta-period{font-size:9px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+        .oferta-cta{display:inline-block;margin-top:12px;padding:10px 28px;background:var(--red);color:var(--white);font-family:'Inter',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .3s;border-radius:2px}
+        .oferta-cta:hover{background:#c9082d}
 
         /* 13 GARANTIA */
         .gar-box{border:1px solid rgba(228,10,45,.3);padding:50px 60px;max-width:700px;position:relative}
@@ -667,7 +668,12 @@
                                 <li>Segmentações estratégicas</li>
                                 <li>Ajustes de lances e orçamentos</li>
                             </ul>
-                            <button class="reveal-btn" onclick="openPrice('GLACIAL','Gestão de Tráfego','A partir de')">REVELAR PREÇO</button>
+                            <button class="reveal-btn" onclick="revealPrice(this,'GLACIAL')">REVELAR PREÇO</button>
+                            <div class="pl-price-box" id="priceGlacial">
+                                <div class="pl-price-val">R$ 1.397</div>
+                                <div class="pl-price-per">por mês · 6 meses</div>
+                                <div class="pl-price-pay">Cartão: <span>6x R$ 1.197</span></div>
+                            </div>
                         </div>
                         <div class="pl">
                             <h3 class="pl-name">ÁRTICO</h3>
@@ -679,7 +685,12 @@
                                 <li>Design de materiais estáticos</li>
                                 <li>Copy e roteiros de vendas</li>
                             </ul>
-                            <button class="reveal-btn" onclick="openPrice('ÁRTICO','Tráfego + Criativos + Ofertas','A partir de')">REVELAR PREÇO</button>
+                            <button class="reveal-btn" onclick="revealPrice(this,'ÁRTICO')">REVELAR PREÇO</button>
+                            <div class="pl-price-box" id="priceArtico">
+                                <div class="pl-price-val">R$ 1.697</div>
+                                <div class="pl-price-per">por mês · 6 meses</div>
+                                <div class="pl-price-pay">Cartão: <span>6x R$ 1.497</span></div>
+                            </div>
                         </div>
                         <div class="pl feat">
                             <div class="pl-badge">Mais Completo</div>
@@ -692,7 +703,12 @@
                                 <li>Metas e acompanhamento</li>
                                 <li>Gestão de cultura e equipe</li>
                             </ul>
-                            <button class="reveal-btn" onclick="openPrice('ATLÂNTICO','Demanda + Comercial + Pessoas','A partir de')">REVELAR PREÇO</button>
+                            <button class="reveal-btn" onclick="revealPrice(this,'ATLÂNTICO')">REVELAR PREÇO</button>
+                            <div class="pl-price-box" id="priceAtlantico">
+                                <div class="pl-price-val">R$ 1.997</div>
+                                <div class="pl-price-per">por mês · 6 meses</div>
+                                <div class="pl-price-pay">Cartão: <span>6x R$ 1.797</span></div>
+                            </div>
                         </div>
                         <div class="pl">
                             <h3 class="pl-name">PACÍFICO</h3>
@@ -704,7 +720,12 @@
                                 <li>Consultores dedicados</li>
                                 <li>Reuniões semanais</li>
                             </ul>
-                            <button class="reveal-btn" onclick="openPrice('PACÍFICO','Experiência Premium','A partir de')">REVELAR PREÇO</button>
+                            <button class="reveal-btn" onclick="revealPrice(this,'PACÍFICO')">REVELAR PREÇO</button>
+                            <div class="pl-price-box" id="pricePacifico">
+                                <div class="pl-price-val">R$ 2.597</div>
+                                <div class="pl-price-per">por mês · 6 meses</div>
+                                <div class="pl-price-pay">Cartão: <span>6x R$ 2.397</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -772,6 +793,18 @@
     </div>
 
 <div class="vid-overlay" id="vidOv" onclick="if(event.target===this)closeV()">        <div class="vid-overlay-box" id="vidBox"></div>        <div class="vid-overlay-x" onclick="closeV()">&times;</div>    </div>
+
+    <!-- OFERTA POPUP GLACIAL -->
+    <div class="oferta-popup" id="ofertaPopup">
+        <button class="oferta-popup-close" onclick="document.getElementById('ofertaPopup').classList.remove('show')">&times;</button>
+        <div class="oferta-tag">Oferta Especial</div>
+        <div class="oferta-plan">PLANO GLACIAL</div>
+        <div class="oferta-old">R$ 1.397/mês</div>
+        <div class="oferta-new">R$ 799</div>
+        <div class="oferta-period">por mês &middot; 6 meses</div>
+        <a class="oferta-cta" href="https://wa.me/5521999999999?text=Quero%20o%20Plano%20Glacial%20Promocional" target="_blank">Quero essa oferta</a>
+    </div>
+
     <script>
         // LOADER
         window.addEventListener('load',()=>{
@@ -932,6 +965,16 @@
             stPos=Math.max(0,Math.min(maxPos,stPos+dir));
             const slotW=track.querySelector('.story-slot').offsetWidth+18;
             track.style.transform='translateX(-'+stPos*slotW+'px)';
+        }
+
+        // REVEAL PRICE INLINE
+        function revealPrice(btn,plan){
+            btn.style.display='none';
+            var box=btn.nextElementSibling;
+            box.classList.add('show');
+            if(plan==='GLACIAL'){
+                setTimeout(function(){document.getElementById('ofertaPopup').classList.add('show')},600);
+            }
         }
 
         // MODAL PRECO
