@@ -154,7 +154,12 @@
         .story-slot.ig-card{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);border-color:rgba(228,10,45,.15)}
         .story-slot.ig-card .play{border-color:rgba(255,255,255,.6)}
         .story-slot.ig-card::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;background:radial-gradient(circle,rgba(228,10,45,.12) 0%,transparent 70%);pointer-events:none}
-        .story-slot iframe{position:absolute;inset:0;width:100%;height:100%;border:none;z-index:3;border-radius:12px}
+        .vid-overlay{position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:9999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
+        .vid-overlay.open{display:flex}
+        .vid-overlay-box{width:min(420px,90vw);height:min(750px,88vh);border-radius:14px;overflow:hidden;background:#000;position:relative}
+        .vid-overlay-box iframe{width:100%;height:100%;border:none}
+        .vid-overlay-x{position:absolute;top:14px;right:14px;width:44px;height:44px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.2);border-radius:50%;color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10001;transition:background .3s}
+        .vid-overlay-x:hover{background:var(--red);border-color:var(--red)}
 
         /* 8 METODO */
         .met-pills{display:flex;gap:20px;margin-top:40px;justify-content:center}
@@ -459,7 +464,7 @@
                         <button class="cb" onclick="storyMove(-1)">&larr;</button>
                         <div class="stories-inner">
                             <div id="stTrack" class="stories-track">
-<div class="story-slot" onclick="openVid('yt','DSFbLhEsjOk',this)"><img class="st-thumb" src="https://i.ytimg.com/vi/DSFbLhEsjOk/hqdefault.jpg" alt="Case Ortobom"><div class="st-badge">YouTube</div><div class="play"></div><span>Franqueada Ortobom encontra parceria com Instituto Veon</span></div>                                <div class="story-slot" onclick="openVid('yt','FhXbibfAvF4',this)"><img class="st-thumb" src="https://i.ytimg.com/vi/FhXbibfAvF4/hqdefault.jpg" alt="Black Friday Ortobom"><div class="st-badge">YouTube</div><div class="play"></div><span>Black Friday extraordinária com o Instituto Veon</span></div>                                <div class="story-slot" onclick="openVid('yt','Da41i-aU7TQ',this)"><img class="st-thumb" src="https://i.ytimg.com/vi/Da41i-aU7TQ/hqdefault.jpg" alt="1 colchão a cada 90 min"><div class="st-badge">YouTube</div><div class="play"></div><span>1 colchão vendido a cada 90 minutos</span></div>                                <div class="story-slot" onclick="openVid('yt','RECh7CHuu8E',this)"><img class="st-thumb" src="https://i.ytimg.com/vi/RECh7CHuu8E/hqdefault.jpg" alt="200 mil vendidos"><div class="st-badge">YouTube</div><div class="play"></div><span>R$200 mil vendidos em cidade de 16 mil habitantes</span></div>                                <div class="story-slot" onclick="openVid('ig','DR1tEBjDWHE',this)"><img class="st-thumb" src="img/depoimentos/ig1.jpg" alt="Case Instagram"><div class="st-badge ig">Instagram</div><div class="play"></div><span>Case de Sucesso</span></div>                                <div class="story-slot" onclick="openVid('ig','DRzL-fwDe6R',this)"><img class="st-thumb" src="img/depoimentos/ig2.jpg" alt="Resultado Real"><div class="st-badge ig">Instagram</div><div class="play"></div><span>Resultado Real</span></div>                                <div class="story-slot" onclick="openVid('ig','DQuHEs5DdSp',this)"><img class="st-thumb" src="img/depoimentos/ig3.jpg" alt="Prova Social"><div class="st-badge ig">Instagram</div><div class="play"></div><span>Prova Social</span></div>                                <div class="story-slot" onclick="openVid('ig','DQIfSIxjRUz',this)"><img class="st-thumb" src="img/depoimentos/ig4.jpg" alt="Depoimento"><div class="st-badge ig">Instagram</div><div class="play"></div><span>Depoimento Cliente</span></div>
+<div class="story-slot" onclick="openVid('yt','DSFbLhEsjOk')"><img class="st-thumb" src="https://i.ytimg.com/vi/DSFbLhEsjOk/hqdefault.jpg" alt="Case Ortobom"><div class="st-badge">YouTube</div><div class="play"></div><span>Franqueada Ortobom encontra parceria com Instituto Veon</span></div>                                <div class="story-slot" onclick="openVid('yt','FhXbibfAvF4')"><img class="st-thumb" src="https://i.ytimg.com/vi/FhXbibfAvF4/hqdefault.jpg" alt="Black Friday Ortobom"><div class="st-badge">YouTube</div><div class="play"></div><span>Black Friday extraordinária com o Instituto Veon</span></div>                                <div class="story-slot" onclick="openVid('yt','Da41i-aU7TQ')"><img class="st-thumb" src="https://i.ytimg.com/vi/Da41i-aU7TQ/hqdefault.jpg" alt="1 colchão a cada 90 min"><div class="st-badge">YouTube</div><div class="play"></div><span>1 colchão vendido a cada 90 minutos</span></div>                                <div class="story-slot" onclick="openVid('yt','RECh7CHuu8E')"><img class="st-thumb" src="https://i.ytimg.com/vi/RECh7CHuu8E/hqdefault.jpg" alt="200 mil vendidos"><div class="st-badge">YouTube</div><div class="play"></div><span>R$200 mil vendidos em cidade de 16 mil habitantes</span></div>                                <div class="story-slot" onclick="openVid('ig','DR1tEBjDWHE')"><img class="st-thumb" src="img/depoimentos/ig1.jpg" alt="Case Instagram"><div class="st-badge ig">Instagram</div><div class="play"></div><span>Case de Sucesso</span></div>                                <div class="story-slot" onclick="openVid('ig','DRzL-fwDe6R')"><img class="st-thumb" src="img/depoimentos/ig2.jpg" alt="Resultado Real"><div class="st-badge ig">Instagram</div><div class="play"></div><span>Resultado Real</span></div>                                <div class="story-slot" onclick="openVid('ig','DQuHEs5DdSp')"><img class="st-thumb" src="img/depoimentos/ig3.jpg" alt="Prova Social"><div class="st-badge ig">Instagram</div><div class="play"></div><span>Prova Social</span></div>                                <div class="story-slot" onclick="openVid('ig','DQIfSIxjRUz')"><img class="st-thumb" src="img/depoimentos/ig4.jpg" alt="Depoimento"><div class="st-badge ig">Instagram</div><div class="play"></div><span>Depoimento Cliente</span></div>
                             </div>
                         </div>
                         <button class="cb" onclick="storyMove(1)">&rarr;</button>
@@ -754,6 +759,7 @@
         </div>
     </div>
 
+<div class="vid-overlay" id="vidOv" onclick="if(event.target===this)closeV()">        <div class="vid-overlay-box" id="vidBox"></div>        <div class="vid-overlay-x" onclick="closeV()">&times;</div>    </div>
     <script>
         // LOADER
         window.addEventListener('load',()=>{
@@ -933,13 +939,7 @@
             if(e.key==='Escape')document.getElementById('priceModal').classList.remove('show')
         });
 
-        function openVid(type, id, el){
-            if(type==='yt'){
-                el.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1" allow="autoplay;encrypted-media;fullscreen" allowfullscreen></iframe>';
-            }else{
-                el.innerHTML='<iframe src="https://www.instagram.com/reel/'+id+'/embed/" allow="autoplay;encrypted-media;fullscreen" allowfullscreen></iframe>';
-            }
-        }
+function openVid(type, id){            var box=document.getElementById("vidBox");            if(type==="yt"){                box.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1" allow="autoplay;encrypted-media;fullscreen" allowfullscreen></iframe>';            }else{                box.innerHTML='<iframe src="https://www.instagram.com/reel/'+id+'/embed/" allow="autoplay;encrypted-media;fullscreen" allowfullscreen></iframe>';            }            document.getElementById("vidOv").classList.add("open");            document.body.style.overflow="hidden";        }        function closeV(){            document.getElementById("vidOv").classList.remove("open");            document.getElementById("vidBox").innerHTML="";            document.body.style.overflow="";        }        document.addEventListener("keydown",function(e){if(e.key==="Escape")closeV();});
     </script>
 </body>
 </html>
