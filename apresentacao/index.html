@@ -779,18 +779,6 @@
         <div class="kb">&uarr;&darr;</div>
     </div>
 
-    <!-- MODAL PRECO -->
-    <div id="priceModal" class="price-modal-overlay" onclick="closePrice(event)">
-        <div class="price-modal">
-            <button class="price-modal-close" onclick="closePrice()">&#10005;</button>
-            <div class="pm-plan" id="pmPlan">PLANO</div>
-            <div class="pm-type" id="pmType">TIPO</div>
-            <div class="pm-total" id="pmTotal"></div>
-            <div class="pm-price" id="pmPrice">R$</div>
-            <div class="pm-period">por mês &middot; 6 meses</div>
-            <div class="pm-payments" id="pmPayments"></div>
-        </div>
-    </div>
 
 <div class="vid-overlay" id="vidOv" onclick="if(event.target===this)closeV()">        <div class="vid-overlay-box" id="vidBox"></div>        <div class="vid-overlay-x" onclick="closeV()">&times;</div>    </div>
 
@@ -977,35 +965,6 @@
             }
         }
 
-        // MODAL PRECO
-        var plansData={
-            'GLACIAL':{total:'R$ 8.382',mensal:'R$ 1.397',credito:{parcela:'R$ 1.197',desc:'R$ 1.200'},recorrente:{parcela:'R$ 1.297',desc:'R$ 600'},boleto:{parcela:'R$ 1.347',desc:'R$ 300'}},
-            'ÁRTICO':{total:'R$ 10.182',mensal:'R$ 1.697',credito:{parcela:'R$ 1.497',desc:'R$ 1.200'},recorrente:{parcela:'R$ 1.597',desc:'R$ 600'},boleto:{parcela:'R$ 1.647',desc:'R$ 300'}},
-            'ATLÂNTICO':{total:'R$ 11.982',mensal:'R$ 1.997',credito:{parcela:'R$ 1.797',desc:'R$ 1.200'},recorrente:{parcela:'R$ 1.897',desc:'R$ 600'},boleto:{parcela:'R$ 1.947',desc:'R$ 300'}},
-            'PACÍFICO':{total:'R$ 15.582',mensal:'R$ 2.597',credito:{parcela:'R$ 2.397',desc:'R$ 1.200'},recorrente:{parcela:'R$ 2.497',desc:'R$ 600'},boleto:{parcela:'R$ 2.547',desc:'R$ 300'}}
-        };
-        function openPrice(plan,type){
-            var d=plansData[plan];
-            document.getElementById('pmPlan').textContent=plan;
-            document.getElementById('pmType').textContent=type;
-            document.getElementById('pmTotal').innerHTML='Valor total: <strong>'+d.total+'</strong> (6 meses)';
-            document.getElementById('pmPrice').textContent=d.mensal;
-            var html='<h4>Formas de Pagamento</h4>';
-            html+='<div class="pm-pay-row"><span class="pm-pay-method">Cartão de Crédito</span><span class="pm-pay-value">6x '+d.credito.parcela+'<span class="pm-pay-discount"> -'+d.credito.desc+'</span></span></div>';
-            html+='<div class="pm-pay-row"><span class="pm-pay-method">Cartão Recorrente</span><span class="pm-pay-value">6x '+d.recorrente.parcela+'<span class="pm-pay-discount"> -'+d.recorrente.desc+'</span></span></div>';
-            html+='<div class="pm-pay-row"><span class="pm-pay-method">Boleto Pontual</span><span class="pm-pay-value">6x '+d.boleto.parcela+'<span class="pm-pay-discount"> -'+d.boleto.desc+'</span></span></div>';
-            document.getElementById('pmPayments').innerHTML=html;
-            document.getElementById('priceModal').classList.add('show');
-        }
-
-        function closePrice(e){
-            if(e&&e.target!==document.getElementById('priceModal')&&!e.target.classList.contains('price-modal-close'))return;
-            document.getElementById('priceModal').classList.remove('show');
-        }
-
-        document.addEventListener('keydown',e=>{
-            if(e.key==='Escape')document.getElementById('priceModal').classList.remove('show')
-        });
 
 function openVid(type, id){            var box=document.getElementById("vidBox");            box.className="vid-overlay-box";            if(type==="yt"){                box.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1" allow="autoplay;encrypted-media;fullscreen" allowfullscreen></iframe>';            }else{                box.classList.add("ig-embed");                box.innerHTML='<iframe src="https://www.instagram.com/reel/'+id+'/embed/?hidecaption=true" allow="autoplay;encrypted-media;fullscreen" allowfullscreen></iframe>';            }            document.getElementById("vidOv").classList.add("open");            document.body.style.overflow="hidden";        }        function closeV(){            document.getElementById("vidOv").classList.remove("open");            document.getElementById("vidBox").innerHTML="";            document.getElementById("vidBox").className="vid-overlay-box";            document.body.style.overflow="";        }        document.addEventListener("keydown",function(e){if(e.key==="Escape")closeV();});
     </script>
