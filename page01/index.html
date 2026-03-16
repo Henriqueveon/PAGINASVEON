@@ -592,14 +592,21 @@ window.addEventListener('scroll',()=>{
   if(spb)spb.style.width=p+'%'
 },{ passive:true })
 
-// INTERSECTION OBSERVER — threshold 0 garante que sempre dispara
+// SCROLL ANIMATIONS — robusto
 const animEls=document.querySelectorAll('.fade,.fade-left,.fade-right,.fade-scale,.stagger')
+function makeVisible(el){el.classList.add('visible')}
+// 1) Mostra imediatamente os que já estão na tela ao carregar
+animEls.forEach(el=>{
+  const r=el.getBoundingClientRect()
+  if(r.top<window.innerHeight&&r.bottom>=0) makeVisible(el)
+})
+// 2) Observer para os que entram ao rolar
 const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
-},{threshold:0,rootMargin:'0px 0px -40px 0px'})
-animEls.forEach(el=>obs.observe(el))
-// FALLBACK — força tudo visível após 2.5s caso observer não dispare
-setTimeout(()=>animEls.forEach(el=>el.classList.add('visible')),2500)
+  entries.forEach(e=>{if(e.isIntersecting){makeVisible(e.target);obs.unobserve(e.target)}})
+},{threshold:0})
+animEls.forEach(el=>{if(!el.classList.contains('visible'))obs.observe(el)})
+// 3) Fallback 800ms — garante que nada fica invisível
+setTimeout(()=>animEls.forEach(makeVisible),800)
 
 // COUNTER ANIMADO
 function animCount(el){
