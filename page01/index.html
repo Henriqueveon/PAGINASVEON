@@ -300,6 +300,78 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 /* PRICE VAL PULSE */
 .price-val{animation:priceGlow 2.5s ease-in-out infinite}
 @keyframes priceGlow{0%,100%{text-shadow:none}50%{text-shadow:0 0 30px rgba(255,255,255,.4)}}
+
+/* ═══ ANIMAÇÕES AVANÇADAS ═══ */
+
+/* Scroll progress */
+#spb{position:fixed;top:0;left:0;height:3px;z-index:9999;background:linear-gradient(90deg,#e40a2d,#0c3c5f);width:0%;transition:width .1s linear}
+
+/* Partículas hero */
+#ptc{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.pt{position:absolute;border-radius:50%;animation:ptRise linear infinite}
+@keyframes ptRise{0%{transform:translateY(100vh) scale(0);opacity:0}20%{opacity:.6}80%{opacity:.2}100%{transform:translateY(-10vh) scale(1);opacity:0}}
+
+/* Hero inner acima das partículas */
+.hero-inner{position:relative;z-index:1}
+.hero-nav{position:relative;z-index:1}
+
+/* Shine nos cards */
+.shine{position:relative;overflow:hidden}
+.shine::after{content:"";position:absolute;top:-50%;left:-80%;width:40%;height:200%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.08),transparent);transform:skewX(-20deg);pointer-events:none}
+.shine:hover::after{animation:shineSlide .6s ease forwards}
+@keyframes shineSlide{to{left:130%}}
+
+/* Hero card flutuando */
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero-card{animation:floatCard 3.5s ease-in-out infinite}
+
+/* Ripple botões */
+.btn-main{position:relative;overflow:hidden}
+.rpl{position:absolute;border-radius:50%;background:rgba(255,255,255,.25);transform:scale(0);animation:rplA .55s linear forwards;pointer-events:none}
+@keyframes rplA{to{transform:scale(5);opacity:0}}
+
+/* Shake periódico no CTA */
+@keyframes ctaShk{0%,100%{transform:none}10%{transform:translateX(-4px)}20%{transform:translateX(4px)}30%{transform:translateX(-3px)}40%{transform:translateX(3px)}50%{transform:none}}
+.btn-shake{animation:ctaShk 5s ease-in-out 4s infinite}
+
+/* Divider animado */
+.divider{height:2px;background:linear-gradient(90deg,transparent,#e40a2d,#0c3c5f,transparent);background-size:300% 100%;animation:divSlide 3s linear infinite}
+@keyframes divSlide{0%{background-position:100% 0}100%{background-position:-100% 0}}
+
+/* Tag bounce */
+@keyframes tagB{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.tag{animation:tagB 2.5s ease-in-out infinite}
+
+/* Price glow */
+@keyframes priceGlw{0%,100%{text-shadow:none}50%{text-shadow:0 0 28px rgba(255,255,255,.35)}}
+.price-val{animation:priceGlw 2.5s ease-in-out infinite}
+
+/* Step num hover */
+.step-num{transition:transform .2s,box-shadow .2s}
+.step:hover .step-num{transform:scale(1.18);box-shadow:0 0 18px rgba(228,10,45,.55)}
+
+/* Pain item hover glow */
+.pain-num{transition:text-shadow .3s}
+.pain-item:hover .pain-num{text-shadow:0 0 20px rgba(228,10,45,.9)}
+.pain-item{transition:border-color .3s}
+.pain-item:hover{border-color:rgba(228,10,45,.4)}
+
+/* Fade animações de scroll */
+.anim{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.anim.visible{opacity:1;transform:none}
+.anim-l{opacity:0;transform:translateX(-40px);transition:opacity .65s ease,transform .65s ease}
+.anim-l.visible{opacity:1;transform:none}
+.anim-r{opacity:0;transform:translateX(40px);transition:opacity .65s ease,transform .65s ease}
+.anim-r.visible{opacity:1;transform:none}
+.anim-s{opacity:0;transform:scale(.92);transition:opacity .5s ease,transform .5s ease}
+.anim-s.visible{opacity:1;transform:none}
+.stg>*{opacity:0;transform:translateY(20px);transition:opacity .45s ease,transform .45s ease}
+.stg.visible>*:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
+.stg.visible>*:nth-child(2){opacity:1;transform:none;transition-delay:.15s}
+.stg.visible>*:nth-child(3){opacity:1;transform:none;transition-delay:.25s}
+.stg.visible>*:nth-child(4){opacity:1;transform:none;transition-delay:.35s}
+.stg.visible>*:nth-child(5){opacity:1;transform:none;transition-delay:.45s}
+
 </style>
 </head>
 <body>
@@ -349,11 +421,11 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 <section class="sec sec-dark">
   <div class="wrap">
     <div class="two-col">
-      <div class="fade-left">
+      <div class="anim-l">
         <div class="tag">O PROBLEMA</div>
         <h2 class="section-title">Por que sua loja perde vendas todo dia?</h2>
         <p class="section-sub">Enquanto você está no balcão, o cliente está no celular comprando do concorrente.</p>
-        <ul class="pain-list stagger">
+        <ul class="pain-list stg">
           <li class="pain-item">
             <div class="pain-num">01</div>
             <div class="pain-text"><strong>Você não está onde o cliente procura</strong><span>89% das pessoas pesquisam no Google antes de ir à loja. Se você não aparece, perde a venda antes de abrir a porta.</span></div>
@@ -368,11 +440,11 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
           </li>
         </ul>
       </div>
-      <div class="fade-right">
+      <div class="anim-r">
         <div class="tag">COMO FUNCIONA</div>
         <h2 class="section-title">4 passos simples</h2>
         <p class="section-sub">Você não precisa saber nada de tecnologia. É tudo com a gente.</p>
-        <ul class="steps stagger">
+        <ul class="steps stg">
           <li class="step"><div class="step-num">1</div><div class="step-content"><strong>Você responde o briefing</strong><span>Formulário rápido: nome da loja, diferenciais e produtos. Leva 10 minutos.</span></div></li>
           <li class="step"><div class="step-num">2</div><div class="step-content"><strong>Nossa equipe cria a página</strong><span>Design profissional, otimizado para celular, configurado para converter.</span></div></li>
           <li class="step"><div class="step-num">3</div><div class="step-content"><strong>Você aprova ou pede ajustes</strong><span>Se quiser mudar algo, ajustamos sem custo até você aprovar.</span></div></li>
@@ -399,7 +471,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
             <div class="price-pix">à vista no Pix ou cartão</div>
           </div>
           <div class="price-body">
-            <ul class="price-features stagger">
+            <ul class="price-features stg">
               <li class="price-feat"><span class="pfc">✅</span> Landing page responsiva</li>
               <li class="price-feat"><span class="pfc">✅</span> Botão WhatsApp integrado</li>
               <li class="price-feat"><span class="pfc">✅</span> SEO básico configurado</li>
@@ -463,7 +535,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
     <p class="cta-final-sub">Enquanto você lê isso, um cliente da sua cidade está pesquisando no Google e sendo atendido pelo concorrente. Não deixe isso acontecer mais.</p>
     <div class="cta-urgency"><span class="pulse"></span> Vagas limitadas · Atendemos 5 lojas por semana</div>
     <div class="cta-btns">
-      <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main btn-shake ripple-wrap" style="font-size:20px;padding:20px">QUERO MINHA LANDING PAGE — R$397</a>
+      <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main btn-shake" style="font-size:20px;padding:20px">QUERO MINHA LANDING PAGE — R$397</a>
       <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20sobre%20a%20landing%20page" class="btn-sec">Tirar uma dúvida pelo WhatsApp</a>
       <div style="margin-top:20px;font-size:13px;color:var(--muted)">⚡ Entrega em 48 horas após aprovação do briefing</div>
     </div>
@@ -477,90 +549,70 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 </footer>
 
 <script>
-<script>
-// SCROLL PROGRESS BAR
-const spb=document.getElementById('spb')
-window.addEventListener('scroll',()=>{
-  const p=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100
-  if(spb)spb.style.width=p+'%'
-},{ passive:true })
+// ── SCROLL PROGRESS ──
+const spb=document.createElement('div');spb.id='spb';document.body.prepend(spb);
+window.addEventListener('scroll',()=>{spb.style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%'},{passive:true})
 
-// SCROLL ANIMATIONS — robusto
-const animEls=document.querySelectorAll('.fade,.fade-left,.fade-right,.fade-scale,.stagger')
-function makeVisible(el){el.classList.add('visible')}
-// 1) Mostra imediatamente os que já estão na tela ao carregar
-animEls.forEach(el=>{
-  const r=el.getBoundingClientRect()
-  if(r.top<window.innerHeight&&r.bottom>=0) makeVisible(el)
-})
-// 2) Observer para os que entram ao rolar
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){makeVisible(e.target);obs.unobserve(e.target)}})
-},{threshold:0})
-animEls.forEach(el=>{if(!el.classList.contains('visible'))obs.observe(el)})
-// 3) Fallback 800ms — garante que nada fica invisível
-setTimeout(()=>animEls.forEach(makeVisible),800)
-
-// COUNTER ANIMADO
-function animCount(el){
-  const raw=el.innerText.replace(/[^0-9]/g,'')
-  if(!raw)return
-  const target=parseInt(raw),pre=el.innerText.replace(/[0-9].*/,''),suf=el.innerText.replace(/.*[0-9]/,'')
-  let t0=0
-  const step=ts=>{
-    if(!t0)t0=ts
-    const p=Math.min((ts-t0)/1200,1),e2=1-Math.pow(1-p,3)
-    el.innerText=pre+Math.floor(e2*target)+suf
-    if(p<1)requestAnimationFrame(step)
-  }
-  requestAnimationFrame(step)
+// ── PARTÍCULAS HERO ──
+const ptc=document.createElement('div');ptc.id='ptc';
+const hero=document.querySelector('.hero');if(hero)hero.prepend(ptc);
+const colors=['rgba(228,10,45,.4)','rgba(12,60,95,.6)','rgba(255,255,255,.12)'];
+for(let i=0;i<20;i++){
+  const p=document.createElement('div');p.className='pt';
+  const s=Math.random()*5+2;
+  p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;bottom:-5%;background:${colors[i%3]};animation-duration:${10+Math.random()*10}s;animation-delay:${Math.random()*10}s`;
+  ptc.appendChild(p);
 }
-new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.querySelectorAll('.metric-val,.hero-stat-num').forEach(animCount)
-    }
-  })
-},{threshold:0.3}).observe(document.querySelector('.case-metrics')||document.body)
 
-// RIPPLE
-document.querySelectorAll('.ripple-wrap').forEach(btn=>{
+// ── SCROLL ANIMATIONS ──
+const all=document.querySelectorAll('.anim,.anim-l,.anim-r,.anim-s,.stg');
+function show(el){el.classList.add('visible')}
+all.forEach(el=>{const r=el.getBoundingClientRect();if(r.top<window.innerHeight)show(el)})
+const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){show(e.target);obs.unobserve(e.target)}})},{threshold:0})
+all.forEach(el=>{if(!el.classList.contains('visible'))obs.observe(el)})
+setTimeout(()=>all.forEach(show),800)
+
+// ── COUNTER ANIMADO ──
+function animCount(el){
+  const raw=el.innerText.replace(/[^0-9]/g,'');if(!raw)return;
+  const tgt=parseInt(raw),pre=el.innerText.replace(/[0-9].*/,''),suf=el.innerText.replace(/.*[0-9]/,'');
+  let t0=0;
+  (function step(ts){if(!t0)t0=ts;const p=Math.min((ts-t0)/1200,1),e=1-Math.pow(1-p,3);
+  el.innerText=pre+Math.floor(e*tgt)+suf;if(p<1)requestAnimationFrame(step)})(0);
+  requestAnimationFrame(ts=>{(function step(ts){if(!t0)t0=ts;const p=Math.min((ts-t0)/1200,1),e=1-Math.pow(1-p,3);el.innerText=pre+Math.floor(e*tgt)+suf;if(p<1)requestAnimationFrame(step)})(ts)})
+}
+new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.hero-stat-num,.metric-val').forEach(animCount)})},{threshold:.3})
+.observe(document.querySelector('.hero-stats')||document.body)
+
+// ── RIPPLE ──
+document.querySelectorAll('.btn-main').forEach(btn=>{
+  btn.style.position='relative';btn.style.overflow='hidden';
   btn.addEventListener('click',function(e){
-    const r=document.createElement('span')
-    const rect=this.getBoundingClientRect()
-    const size=Math.max(rect.width,rect.height)
-    r.className='rpl'
-    r.style.cssText='width:'+size+'px;height:'+size+'px;left:'+(e.clientX-rect.left-size/2)+'px;top:'+(e.clientY-rect.top-size/2)+'px'
-    this.appendChild(r)
-    setTimeout(()=>r.remove(),600)
+    const r=document.createElement('span'),rect=this.getBoundingClientRect(),s=Math.max(rect.width,rect.height);
+    r.className='rpl';r.style.cssText=`width:${s}px;height:${s}px;left:${e.clientX-rect.left-s/2}px;top:${e.clientY-rect.top-s/2}px`;
+    this.appendChild(r);setTimeout(()=>r.remove(),600);
   })
 })
 
-// HOVER LIFT
-document.querySelectorAll('.depo-card,.quem-card,.check-item,.pain-item').forEach(el=>{
-  el.style.transition='transform .2s ease,box-shadow .2s ease'
+// ── HOVER LIFT ──
+document.querySelectorAll('.pain-item,.depo-card,.check-item').forEach(el=>{
+  el.style.transition='transform .2s,box-shadow .2s';
   el.addEventListener('mouseenter',()=>{el.style.transform='translateY(-4px)';el.style.boxShadow='0 8px 24px rgba(0,0,0,.5)'})
   el.addEventListener('mouseleave',()=>{el.style.transform='';el.style.boxShadow=''})
 })
 
-// PARTICLES
-const ptc=document.getElementById('ptc')
-if(ptc){
-  const colors=['rgba(228,10,45,.5)','rgba(12,60,95,.7)','rgba(255,255,255,.15)']
-  for(let i=0;i<18;i++){
-    const p=document.createElement('div')
-    p.className='pt'
-    const size=Math.random()*5+2
-    p.style.cssText='width:'+size+'px;height:'+size+'px;left:'+Math.random()*100+'%;bottom:-10%;background:'+colors[Math.floor(Math.random()*3)]+';animation-duration:'+(Math.random()*12+8)+'s;animation-delay:'+(Math.random()*10)+'s'
-    ptc.appendChild(p)
-  }
-}
+// ── STEP HOVER NUM ──
+document.querySelectorAll('.step').forEach(s=>{
+  const n=s.querySelector('.step-num');if(!n)return;
+  s.addEventListener('mouseenter',()=>{n.style.transform='scale(1.18)';n.style.boxShadow='0 0 18px rgba(228,10,45,.6)'})
+  s.addEventListener('mouseleave',()=>{n.style.transform='';n.style.boxShadow=''})
+})
 
-// FAQ
+// ── FAQ ──
 function toggleFaq(btn){
-  const a=btn.nextElementSibling,open=a.classList.contains('open')
-  document.querySelectorAll('.faq-a.open').forEach(el=>el.classList.remove('open'))
-  document.querySelectorAll('.faq-q.open').forEach(el=>el.classList.remove('open'))
+  const a=btn.nextElementSibling,open=a.classList.contains('open');
+  document.querySelectorAll('.faq-a.open').forEach(el=>el.classList.remove('open'));
+  document.querySelectorAll('.faq-q.open').forEach(el=>el.classList.remove('open'));
   if(!open){a.classList.add('open');btn.classList.add('open')}
 }
 </script>
