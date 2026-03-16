@@ -245,12 +245,69 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 @media(min-width:1024px){
   .hero-title{font-size:80px}
 }
+
+/* SCROLL PROGRESS */
+#spb{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#e40a2d,#0c3c5f);z-index:9999}
+
+/* PARTICLES */
+#ptc{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.pt{position:absolute;border-radius:50%;animation:ptUp linear infinite}
+@keyframes ptUp{0%{transform:translateY(100vh) scale(0);opacity:0}15%{opacity:.7}85%{opacity:.2}100%{transform:translateY(-20vh) scale(1.2);opacity:0}}
+
+/* SHINE */
+.shine{position:relative;overflow:hidden}
+.shine::after{content:"";position:absolute;top:-50%;left:-80%;width:40%;height:200%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.07),transparent);transform:skewX(-20deg)}
+.shine:hover::after{animation:shineSlide .55s ease forwards}
+@keyframes shineSlide{to{left:130%}}
+
+/* SHAKE CTA */
+@keyframes ctaSh{0%,100%{transform:none}15%{transform:translateX(-4px)}30%{transform:translateX(4px)}45%{transform:translateX(-2px)}60%{transform:translateX(2px)}75%{transform:none}}
+.btn-shake{animation:ctaSh 4s ease-in-out 3s infinite}
+
+/* RIPPLE */
+.ripple-wrap{position:relative;overflow:hidden}
+.rpl{position:absolute;border-radius:50%;background:rgba(255,255,255,.25);transform:scale(0);animation:rplA .55s linear forwards;pointer-events:none}
+@keyframes rplA{to{transform:scale(5);opacity:0}}
+
+/* FLOATING CARD */
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero-card{animation:floatCard 4s ease-in-out infinite}
+
+/* DIVIDER ANIMATED */
+.divider{height:2px;background:linear-gradient(90deg,transparent,#e40a2d,#0c3c5f,transparent);background-size:300% 100%;animation:divSlide 2.5s linear infinite}
+@keyframes divSlide{0%{background-position:100% 0}100%{background-position:-100% 0}}
+
+/* METRIC GLOW */
+.metric{transition:border-color .3s,box-shadow .3s}
+.metric:hover{border-color:#e40a2d;box-shadow:0 0 14px rgba(228,10,45,.3)}
+
+/* TYPEWRITER CURSOR */
+.twc{display:inline-block;width:3px;height:.8em;background:#e40a2d;vertical-align:middle;margin-left:3px;animation:twBlink .8s step-end infinite}
+@keyframes twBlink{50%{opacity:0}}
+
+/* STEP NUMBER PULSE */
+.step-num{transition:transform .2s,box-shadow .2s}
+.step:hover .step-num{transform:scale(1.15);box-shadow:0 0 16px rgba(228,10,45,.5)}
+
+/* PAIN NUM GLOW */
+.pain-num{transition:text-shadow .3s}
+.pain-item:hover .pain-num{text-shadow:0 0 20px rgba(228,10,45,.8)}
+
+/* TAG BOUNCE */
+@keyframes tagBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.tag{animation:tagBounce 2.5s ease-in-out infinite}
+
+/* PRICE VAL PULSE */
+.price-val{animation:priceGlow 2.5s ease-in-out infinite}
+@keyframes priceGlow{0%,100%{text-shadow:none}50%{text-shadow:0 0 30px rgba(255,255,255,.4)}}
 </style>
 </head>
 <body>
 
 <!-- ══ HERO ══ -->
 <section class="hero">
+<div id="ptc"></div>
+<div id="spb"></div>
   <nav class="hero-nav">
     <img src="img/logo.png" alt="Instituto VEON" style="height:64px;width:auto">
   </nav>
@@ -260,7 +317,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
       <h1 class="hero-title">SUA LOJA VENDENDO <span>24H/7</span> NO CELULAR</h1>
       <p class="hero-sub">Landing page profissional que capta clientes enquanto você dorme — sem contratos, sem mensalidade, pronta em 48 horas.</p>
       <div class="hero-btns">
-        <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main">QUERO MINHA LANDING PAGE AGORA</a>
+        <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main ripple-wrap">QUERO MINHA LANDING PAGE AGORA</a>
         <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20sobre%20a%20landing%20page" class="btn-sec">Tenho uma dúvida antes</a>
       </div>
       <div class="hero-stats">
@@ -270,7 +327,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-card">
+      <div class="hero-card shine">
         <div class="hero-card-title">O QUE ESTÁ INCLUÍDO</div>
         <ul class="hero-card-list">
           <li>Landing page responsiva (mobile-first)</li>
@@ -360,7 +417,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
     <h2 class="section-title" style="margin-bottom:28px">Lojas que já transformaram o negócio</h2>
     <div class="case-depo">
       <div class="fade-left">
-        <div class="case-card">
+        <div class="case-card shine">
           <div class="case-header">
             <div class="case-avatar">🛏️</div>
             <div class="case-who"><strong>Castor Paranavaí</strong><span>Loja franqueada · Paranavaí/PR</span></div>
@@ -377,17 +434,17 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
         </div>
       </div>
       <div class="depo-grid stagger">
-        <div class="depo-card">
+        <div class="depo-card shine">
           <div class="depo-stars">★★★★★</div>
           <p class="depo-text">"Pensei que não ia adiantar porque minha loja é pequena. Funcionou. Recebo mensagem quase todo dia pelo link."</p>
           <div class="depo-author"><div class="depo-av">MR</div><div class="depo-name"><strong>Marcos R.</strong><span>Dono de loja · Maringá/PR</span></div></div>
         </div>
-        <div class="depo-card">
+        <div class="depo-card shine">
           <div class="depo-stars">★★★★★</div>
           <p class="depo-text">"Entrega mais rápida do que esperava. Em menos de uma semana a página estava no ar. Ficou muito profissional."</p>
           <div class="depo-author"><div class="depo-av">PA</div><div class="depo-name"><strong>Patricia A.</strong><span>Franqueada Ortobom · Cascavel/PR</span></div></div>
         </div>
-        <div class="depo-card">
+        <div class="depo-card shine">
           <div class="depo-stars">★★★★★</div>
           <p class="depo-text">"Não entendo de tecnologia, mas não precisei. Eles fizeram tudo. Só aprovei e divulguei. Valeu muito os R$397."</p>
           <div class="depo-author"><div class="depo-av">JF</div><div class="depo-name"><strong>José F.</strong><span>Loja de móveis · Londrina/PR</span></div></div>
@@ -442,7 +499,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
       <div>
         <div class="tag">INVESTIMENTO</div>
         <h2 class="section-title" style="margin-bottom:20px">Uma vez. Sem mensalidade.</h2>
-        <div class="price-card">
+        <div class="price-card shine">
           <div class="price-header">
             <div class="price-name">LANDING PAGE PROFISSIONAL</div>
             <div class="price-de">De R$897</div>
@@ -457,7 +514,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
               <li class="price-feat"><span class="pfc">✅</span> Design personalizado</li>
               <li class="price-feat"><span class="pfc">✅</span> Entrega em 48 horas</li>
             </ul>
-            <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main">QUERO COMEÇAR AGORA</a>
+            <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main ripple-wrap">QUERO COMEÇAR AGORA</a>
             <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20antes%20de%20contratar" class="btn-sec">Tirar uma dúvida antes</a>
 
             <div class="fundador-row">
@@ -514,7 +571,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
     <p class="cta-final-sub">Enquanto você lê isso, um cliente da sua cidade está pesquisando no Google e sendo atendido pelo concorrente. Não deixe isso acontecer mais.</p>
     <div class="cta-urgency"><span class="pulse"></span> Vagas limitadas · Atendemos 5 lojas por semana</div>
     <div class="cta-btns">
-      <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main" style="font-size:20px;padding:20px">QUERO MINHA LANDING PAGE — R$397</a>
+      <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main btn-shake ripple-wrap" style="font-size:20px;padding:20px">QUERO MINHA LANDING PAGE — R$397</a>
       <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20sobre%20a%20landing%20page" class="btn-sec">Tirar uma dúvida pelo WhatsApp</a>
       <div style="margin-top:20px;font-size:13px;color:var(--muted)">⚡ Entrega em 48 horas após aprovação do briefing</div>
     </div>
@@ -527,39 +584,76 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 </footer>
 
 <script>
-const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
-  })
+<script>
+// SCROLL PROGRESS BAR
+const spb=document.getElementById('spb')
+window.addEventListener('scroll',()=>{
+  const p=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100
+  if(spb)spb.style.width=p+'%'
+},{ passive:true })
+
+// INTERSECTION OBSERVER (fade, left, right, scale, stagger)
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
 },{threshold:0.08})
 document.querySelectorAll('.fade,.fade-left,.fade-right,.fade-scale,.stagger').forEach(el=>obs.observe(el))
 
-function animateCounter(el){
+// COUNTER ANIMADO
+function animCount(el){
   const raw=el.innerText.replace(/[^0-9]/g,'')
   if(!raw)return
-  const target=parseInt(raw),prefix=el.innerText.replace(/[0-9].*/,''),suffix=el.innerText.replace(/.*[0-9]/,'')
-  let start=0
+  const target=parseInt(raw),pre=el.innerText.replace(/[0-9].*/,''),suf=el.innerText.replace(/.*[0-9]/,'')
+  let t0=0
   const step=ts=>{
-    if(!start)start=ts
-    const p=Math.min((ts-start)/1200,1),ease=1-Math.pow(1-p,3)
-    el.innerText=prefix+Math.floor(ease*target)+suffix
+    if(!t0)t0=ts
+    const p=Math.min((ts-t0)/1200,1),e2=1-Math.pow(1-p,3)
+    el.innerText=pre+Math.floor(e2*target)+suf
     if(p<1)requestAnimationFrame(step)
   }
   requestAnimationFrame(step)
 }
-const cobs=new IntersectionObserver(entries=>{
+new IntersectionObserver(entries=>{
   entries.forEach(e=>{
-    if(e.isIntersecting){e.target.querySelectorAll('.metric-val,.hero-stat-num').forEach(animateCounter);cobs.unobserve(e.target)}
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.metric-val,.hero-stat-num').forEach(animCount)
+    }
   })
-},{threshold:0.3})
-document.querySelectorAll('.case-metrics,.hero-stats').forEach(el=>cobs.observe(el))
+},{threshold:0.3}).observe(document.querySelector('.case-metrics')||document.body)
 
+// RIPPLE
+document.querySelectorAll('.ripple-wrap').forEach(btn=>{
+  btn.addEventListener('click',function(e){
+    const r=document.createElement('span')
+    const rect=this.getBoundingClientRect()
+    const size=Math.max(rect.width,rect.height)
+    r.className='rpl'
+    r.style.cssText='width:'+size+'px;height:'+size+'px;left:'+(e.clientX-rect.left-size/2)+'px;top:'+(e.clientY-rect.top-size/2)+'px'
+    this.appendChild(r)
+    setTimeout(()=>r.remove(),600)
+  })
+})
+
+// HOVER LIFT
 document.querySelectorAll('.depo-card,.quem-card,.check-item,.pain-item').forEach(el=>{
-  el.style.transition='transform 0.2s ease,box-shadow 0.2s ease'
-  el.addEventListener('mouseenter',()=>{el.style.transform='translateY(-4px)';el.style.boxShadow='0 8px 24px rgba(0,0,0,0.5)'})
+  el.style.transition='transform .2s ease,box-shadow .2s ease'
+  el.addEventListener('mouseenter',()=>{el.style.transform='translateY(-4px)';el.style.boxShadow='0 8px 24px rgba(0,0,0,.5)'})
   el.addEventListener('mouseleave',()=>{el.style.transform='';el.style.boxShadow=''})
 })
 
+// PARTICLES
+const ptc=document.getElementById('ptc')
+if(ptc){
+  const colors=['rgba(228,10,45,.5)','rgba(12,60,95,.7)','rgba(255,255,255,.15)']
+  for(let i=0;i<18;i++){
+    const p=document.createElement('div')
+    p.className='pt'
+    const size=Math.random()*5+2
+    p.style.cssText='width:'+size+'px;height:'+size+'px;left:'+Math.random()*100+'%;bottom:-10%;background:'+colors[Math.floor(Math.random()*3)]+';animation-duration:'+(Math.random()*12+8)+'s;animation-delay:'+(Math.random()*10)+'s'
+    ptc.appendChild(p)
+  }
+}
+
+// FAQ
 function toggleFaq(btn){
   const a=btn.nextElementSibling,open=a.classList.contains('open')
   document.querySelectorAll('.faq-a.open').forEach(el=>el.classList.remove('open'))
