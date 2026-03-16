@@ -36,7 +36,7 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;overflow-x:hidden}
 
 /* WRAPPER — limita largura no desktop */
-.wrap{width:100%;max-width:1100px;margin:0 auto;padding:0 24px}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 32px}
 .wrap-sm{width:100%;max-width:700px;margin:0 auto;padding:0 24px}
 
 .tag{display:inline-block;background:rgba(228,10,45,0.12);color:var(--red);border:1px solid rgba(228,10,45,0.3);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:12px}
@@ -52,12 +52,15 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 .fade{opacity:0;transform:translateY(20px);transition:opacity 0.55s,transform 0.55s}
 .fade.visible{opacity:1;transform:none}
 
+/* hero entra animado sem depender do observer */
+.hero-inner{animation:heroIn 0.7s ease forwards}
+
 /* ── HERO ── */
 .hero{background:linear-gradient(160deg,#0c3c5f 0%,#050e16 55%,var(--bg) 100%);min-height:100vh;display:flex;flex-direction:column}
-.hero-nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;border-bottom:1px solid rgba(255,255,255,0.06);max-width:1100px;margin:0 auto;width:100%}
+.hero-nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;border-bottom:1px solid rgba(255,255,255,0.06);width:100%;max-width:1180px;margin:0 auto}
 .logo-txt{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:#fff}
 .logo-txt span{color:var(--red)}
-.hero-inner{flex:1;display:flex;align-items:center;max-width:1100px;margin:0 auto;width:100%;padding:48px 28px}
+.hero-inner{flex:1;display:flex;align-items:center;max-width:1180px;margin:0 auto;width:100%;padding:48px 28px}
 .hero-left{flex:1}
 .hero-right{width:320px;min-width:280px;margin-left:48px;display:none}
 .hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:14px}
@@ -199,13 +202,18 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 .footer{padding:24px;text-align:center;border-top:1px solid var(--border);font-size:12px;color:#444}
 .footer a{color:#444;text-decoration:none}
 
+@keyframes heroIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+
 /* ────────────────────────────
    DESKTOP — min-width: 768px
 ──────────────────────────── */
 @media(min-width:768px){
   .hero-right{display:block}
-  .hero-title{font-size:68px}
-  .hero-sub{font-size:18px}
+  .hero-title{font-size:60px}
+  .hero-sub{font-size:17px;max-width:100%}
+  .hero-btns,.hero-stats,.guarantee-box{max-width:100%}
+  .hero-nav{padding:18px 40px}
+  .hero-inner{padding:56px 40px}
 
   .two-col{grid-template-columns:1fr 1fr}
   .checklist{grid-template-columns:1fr 1fr}
@@ -215,9 +223,12 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
   .price-faq{grid-template-columns:1fr 1fr}
   .section-title{font-size:42px}
   .cta-final .section-title{font-size:56px}
-
   .btn-main{font-size:20px}
   .sec{padding:88px 0}
+}
+@media(min-width:1024px){
+  .hero-title{font-size:74px}
+  .hero-inner{padding:64px 40px}
 }
 
 @media(min-width:1024px){
@@ -233,7 +244,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
     <div class="logo-txt">VEON<span>.</span></div>
     <div style="font-size:12px;color:rgba(255,255,255,0.35);letter-spacing:1px">INSTITUTO</div>
   </nav>
-  <div class="hero-inner fade">
+  <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-eyebrow">Para donos de loja de colchão e móveis</div>
       <h1 class="hero-title">SUA LOJA VENDENDO <span>24H</span> NO CELULAR</h1>
