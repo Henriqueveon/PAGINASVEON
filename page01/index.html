@@ -49,8 +49,25 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 .btn-sec{display:block;width:100%;background:transparent;color:var(--muted);font-size:14px;text-align:center;padding:14px 20px;border:1px solid #333;border-radius:4px;cursor:pointer;text-decoration:none;transition:border-color 0.2s,color 0.2s;margin-top:10px}
 .btn-sec:hover{border-color:#555;color:#ccc}
 
-.fade{opacity:0;transform:translateY(20px);transition:opacity 0.55s,transform 0.55s}
+/* ── ANIMAÇÕES ── */
+.fade{opacity:0;transform:translateY(32px);transition:opacity 0.6s ease,transform 0.6s ease}
 .fade.visible{opacity:1;transform:none}
+.fade-left{opacity:0;transform:translateX(-48px);transition:opacity 0.65s ease,transform 0.65s ease}
+.fade-left.visible{opacity:1;transform:none}
+.fade-right{opacity:0;transform:translateX(48px);transition:opacity 0.65s ease,transform 0.65s ease}
+.fade-right.visible{opacity:1;transform:none}
+.fade-scale{opacity:0;transform:scale(0.88);transition:opacity 0.5s ease,transform 0.5s ease}
+.fade-scale.visible{opacity:1;transform:scale(1)}
+.stagger>*{opacity:0;transform:translateY(24px);transition:opacity 0.5s ease,transform 0.5s ease}
+.stagger.visible>*:nth-child(1){opacity:1;transform:none;transition-delay:0s}
+.stagger.visible>*:nth-child(2){opacity:1;transform:none;transition-delay:0.1s}
+.stagger.visible>*:nth-child(3){opacity:1;transform:none;transition-delay:0.2s}
+.stagger.visible>*:nth-child(4){opacity:1;transform:none;transition-delay:0.3s}
+.stagger.visible>*:nth-child(5){opacity:1;transform:none;transition-delay:0.4s}
+.stagger.visible>*:nth-child(6){opacity:1;transform:none;transition-delay:0.5s}
+.stagger.visible>*:nth-child(7){opacity:1;transform:none;transition-delay:0.6s}
+.stagger.visible>*:nth-child(8){opacity:1;transform:none;transition-delay:0.7s}
+.stagger.visible>*:nth-child(9){opacity:1;transform:none;transition-delay:0.8s}
 
 /* hero entra animado sem depender do observer */
 .hero-inner{animation:heroIn 0.7s ease forwards}
@@ -290,14 +307,14 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 <div class="divider"></div>
 
 <!-- ══ PROBLEMA + COMO FUNCIONA ══ -->
-<section class="sec sec-dark fade">
+<section class="sec sec-dark">
   <div class="wrap">
     <div class="two-col">
-      <div>
+      <div class="fade-left">
         <div class="tag">O PROBLEMA</div>
         <h2 class="section-title">Por que sua loja perde vendas todo dia?</h2>
         <p class="section-sub">Enquanto você está no balcão, o cliente está no celular comprando do concorrente.</p>
-        <ul class="pain-list">
+        <ul class="pain-list stagger">
           <li class="pain-item">
             <div class="pain-num">01</div>
             <div class="pain-text"><strong>Você não está onde o cliente procura</strong><span>89% das pessoas pesquisam no Google antes de ir à loja. Se você não aparece, perde a venda antes de abrir a porta.</span></div>
@@ -312,11 +329,11 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
           </li>
         </ul>
       </div>
-      <div>
+      <div class="fade-right">
         <div class="tag">COMO FUNCIONA</div>
         <h2 class="section-title">4 passos simples</h2>
         <p class="section-sub">Você não precisa saber nada de tecnologia. É tudo com a gente.</p>
-        <ul class="steps">
+        <ul class="steps stagger">
           <li class="step"><div class="step-num">1</div><div class="step-content"><strong>Você responde o briefing</strong><span>Formulário rápido: nome da loja, diferenciais e produtos. Leva 10 minutos.</span></div></li>
           <li class="step"><div class="step-num">2</div><div class="step-content"><strong>Nossa equipe cria a página</strong><span>Design profissional, otimizado para celular, configurado para converter.</span></div></li>
           <li class="step"><div class="step-num">3</div><div class="step-content"><strong>Você aprova ou pede ajustes</strong><span>Se quiser mudar algo, ajustamos sem custo até você aprovar.</span></div></li>
@@ -329,12 +346,12 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 <div class="divider"></div>
 
 <!-- ══ O QUE VOCÊ RECEBE ══ -->
-<section class="sec sec-card fade">
+<section class="sec sec-card fade-scale">
   <div class="wrap">
     <div class="tag">O QUE VOCÊ RECEBE</div>
     <h2 class="section-title">Entrega completa por R$397 — sem surpresas</h2>
     <p class="section-sub">Tudo incluso. Sem cobranças extras.</p>
-    <ul class="checklist">
+    <ul class="checklist stagger">
       <li class="check-item">✅ &nbsp;Landing page 100% responsiva para celular</li>
       <li class="check-item">✅ &nbsp;Botão WhatsApp integrado (leads no celular)</li>
       <li class="check-item">✅ &nbsp;Hospedagem gratuita por 12 meses</li>
@@ -349,12 +366,12 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 <div class="divider"></div>
 
 <!-- ══ CASE + DEPOIMENTOS ══ -->
-<section class="sec sec-dark fade">
+<section class="sec sec-dark">
   <div class="wrap">
     <div class="tag">RESULTADOS REAIS</div>
     <h2 class="section-title" style="margin-bottom:28px">Lojas que já transformaram o negócio</h2>
     <div class="case-depo">
-      <div>
+      <div class="fade-left">
         <div class="case-card">
           <div class="case-header">
             <div class="case-avatar">🛏️</div>
@@ -371,7 +388,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
           </div>
         </div>
       </div>
-      <div class="depo-grid">
+      <div class="depo-grid stagger">
         <div class="depo-card">
           <div class="depo-stars">★★★★★</div>
           <p class="depo-text">"Pensei que não ia adiantar porque minha loja é pequena. Funcionou. Recebo mensagem quase todo dia pelo link."</p>
@@ -401,7 +418,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
         <div class="tag">PARA QUEM É</div>
         <h2 class="section-title" style="margin-bottom:8px">Isso é para você se...</h2>
         <p class="section-sub">Você se identifica com pelo menos uma dessas situações:</p>
-        <div class="quem-grid">
+        <div class="quem-grid stagger">
           <div class="quem-card"><div class="quem-icon">🏪</div><div class="quem-text"><strong>Dono de loja física</strong><span>Loja de colchão, móveis ou cama, mesa e banho que quer atrair clientes online.</span></div></div>
           <div class="quem-card"><div class="quem-icon">🤝</div><div class="quem-text"><strong>Franqueado</strong><span>Ortobom, Castor, Plumatex — quer se destacar dentro da rede.</span></div></div>
           <div class="quem-card"><div class="quem-icon">📣</div><div class="quem-text"><strong>Já faz anúncios</strong><span>Investe no Meta mas não tem para onde mandar o cliente. Está perdendo dinheiro.</span></div></div>
@@ -432,7 +449,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 <div class="divider"></div>
 
 <!-- ══ PREÇO + FAQ ══ -->
-<section class="sec sec-dark fade">
+<section class="sec sec-dark">
   <div class="wrap">
     <div class="price-faq">
       <div>
@@ -446,7 +463,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
             <div class="price-pix">à vista no Pix ou cartão</div>
           </div>
           <div class="price-body">
-            <ul class="price-features">
+            <ul class="price-features stagger">
               <li class="price-feat"><span class="pfc">✅</span> Landing page responsiva</li>
               <li class="price-feat"><span class="pfc">✅</span> Botão WhatsApp integrado</li>
               <li class="price-feat"><span class="pfc">✅</span> Hospedagem 12 meses grátis</li>
@@ -529,9 +546,37 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 
 <script>
 const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
+  })
 },{threshold:0.08})
-document.querySelectorAll('.fade').forEach(el=>obs.observe(el))
+document.querySelectorAll('.fade,.fade-left,.fade-right,.fade-scale,.stagger').forEach(el=>obs.observe(el))
+
+function animateCounter(el){
+  const raw=el.innerText.replace(/[^0-9]/g,'')
+  if(!raw)return
+  const target=parseInt(raw),prefix=el.innerText.replace(/[0-9].*/,''),suffix=el.innerText.replace(/.*[0-9]/,'')
+  let start=0
+  const step=ts=>{
+    if(!start)start=ts
+    const p=Math.min((ts-start)/1200,1),ease=1-Math.pow(1-p,3)
+    el.innerText=prefix+Math.floor(ease*target)+suffix
+    if(p<1)requestAnimationFrame(step)
+  }
+  requestAnimationFrame(step)
+}
+const cobs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.querySelectorAll('.metric-val,.hero-stat-num').forEach(animateCounter);cobs.unobserve(e.target)}
+  })
+},{threshold:0.3})
+document.querySelectorAll('.case-metrics,.hero-stats').forEach(el=>cobs.observe(el))
+
+document.querySelectorAll('.depo-card,.quem-card,.check-item,.pain-item').forEach(el=>{
+  el.style.transition='transform 0.2s ease,box-shadow 0.2s ease'
+  el.addEventListener('mouseenter',()=>{el.style.transform='translateY(-4px)';el.style.boxShadow='0 8px 24px rgba(0,0,0,0.5)'})
+  el.addEventListener('mouseleave',()=>{el.style.transform='';el.style.boxShadow=''})
+})
 
 function toggleFaq(btn){
   const a=btn.nextElementSibling,open=a.classList.contains('open')
