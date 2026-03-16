@@ -18,7 +18,6 @@
 {"@context":"https://schema.org","@type":"Product","name":"Landing Page para Loja de Colchão e Móveis","description":"Página de vendas profissional, otimizada para conversão, pronta em 48 horas.","brand":{"@type":"Brand","name":"VEON Instituto"},"offers":{"@type":"Offer","price":"397.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://assessoriaveon.com/page01"}}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quanto tempo leva para ficar pronta?","acceptedAnswer":{"@type":"Answer","text":"48 horas após aprovação do briefing e pagamento."}},{"@type":"Question","name":"Preciso ter domínio ou hospedagem?","acceptedAnswer":{"@type":"Answer","text":"Não. Cuidamos de tudo. Entregamos o link pronto para você usar."}},{"@type":"Question","name":"Funciona para franquias como Ortobom e Castor?","acceptedAnswer":{"@type":"Answer","text":"Sim. Desenvolvemos para franqueados de Ortobom, Castor, Plumatex e redes independentes."}},{"@type":"Question","name":"Preciso saber de tecnologia?","acceptedAnswer":{"@type":"Answer","text":"Não. Você responde um formulário simples e nós fazemos todo o resto."}},{"@type":"Question","name":"Qual a diferença para um site normal?","acceptedAnswer":{"@type":"Answer","text":"Um site dispersa a atenção. A landing page tem um único objetivo: fazer o cliente entrar em contato. Por isso converte muito mais."}}]}
 </script>
 
 <style>
@@ -193,11 +192,6 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 .price-guar{background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:6px;padding:12px;text-align:center;margin-bottom:18px}
 .price-guar-text{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.5;margin-top:4px}
 .faq-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden}
-.faq-item{background:var(--card)}
-.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:15px 17px;background:none;border:none;color:var(--text);font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;text-align:left;gap:12px}
-.faq-q .arr{font-size:17px;color:var(--red);min-width:18px;text-align:center;transition:transform 0.3s}
-.faq-q.open .arr{transform:rotate(45deg)}
-.faq-a{font-size:13px;color:var(--muted);line-height:1.7;padding:0 17px;max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s}
 .faq-a.open{max-height:180px;padding:0 17px 16px}
 
 /* ── FUNDADOR inline ── */
@@ -486,8 +480,6 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
             <div class="faq-a">48 horas após aprovação do briefing e confirmação do pagamento.</div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)">Preciso ter domínio ou hospedagem? <span class="arr">+</span></button>
-            <div class="faq-a">Não. Cuidamos de tudo. Entregamos o link pronto para você usar. Se quiser usar um domínio próprio, configuramos sem custo.</div>
           </div>
           <div class="faq-item">
             <button class="faq-q" onclick="toggleFaq(this)">Funciona para franquias Ortobom e Castor? <span class="arr">+</span></button>
