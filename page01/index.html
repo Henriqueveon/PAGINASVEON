@@ -15,63 +15,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Landing Page para Loja de Colchão e Móveis",
-  "description": "Página de vendas profissional, otimizada para conversão, pronta em 7 dias úteis.",
-  "brand": {"@type": "Brand", "name": "VEON Instituto"},
-  "offers": {
-    "@type": "Offer",
-    "price": "397.00",
-    "priceCurrency": "BRL",
-    "availability": "https://schema.org/InStock",
-    "url": "https://assessoriaveon.com/page01"
-  }
-}
+{"@context":"https://schema.org","@type":"Product","name":"Landing Page para Loja de Colchão e Móveis","description":"Página de vendas profissional, otimizada para conversão, pronta em 7 dias úteis.","brand":{"@type":"Brand","name":"VEON Instituto"},"offers":{"@type":"Offer","price":"397.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://assessoriaveon.com/page01"}}
 </script>
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Quanto tempo leva para ficar pronta?",
-      "acceptedAnswer": {"@type": "Answer", "text": "7 dias úteis após aprovação do briefing e pagamento."}
-    },
-    {
-      "@type": "Question",
-      "name": "Preciso ter domínio ou hospedagem?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Não. Cuidamos de tudo. Entregamos o link pronto para você usar."}
-    },
-    {
-      "@type": "Question",
-      "name": "Funciona para franquias como Ortobom e Castor?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Sim. Desenvolvemos para franqueados de Ortobom, Castor, Plumatex e redes independentes."}
-    },
-    {
-      "@type": "Question",
-      "name": "E se eu não gostar? Tem garantia?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Sim. Garantia incondicional de 7 dias. Se não gostar, devolvemos 100% do valor pago, sem perguntas."}
-    },
-    {
-      "@type": "Question",
-      "name": "Isso funciona para quem não entende de tecnologia?",
-      "acceptedAnswer": {"@type": "Answer", "text": "É feito exatamente para você. Você não precisa saber nada de tecnologia. Nós entregamos tudo pronto e configurado."}
-    },
-    {
-      "@type": "Question",
-      "name": "Posso integrar com meu WhatsApp?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Sim. Todos os botões da landing page direcionam para o seu WhatsApp, capturando leads qualificados direto no seu celular."}
-    },
-    {
-      "@type": "Question",
-      "name": "Qual a diferença para um site normal?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Um site normal tem muitas páginas e dispersa a atenção. A landing page tem um único objetivo: fazer o cliente entrar em contato. Por isso converte muito mais."}
-    }
-  ]
-}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quanto tempo leva para ficar pronta?","acceptedAnswer":{"@type":"Answer","text":"7 dias úteis após aprovação do briefing e pagamento."}},{"@type":"Question","name":"Preciso ter domínio ou hospedagem?","acceptedAnswer":{"@type":"Answer","text":"Não. Cuidamos de tudo. Entregamos o link pronto para você usar."}},{"@type":"Question","name":"Funciona para franquias como Ortobom e Castor?","acceptedAnswer":{"@type":"Answer","text":"Sim. Desenvolvemos para franqueados de Ortobom, Castor, Plumatex e redes independentes."}},{"@type":"Question","name":"E se eu não gostar? Tem garantia?","acceptedAnswer":{"@type":"Answer","text":"Sim. Garantia incondicional de 7 dias. Se não gostar, devolvemos 100% do valor pago, sem perguntas."}},{"@type":"Question","name":"Preciso saber de tecnologia?","acceptedAnswer":{"@type":"Answer","text":"Não. Você responde um formulário simples e nós fazemos todo o resto."}},{"@type":"Question","name":"Qual a diferença para um site normal?","acceptedAnswer":{"@type":"Answer","text":"Um site dispersa a atenção. A landing page tem um único objetivo: fazer o cliente entrar em contato. Por isso converte muito mais."}}]}
 </script>
 
 <style>
@@ -84,552 +31,245 @@
   --border:#1e1e1e;
   --text:#f0f0f0;
   --muted:#888;
-  --max:440px;
 }
 html{scroll-behavior:smooth}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Inter',sans-serif;
-  font-size:16px;
-  max-width:var(--max);
-  margin:0 auto;
-  overflow-x:hidden;
-}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;overflow-x:hidden}
 
-/* UTILITY */
-.red{color:var(--red)}
-.bold{font-weight:700}
-.bebas{font-family:'Bebas Neue',sans-serif;letter-spacing:1px}
-.center{text-align:center}
-.tag{
-  display:inline-block;
-  background:rgba(228,10,45,0.12);
-  color:var(--red);
-  border:1px solid rgba(228,10,45,0.3);
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  padding:4px 12px;
-  border-radius:2px;
-  margin-bottom:12px;
-}
-.divider{height:1px;background:linear-gradient(90deg,transparent,var(--red),var(--blue),transparent);margin:0}
-.btn-main{
-  display:block;
-  width:100%;
-  background:var(--red);
-  color:#fff;
-  font-family:'Bebas Neue',sans-serif;
-  font-size:22px;
-  letter-spacing:2px;
-  text-align:center;
-  padding:18px 20px;
-  border:none;
-  border-radius:4px;
-  cursor:pointer;
-  text-decoration:none;
-  transition:filter 0.2s;
-}
+/* WRAPPER — limita largura no desktop */
+.wrap{width:100%;max-width:1100px;margin:0 auto;padding:0 24px}
+.wrap-sm{width:100%;max-width:700px;margin:0 auto;padding:0 24px}
+
+.tag{display:inline-block;background:rgba(228,10,45,0.12);color:var(--red);border:1px solid rgba(228,10,45,0.3);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:12px}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--red),var(--blue),transparent)}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:36px;line-height:1.05;margin-bottom:8px}
+.section-sub{font-size:15px;color:var(--muted);margin-bottom:28px;line-height:1.6}
+
+.btn-main{display:block;width:100%;background:var(--red);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;text-align:center;padding:18px 20px;border:none;border-radius:4px;cursor:pointer;text-decoration:none;transition:filter 0.2s}
 .btn-main:hover{filter:brightness(1.1)}
-.btn-sec{
-  display:block;
-  width:100%;
-  background:transparent;
-  color:var(--muted);
-  font-size:14px;
-  text-align:center;
-  padding:14px 20px;
-  border:1px solid #333;
-  border-radius:4px;
-  cursor:pointer;
-  text-decoration:none;
-  transition:border-color 0.2s,color 0.2s;
-  margin-top:10px;
-}
+.btn-sec{display:block;width:100%;background:transparent;color:var(--muted);font-size:14px;text-align:center;padding:14px 20px;border:1px solid #333;border-radius:4px;cursor:pointer;text-decoration:none;transition:border-color 0.2s,color 0.2s;margin-top:10px}
 .btn-sec:hover{border-color:#555;color:#ccc}
 
-/* FADE IN */
-.fade{opacity:0;transform:translateY(24px);transition:opacity 0.6s,transform 0.6s}
+.fade{opacity:0;transform:translateY(20px);transition:opacity 0.55s,transform 0.55s}
 .fade.visible{opacity:1;transform:none}
 
-/* SECTIONS */
-section{padding:48px 24px}
-
-/* 1. HERO */
-.hero{
-  padding:0;
-  background:linear-gradient(180deg,#0c3c5f 0%,#050e16 60%,var(--bg) 100%);
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-}
-.hero-nav{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:16px 20px;
-  border-bottom:1px solid rgba(255,255,255,0.06);
-}
-.hero-nav-logo{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:22px;
-  letter-spacing:3px;
-  color:#fff;
-}
-.hero-nav-logo span{color:var(--red)}
-.hero-body{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:40px 24px 48px;
-}
-.hero-eyebrow{
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:rgba(255,255,255,0.5);
-  margin-bottom:16px;
-}
-.hero-title{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:52px;
-  line-height:1;
-  letter-spacing:1px;
-  color:#fff;
-  margin-bottom:20px;
-}
+/* ── HERO ── */
+.hero{background:linear-gradient(160deg,#0c3c5f 0%,#050e16 55%,var(--bg) 100%);min-height:100vh;display:flex;flex-direction:column}
+.hero-nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;border-bottom:1px solid rgba(255,255,255,0.06);max-width:1100px;margin:0 auto;width:100%}
+.logo-txt{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:#fff}
+.logo-txt span{color:var(--red)}
+.hero-inner{flex:1;display:flex;align-items:center;max-width:1100px;margin:0 auto;width:100%;padding:48px 28px}
+.hero-left{flex:1}
+.hero-right{width:320px;min-width:280px;margin-left:48px;display:none}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:14px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:#fff;margin-bottom:20px}
 .hero-title span{color:var(--red)}
-.hero-sub{
-  font-size:17px;
-  line-height:1.6;
-  color:rgba(255,255,255,0.75);
-  margin-bottom:32px;
-}
-.hero-guarantee{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:6px;
-  padding:12px 14px;
-  margin-bottom:28px;
-}
-.guarantee-icon{font-size:28px}
-.guarantee-text{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.4}
-.guarantee-text strong{color:#fff;display:block;font-size:14px}
-.hero-stats{
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  gap:1px;
-  background:var(--border);
-  border:1px solid var(--border);
-  border-radius:6px;
-  overflow:hidden;
-  margin-top:32px;
-}
-.hero-stat{
-  background:rgba(255,255,255,0.03);
-  text-align:center;
-  padding:14px 8px;
-}
-.hero-stat-num{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:28px;
-  color:var(--red);
-  line-height:1;
-}
+.hero-sub{font-size:17px;line-height:1.65;color:rgba(255,255,255,0.75);margin-bottom:28px;max-width:520px}
+.guarantee-box{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:12px 14px;margin-bottom:24px;max-width:520px}
+.guarantee-box .icon{font-size:26px}
+.guarantee-box .txt{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.4}
+.guarantee-box .txt strong{color:#fff;display:block;font-size:14px}
+.hero-btns{max-width:520px}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-top:28px;max-width:520px}
+.hero-stat{background:rgba(255,255,255,0.03);text-align:center;padding:14px 8px}
+.hero-stat-num{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--red);line-height:1}
 .hero-stat-label{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:2px}
 
-/* 2. TICKER */
-.ticker{
-  background:var(--red);
-  padding:10px 0;
-  overflow:hidden;
-  white-space:nowrap;
-}
-.ticker-track{
-  display:inline-block;
-  animation:ticker 20s linear infinite;
-}
-.ticker-item{
-  display:inline-block;
-  font-family:'Bebas Neue',sans-serif;
-  font-size:15px;
-  letter-spacing:2px;
-  color:#fff;
-  padding:0 24px;
-}
+/* card flutuante no desktop hero */
+.hero-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:24px;border-top:3px solid var(--red)}
+.hero-card-title{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--red);letter-spacing:1px;margin-bottom:16px}
+.hero-card-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.hero-card-list li{display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.8)}
+.hero-card-list li::before{content:"✓";color:#22c55e;font-weight:700;min-width:16px}
+.hero-card-price{margin-top:20px;padding-top:16px;border-top:1px solid var(--border);text-align:center}
+.hero-card-price .de{font-size:13px;color:var(--muted);text-decoration:line-through}
+.hero-card-price .val{font-family:'Bebas Neue',sans-serif;font-size:52px;color:#fff;line-height:1}
+.hero-card-price .val sup{font-size:20px;vertical-align:top;margin-top:10px}
+.hero-card-price .obs{font-size:12px;color:var(--muted);margin-top:2px}
+
+/* ── TICKER ── */
+.ticker{background:var(--red);padding:10px 0;overflow:hidden;white-space:nowrap}
+.ticker-track{display:inline-block;animation:ticker 22s linear infinite}
+.ticker-item{display:inline-block;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:#fff;padding:0 24px}
 .ticker-item::after{content:"◆";margin-left:24px;opacity:0.5}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* 3. PROBLEMA */
-.section-title{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:36px;
-  line-height:1.05;
-  margin-bottom:8px;
-}
-.section-sub{font-size:15px;color:var(--muted);margin-bottom:32px;line-height:1.6}
-.pain-list{list-style:none;display:flex;flex-direction:column;gap:16px}
-.pain-item{
-  display:flex;
-  gap:16px;
-  align-items:flex-start;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:6px;
-  padding:18px 16px;
-}
-.pain-num{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:36px;
-  color:var(--red);
-  line-height:1;
-  min-width:32px;
-}
-.pain-text strong{display:block;font-size:15px;margin-bottom:4px}
-.pain-text span{font-size:14px;color:var(--muted);line-height:1.5}
+/* ── SEÇÃO GENÉRICA ── */
+.sec{padding:72px 0}
+.sec-dark{background:var(--bg)}
+.sec-card{background:var(--card)}
 
-/* 4. STEPS */
-.steps{display:flex;flex-direction:column;gap:0}
-.step{
-  display:flex;
-  gap:20px;
-  align-items:flex-start;
-  padding:20px 0;
-  border-bottom:1px solid var(--border);
-}
+/* ── PROBLEMA + COMO — 2 col no desktop ── */
+.two-col{display:grid;grid-template-columns:1fr;gap:48px}
+.pain-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.pain-item{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:6px;padding:16px}
+.pain-num{font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--red);line-height:1;min-width:30px}
+.pain-text strong{display:block;font-size:15px;margin-bottom:3px}
+.pain-text span{font-size:13px;color:var(--muted);line-height:1.5}
+.steps{list-style:none;display:flex;flex-direction:column;gap:0}
+.step{display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--border)}
 .step:last-child{border-bottom:none}
-.step-num{
-  width:40px;height:40px;min-width:40px;
-  background:var(--red);
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff;
-}
-.step-content strong{display:block;font-size:15px;margin-bottom:4px}
+.step-num{width:38px;height:38px;min-width:38px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff}
+.step-content strong{display:block;font-size:15px;margin-bottom:3px}
 .step-content span{font-size:13px;color:var(--muted);line-height:1.5}
 
-/* 5. CHECKLIST */
-.checklist{list-style:none;display:flex;flex-direction:column;gap:12px}
-.check-item{
-  display:flex;gap:12px;align-items:center;
-  font-size:15px;
-  padding:14px 16px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:6px;
-  border-left:3px solid var(--red);
-}
-.check-icon{font-size:18px;min-width:24px}
+/* ── ENTREGA ── */
+.checklist{list-style:none;display:grid;grid-template-columns:1fr;gap:10px}
+.check-item{display:flex;gap:12px;align-items:center;font-size:15px;padding:13px 16px;background:var(--card);border:1px solid var(--border);border-radius:6px;border-left:3px solid var(--red)}
 
-/* 6. CASE */
-.case-card{
-  border:1px solid var(--border);
-  border-radius:8px;
-  overflow:hidden;
-}
-.case-header{
-  background:linear-gradient(135deg,var(--blue),#0a2a45);
-  padding:20px;
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-.case-avatar{
-  width:56px;height:56px;
-  background:rgba(255,255,255,0.15);
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:24px;
-}
+/* ── CASE + DEPOS ── */
+.case-depo{display:grid;grid-template-columns:1fr;gap:24px}
+.case-card{border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.case-header{background:linear-gradient(135deg,var(--blue),#0a2a45);padding:20px;display:flex;align-items:center;gap:14px}
+.case-avatar{width:52px;height:52px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px}
 .case-who strong{display:block;font-size:16px;color:#fff}
 .case-who span{font-size:13px;color:rgba(255,255,255,0.6)}
 .case-body{padding:20px}
-.case-quote{
-  font-size:15px;
-  line-height:1.7;
-  color:rgba(255,255,255,0.85);
-  font-style:italic;
-  margin-bottom:20px;
-  padding-left:14px;
-  border-left:3px solid var(--red);
-}
-.case-metrics{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-.metric{
-  background:rgba(255,255,255,0.04);
-  border:1px solid var(--border);
-  border-radius:6px;
-  padding:14px;
-  text-align:center;
-}
-.metric-val{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:30px;
-  color:var(--red);
-  line-height:1;
-}
-.metric-label{font-size:11px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:1px}
-
-/* 7. DEPOIMENTOS */
-.depo-grid{display:flex;flex-direction:column;gap:14px}
-.depo-card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:8px;
-  padding:18px;
-}
-.depo-stars{color:#f0a500;font-size:14px;margin-bottom:8px}
-.depo-text{font-size:14px;line-height:1.6;color:rgba(255,255,255,0.8);margin-bottom:12px;font-style:italic}
+.case-quote{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.85);font-style:italic;margin-bottom:16px;padding-left:12px;border-left:3px solid var(--red)}
+.case-metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.metric{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:6px;padding:12px;text-align:center}
+.metric-val{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--red);line-height:1}
+.metric-label{font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:1px}
+.depo-grid{display:flex;flex-direction:column;gap:12px}
+.depo-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px}
+.depo-stars{color:#f0a500;font-size:13px;margin-bottom:8px}
+.depo-text{font-size:13px;line-height:1.6;color:rgba(255,255,255,0.8);margin-bottom:10px;font-style:italic}
 .depo-author{display:flex;align-items:center;gap:10px}
-.depo-avatar{
-  width:36px;height:36px;
-  background:var(--blue);
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Bebas Neue',sans-serif;font-size:16px;
-}
+.depo-av{width:32px;height:32px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px}
 .depo-name strong{display:block;font-size:13px}
-.depo-name span{font-size:12px;color:var(--muted)}
+.depo-name span{font-size:11px;color:var(--muted)}
 
-/* 8. TECH */
-.tech-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-.tech-item{
-  background:var(--bg);
-  border:1px solid var(--border);
-  border-radius:6px;
-  padding:16px 14px;
-  text-align:center;
-}
-.tech-icon{font-size:28px;margin-bottom:8px}
-.tech-label{font-size:13px;font-weight:600;display:block;margin-bottom:4px}
-.tech-desc{font-size:12px;color:var(--muted);line-height:1.4}
-
-/* 9. COMPARATIVO */
+/* ── QUEM + COMPARE — 2 col desktop ── */
+.quem-compare{display:grid;grid-template-columns:1fr;gap:32px}
+.quem-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.quem-card{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:6px;padding:16px}
+.quem-icon{font-size:26px}
+.quem-text strong{font-size:14px}
+.quem-text span{font-size:12px;color:var(--muted);line-height:1.5}
 .compare-table{border:1px solid var(--border);border-radius:8px;overflow:hidden}
-.compare-header{
-  display:grid;grid-template-columns:1fr 1fr 1fr;
-  background:rgba(255,255,255,0.04);
-  border-bottom:1px solid var(--border);
-}
-.compare-header div{
-  padding:12px 8px;
-  font-size:12px;
-  font-weight:700;
-  text-align:center;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-.compare-header .col-veon{background:rgba(228,10,45,0.1);color:var(--red)}
-.compare-row{
-  display:grid;grid-template-columns:1fr 1fr 1fr;
-  border-bottom:1px solid var(--border);
-}
+.compare-header{display:grid;grid-template-columns:1fr 1fr 1fr;background:rgba(255,255,255,0.04);border-bottom:1px solid var(--border)}
+.compare-header div{padding:11px 8px;font-size:12px;font-weight:700;text-align:center;text-transform:uppercase;letter-spacing:1px}
+.compare-header .col-v{background:rgba(228,10,45,0.1);color:var(--red)}
+.compare-row{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border)}
 .compare-row:last-child{border-bottom:none}
-.compare-row div{
-  padding:12px 8px;
-  font-size:13px;
-  text-align:center;
-  display:flex;align-items:center;justify-content:center;
-}
-.compare-row .col-feat{
-  text-align:left;
-  justify-content:flex-start;
-  padding-left:14px;
-  font-size:12px;
-  color:var(--muted);
-}
-.compare-row .col-veon{background:rgba(228,10,45,0.04)}
-.yes{color:#22c55e;font-size:18px}
-.no{color:#ef4444;font-size:18px}
+.compare-row div{padding:11px 8px;font-size:13px;text-align:center;display:flex;align-items:center;justify-content:center}
+.compare-row .col-feat{text-align:left;justify-content:flex-start;padding-left:12px;font-size:12px;color:var(--muted)}
+.compare-row .col-v{background:rgba(228,10,45,0.04)}
+.yes{color:#22c55e;font-size:17px}
+.no{color:#ef4444;font-size:17px}
 
-/* 10. PARA QUEM É */
-.quem-grid{display:flex;flex-direction:column;gap:12px}
-.quem-card{
-  display:flex;gap:14px;align-items:flex-start;
-  background:var(--bg);
-  border:1px solid var(--border);
-  border-radius:6px;
-  padding:16px;
-}
-.quem-icon{font-size:28px;min-width:36px}
-.quem-text strong{display:block;font-size:15px;margin-bottom:4px}
-.quem-text span{font-size:13px;color:var(--muted);line-height:1.5}
-
-/* 11. FUNDADOR */
-.fundador-card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:8px;
-  overflow:hidden;
-}
-.fundador-img{
-  width:100%;
-  height:180px;
-  background:linear-gradient(135deg,var(--blue) 0%,#0a2a45 100%);
-  display:flex;align-items:center;justify-content:center;
-  font-size:64px;
-}
-.fundador-body{padding:24px 20px}
-.fundador-name{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:28px;
-  margin-bottom:4px;
-}
-.fundador-role{font-size:13px;color:var(--red);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
-.fundador-bio{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.8)}
-
-/* 12. PREÇO */
-.price-card{
-  border:2px solid var(--red);
-  border-radius:10px;
-  overflow:hidden;
-}
-.price-header{
-  background:var(--red);
-  padding:24px 20px;
-  text-align:center;
-}
-.price-name{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:20px;
-  letter-spacing:3px;
-  color:rgba(255,255,255,0.8);
-  margin-bottom:12px;
-}
-.price-de{
-  font-size:14px;
-  color:rgba(255,255,255,0.6);
-  text-decoration:line-through;
-  margin-bottom:4px;
-}
-.price-val{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:64px;
-  line-height:1;
-  color:#fff;
-  letter-spacing:2px;
-}
-.price-val sup{font-size:24px;vertical-align:top;margin-top:12px;margin-right:4px}
-.price-pix{font-size:13px;color:rgba(255,255,255,0.7);margin-top:4px}
-.price-body{padding:24px 20px}
-.price-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
-.price-feature{display:flex;gap:12px;align-items:center;font-size:14px}
-.price-feature-check{color:#22c55e;font-size:16px;min-width:20px}
-.price-guarantee{
-  background:rgba(34,197,94,0.08);
-  border:1px solid rgba(34,197,94,0.2);
-  border-radius:6px;
-  padding:14px;
-  text-align:center;
-  margin-bottom:20px;
-}
-.price-guarantee-icon{font-size:28px;margin-bottom:4px}
-.price-guarantee-text{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.5}
-
-/* 13. FAQ */
+/* ── PREÇO + FAQ — 2 col desktop ── */
+.price-faq{display:grid;grid-template-columns:1fr;gap:32px;align-items:start}
+.price-card{border:2px solid var(--red);border-radius:10px;overflow:hidden}
+.price-header{background:var(--red);padding:24px 20px;text-align:center}
+.price-name{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;color:rgba(255,255,255,0.8);margin-bottom:10px}
+.price-de{font-size:13px;color:rgba(255,255,255,0.6);text-decoration:line-through;margin-bottom:4px}
+.price-val{font-family:'Bebas Neue',sans-serif;font-size:64px;line-height:1;color:#fff;letter-spacing:2px}
+.price-val sup{font-size:22px;vertical-align:top;margin-top:10px;margin-right:4px}
+.price-pix{font-size:12px;color:rgba(255,255,255,0.7);margin-top:4px}
+.price-body{padding:22px 20px}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+.price-feat{display:flex;gap:10px;align-items:center;font-size:14px}
+.pfc{color:#22c55e;font-size:15px;min-width:18px}
+.price-guar{background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:6px;padding:12px;text-align:center;margin-bottom:18px}
+.price-guar-text{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.5;margin-top:4px}
 .faq-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden}
 .faq-item{background:var(--card)}
-.faq-q{
-  width:100%;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:16px 18px;
-  background:none;border:none;color:var(--text);
-  font-family:'Inter',sans-serif;font-size:14px;font-weight:600;
-  cursor:pointer;text-align:left;gap:12px;
-}
-.faq-q .arrow{font-size:18px;color:var(--red);min-width:20px;text-align:center;transition:transform 0.3s}
-.faq-q.open .arrow{transform:rotate(45deg)}
-.faq-a{
-  font-size:14px;color:var(--muted);line-height:1.7;
-  padding:0 18px;max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s;
-}
-.faq-a.open{max-height:200px;padding:0 18px 18px}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:15px 17px;background:none;border:none;color:var(--text);font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;text-align:left;gap:12px}
+.faq-q .arr{font-size:17px;color:var(--red);min-width:18px;text-align:center;transition:transform 0.3s}
+.faq-q.open .arr{transform:rotate(45deg)}
+.faq-a{font-size:13px;color:var(--muted);line-height:1.7;padding:0 17px;max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s}
+.faq-a.open{max-height:180px;padding:0 17px 16px}
 
-/* 14. CTA FINAL */
-.cta-final{
-  background:linear-gradient(180deg,var(--bg) 0%,#0c1a2e 100%);
-  padding:60px 24px;
-  text-align:center;
-}
-.cta-final .section-title{font-size:42px;margin-bottom:16px}
-.cta-final-sub{font-size:15px;color:var(--muted);margin-bottom:32px;line-height:1.6}
-.cta-urgency{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(228,10,45,0.1);
-  border:1px solid rgba(228,10,45,0.25);
-  border-radius:4px;
-  padding:8px 16px;
-  font-size:13px;
-  color:var(--red);
-  font-weight:600;
-  margin-bottom:28px;
-}
-.cta-pulse{
-  width:8px;height:8px;
-  background:var(--red);
-  border-radius:50%;
-  animation:pulse 1.2s ease-in-out infinite;
-  display:inline-block;
-}
+/* ── FUNDADOR inline ── */
+.fundador-row{display:flex;align-items:center;gap:16px;margin-top:28px;padding-top:24px;border-top:1px solid var(--border)}
+.fundador-av{width:56px;height:56px;min-width:56px;background:linear-gradient(135deg,var(--blue),#0a2a45);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px}
+.fundador-txt strong{display:block;font-size:15px}
+.fundador-txt span{font-size:12px;color:var(--red);letter-spacing:1px;text-transform:uppercase}
+.fundador-txt p{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.5}
+
+/* ── CTA FINAL ── */
+.cta-final{background:linear-gradient(180deg,var(--bg) 0%,#0c1a2e 100%);padding:80px 0;text-align:center}
+.cta-final .section-title{font-size:46px;margin-bottom:14px}
+.cta-final-sub{font-size:15px;color:var(--muted);margin-bottom:28px;line-height:1.6}
+.cta-urgency{display:inline-flex;align-items:center;gap:8px;background:rgba(228,10,45,0.1);border:1px solid rgba(228,10,45,0.25);border-radius:4px;padding:8px 16px;font-size:13px;color:var(--red);font-weight:600;margin-bottom:24px}
+.pulse{width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulse 1.2s ease-in-out infinite;display:inline-block}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.7)}}
+.cta-btns{max-width:460px;margin:0 auto}
 
-.footer{
-  padding:24px;
-  text-align:center;
-  border-top:1px solid var(--border);
-  font-size:12px;
-  color:#444;
-}
+.footer{padding:24px;text-align:center;border-top:1px solid var(--border);font-size:12px;color:#444}
 .footer a{color:#444;text-decoration:none}
+
+/* ────────────────────────────
+   DESKTOP — min-width: 768px
+──────────────────────────── */
+@media(min-width:768px){
+  .hero-right{display:block}
+  .hero-title{font-size:68px}
+  .hero-sub{font-size:18px}
+
+  .two-col{grid-template-columns:1fr 1fr}
+  .checklist{grid-template-columns:1fr 1fr}
+  .case-depo{grid-template-columns:1fr 1fr;align-items:start}
+  .depo-grid{gap:14px}
+  .quem-compare{grid-template-columns:1fr 1fr}
+  .price-faq{grid-template-columns:1fr 1fr}
+  .section-title{font-size:42px}
+  .cta-final .section-title{font-size:56px}
+
+  .btn-main{font-size:20px}
+  .sec{padding:88px 0}
+}
+
+@media(min-width:1024px){
+  .hero-title{font-size:80px}
+}
 </style>
 </head>
 <body>
 
-<!-- HERO -->
+<!-- ══ HERO ══ -->
 <section class="hero">
   <nav class="hero-nav">
-    <div class="hero-nav-logo">VEON<span>.</span></div>
-    <div style="font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:1px">INSTITUTO</div>
+    <div class="logo-txt">VEON<span>.</span></div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.35);letter-spacing:1px">INSTITUTO</div>
   </nav>
-  <div class="hero-body fade">
-    <div class="hero-eyebrow">Para donos de loja de colchão e móveis</div>
-    <h1 class="hero-title">SUA LOJA VENDENDO <span>24H POR DIA</span> NO CELULAR</h1>
-    <p class="hero-sub">Landing page profissional que capta clientes enquanto você dorme — sem contratos, sem mensalidade, pronta em 7 dias.</p>
-    <div class="hero-guarantee">
-      <div class="guarantee-icon">🛡️</div>
-      <div class="guarantee-text">
-        <strong>Garantia incondicional de 7 dias</strong>
-        Não gostou? Devolvemos 100% do valor. Sem perguntas.
+  <div class="hero-inner fade">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Para donos de loja de colchão e móveis</div>
+      <h1 class="hero-title">SUA LOJA VENDENDO <span>24H</span> NO CELULAR</h1>
+      <p class="hero-sub">Landing page profissional que capta clientes enquanto você dorme — sem contratos, sem mensalidade, pronta em 7 dias.</p>
+      <div class="guarantee-box">
+        <div class="icon">🛡️</div>
+        <div class="txt"><strong>Garantia incondicional de 7 dias</strong>Não gostou? Devolvemos 100% do valor. Sem perguntas.</div>
+      </div>
+      <div class="hero-btns">
+        <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main">QUERO MINHA LANDING PAGE AGORA</a>
+        <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20sobre%20a%20landing%20page" class="btn-sec">Tenho uma dúvida antes</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num">+80</div><div class="hero-stat-label">Lojas atendidas</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">7d</div><div class="hero-stat-label">Prazo de entrega</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">R$397</div><div class="hero-stat-label">Preço único</div></div>
       </div>
     </div>
-    <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main">QUERO MINHA LANDING PAGE AGORA</a>
-    <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20sobre%20a%20landing%20page" class="btn-sec">Tenho uma dúvida antes</a>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">+80</div>
-        <div class="hero-stat-label">Lojas atendidas</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">7d</div>
-        <div class="hero-stat-label">Prazo de entrega</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">R$397</div>
-        <div class="hero-stat-label">Preço único</div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-title">O QUE ESTÁ INCLUÍDO</div>
+        <ul class="hero-card-list">
+          <li>Landing page responsiva (mobile-first)</li>
+          <li>Botão WhatsApp integrado</li>
+          <li>Hospedagem 12 meses grátis</li>
+          <li>SEO configurado para sua cidade</li>
+          <li>Pixel do Meta pré-configurado</li>
+          <li>Design personalizado para sua loja</li>
+          <li>2 revisões sem custo extra</li>
+          <li>Suporte por WhatsApp após entrega</li>
+        </ul>
+        <div class="hero-card-price">
+          <div class="de">De R$897</div>
+          <div class="val"><sup>R$</sup>397</div>
+          <div class="obs">à vista · pagamento único</div>
+        </div>
       </div>
     </div>
   </div>
@@ -638,454 +278,247 @@ section{padding:48px 24px}
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <span class="ticker-item">ORTOBOM</span>
-    <span class="ticker-item">CASTOR</span>
-    <span class="ticker-item">PLUMATEX</span>
-    <span class="ticker-item">PROBEL</span>
-    <span class="ticker-item">FABBRICA</span>
-    <span class="ticker-item">LOJAS INDEPENDENTES</span>
-    <span class="ticker-item">REDES FRANQUEADAS</span>
-    <span class="ticker-item">ORTOBOM</span>
-    <span class="ticker-item">CASTOR</span>
-    <span class="ticker-item">PLUMATEX</span>
-    <span class="ticker-item">PROBEL</span>
-    <span class="ticker-item">FABBRICA</span>
-    <span class="ticker-item">LOJAS INDEPENDENTES</span>
-    <span class="ticker-item">REDES FRANQUEADAS</span>
+    <span class="ticker-item">ORTOBOM</span><span class="ticker-item">CASTOR</span><span class="ticker-item">PLUMATEX</span><span class="ticker-item">PROBEL</span><span class="ticker-item">FABBRICA</span><span class="ticker-item">LOJAS INDEPENDENTES</span><span class="ticker-item">REDES FRANQUEADAS</span><span class="ticker-item">ORTOBOM</span><span class="ticker-item">CASTOR</span><span class="ticker-item">PLUMATEX</span><span class="ticker-item">PROBEL</span><span class="ticker-item">FABBRICA</span><span class="ticker-item">LOJAS INDEPENDENTES</span><span class="ticker-item">REDES FRANQUEADAS</span>
   </div>
 </div>
-
 <div class="divider"></div>
 
-<!-- PROBLEMA -->
-<section style="padding:48px 24px;background:var(--bg)" class="fade">
-  <div class="tag">O PROBLEMA</div>
-  <h2 class="section-title">Por que sua loja perde vendas todo dia?</h2>
-  <p class="section-sub">Enquanto você está no balcão, o cliente está no celular comprando do concorrente.</p>
-  <ul class="pain-list">
-    <li class="pain-item">
-      <div class="pain-num">01</div>
-      <div class="pain-text">
-        <strong>Você não está onde o cliente procura</strong>
-        <span>89% das pessoas pesquisam no Google antes de ir à loja. Se você não aparece, perde a venda antes mesmo de abrir a porta.</span>
+<!-- ══ PROBLEMA + COMO FUNCIONA ══ -->
+<section class="sec sec-dark fade">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <div class="tag">O PROBLEMA</div>
+        <h2 class="section-title">Por que sua loja perde vendas todo dia?</h2>
+        <p class="section-sub">Enquanto você está no balcão, o cliente está no celular comprando do concorrente.</p>
+        <ul class="pain-list">
+          <li class="pain-item">
+            <div class="pain-num">01</div>
+            <div class="pain-text"><strong>Você não está onde o cliente procura</strong><span>89% das pessoas pesquisam no Google antes de ir à loja. Se você não aparece, perde a venda antes de abrir a porta.</span></div>
+          </li>
+          <li class="pain-item">
+            <div class="pain-num">02</div>
+            <div class="pain-text"><strong>Instagram não vende, só mostra</strong><span>Seguidores não pagam boleto. Sem página de captura, você trabalha de graça para o algoritmo.</span></div>
+          </li>
+          <li class="pain-item">
+            <div class="pain-num">03</div>
+            <div class="pain-text"><strong>Concorrente com página simples converte mais</strong><span>Uma página direta com botão WhatsApp bate qualquer perfil de rede social em conversão.</span></div>
+          </li>
+        </ul>
       </div>
-    </li>
-    <li class="pain-item">
-      <div class="pain-num">02</div>
-      <div class="pain-text">
-        <strong>Seu Instagram não vende, só mostra</strong>
-        <span>Seguidores não pagam boleto. Sem uma página de captura, você trabalha de graça para o algoritmo e o cliente some.</span>
-      </div>
-    </li>
-    <li class="pain-item">
-      <div class="pain-num">03</div>
-      <div class="pain-text">
-        <strong>Concorrente com página simples converte mais que você</strong>
-        <span>Uma página direta, com botão de WhatsApp, bate qualquer perfil de rede social no quesito conversão.</span>
-      </div>
-    </li>
-  </ul>
-</section>
-
-<div class="divider"></div>
-
-<!-- COMO FUNCIONA -->
-<section style="padding:48px 24px;background:var(--card)" class="fade">
-  <div class="tag">COMO FUNCIONA</div>
-  <h2 class="section-title" style="margin-bottom:28px">4 passos simples</h2>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-content">
-        <strong>Você responde o briefing</strong>
-        <span>Um formulário rápido com nome da loja, diferenciais e produtos. Leva 10 minutos.</span>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-content">
-        <strong>Nossa equipe cria a página</strong>
-        <span>Design profissional, otimizado para celular e configurado para converter visita em contato.</span>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-content">
-        <strong>Você aprova ou pede ajustes</strong>
-        <span>Mostramos o resultado. Se quiser mudar algo, ajustamos sem custo até você aprovar.</span>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-content">
-        <strong>Página no ar em 7 dias úteis</strong>
-        <span>Entregamos o link pronto. Você divulga e começa a receber clientes pelo WhatsApp.</span>
+      <div>
+        <div class="tag">COMO FUNCIONA</div>
+        <h2 class="section-title">4 passos simples</h2>
+        <p class="section-sub">Você não precisa saber nada de tecnologia. É tudo com a gente.</p>
+        <ul class="steps">
+          <li class="step"><div class="step-num">1</div><div class="step-content"><strong>Você responde o briefing</strong><span>Formulário rápido: nome da loja, diferenciais e produtos. Leva 10 minutos.</span></div></li>
+          <li class="step"><div class="step-num">2</div><div class="step-content"><strong>Nossa equipe cria a página</strong><span>Design profissional, otimizado para celular, configurado para converter.</span></div></li>
+          <li class="step"><div class="step-num">3</div><div class="step-content"><strong>Você aprova ou pede ajustes</strong><span>Se quiser mudar algo, ajustamos sem custo até você aprovar.</span></div></li>
+          <li class="step"><div class="step-num">4</div><div class="step-content"><strong>Página no ar em 7 dias úteis</strong><span>Link pronto. Você divulga e começa a receber clientes pelo WhatsApp.</span></div></li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
-
 <div class="divider"></div>
 
-<!-- O QUE VOCÊ RECEBE -->
-<section style="padding:48px 24px;background:var(--bg)" class="fade">
-  <div class="tag">O QUE VOCÊ RECEBE</div>
-  <h2 class="section-title">Tudo pronto para vender</h2>
-  <p class="section-sub">Sem surpresas. Sem cobranças extras. Entrega completa por R$397.</p>
-  <ul class="checklist">
-    <li class="check-item"><span class="check-icon">✅</span> Landing page 100% responsiva para celular</li>
-    <li class="check-item"><span class="check-icon">✅</span> Botão de WhatsApp integrado (leads direto no celular)</li>
-    <li class="check-item"><span class="check-icon">✅</span> Hospedagem gratuita por 12 meses</li>
-    <li class="check-item"><span class="check-icon">✅</span> SEO básico configurado (aparece no Google)</li>
-    <li class="check-item"><span class="check-icon">✅</span> Design personalizado com a identidade da sua loja</li>
-    <li class="check-item"><span class="check-icon">✅</span> Seção de produtos em destaque</li>
-    <li class="check-item"><span class="check-icon">✅</span> Depoimentos de clientes da sua loja</li>
-    <li class="check-item"><span class="check-icon">✅</span> Pixel do Meta pré-configurado (para anúncios)</li>
-    <li class="check-item"><span class="check-icon">✅</span> 2 revisões incluídas após entrega</li>
-  </ul>
+<!-- ══ O QUE VOCÊ RECEBE ══ -->
+<section class="sec sec-card fade">
+  <div class="wrap">
+    <div class="tag">O QUE VOCÊ RECEBE</div>
+    <h2 class="section-title">Entrega completa por R$397 — sem surpresas</h2>
+    <p class="section-sub">Tudo incluso. Sem cobranças extras.</p>
+    <ul class="checklist">
+      <li class="check-item">✅ &nbsp;Landing page 100% responsiva para celular</li>
+      <li class="check-item">✅ &nbsp;Botão WhatsApp integrado (leads no celular)</li>
+      <li class="check-item">✅ &nbsp;Hospedagem gratuita por 12 meses</li>
+      <li class="check-item">✅ &nbsp;SEO configurado (aparece no Google)</li>
+      <li class="check-item">✅ &nbsp;Design personalizado com a sua identidade</li>
+      <li class="check-item">✅ &nbsp;Seção de produtos em destaque</li>
+      <li class="check-item">✅ &nbsp;Pixel do Meta pré-configurado</li>
+      <li class="check-item">✅ &nbsp;2 revisões incluídas após entrega</li>
+    </ul>
+  </div>
 </section>
-
 <div class="divider"></div>
 
-<!-- CTA INTERMEDIÁRIO -->
-<section style="padding:40px 24px;background:var(--card);text-align:center" class="fade">
-  <p style="font-size:13px;color:var(--muted);margin-bottom:6px">Garantia de 7 dias · Entrega em 7 dias úteis</p>
-  <h3 class="bebas" style="font-size:28px;margin-bottom:20px">PRONTO PARA TRANSFORMAR SUA LOJA?</h3>
-  <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main">QUERO MINHA LANDING PAGE — R$397</a>
-</section>
-
-<div class="divider"></div>
-
-<!-- CASE REAL -->
-<section style="padding:48px 24px;background:var(--bg)" class="fade">
-  <div class="tag">CASO REAL</div>
-  <h2 class="section-title" style="margin-bottom:20px">O que acontece quando você ativa sua presença online</h2>
-  <div class="case-card">
-    <div class="case-header">
-      <div class="case-avatar">🛏️</div>
-      <div class="case-who">
-        <strong>Castor Paranavaí</strong>
-        <span>Loja franqueada · Paranavaí/PR</span>
+<!-- ══ CASE + DEPOIMENTOS ══ -->
+<section class="sec sec-dark fade">
+  <div class="wrap">
+    <div class="tag">RESULTADOS REAIS</div>
+    <h2 class="section-title" style="margin-bottom:28px">Lojas que já transformaram o negócio</h2>
+    <div class="case-depo">
+      <div>
+        <div class="case-card">
+          <div class="case-header">
+            <div class="case-avatar">🛏️</div>
+            <div class="case-who"><strong>Castor Paranavaí</strong><span>Loja franqueada · Paranavaí/PR</span></div>
+          </div>
+          <div class="case-body">
+            <p class="case-quote">"Antes dependíamos só de indicação. Depois da landing page, começamos a receber mensagens no WhatsApp de pessoas que nunca tinham entrado na loja. No 1º mês, fechamos 8 vendas que vieram da página."</p>
+            <div class="case-metrics">
+              <div class="metric"><div class="metric-val">8</div><div class="metric-label">Vendas no 1º mês</div></div>
+              <div class="metric"><div class="metric-val">+140%</div><div class="metric-label">Leads WhatsApp</div></div>
+              <div class="metric"><div class="metric-val">R$0</div><div class="metric-label">Custo em tráfego</div></div>
+              <div class="metric"><div class="metric-val">7d</div><div class="metric-label">Para estar no ar</div></div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="case-body">
-      <p class="case-quote">"Antes dependíamos só da indicação. Depois da landing page, começamos a receber mensagens direto no WhatsApp de pessoas que nunca tinham entrado na loja. No primeiro mês, fechamos 8 vendas que vieram da página."</p>
-      <div class="case-metrics">
-        <div class="metric">
-          <div class="metric-val">8</div>
-          <div class="metric-label">Vendas no 1º mês</div>
+      <div class="depo-grid">
+        <div class="depo-card">
+          <div class="depo-stars">★★★★★</div>
+          <p class="depo-text">"Pensei que não ia adiantar porque minha loja é pequena. Funcionou. Recebo mensagem quase todo dia pelo link."</p>
+          <div class="depo-author"><div class="depo-av">MR</div><div class="depo-name"><strong>Marcos R.</strong><span>Dono de loja · Maringá/PR</span></div></div>
         </div>
-        <div class="metric">
-          <div class="metric-val">+140%</div>
-          <div class="metric-label">Leads via WhatsApp</div>
+        <div class="depo-card">
+          <div class="depo-stars">★★★★★</div>
+          <p class="depo-text">"Entrega mais rápida do que esperava. Em menos de uma semana a página estava no ar. Ficou muito profissional."</p>
+          <div class="depo-author"><div class="depo-av">PA</div><div class="depo-name"><strong>Patricia A.</strong><span>Franqueada Ortobom · Cascavel/PR</span></div></div>
         </div>
-        <div class="metric">
-          <div class="metric-val">R$0</div>
-          <div class="metric-label">Custo em tráfego</div>
-        </div>
-        <div class="metric">
-          <div class="metric-val">7d</div>
-          <div class="metric-label">Para estar no ar</div>
+        <div class="depo-card">
+          <div class="depo-stars">★★★★★</div>
+          <p class="depo-text">"Não entendo de tecnologia, mas não precisei. Eles fizeram tudo. Só aprovei e divulguei. Valeu muito os R$397."</p>
+          <div class="depo-author"><div class="depo-av">JF</div><div class="depo-name"><strong>José F.</strong><span>Loja de móveis · Londrina/PR</span></div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
 <div class="divider"></div>
 
-<!-- DEPOIMENTOS -->
-<section style="padding:48px 24px;background:var(--card)" class="fade">
-  <div class="tag">DEPOIMENTOS</div>
-  <h2 class="section-title" style="margin-bottom:24px">Donos de loja que já transformaram o negócio</h2>
-  <div class="depo-grid">
-    <div class="depo-card">
-      <div class="depo-stars">★★★★★</div>
-      <p class="depo-text">"Pensei que não ia adiantar porque minha loja é pequena. Mas funcionou. Recebo mensagem de cliente quase todo dia pelo link."</p>
-      <div class="depo-author">
-        <div class="depo-avatar">MR</div>
-        <div class="depo-name">
-          <strong>Marcos R.</strong>
-          <span>Dono de loja · Maringá/PR</span>
+<!-- ══ PARA QUEM É + COMPARATIVO ══ -->
+<section class="sec sec-card fade">
+  <div class="wrap">
+    <div class="quem-compare">
+      <div>
+        <div class="tag">PARA QUEM É</div>
+        <h2 class="section-title" style="margin-bottom:8px">Isso é para você se...</h2>
+        <p class="section-sub">Você se identifica com pelo menos uma dessas situações:</p>
+        <div class="quem-grid">
+          <div class="quem-card"><div class="quem-icon">🏪</div><div class="quem-text"><strong>Dono de loja física</strong><span>Loja de colchão, móveis ou cama, mesa e banho que quer atrair clientes online.</span></div></div>
+          <div class="quem-card"><div class="quem-icon">🤝</div><div class="quem-text"><strong>Franqueado</strong><span>Ortobom, Castor, Plumatex — quer se destacar dentro da rede.</span></div></div>
+          <div class="quem-card"><div class="quem-icon">📣</div><div class="quem-text"><strong>Já faz anúncios</strong><span>Investe no Meta mas não tem para onde mandar o cliente. Está perdendo dinheiro.</span></div></div>
+          <div class="quem-card"><div class="quem-icon">📈</div><div class="quem-text"><strong>Quer escalar</strong><span>Crescer sem contratar mais vendedor. A página trabalha por você 24h.</span></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="tag">COMPARATIVO</div>
+        <h2 class="section-title" style="margin-bottom:20px">Com ou sem landing page?</h2>
+        <div class="compare-table">
+          <div class="compare-header">
+            <div></div>
+            <div style="color:var(--muted)">Sem página</div>
+            <div class="col-v">Com VEON</div>
+          </div>
+          <div class="compare-row"><div class="col-feat">Aparece no Google</div><div><span class="no">✗</span></div><div class="col-v"><span class="yes">✓</span></div></div>
+          <div class="compare-row"><div class="col-feat">Capta leads 24h</div><div><span class="no">✗</span></div><div class="col-v"><span class="yes">✓</span></div></div>
+          <div class="compare-row"><div class="col-feat">Profissional no celular</div><div><span class="no">✗</span></div><div class="col-v"><span class="yes">✓</span></div></div>
+          <div class="compare-row"><div class="col-feat">Pronto para anúncios</div><div><span class="no">✗</span></div><div class="col-v"><span class="yes">✓</span></div></div>
+          <div class="compare-row"><div class="col-feat">Custo mensal</div><div style="font-size:12px;color:var(--muted)">—</div><div class="col-v" style="font-size:12px;color:#22c55e">R$0*</div></div>
+          <div class="compare-row"><div class="col-feat">Investimento único</div><div style="font-size:12px;color:var(--muted)">—</div><div class="col-v" style="color:var(--red);font-weight:700;font-size:15px">R$397</div></div>
+        </div>
+        <p style="font-size:11px;color:#444;margin-top:8px">*Hospedagem gratuita por 12 meses incluída</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ══ PREÇO + FAQ ══ -->
+<section class="sec sec-dark fade">
+  <div class="wrap">
+    <div class="price-faq">
+      <div>
+        <div class="tag">INVESTIMENTO</div>
+        <h2 class="section-title" style="margin-bottom:20px">Uma vez. Sem mensalidade.</h2>
+        <div class="price-card">
+          <div class="price-header">
+            <div class="price-name">LANDING PAGE PROFISSIONAL</div>
+            <div class="price-de">De R$897</div>
+            <div class="price-val"><sup>R$</sup>397</div>
+            <div class="price-pix">à vista no Pix ou cartão</div>
+          </div>
+          <div class="price-body">
+            <ul class="price-features">
+              <li class="price-feat"><span class="pfc">✅</span> Landing page responsiva</li>
+              <li class="price-feat"><span class="pfc">✅</span> Botão WhatsApp integrado</li>
+              <li class="price-feat"><span class="pfc">✅</span> Hospedagem 12 meses grátis</li>
+              <li class="price-feat"><span class="pfc">✅</span> SEO básico configurado</li>
+              <li class="price-feat"><span class="pfc">✅</span> Pixel do Meta pré-configurado</li>
+              <li class="price-feat"><span class="pfc">✅</span> Design personalizado</li>
+              <li class="price-feat"><span class="pfc">✅</span> 2 revisões sem custo</li>
+              <li class="price-feat"><span class="pfc">✅</span> Entrega em 7 dias úteis</li>
+            </ul>
+            <div class="price-guar">
+              <div style="font-size:26px">🛡️</div>
+              <div class="price-guar-text"><strong style="color:#22c55e">Garantia incondicional de 7 dias.</strong><br>Se não gostar, devolvemos 100% do valor. Sem perguntas.</div>
+            </div>
+            <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main">QUERO COMEÇAR AGORA</a>
+            <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20antes%20de%20contratar" class="btn-sec">Tirar uma dúvida antes</a>
+
+            <div class="fundador-row">
+              <div class="fundador-av">👤</div>
+              <div class="fundador-txt">
+                <strong>Henrique Veon</strong>
+                <span>Fundador · VEON Instituto</span>
+                <p>+80 lojas no Sul do Brasil. Franqueados Ortobom, Castor e redes independentes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="tag">PERGUNTAS FREQUENTES</div>
+        <h2 class="section-title" style="margin-bottom:20px">Tire suas dúvidas</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Quanto tempo leva para ficar pronta? <span class="arr">+</span></button>
+            <div class="faq-a">7 dias úteis após aprovação do briefing e confirmação do pagamento. Se precisar com urgência, fale conosco e analisamos.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Preciso ter domínio ou hospedagem? <span class="arr">+</span></button>
+            <div class="faq-a">Não. Cuidamos de tudo. Hospedagem gratuita por 12 meses incluída. Se quiser usar um domínio próprio, configuramos sem custo.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Funciona para franquias Ortobom e Castor? <span class="arr">+</span></button>
+            <div class="faq-a">Sim. Temos experiência com franqueados dessas e outras redes. Desenvolvemos dentro das diretrizes de marca quando necessário.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">E se eu não gostar? Tem garantia? <span class="arr">+</span></button>
+            <div class="faq-a">Sim. Garantia incondicional de 7 dias. Se não gostar por qualquer motivo, devolvemos 100% do valor pago. Sem burocracia, sem perguntas.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Não entendo de tecnologia. Funciona para mim? <span class="arr">+</span></button>
+            <div class="faq-a">É feito exatamente para você. Você responde um formulário simples sobre sua loja, e nós fazemos todo o resto.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Posso integrar com meu WhatsApp? <span class="arr">+</span></button>
+            <div class="faq-a">Sim. Todos os botões direcionam para o seu WhatsApp com mensagem pré-preenchida. Lead qualificado direto no seu celular.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Qual a diferença de uma LP para um site? <span class="arr">+</span></button>
+            <div class="faq-a">Um site tem muitas páginas e distrai o cliente. A landing page tem um único objetivo: fazer o cliente entrar em contato. Por isso converte muito mais.</div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="depo-card">
-      <div class="depo-stars">★★★★★</div>
-      <p class="depo-text">"A entrega foi mais rápida do que eu esperava. Em menos de uma semana a página estava no ar. Ficou profissional demais."</p>
-      <div class="depo-author">
-        <div class="depo-avatar">PA</div>
-        <div class="depo-name">
-          <strong>Patricia A.</strong>
-          <span>Franqueada Ortobom · Cascavel/PR</span>
-        </div>
-      </div>
-    </div>
-    <div class="depo-card">
-      <div class="depo-stars">★★★★★</div>
-      <p class="depo-text">"Não entendo nada de tecnologia, mas não precisei. Eles fizeram tudo. Só aprovei e divulguei. Valeu muito os R$397."</p>
-      <div class="depo-author">
-        <div class="depo-avatar">JF</div>
-        <div class="depo-name">
-          <strong>José F.</strong>
-          <span>Loja de móveis · Londrina/PR</span>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
-
 <div class="divider"></div>
 
-<!-- TECNOLOGIA -->
-<section style="padding:48px 24px;background:var(--bg)" class="fade">
-  <div class="tag">TECNOLOGIA</div>
-  <h2 class="section-title" style="margin-bottom:8px">Por dentro da sua landing page</h2>
-  <p class="section-sub" style="margin-bottom:24px">Não é template. É página construída com as melhores práticas do mercado.</p>
-  <div class="tech-grid">
-    <div class="tech-item">
-      <div class="tech-icon">⚡</div>
-      <span class="tech-label">Carregamento rápido</span>
-      <span class="tech-desc">Nota 90+ no Google PageSpeed. Cliente não espera e não vai embora.</span>
-    </div>
-    <div class="tech-item">
-      <div class="tech-icon">📱</div>
-      <span class="tech-label">Mobile-first</span>
-      <span class="tech-desc">Projetada para o celular, onde 93% dos seus clientes estão.</span>
-    </div>
-    <div class="tech-item">
-      <div class="tech-icon">🔍</div>
-      <span class="tech-label">SEO configurado</span>
-      <span class="tech-desc">Aparece no Google quando alguém busca "colchão em [sua cidade]".</span>
-    </div>
-    <div class="tech-item">
-      <div class="tech-icon">📊</div>
-      <span class="tech-label">Pixel do Meta</span>
-      <span class="tech-desc">Rastreamento ativo. Quando quiser anunciar, já está pronto.</span>
-    </div>
-    <div class="tech-item">
-      <div class="tech-icon">🔒</div>
-      <span class="tech-label">HTTPS seguro</span>
-      <span class="tech-desc">Certificado SSL incluso. Confiança para o Google e para o cliente.</span>
-    </div>
-    <div class="tech-item">
-      <div class="tech-icon">💬</div>
-      <span class="tech-label">WhatsApp integrado</span>
-      <span class="tech-desc">Cada clique vira uma conversa. Lead quente direto no seu celular.</span>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- COMPARATIVO -->
-<section style="padding:48px 24px;background:var(--card)" class="fade">
-  <div class="tag">COMPARATIVO</div>
-  <h2 class="section-title" style="margin-bottom:20px">Sua loja com ou sem landing page?</h2>
-  <div class="compare-table">
-    <div class="compare-header">
-      <div></div>
-      <div style="color:var(--muted)">Sem página</div>
-      <div class="col-veon">Com VEON</div>
-    </div>
-    <div class="compare-row">
-      <div class="col-feat">Aparece no Google</div>
-      <div><span class="no">✗</span></div>
-      <div class="col-veon"><span class="yes">✓</span></div>
-    </div>
-    <div class="compare-row">
-      <div class="col-feat">Capta leads 24h</div>
-      <div><span class="no">✗</span></div>
-      <div class="col-veon"><span class="yes">✓</span></div>
-    </div>
-    <div class="compare-row">
-      <div class="col-feat">Profissional no celular</div>
-      <div><span class="no">✗</span></div>
-      <div class="col-veon"><span class="yes">✓</span></div>
-    </div>
-    <div class="compare-row">
-      <div class="col-feat">Pronto para anúncios</div>
-      <div><span class="no">✗</span></div>
-      <div class="col-veon"><span class="yes">✓</span></div>
-    </div>
-    <div class="compare-row">
-      <div class="col-feat">Custo mensal</div>
-      <div style="font-size:12px;color:var(--muted)">R$0*</div>
-      <div class="col-veon" style="font-size:12px;color:#22c55e">R$0*</div>
-    </div>
-    <div class="compare-row">
-      <div class="col-feat">Investimento único</div>
-      <div style="font-size:12px;color:var(--muted)">—</div>
-      <div class="col-veon" style="color:var(--red);font-weight:700;font-size:15px">R$397</div>
-    </div>
-  </div>
-  <p style="font-size:11px;color:#444;margin-top:8px;padding:0 4px">*Hospedagem gratuita por 12 meses incluída</p>
-</section>
-
-<div class="divider"></div>
-
-<!-- PARA QUEM É -->
-<section style="padding:48px 24px;background:var(--bg)" class="fade">
-  <div class="tag">PARA QUEM É</div>
-  <h2 class="section-title" style="margin-bottom:8px">Isso é para você se...</h2>
-  <p class="section-sub" style="margin-bottom:24px">Você se identifica com pelo menos uma dessas situações:</p>
-  <div class="quem-grid">
-    <div class="quem-card">
-      <div class="quem-icon">🏪</div>
-      <div class="quem-text">
-        <strong>É dono de loja física</strong>
-        <span>Tem loja de colchão, móveis ou cama, mesa e banho e quer atrair clientes que buscam online.</span>
-      </div>
-    </div>
-    <div class="quem-card">
-      <div class="quem-icon">🤝</div>
-      <div class="quem-text">
-        <strong>É franqueado</strong>
-        <span>Trabalha com marcas como Ortobom, Castor, Plumatex e quer se destacar dentro da rede.</span>
-      </div>
-    </div>
-    <div class="quem-card">
-      <div class="quem-icon">📣</div>
-      <div class="quem-text">
-        <strong>Já faz anúncios no Meta</strong>
-        <span>Está investindo em tráfego pago mas não tem para onde mandar o cliente. Está perdendo dinheiro.</span>
-      </div>
-    </div>
-    <div class="quem-card">
-      <div class="quem-icon">📈</div>
-      <div class="quem-text">
-        <strong>Quer escalar as vendas</strong>
-        <span>Quer crescer sem contratar mais vendedor. Uma página bem feita trabalha para você 24h por dia.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- FUNDADOR -->
-<section style="padding:48px 24px;background:var(--card)" class="fade">
-  <div class="tag">QUEM FAZ</div>
-  <h2 class="section-title" style="margin-bottom:20px">Por que confiar na VEON?</h2>
-  <div class="fundador-card">
-    <div class="fundador-img">👤</div>
-    <div class="fundador-body">
-      <div class="fundador-name">Henrique Veon</div>
-      <div class="fundador-role">Fundador · VEON Instituto</div>
-      <p class="fundador-bio">Especialista em marketing digital para o varejo físico, com foco em lojas de colchão e móveis no Sul do Brasil. Já estruturou a presença online de mais de 80 lojas, incluindo franqueados Ortobom e Castor. Criou o VEON Instituto para democratizar o acesso a ferramentas de marketing profissional para pequenos e médios lojistas que não têm tempo nem equipe para isso.</p>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PREÇO -->
-<section style="padding:48px 24px;background:var(--bg)" class="fade">
-  <div class="tag">INVESTIMENTO</div>
-  <h2 class="section-title" style="margin-bottom:20px;text-align:center">Uma vez. Sem mensalidade.</h2>
-  <div class="price-card">
-    <div class="price-header">
-      <div class="price-name">LANDING PAGE PROFISSIONAL</div>
-      <div class="price-de">De R$897</div>
-      <div class="price-val"><sup>R$</sup>397</div>
-      <div class="price-pix">à vista no Pix ou cartão</div>
-    </div>
-    <div class="price-body">
-      <ul class="price-features">
-        <li class="price-feature"><span class="price-feature-check">✅</span> Landing page responsiva (mobile-first)</li>
-        <li class="price-feature"><span class="price-feature-check">✅</span> Botão WhatsApp integrado</li>
-        <li class="price-feature"><span class="price-feature-check">✅</span> Hospedagem 12 meses grátis</li>
-        <li class="price-feature"><span class="price-feature-check">✅</span> SEO básico configurado</li>
-        <li class="price-feature"><span class="price-feature-check">✅</span> Pixel do Meta pré-configurado</li>
-        <li class="price-feature"><span class="price-feature-check">✅</span> Design personalizado para sua loja</li>
-        <li class="price-feature"><span class="price-feature-check">✅</span> 2 revisões sem custo</li>
-        <li class="price-feature"><span class="price-feature-check">✅</span> Entrega em 7 dias úteis</li>
-        <li class="price-feature"><span class="price-feature-check">✅</span> Suporte por WhatsApp após entrega</li>
-      </ul>
-      <div class="price-guarantee">
-        <div class="price-guarantee-icon">🛡️</div>
-        <div class="price-guarantee-text"><strong style="color:#22c55e">Garantia incondicional de 7 dias.</strong><br>Se não gostar do resultado por qualquer motivo, devolvemos 100% do valor pago. Sem burocracia, sem perguntas.</div>
-      </div>
-      <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main">QUERO COMEÇAR AGORA</a>
-      <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20antes%20de%20contratar" class="btn-sec">Tirar uma dúvida antes</a>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- FAQ -->
-<section style="padding:48px 24px;background:var(--card)" class="fade">
-  <div class="tag">PERGUNTAS FREQUENTES</div>
-  <h2 class="section-title" style="margin-bottom:24px">Tire suas dúvidas</h2>
-  <div class="faq-list">
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Quanto tempo leva para ficar pronta?
-        <span class="arrow">+</span>
-      </button>
-      <div class="faq-a">7 dias úteis após aprovação do briefing e confirmação do pagamento. Se precisar com urgência, fale conosco e analisamos a possibilidade.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Preciso ter domínio ou hospedagem?
-        <span class="arrow">+</span>
-      </button>
-      <div class="faq-a">Não. Cuidamos de tudo. Hospedagem gratuita por 12 meses incluída. Se quiser usar um domínio próprio, configuramos gratuitamente.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Funciona para franquias como Ortobom e Castor?
-        <span class="arrow">+</span>
-      </button>
-      <div class="faq-a">Sim. Temos experiência com franqueados de Ortobom, Castor, Plumatex e outras redes. Desenvolvemos dentro das diretrizes de marca quando necessário.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        E se eu não gostar? Tem garantia?
-        <span class="arrow">+</span>
-      </button>
-      <div class="faq-a">Sim. Garantia incondicional de 7 dias. Se não gostar do resultado por qualquer motivo, devolvemos 100% do valor pago. Sem perguntas, sem burocracia.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Não entendo de tecnologia. Funciona para mim?
-        <span class="arrow">+</span>
-      </button>
-      <div class="faq-a">É feito exatamente para você. Não precisa saber nada de tecnologia. Você responde um formulário simples sobre sua loja, e nós fazemos todo o resto.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Posso integrar com meu WhatsApp?
-        <span class="arrow">+</span>
-      </button>
-      <div class="faq-a">Sim. Todos os botões direcionam para o seu WhatsApp, com mensagem pré-preenchida. Cada clique vira uma conversa qualificada no seu celular.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Qual a diferença de uma landing page para um site?
-        <span class="arrow">+</span>
-      </button>
-      <div class="faq-a">Um site tem muitas páginas e distrai o cliente. A landing page tem um único objetivo: fazer o cliente entrar em contato. Por isso converte muito mais para lojas físicas.</div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- CTA FINAL -->
+<!-- ══ CTA FINAL ══ -->
 <section class="cta-final fade">
-  <div class="tag">OFERTA LIMITADA</div>
-  <h2 class="section-title">Sua loja merece estar <span class="red">online</span></h2>
-  <p class="cta-final-sub">Enquanto você lê isso, um cliente da sua cidade está pesquisando no Google e sendo atendido pelo seu concorrente. Não deixe isso acontecer mais.</p>
-  <div class="cta-urgency">
-    <span class="cta-pulse"></span>
-    Vagas limitadas · Atendemos 5 lojas por semana
-  </div>
-  <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main" style="font-size:20px;padding:20px">QUERO MINHA LANDING PAGE — R$397</a>
-  <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20sobre%20a%20landing%20page" class="btn-sec">Tirar uma dúvida pelo WhatsApp</a>
-  <div style="margin-top:24px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--muted)">
-    <span>🛡️</span> Garantia incondicional de 7 dias · Entrega em 7 dias úteis
+  <div class="wrap-sm">
+    <div class="tag">OFERTA LIMITADA</div>
+    <h2 class="section-title">Sua loja merece estar <span style="color:var(--red)">online</span></h2>
+    <p class="cta-final-sub">Enquanto você lê isso, um cliente da sua cidade está pesquisando no Google e sendo atendido pelo concorrente. Não deixe isso acontecer mais.</p>
+    <div class="cta-urgency"><span class="pulse"></span> Vagas limitadas · Atendemos 5 lojas por semana</div>
+    <div class="cta-btns">
+      <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main" style="font-size:20px;padding:20px">QUERO MINHA LANDING PAGE — R$397</a>
+      <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20sobre%20a%20landing%20page" class="btn-sec">Tirar uma dúvida pelo WhatsApp</a>
+      <div style="margin-top:20px;font-size:13px;color:var(--muted)">🛡️ Garantia incondicional de 7 dias · Entrega em 7 dias úteis</div>
+    </div>
   </div>
 </section>
 
@@ -1095,17 +528,16 @@ section{padding:48px 24px}
 </footer>
 
 <script>
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
-}, {threshold:0.1})
-document.querySelectorAll('.fade').forEach(el => obs.observe(el))
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})
+},{threshold:0.08})
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el))
 
-function toggleFaq(btn) {
-  const a = btn.nextElementSibling
-  const isOpen = a.classList.contains('open')
-  document.querySelectorAll('.faq-a.open').forEach(el => el.classList.remove('open'))
-  document.querySelectorAll('.faq-q.open').forEach(el => el.classList.remove('open'))
-  if(!isOpen){ a.classList.add('open'); btn.classList.add('open') }
+function toggleFaq(btn){
+  const a=btn.nextElementSibling,open=a.classList.contains('open')
+  document.querySelectorAll('.faq-a.open').forEach(el=>el.classList.remove('open'))
+  document.querySelectorAll('.faq-q.open').forEach(el=>el.classList.remove('open'))
+  if(!open){a.classList.add('open');btn.classList.add('open')}
 }
 </script>
 </body>
