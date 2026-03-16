@@ -13,43 +13,18 @@
             --red:#e40a2d;
             --blue:#0c3c5f;
             --blue-light:#1a6494;
-            --dark:#06080f;
+            --dark:#111;
             --white:#fff;
             --gray:#8fa0c0;
             --gray2:#c0cce8;
         }
         html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 
-        /* LISTRAS DIAGONAIS - IDENTIDADE INSTITUTO VEON */
-        body{
-            font-family:'Inter',sans-serif;
-            color:var(--white);
-            overflow-x:hidden;
-            -webkit-font-smoothing:antialiased;
-            background-color:var(--dark);
-            background-image:
-                repeating-linear-gradient(
-                    135deg,
-                    var(--red) 0px,
-                    var(--red) 18px,
-                    var(--blue) 18px,
-                    var(--blue) 36px
-                );
-            background-attachment:fixed;
-        }
+        body{font-family:'Inter',sans-serif;color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;background:#0a0a0a}
 
-        /* OVERLAY escuro sobre as listras para leitura */
-        body::before{
-            content:'';
-            position:fixed;
-            inset:0;
-            background:rgba(6,8,15,.88);
-            pointer-events:none;
-            z-index:0
-        }
+        
 
-        /* Todo conteudo acima do overlay */
-        .topbar,.wrap,section,footer,.proof,.stripe-div,.wpp-float{position:relative;z-index:1}
+        
 
         /* GLOBAL */
         .wrap{max-width:440px;margin:0 auto;padding:0 22px}
@@ -67,7 +42,7 @@
         .small{display:block;text-align:center;font-size:11px;color:var(--gray);margin-top:10px;letter-spacing:1px}
 
         /* DIVISOR LISTRADO */
-        .stripe-bar{height:5px;background:repeating-linear-gradient(90deg,var(--red) 0px,var(--red) 20px,var(--blue) 20px,var(--blue) 40px)}
+        .stripe-bar{height:1px;background:linear-gradient(90deg,var(--red),var(--blue))}
 
         /* TOPBAR */
         .topbar{
@@ -75,7 +50,7 @@
             background:rgba(6,8,15,.96);
             backdrop-filter:blur(24px);
             border-bottom:3px solid transparent;
-            border-image:repeating-linear-gradient(90deg,var(--red) 0px,var(--red) 20px,var(--blue) 20px,var(--blue) 40px) 1;
+
             padding:0 20px;
             display:flex;align-items:center;justify-content:space-between;height:52px
         }
@@ -108,12 +83,12 @@
         /* PROOF */
         .proof{
             padding:12px 0;text-align:center;font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--white);
-            background:repeating-linear-gradient(90deg,var(--red) 0px,var(--red) 50%,var(--blue) 50%,var(--blue) 100%)
+            background:linear-gradient(90deg,var(--red) 50%,var(--blue) 50%)
         }
 
         /* SECTIONS */
-        .sec{background:rgba(6,8,15,.6);backdrop-filter:blur(2px)}
-        .sec2{background:rgba(12,31,140,.08);backdrop-filter:blur(2px)}
+        .sec{background:#111}
+        .sec2{background:#0a0a0a}
 
         /* PROBLEMA */
         .prob-item{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:16px;align-items:flex-start}
@@ -127,7 +102,7 @@
 
         /* TECH */
         .tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
-        .tech-card{padding:18px 14px;text-align:center;position:relative;overflow:hidden;background:rgba(6,8,15,.7);border:1px solid rgba(255,255,255,.06)}
+        .tech-card{padding:18px 14px;text-align:center;position:relative;overflow:hidden;background:#0a0a0a;border:1px solid rgba(255,255,255,.06)}
         .tech-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px}
         .tech-card:nth-child(odd)::after{background:var(--red)}
         .tech-card:nth-child(even)::after{background:var(--blue-light)}
@@ -147,8 +122,8 @@
         .ent-item strong{color:var(--white)}
 
         /* EXEMPLO */
-        .ex-card{overflow:hidden;margin-top:20px;background:rgba(6,8,15,.7);border:1px solid rgba(255,255,255,.07)}
-        .ex-card-stripe{height:5px;background:repeating-linear-gradient(90deg,var(--red) 0,var(--red) 20px,var(--blue) 20px,var(--blue) 40px)}
+        .ex-card{overflow:hidden;margin-top:20px;background:#0a0a0a;border:1px solid rgba(255,255,255,.07)}
+        .ex-card-stripe{height:3px;background:linear-gradient(90deg,var(--red) 50%,var(--blue) 50%)}
         .ex-card-body{padding:28px 20px;text-align:center}
         .ex-card-body h3{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;margin-bottom:4px}
         .ex-card-body p{font-size:11px;color:var(--gray);letter-spacing:1px;margin-bottom:16px}
@@ -214,7 +189,7 @@
 
         /* FOOTER */
         footer{text-align:center;padding:22px 20px;font-size:11px;color:var(--gray);letter-spacing:1px}
-        footer::before{content:'';display:block;height:4px;margin-bottom:20px;background:repeating-linear-gradient(90deg,var(--red) 0,var(--red) 20px,var(--blue) 20px,var(--blue) 40px)}
+        footer::before{content:'';display:block;height:4px;margin-bottom:20px;background:linear-gradient(90deg,var(--red) 50%,var(--blue) 50%)}
 
         /* WPP */
         .wpp-float{position:fixed;bottom:20px;right:20px;z-index:99;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s}
@@ -346,7 +321,7 @@
                 <div class="cmp-row"><div class="cmp-icon no">&#10005;</div><div class="cmp-text">Conversao abaixo de <strong>2%</strong></div></div>
             </div>
             <div class="cmp-block fade">
-                <div class="cmp-title"><span style="background:repeating-linear-gradient(135deg,var(--red),var(--red) 4px,var(--blue) 4px,var(--blue) 8px)"></span>COM LANDING PAGE VEON</div>
+                <div class="cmp-title"><span style="background:linear-gradient(135deg,var(--red),var(--blue))"></span>COM LANDING PAGE VEON</div>
                 <div class="cmp-row"><div class="cmp-icon r">&#10003;</div><div class="cmp-text">Pagina que <strong>vende automaticamente</strong></div></div>
                 <div class="cmp-row"><div class="cmp-icon b">&#10003;</div><div class="cmp-text">Captura <strong>nome, telefone e interesse</strong></div></div>
                 <div class="cmp-row"><div class="cmp-icon r">&#10003;</div><div class="cmp-text">Visual premium que <strong>gera confianca</strong></div></div>
