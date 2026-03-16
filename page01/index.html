@@ -29,7 +29,7 @@
   --card:#111;
   --border:#1e1e1e;
   --text:#f0f0f0;
-  --muted:#888;
+  --muted:#bbb;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;overflow-x:hidden}
@@ -82,13 +82,13 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#fff;background:var(--red);padding:8px 18px;border-radius:3px;margin-bottom:20px;animation:eyebrowPulse 1.6s ease-in-out infinite;box-shadow:0 0 0 0 rgba(228,10,45,0.7)}@keyframes eyebrowPulse{0%{box-shadow:0 0 0 0 rgba(228,10,45,0.7)}60%{box-shadow:0 0 0 12px rgba(228,10,45,0)}100%{box-shadow:0 0 0 0 rgba(228,10,45,0)}}
 .hero-title{font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:#fff;margin-bottom:20px;animation:titleGlow 2s ease-in-out infinite}@keyframes titleGlow{0%,100%{text-shadow:none}50%{text-shadow:0 0 20px rgba(228,10,45,0.6),0 0 40px rgba(228,10,45,0.3)}}
 .hero-title span{color:var(--red)}
-.hero-sub{font-size:17px;line-height:1.65;color:rgba(255,255,255,0.75);margin-bottom:28px;max-width:520px}
+.hero-sub{font-size:17px;line-height:1.65;color:rgba(255,255,255,0.95);margin-bottom:28px;max-width:520px}
 .guarantee-box{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:12px 14px;margin-bottom:24px;max-width:520px}
 .guarantee-box .icon{font-size:26px}
-.guarantee-box .txt{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.4}
+.guarantee-box .txt{font-size:13px;color:rgba(255,255,255,0.85);line-height:1.4}
 .guarantee-box .txt strong{color:#fff;display:block;font-size:14px}
 .hero-btns{max-width:520px}
-.hero-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-top:28px;max-width:520px}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-top:28px;max-width:520px}
 .hero-stat{background:rgba(255,255,255,0.03);text-align:center;padding:14px 8px}
 .hero-stat-num{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--red);line-height:1}
 .hero-stat-label{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:2px}
@@ -165,10 +165,10 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 .quem-text strong{font-size:14px}
 .quem-text span{font-size:12px;color:var(--muted);line-height:1.5}
 .compare-table{border:1px solid var(--border);border-radius:8px;overflow:hidden}
-.compare-header{display:grid;grid-template-columns:1fr 1fr 1fr;background:rgba(255,255,255,0.04);border-bottom:1px solid var(--border)}
+.compare-header{display:grid;grid-template-columns:1fr 1fr;background:rgba(255,255,255,0.04);border-bottom:1px solid var(--border)}
 .compare-header div{padding:11px 8px;font-size:12px;font-weight:700;text-align:center;text-transform:uppercase;letter-spacing:1px}
 .compare-header .col-v{background:rgba(228,10,45,0.1);color:var(--red)}
-.compare-row{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border)}
+.compare-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border)}
 .compare-row:last-child{border-bottom:none}
 .compare-row div{padding:11px 8px;font-size:13px;text-align:center;display:flex;align-items:center;justify-content:center}
 .compare-row .col-feat{text-align:left;justify-content:flex-start;padding-left:12px;font-size:12px;color:var(--muted)}
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 .price-de{font-size:13px;color:rgba(255,255,255,0.6);text-decoration:line-through;margin-bottom:4px}
 .price-val{font-family:'Bebas Neue',sans-serif;font-size:64px;line-height:1;color:#fff;letter-spacing:2px}
 .price-val sup{font-size:22px;vertical-align:top;margin-top:10px;margin-right:4px}
-.price-pix{font-size:12px;color:rgba(255,255,255,0.7);margin-top:4px}
+.price-pix{font-size:12px;color:rgba(255,255,255,0.85);margin-top:4px}
 .price-body{padding:22px 20px}
 .price-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
 .price-feat{display:flex;gap:10px;align-items:center;font-size:14px}
@@ -321,7 +321,6 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
         <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20sobre%20a%20landing%20page" class="btn-sec">Tenho uma dúvida antes</a>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="hero-stat-num">+80</div><div class="hero-stat-label">Lojas atendidas</div></div>
         <div class="hero-stat"><div class="hero-stat-num">48H</div><div class="hero-stat-label">Prazo de entrega</div></div>
         <div class="hero-stat"><div class="hero-stat-num">R$397</div><div class="hero-stat-label">Preço único</div></div>
       </div>
