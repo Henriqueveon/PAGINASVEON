@@ -592,11 +592,14 @@ window.addEventListener('scroll',()=>{
   if(spb)spb.style.width=p+'%'
 },{ passive:true })
 
-// INTERSECTION OBSERVER (fade, left, right, scale, stagger)
+// INTERSECTION OBSERVER — threshold 0 garante que sempre dispara
+const animEls=document.querySelectorAll('.fade,.fade-left,.fade-right,.fade-scale,.stagger')
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
-},{threshold:0.08})
-document.querySelectorAll('.fade,.fade-left,.fade-right,.fade-scale,.stagger').forEach(el=>obs.observe(el))
+},{threshold:0,rootMargin:'0px 0px -40px 0px'})
+animEls.forEach(el=>obs.observe(el))
+// FALLBACK — força tudo visível após 2.5s caso observer não dispare
+setTimeout(()=>animEls.forEach(el=>el.classList.add('visible')),2500)
 
 // COUNTER ANIMADO
 function animCount(el){
