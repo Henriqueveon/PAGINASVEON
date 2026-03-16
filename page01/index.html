@@ -1,403 +1,1112 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Landing Page para Lojas de Colchao e Moveis | Instituto VEON</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-        :root{
-            --red:#e40a2d;
-            --blue:#0c3c5f;
-            --blue-light:#1a6494;
-            --dark:#111;
-            --white:#fff;
-            --gray:#8fa0c0;
-            --gray2:#c0cce8;
-        }
-        html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Landing Page para Loja de Colchão e Móveis | VEON Instituto</title>
+<meta name="description" content="Transforme sua loja de colchão ou móveis em uma máquina de vendas online. Landing page profissional por R$397. Pronto em 7 dias ou seu dinheiro de volta.">
+<meta name="keywords" content="landing page loja de colchão, site para loja de móveis, marketing digital colchão, Ortobom, Castor, Plumatex">
+<meta property="og:title" content="Landing Page para Loja de Colchão — VEON Instituto">
+<meta property="og:description" content="Sua loja vendendo online 24h por dia. Landing page profissional por R$397 com garantia de 7 dias.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://assessoriaveon.com/page01">
+<link rel="canonical" href="https://assessoriaveon.com/page01">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 
-        body{font-family:'Inter',sans-serif;color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;background:#0a0a0a}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Landing Page para Loja de Colchão e Móveis",
+  "description": "Página de vendas profissional, otimizada para conversão, pronta em 7 dias úteis.",
+  "brand": {"@type": "Brand", "name": "VEON Instituto"},
+  "offers": {
+    "@type": "Offer",
+    "price": "397.00",
+    "priceCurrency": "BRL",
+    "availability": "https://schema.org/InStock",
+    "url": "https://assessoriaveon.com/page01"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quanto tempo leva para ficar pronta?",
+      "acceptedAnswer": {"@type": "Answer", "text": "7 dias úteis após aprovação do briefing e pagamento."}
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso ter domínio ou hospedagem?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Não. Cuidamos de tudo. Entregamos o link pronto para você usar."}
+    },
+    {
+      "@type": "Question",
+      "name": "Funciona para franquias como Ortobom e Castor?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Sim. Desenvolvemos para franqueados de Ortobom, Castor, Plumatex e redes independentes."}
+    },
+    {
+      "@type": "Question",
+      "name": "E se eu não gostar? Tem garantia?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Sim. Garantia incondicional de 7 dias. Se não gostar, devolvemos 100% do valor pago, sem perguntas."}
+    },
+    {
+      "@type": "Question",
+      "name": "Isso funciona para quem não entende de tecnologia?",
+      "acceptedAnswer": {"@type": "Answer", "text": "É feito exatamente para você. Você não precisa saber nada de tecnologia. Nós entregamos tudo pronto e configurado."}
+    },
+    {
+      "@type": "Question",
+      "name": "Posso integrar com meu WhatsApp?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Sim. Todos os botões da landing page direcionam para o seu WhatsApp, capturando leads qualificados direto no seu celular."}
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a diferença para um site normal?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Um site normal tem muitas páginas e dispersa a atenção. A landing page tem um único objetivo: fazer o cliente entrar em contato. Por isso converte muito mais."}
+    }
+  ]
+}
+</script>
 
-        
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --red:#e40a2d;
+  --blue:#0c3c5f;
+  --bg:#0a0a0a;
+  --card:#111;
+  --border:#1e1e1e;
+  --text:#f0f0f0;
+  --muted:#888;
+  --max:440px;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  font-size:16px;
+  max-width:var(--max);
+  margin:0 auto;
+  overflow-x:hidden;
+}
 
-        
+/* UTILITY */
+.red{color:var(--red)}
+.bold{font-weight:700}
+.bebas{font-family:'Bebas Neue',sans-serif;letter-spacing:1px}
+.center{text-align:center}
+.tag{
+  display:inline-block;
+  background:rgba(228,10,45,0.12);
+  color:var(--red);
+  border:1px solid rgba(228,10,45,0.3);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  padding:4px 12px;
+  border-radius:2px;
+  margin-bottom:12px;
+}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--red),var(--blue),transparent);margin:0}
+.btn-main{
+  display:block;
+  width:100%;
+  background:var(--red);
+  color:#fff;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:22px;
+  letter-spacing:2px;
+  text-align:center;
+  padding:18px 20px;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+  text-decoration:none;
+  transition:filter 0.2s;
+}
+.btn-main:hover{filter:brightness(1.1)}
+.btn-sec{
+  display:block;
+  width:100%;
+  background:transparent;
+  color:var(--muted);
+  font-size:14px;
+  text-align:center;
+  padding:14px 20px;
+  border:1px solid #333;
+  border-radius:4px;
+  cursor:pointer;
+  text-decoration:none;
+  transition:border-color 0.2s,color 0.2s;
+  margin-top:10px;
+}
+.btn-sec:hover{border-color:#555;color:#ccc}
 
-        /* GLOBAL */
-        .wrap{max-width:440px;margin:0 auto;padding:0 22px}
-        section{padding:64px 0}
-        .tag{font-size:10px;font-weight:700;letter-spacing:5px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-        .tag::before{content:'';width:20px;height:2px}
-        .tag.r{color:var(--red)}.tag.r::before{background:var(--red)}
-        .tag.b{color:var(--blue-light)}.tag.b::before{background:var(--blue-light)}
-        h2{font-family:'Bebas Neue',sans-serif;font-size:38px;line-height:1.02;margin-bottom:18px}
-        .btn{display:block;width:100%;text-align:center;text-decoration:none;font-family:'Inter',sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;padding:17px 20px;border:none;cursor:pointer;transition:all .25s;-webkit-tap-highlight-color:transparent}
-        .btn-red{background:var(--red);color:var(--white)}
-        .btn-red:active{background:#bf0825;transform:scale(.97)}
-        .btn-blue{background:var(--blue);color:var(--white);border:1px solid var(--blue-light)}
-        .btn-blue:active{background:var(--blue-light);transform:scale(.97)}
-        .small{display:block;text-align:center;font-size:11px;color:var(--gray);margin-top:10px;letter-spacing:1px}
+/* FADE IN */
+.fade{opacity:0;transform:translateY(24px);transition:opacity 0.6s,transform 0.6s}
+.fade.visible{opacity:1;transform:none}
 
-        /* DIVISOR LISTRADO */
-        .stripe-bar{height:1px;background:linear-gradient(90deg,var(--red),var(--blue))}
+/* SECTIONS */
+section{padding:48px 24px}
 
-        /* TOPBAR */
-        .topbar{
-            position:fixed;top:0;left:0;right:0;z-index:100;
-            background:rgba(6,8,15,.96);
-            backdrop-filter:blur(24px);
-            border-bottom:3px solid transparent;
+/* 1. HERO */
+.hero{
+  padding:0;
+  background:linear-gradient(180deg,#0c3c5f 0%,#050e16 60%,var(--bg) 100%);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+.hero-nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 20px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.hero-nav-logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:22px;
+  letter-spacing:3px;
+  color:#fff;
+}
+.hero-nav-logo span{color:var(--red)}
+.hero-body{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:40px 24px 48px;
+}
+.hero-eyebrow{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.5);
+  margin-bottom:16px;
+}
+.hero-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:52px;
+  line-height:1;
+  letter-spacing:1px;
+  color:#fff;
+  margin-bottom:20px;
+}
+.hero-title span{color:var(--red)}
+.hero-sub{
+  font-size:17px;
+  line-height:1.6;
+  color:rgba(255,255,255,0.75);
+  margin-bottom:32px;
+}
+.hero-guarantee{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:6px;
+  padding:12px 14px;
+  margin-bottom:28px;
+}
+.guarantee-icon{font-size:28px}
+.guarantee-text{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.4}
+.guarantee-text strong{color:#fff;display:block;font-size:14px}
+.hero-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:6px;
+  overflow:hidden;
+  margin-top:32px;
+}
+.hero-stat{
+  background:rgba(255,255,255,0.03);
+  text-align:center;
+  padding:14px 8px;
+}
+.hero-stat-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28px;
+  color:var(--red);
+  line-height:1;
+}
+.hero-stat-label{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:2px}
 
-            padding:0 20px;
-            display:flex;align-items:center;justify-content:space-between;height:52px
-        }
-        .topbar-brand{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:4px}
-        .topbar-brand .r{color:var(--red)}
-        .topbar-brand .b{color:var(--blue-light)}
-        .topbar-cta{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--white);text-decoration:none;padding:7px 14px;background:var(--red)}
-        .topbar-cta:active{background:#bf0825}
+/* 2. TICKER */
+.ticker{
+  background:var(--red);
+  padding:10px 0;
+  overflow:hidden;
+  white-space:nowrap;
+}
+.ticker-track{
+  display:inline-block;
+  animation:ticker 20s linear infinite;
+}
+.ticker-item{
+  display:inline-block;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:15px;
+  letter-spacing:2px;
+  color:#fff;
+  padding:0 24px;
+}
+.ticker-item::after{content:"◆";margin-left:24px;opacity:0.5}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-        /* HERO */
-        .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:72px 0 50px;overflow:hidden}
-        .hero-eyebrow{display:inline-flex;gap:0;margin-bottom:20px;overflow:hidden}
-        .hero-eyebrow span{font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;padding:5px 12px}
-        .hero-eyebrow .e1{background:var(--red);color:var(--white)}
-        .hero-eyebrow .e2{background:var(--blue);color:var(--white);border:1px solid var(--blue-light)}
-        .hero h1{font-family:'Bebas Neue',sans-serif;font-size:46px;line-height:.97;letter-spacing:-.5px}
-        .hero h1 .r{color:var(--red)}
-        .hero h1 .b{color:var(--blue-light)}
-        .hero-p{font-size:15px;color:var(--gray2);line-height:1.7;margin:18px 0 28px}
-        .hero-stats{display:flex;margin:28px 0;border:1px solid rgba(255,255,255,.07);overflow:hidden}
-        .hero-stat{flex:1;text-align:center;padding:14px 4px}
-        .hero-stat:nth-child(1){border-right:1px solid var(--red)}
-        .hero-stat:nth-child(2){border-right:1px solid var(--blue-light)}
-        .hero-stat strong{font-family:'Bebas Neue',sans-serif;font-size:26px;display:block;line-height:1}
-        .hero-stat:nth-child(1) strong{color:var(--red)}
-        .hero-stat:nth-child(2) strong{color:var(--blue-light)}
-        .hero-stat:nth-child(3) strong{color:var(--red)}
-        .hero-stat small{font-size:9px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;margin-top:3px;display:block}
+/* 3. PROBLEMA */
+.section-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:36px;
+  line-height:1.05;
+  margin-bottom:8px;
+}
+.section-sub{font-size:15px;color:var(--muted);margin-bottom:32px;line-height:1.6}
+.pain-list{list-style:none;display:flex;flex-direction:column;gap:16px}
+.pain-item{
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:18px 16px;
+}
+.pain-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:36px;
+  color:var(--red);
+  line-height:1;
+  min-width:32px;
+}
+.pain-text strong{display:block;font-size:15px;margin-bottom:4px}
+.pain-text span{font-size:14px;color:var(--muted);line-height:1.5}
 
-        /* PROOF */
-        .proof{
-            padding:12px 0;text-align:center;font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--white);
-            background:linear-gradient(90deg,var(--red) 50%,var(--blue) 50%)
-        }
+/* 4. STEPS */
+.steps{display:flex;flex-direction:column;gap:0}
+.step{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+  padding:20px 0;
+  border-bottom:1px solid var(--border);
+}
+.step:last-child{border-bottom:none}
+.step-num{
+  width:40px;height:40px;min-width:40px;
+  background:var(--red);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff;
+}
+.step-content strong{display:block;font-size:15px;margin-bottom:4px}
+.step-content span{font-size:13px;color:var(--muted);line-height:1.5}
 
-        /* SECTIONS */
-        .sec{background:#111}
-        .sec2{background:#0a0a0a}
+/* 5. CHECKLIST */
+.checklist{list-style:none;display:flex;flex-direction:column;gap:12px}
+.check-item{
+  display:flex;gap:12px;align-items:center;
+  font-size:15px;
+  padding:14px 16px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:6px;
+  border-left:3px solid var(--red);
+}
+.check-icon{font-size:18px;min-width:24px}
 
-        /* PROBLEMA */
-        .prob-item{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:16px;align-items:flex-start}
-        .prob-item:last-child{border-bottom:none}
-        .prob-num{font-family:'Bebas Neue',sans-serif;font-size:34px;line-height:1;min-width:38px}
-        .prob-item:nth-child(1) .prob-num{color:var(--red)}
-        .prob-item:nth-child(2) .prob-num{color:var(--blue-light)}
-        .prob-item:nth-child(3) .prob-num{color:var(--red)}
-        .prob-item h3{font-size:15px;font-weight:700;margin-bottom:5px}
-        .prob-item p{font-size:13px;color:var(--gray);line-height:1.6}
+/* 6. CASE */
+.case-card{
+  border:1px solid var(--border);
+  border-radius:8px;
+  overflow:hidden;
+}
+.case-header{
+  background:linear-gradient(135deg,var(--blue),#0a2a45);
+  padding:20px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.case-avatar{
+  width:56px;height:56px;
+  background:rgba(255,255,255,0.15);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;
+}
+.case-who strong{display:block;font-size:16px;color:#fff}
+.case-who span{font-size:13px;color:rgba(255,255,255,0.6)}
+.case-body{padding:20px}
+.case-quote{
+  font-size:15px;
+  line-height:1.7;
+  color:rgba(255,255,255,0.85);
+  font-style:italic;
+  margin-bottom:20px;
+  padding-left:14px;
+  border-left:3px solid var(--red);
+}
+.case-metrics{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.metric{
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:14px;
+  text-align:center;
+}
+.metric-val{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:30px;
+  color:var(--red);
+  line-height:1;
+}
+.metric-label{font-size:11px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:1px}
 
-        /* TECH */
-        .tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
-        .tech-card{padding:18px 14px;text-align:center;position:relative;overflow:hidden;background:#0a0a0a;border:1px solid rgba(255,255,255,.06)}
-        .tech-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px}
-        .tech-card:nth-child(odd)::after{background:var(--red)}
-        .tech-card:nth-child(even)::after{background:var(--blue-light)}
-        .tech-icon{font-size:26px;margin-bottom:8px;display:block}
-        .tech-card h4{font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:4px}
-        .tech-card:nth-child(odd) h4{color:var(--red)}
-        .tech-card:nth-child(even) h4{color:var(--blue-light)}
-        .tech-card p{font-size:11px;color:var(--gray);line-height:1.5}
+/* 7. DEPOIMENTOS */
+.depo-grid{display:flex;flex-direction:column;gap:14px}
+.depo-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:18px;
+}
+.depo-stars{color:#f0a500;font-size:14px;margin-bottom:8px}
+.depo-text{font-size:14px;line-height:1.6;color:rgba(255,255,255,0.8);margin-bottom:12px;font-style:italic}
+.depo-author{display:flex;align-items:center;gap:10px}
+.depo-avatar{
+  width:36px;height:36px;
+  background:var(--blue);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:16px;
+}
+.depo-name strong{display:block;font-size:13px}
+.depo-name span{font-size:12px;color:var(--muted)}
 
-        /* ENTREGA */
-        .ent-item{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.04)}
-        .ent-item:last-child{border-bottom:none}
-        .ent-check{width:20px;height:20px;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:10px;font-weight:700}
-        .ent-item:nth-child(odd) .ent-check{background:rgba(228,10,45,.12);border:1px solid var(--red);color:var(--red)}
-        .ent-item:nth-child(even) .ent-check{background:rgba(26,53,194,.15);border:1px solid var(--blue-light);color:var(--blue-light)}
-        .ent-item span{font-size:14px;color:var(--gray2);line-height:1.5}
-        .ent-item strong{color:var(--white)}
+/* 8. TECH */
+.tech-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.tech-item{
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:16px 14px;
+  text-align:center;
+}
+.tech-icon{font-size:28px;margin-bottom:8px}
+.tech-label{font-size:13px;font-weight:600;display:block;margin-bottom:4px}
+.tech-desc{font-size:12px;color:var(--muted);line-height:1.4}
 
-        /* EXEMPLO */
-        .ex-card{overflow:hidden;margin-top:20px;background:#0a0a0a;border:1px solid rgba(255,255,255,.07)}
-        .ex-card-stripe{height:3px;background:linear-gradient(90deg,var(--red) 50%,var(--blue) 50%)}
-        .ex-card-body{padding:28px 20px;text-align:center}
-        .ex-card-body h3{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;margin-bottom:4px}
-        .ex-card-body p{font-size:11px;color:var(--gray);letter-spacing:1px;margin-bottom:16px}
-        .ex-metrics{display:flex;gap:8px}
-        .ex-metric{flex:1;padding:10px 0;border:1px solid rgba(255,255,255,.06)}
-        .ex-metric:nth-child(1){border-color:rgba(228,10,45,.3)}
-        .ex-metric:nth-child(2){border-color:rgba(26,53,194,.3)}
-        .ex-metric:nth-child(3){border-color:rgba(228,10,45,.2)}
-        .ex-metric strong{font-family:'Bebas Neue',sans-serif;font-size:20px;display:block}
-        .ex-metric:nth-child(1) strong,.ex-metric:nth-child(3) strong{color:var(--red)}
-        .ex-metric:nth-child(2) strong{color:var(--blue-light)}
-        .ex-metric small{font-size:8px;color:var(--gray);letter-spacing:1px;text-transform:uppercase}
-        .ex-card-foot{padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.04)}
-        .ex-live{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--red);display:flex;align-items:center;gap:6px}
-        .ex-live::before{content:'';width:6px;height:6px;background:var(--red);border-radius:50%;animation:blink 1.5s infinite}
-        @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-        .ex-link{font-size:11px;color:var(--white);text-decoration:none;font-weight:700;letter-spacing:1.5px;padding:7px 14px;background:rgba(12,31,140,.4);border:1px solid var(--blue-light)}
-        .ex-link:active{background:var(--blue)}
+/* 9. COMPARATIVO */
+.compare-table{border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.compare-header{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  background:rgba(255,255,255,0.04);
+  border-bottom:1px solid var(--border);
+}
+.compare-header div{
+  padding:12px 8px;
+  font-size:12px;
+  font-weight:700;
+  text-align:center;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+.compare-header .col-veon{background:rgba(228,10,45,0.1);color:var(--red)}
+.compare-row{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  border-bottom:1px solid var(--border);
+}
+.compare-row:last-child{border-bottom:none}
+.compare-row div{
+  padding:12px 8px;
+  font-size:13px;
+  text-align:center;
+  display:flex;align-items:center;justify-content:center;
+}
+.compare-row .col-feat{
+  text-align:left;
+  justify-content:flex-start;
+  padding-left:14px;
+  font-size:12px;
+  color:var(--muted);
+}
+.compare-row .col-veon{background:rgba(228,10,45,0.04)}
+.yes{color:#22c55e;font-size:18px}
+.no{color:#ef4444;font-size:18px}
 
-        /* COMPARE */
-        .cmp-block{background:rgba(6,8,15,.6);border:1px solid rgba(255,255,255,.06);padding:20px;margin-bottom:10px}
-        .cmp-title{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:3px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-        .cmp-title span{width:4px;height:18px;display:inline-block;flex-shrink:0}
-        .cmp-row{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);gap:12px}
-        .cmp-row:last-child{border-bottom:none}
-        .cmp-icon{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
-        .cmp-icon.no{background:rgba(255,255,255,.04);color:#444}
-        .cmp-icon.r{background:rgba(228,10,45,.15);color:var(--red)}
-        .cmp-icon.b{background:rgba(26,53,194,.2);color:var(--blue-light)}
-        .cmp-text{font-size:13px;color:var(--gray2);line-height:1.4}
-        .cmp-text strong{color:var(--white)}
+/* 10. PARA QUEM É */
+.quem-grid{display:flex;flex-direction:column;gap:12px}
+.quem-card{
+  display:flex;gap:14px;align-items:flex-start;
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:16px;
+}
+.quem-icon{font-size:28px;min-width:36px}
+.quem-text strong{display:block;font-size:15px;margin-bottom:4px}
+.quem-text span{font-size:13px;color:var(--muted);line-height:1.5}
 
-        /* PRECO */
-        .preco-wrap{border:1px solid rgba(255,255,255,.06);overflow:hidden;margin-top:22px}
-        .preco-top{padding:28px 24px;text-align:center;background:linear-gradient(135deg,var(--red),#900018)}
-        .preco-label{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;opacity:.8;margin-bottom:10px}
-        .preco-old{font-size:16px;text-decoration:line-through;opacity:.55}
-        .preco-val{font-family:'Bebas Neue',sans-serif;font-size:76px;line-height:1;margin:6px 0}
-        .preco-parc{font-size:13px;opacity:.85}
-        .preco-mid{background:var(--blue);padding:18px 24px}
-        .preco-list{list-style:none}
-        .preco-list li{font-size:13px;color:rgba(255,255,255,.85);padding:8px 0;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.07)}
-        .preco-list li:last-child{border-bottom:none}
-        .preco-list li::before{content:'&#9654;';color:rgba(255,255,255,.3);font-size:8px}
-        .preco-bot{padding:22px 24px;background:rgba(6,8,15,.8)}
+/* 11. FUNDADOR */
+.fundador-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:8px;
+  overflow:hidden;
+}
+.fundador-img{
+  width:100%;
+  height:180px;
+  background:linear-gradient(135deg,var(--blue) 0%,#0a2a45 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-size:64px;
+}
+.fundador-body{padding:24px 20px}
+.fundador-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28px;
+  margin-bottom:4px;
+}
+.fundador-role{font-size:13px;color:var(--red);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+.fundador-bio{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.8)}
 
-        /* FAQ */
-        .faq-item{border-bottom:1px solid rgba(255,255,255,.05);padding:17px 0;cursor:pointer;-webkit-tap-highlight-color:transparent}
-        .faq-q{font-size:14px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:14px}
-        .faq-q::after{content:'+';font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--blue-light);transition:transform .3s;flex-shrink:0}
-        .faq-item.open .faq-q{color:var(--red)}
-        .faq-item.open .faq-q::after{transform:rotate(45deg);color:var(--red)}
-        .faq-a{font-size:13px;color:var(--gray);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease}
-        .faq-item.open .faq-a{max-height:200px;padding-top:12px}
+/* 12. PREÇO */
+.price-card{
+  border:2px solid var(--red);
+  border-radius:10px;
+  overflow:hidden;
+}
+.price-header{
+  background:var(--red);
+  padding:24px 20px;
+  text-align:center;
+}
+.price-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:20px;
+  letter-spacing:3px;
+  color:rgba(255,255,255,0.8);
+  margin-bottom:12px;
+}
+.price-de{
+  font-size:14px;
+  color:rgba(255,255,255,0.6);
+  text-decoration:line-through;
+  margin-bottom:4px;
+}
+.price-val{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:64px;
+  line-height:1;
+  color:#fff;
+  letter-spacing:2px;
+}
+.price-val sup{font-size:24px;vertical-align:top;margin-top:12px;margin-right:4px}
+.price-pix{font-size:13px;color:rgba(255,255,255,0.7);margin-top:4px}
+.price-body{padding:24px 20px}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+.price-feature{display:flex;gap:12px;align-items:center;font-size:14px}
+.price-feature-check{color:#22c55e;font-size:16px;min-width:20px}
+.price-guarantee{
+  background:rgba(34,197,94,0.08);
+  border:1px solid rgba(34,197,94,0.2);
+  border-radius:6px;
+  padding:14px;
+  text-align:center;
+  margin-bottom:20px;
+}
+.price-guarantee-icon{font-size:28px;margin-bottom:4px}
+.price-guarantee-text{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.5}
 
-        /* FINAL */
-        .final{text-align:center;padding:80px 0}
-        .final h2{font-size:40px}
-        .final h2 .r{color:var(--red)}
-        .final h2 .b{color:var(--blue-light)}
-        .final p{font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:28px}
-        .btn-stack{display:flex;flex-direction:column;gap:10px}
+/* 13. FAQ */
+.faq-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.faq-item{background:var(--card)}
+.faq-q{
+  width:100%;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 18px;
+  background:none;border:none;color:var(--text);
+  font-family:'Inter',sans-serif;font-size:14px;font-weight:600;
+  cursor:pointer;text-align:left;gap:12px;
+}
+.faq-q .arrow{font-size:18px;color:var(--red);min-width:20px;text-align:center;transition:transform 0.3s}
+.faq-q.open .arrow{transform:rotate(45deg)}
+.faq-a{
+  font-size:14px;color:var(--muted);line-height:1.7;
+  padding:0 18px;max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s;
+}
+.faq-a.open{max-height:200px;padding:0 18px 18px}
 
-        /* FOOTER */
-        footer{text-align:center;padding:22px 20px;font-size:11px;color:var(--gray);letter-spacing:1px}
-        footer::before{content:'';display:block;height:4px;margin-bottom:20px;background:linear-gradient(90deg,var(--red) 50%,var(--blue) 50%)}
+/* 14. CTA FINAL */
+.cta-final{
+  background:linear-gradient(180deg,var(--bg) 0%,#0c1a2e 100%);
+  padding:60px 24px;
+  text-align:center;
+}
+.cta-final .section-title{font-size:42px;margin-bottom:16px}
+.cta-final-sub{font-size:15px;color:var(--muted);margin-bottom:32px;line-height:1.6}
+.cta-urgency{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(228,10,45,0.1);
+  border:1px solid rgba(228,10,45,0.25);
+  border-radius:4px;
+  padding:8px 16px;
+  font-size:13px;
+  color:var(--red);
+  font-weight:600;
+  margin-bottom:28px;
+}
+.cta-pulse{
+  width:8px;height:8px;
+  background:var(--red);
+  border-radius:50%;
+  animation:pulse 1.2s ease-in-out infinite;
+  display:inline-block;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.7)}}
 
-        /* WPP */
-        .wpp-float{position:fixed;bottom:20px;right:20px;z-index:99;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s}
-        .wpp-float:active{transform:scale(.9)}
-        .wpp-float svg{width:26px;height:26px;fill:#fff}
-
-        /* FADE */
-        .fade{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
-        .fade.show{opacity:1;transform:translateY(0)}
-
-        @media(min-width:768px){
-            .wrap{max-width:560px;padding:0 40px}
-            section{padding:80px 0}
-            h2{font-size:48px}
-            .hero h1{font-size:54px}
-            .tech-grid{grid-template-columns:repeat(4,1fr)}
-        }
-    </style>
+.footer{
+  padding:24px;
+  text-align:center;
+  border-top:1px solid var(--border);
+  font-size:12px;
+  color:#444;
+}
+.footer a{color:#444;text-decoration:none}
+</style>
 </head>
 <body>
 
-    <div class="topbar">
-        <div class="topbar-brand">INSTITUTO <span class="r">V</span><span class="b">EON</span></div>
-        <a href="#preco" class="topbar-cta">R$ 397 &rarr;</a>
+<!-- HERO -->
+<section class="hero">
+  <nav class="hero-nav">
+    <div class="hero-nav-logo">VEON<span>.</span></div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:1px">INSTITUTO</div>
+  </nav>
+  <div class="hero-body fade">
+    <div class="hero-eyebrow">Para donos de loja de colchão e móveis</div>
+    <h1 class="hero-title">SUA LOJA VENDENDO <span>24H POR DIA</span> NO CELULAR</h1>
+    <p class="hero-sub">Landing page profissional que capta clientes enquanto você dorme — sem contratos, sem mensalidade, pronta em 7 dias.</p>
+    <div class="hero-guarantee">
+      <div class="guarantee-icon">🛡️</div>
+      <div class="guarantee-text">
+        <strong>Garantia incondicional de 7 dias</strong>
+        Não gostou? Devolvemos 100% do valor. Sem perguntas.
+      </div>
     </div>
+    <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main">QUERO MINHA LANDING PAGE AGORA</a>
+    <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20sobre%20a%20landing%20page" class="btn-sec">Tenho uma dúvida antes</a>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">+80</div>
+        <div class="hero-stat-label">Lojas atendidas</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">7d</div>
+        <div class="hero-stat-label">Prazo de entrega</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">R$397</div>
+        <div class="hero-stat-label">Preço único</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="hero">
-        <div class="wrap">
-            <div class="hero-eyebrow">
-                <span class="e1">INSTITUTO VEON</span>
-                <span class="e2">WEB &amp; TECH</span>
-            </div>
-            <h1>A PAGINA QUE TRANSFORMA CLIQUES EM <span class="r">VENDAS</span> NA SUA <span class="b">LOJA</span></h1>
-            <p class="hero-p">Landing pages de alta performance para lojas de colchao e moveis. Tecnologia, design e copy que vendem enquanto voce cuida do seu negocio.</p>
-            <div class="hero-stats">
-                <div class="hero-stat"><strong>250+</strong><small>Lojistas</small></div>
-                <div class="hero-stat"><strong>8-15%</strong><small>Conversao</small></div>
-                <div class="hero-stat"><strong>7 dias</strong><small>Entrega</small></div>
-            </div>
-            <a href="#preco" class="btn btn-red">QUERO MINHA LANDING PAGE</a>
-            <span class="small">Pagamento unico R$397 &nbsp;&middot;&nbsp; Sem mensalidade</span>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">ORTOBOM</span>
+    <span class="ticker-item">CASTOR</span>
+    <span class="ticker-item">PLUMATEX</span>
+    <span class="ticker-item">PROBEL</span>
+    <span class="ticker-item">FABBRICA</span>
+    <span class="ticker-item">LOJAS INDEPENDENTES</span>
+    <span class="ticker-item">REDES FRANQUEADAS</span>
+    <span class="ticker-item">ORTOBOM</span>
+    <span class="ticker-item">CASTOR</span>
+    <span class="ticker-item">PLUMATEX</span>
+    <span class="ticker-item">PROBEL</span>
+    <span class="ticker-item">FABBRICA</span>
+    <span class="ticker-item">LOJAS INDEPENDENTES</span>
+    <span class="ticker-item">REDES FRANQUEADAS</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PROBLEMA -->
+<section style="padding:48px 24px;background:var(--bg)" class="fade">
+  <div class="tag">O PROBLEMA</div>
+  <h2 class="section-title">Por que sua loja perde vendas todo dia?</h2>
+  <p class="section-sub">Enquanto você está no balcão, o cliente está no celular comprando do concorrente.</p>
+  <ul class="pain-list">
+    <li class="pain-item">
+      <div class="pain-num">01</div>
+      <div class="pain-text">
+        <strong>Você não está onde o cliente procura</strong>
+        <span>89% das pessoas pesquisam no Google antes de ir à loja. Se você não aparece, perde a venda antes mesmo de abrir a porta.</span>
+      </div>
+    </li>
+    <li class="pain-item">
+      <div class="pain-num">02</div>
+      <div class="pain-text">
+        <strong>Seu Instagram não vende, só mostra</strong>
+        <span>Seguidores não pagam boleto. Sem uma página de captura, você trabalha de graça para o algoritmo e o cliente some.</span>
+      </div>
+    </li>
+    <li class="pain-item">
+      <div class="pain-num">03</div>
+      <div class="pain-text">
+        <strong>Concorrente com página simples converte mais que você</strong>
+        <span>Uma página direta, com botão de WhatsApp, bate qualquer perfil de rede social no quesito conversão.</span>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMO FUNCIONA -->
+<section style="padding:48px 24px;background:var(--card)" class="fade">
+  <div class="tag">COMO FUNCIONA</div>
+  <h2 class="section-title" style="margin-bottom:28px">4 passos simples</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <strong>Você responde o briefing</strong>
+        <span>Um formulário rápido com nome da loja, diferenciais e produtos. Leva 10 minutos.</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <strong>Nossa equipe cria a página</strong>
+        <span>Design profissional, otimizado para celular e configurado para converter visita em contato.</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <strong>Você aprova ou pede ajustes</strong>
+        <span>Mostramos o resultado. Se quiser mudar algo, ajustamos sem custo até você aprovar.</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <strong>Página no ar em 7 dias úteis</strong>
+        <span>Entregamos o link pronto. Você divulga e começa a receber clientes pelo WhatsApp.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- O QUE VOCÊ RECEBE -->
+<section style="padding:48px 24px;background:var(--bg)" class="fade">
+  <div class="tag">O QUE VOCÊ RECEBE</div>
+  <h2 class="section-title">Tudo pronto para vender</h2>
+  <p class="section-sub">Sem surpresas. Sem cobranças extras. Entrega completa por R$397.</p>
+  <ul class="checklist">
+    <li class="check-item"><span class="check-icon">✅</span> Landing page 100% responsiva para celular</li>
+    <li class="check-item"><span class="check-icon">✅</span> Botão de WhatsApp integrado (leads direto no celular)</li>
+    <li class="check-item"><span class="check-icon">✅</span> Hospedagem gratuita por 12 meses</li>
+    <li class="check-item"><span class="check-icon">✅</span> SEO básico configurado (aparece no Google)</li>
+    <li class="check-item"><span class="check-icon">✅</span> Design personalizado com a identidade da sua loja</li>
+    <li class="check-item"><span class="check-icon">✅</span> Seção de produtos em destaque</li>
+    <li class="check-item"><span class="check-icon">✅</span> Depoimentos de clientes da sua loja</li>
+    <li class="check-item"><span class="check-icon">✅</span> Pixel do Meta pré-configurado (para anúncios)</li>
+    <li class="check-item"><span class="check-icon">✅</span> 2 revisões incluídas após entrega</li>
+  </ul>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA INTERMEDIÁRIO -->
+<section style="padding:40px 24px;background:var(--card);text-align:center" class="fade">
+  <p style="font-size:13px;color:var(--muted);margin-bottom:6px">Garantia de 7 dias · Entrega em 7 dias úteis</p>
+  <h3 class="bebas" style="font-size:28px;margin-bottom:20px">PRONTO PARA TRANSFORMAR SUA LOJA?</h3>
+  <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main">QUERO MINHA LANDING PAGE — R$397</a>
+</section>
+
+<div class="divider"></div>
+
+<!-- CASE REAL -->
+<section style="padding:48px 24px;background:var(--bg)" class="fade">
+  <div class="tag">CASO REAL</div>
+  <h2 class="section-title" style="margin-bottom:20px">O que acontece quando você ativa sua presença online</h2>
+  <div class="case-card">
+    <div class="case-header">
+      <div class="case-avatar">🛏️</div>
+      <div class="case-who">
+        <strong>Castor Paranavaí</strong>
+        <span>Loja franqueada · Paranavaí/PR</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <p class="case-quote">"Antes dependíamos só da indicação. Depois da landing page, começamos a receber mensagens direto no WhatsApp de pessoas que nunca tinham entrado na loja. No primeiro mês, fechamos 8 vendas que vieram da página."</p>
+      <div class="case-metrics">
+        <div class="metric">
+          <div class="metric-val">8</div>
+          <div class="metric-label">Vendas no 1º mês</div>
         </div>
-    </section>
-
-    <div class="stripe-bar"></div>
-    <div class="proof">+120 LOJAS CONFIAM NO INSTITUTO VEON</div>
-    <div class="stripe-bar"></div>
-
-    <section class="sec">
-        <div class="wrap">
-            <div class="tag r">Diagnostico</div>
-            <h2>SUA LOJA ESTA INVISIVEL NA INTERNET</h2>
-            <div class="prob-item fade"><div class="prob-num">01</div><div><h3>Anuncio sem destino</h3><p>Voce roda anuncio no Meta Ads e manda o cliente pro Instagram. Ele olha, nao entende a oferta e sai.</p></div></div>
-            <div class="prob-item fade"><div class="prob-num">02</div><div><h3>Zero captura de leads</h3><p>Sem pagina, voce nao captura nome, telefone nem interesse. Nao sabe quem visitou, nao faz remarketing.</p></div></div>
-            <div class="prob-item fade"><div class="prob-num">03</div><div><h3>Concorrente na frente</h3><p>Enquanto voce nao tem presenca profissional, a loja do lado aparece no Google e fecha antes de voce.</p></div></div>
+        <div class="metric">
+          <div class="metric-val">+140%</div>
+          <div class="metric-label">Leads via WhatsApp</div>
         </div>
-    </section>
-
-    <div class="stripe-bar"></div>
-
-    <section class="sec2">
-        <div class="wrap">
-            <div class="tag b">Tecnologia</div>
-            <h2>CONSTRUIDA COM AS MELHORES FERRAMENTAS</h2>
-            <p style="font-size:14px;color:var(--gray);line-height:1.6">Nao e template. E codigo limpo, rapido e otimizado para aparecer no Google e converter no celular.</p>
-            <div class="tech-grid">
-                <div class="tech-card fade"><span class="tech-icon">&lt;/&gt;</span><h4>CODIGO LIMPO</h4><p>HTML, CSS e JS puro. Sem WordPress lento.</p></div>
-                <div class="tech-card fade"><span class="tech-icon">&#9889;</span><h4>ULTRA RAPIDA</h4><p>Carrega em menos de 2s no 4G.</p></div>
-                <div class="tech-card fade"><span class="tech-icon">&#128241;</span><h4>MOBILE FIRST</h4><p>Pensada primeiro pro celular.</p></div>
-                <div class="tech-card fade"><span class="tech-icon">&#128200;</span><h4>SEO + PIXEL</h4><p>Analytics e Meta Pixel instalados.</p></div>
-            </div>
+        <div class="metric">
+          <div class="metric-val">R$0</div>
+          <div class="metric-label">Custo em tráfego</div>
         </div>
-    </section>
-
-    <div class="stripe-bar"></div>
-
-    <section class="sec">
-        <div class="wrap">
-            <div class="tag r">Entrega completa</div>
-            <h2>O QUE VOCE RECEBE POR R$397</h2>
-            <div class="ent-item fade"><div class="ent-check">&#10003;</div><span><strong>Landing page exclusiva</strong> com design premium personalizado</span></div>
-            <div class="ent-item fade"><div class="ent-check">&#10003;</div><span><strong>Copy persuasiva</strong> escrita por especialistas em varejo</span></div>
-            <div class="ent-item fade"><div class="ent-check">&#10003;</div><span><strong>100% responsiva</strong> — celular, tablet e desktop</span></div>
-            <div class="ent-item fade"><div class="ent-check">&#10003;</div><span><strong>Botao WhatsApp</strong> flutuante com mensagem pronta</span></div>
-            <div class="ent-item fade"><div class="ent-check">&#10003;</div><span><strong>Secao de ofertas</strong> com precos e condicoes de pagamento</span></div>
-            <div class="ent-item fade"><div class="ent-check">&#10003;</div><span><strong>Prova social</strong> com depoimentos e resultados reais</span></div>
-            <div class="ent-item fade"><div class="ent-check">&#10003;</div><span><strong>Google Analytics + Meta Pixel</strong> configurados</span></div>
-            <div class="ent-item fade"><div class="ent-check">&#10003;</div><span><strong>Hospedagem gratis</strong> no primeiro ano</span></div>
-            <div class="ent-item fade"><div class="ent-check">&#10003;</div><span><strong>2 rodadas de revisao</strong> inclusas</span></div>
+        <div class="metric">
+          <div class="metric-val">7d</div>
+          <div class="metric-label">Para estar no ar</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="stripe-bar"></div>
+<div class="divider"></div>
 
-    <section class="sec2">
-        <div class="wrap">
-            <div class="tag b">Case real</div>
-            <h2>PAGINA QUE JA CRIAMOS</h2>
-            <div class="ex-card fade">
-                <div class="ex-card-stripe"></div>
-                <div class="ex-card-body">
-                    <h3>CASTOR COLCHOES PARANAVAI</h3>
-                    <p>Franquia autorizada &middot; Paranavai, PR</p>
-                    <div class="ex-metrics">
-                        <div class="ex-metric"><strong>4.9/5</strong><small>Avaliacao</small></div>
-                        <div class="ex-metric"><strong>20%</strong><small>OFF PIX</small></div>
-                        <div class="ex-metric"><strong>12x</strong><small>Sem juros</small></div>
-                    </div>
-                </div>
-                <div class="ex-card-foot">
-                    <span class="ex-live">AO VIVO</span>
-                    <a href="https://www.castorparanavai.com/" target="_blank" class="ex-link">VER SITE &rarr;</a>
-                </div>
-            </div>
+<!-- DEPOIMENTOS -->
+<section style="padding:48px 24px;background:var(--card)" class="fade">
+  <div class="tag">DEPOIMENTOS</div>
+  <h2 class="section-title" style="margin-bottom:24px">Donos de loja que já transformaram o negócio</h2>
+  <div class="depo-grid">
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p class="depo-text">"Pensei que não ia adiantar porque minha loja é pequena. Mas funcionou. Recebo mensagem de cliente quase todo dia pelo link."</p>
+      <div class="depo-author">
+        <div class="depo-avatar">MR</div>
+        <div class="depo-name">
+          <strong>Marcos R.</strong>
+          <span>Dono de loja · Maringá/PR</span>
         </div>
-    </section>
-
-    <div class="stripe-bar"></div>
-
-    <section class="sec">
-        <div class="wrap">
-            <div class="tag r">Comparativo</div>
-            <h2>SEM PAGINA vs COM PAGINA</h2>
-            <div class="cmp-block fade">
-                <div class="cmp-title"><span style="background:var(--gray)"></span>SEM LANDING PAGE</div>
-                <div class="cmp-row"><div class="cmp-icon no">&#10005;</div><div class="cmp-text">Anuncio manda pro Instagram — <strong>cliente nao converte</strong></div></div>
-                <div class="cmp-row"><div class="cmp-icon no">&#10005;</div><div class="cmp-text">Sem captura de dados — <strong>lead perdido pra sempre</strong></div></div>
-                <div class="cmp-row"><div class="cmp-icon no">&#10005;</div><div class="cmp-text">Visual amador — <strong>passa inseguranca</strong></div></div>
-                <div class="cmp-row"><div class="cmp-icon no">&#10005;</div><div class="cmp-text">Conversao abaixo de <strong>2%</strong></div></div>
-            </div>
-            <div class="cmp-block fade">
-                <div class="cmp-title"><span style="background:linear-gradient(135deg,var(--red),var(--blue))"></span>COM LANDING PAGE VEON</div>
-                <div class="cmp-row"><div class="cmp-icon r">&#10003;</div><div class="cmp-text">Pagina que <strong>vende automaticamente</strong></div></div>
-                <div class="cmp-row"><div class="cmp-icon b">&#10003;</div><div class="cmp-text">Captura <strong>nome, telefone e interesse</strong></div></div>
-                <div class="cmp-row"><div class="cmp-icon r">&#10003;</div><div class="cmp-text">Visual premium que <strong>gera confianca</strong></div></div>
-                <div class="cmp-row"><div class="cmp-icon b">&#10003;</div><div class="cmp-text">Conversao de <strong>8% a 15%</strong></div></div>
-            </div>
+      </div>
+    </div>
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p class="depo-text">"A entrega foi mais rápida do que eu esperava. Em menos de uma semana a página estava no ar. Ficou profissional demais."</p>
+      <div class="depo-author">
+        <div class="depo-avatar">PA</div>
+        <div class="depo-name">
+          <strong>Patricia A.</strong>
+          <span>Franqueada Ortobom · Cascavel/PR</span>
         </div>
-    </section>
-
-    <div class="stripe-bar"></div>
-
-    <section id="preco" class="sec2">
-        <div class="wrap">
-            <div class="tag b">Investimento</div>
-            <h2>MENOS QUE 1 DIA DE TRAFEGO PAGO</h2>
-            <div class="preco-wrap fade">
-                <div class="preco-top">
-                    <div class="preco-label">Pagina profissional completa</div>
-                    <div class="preco-old">De R$ 997</div>
-                    <div class="preco-val">R$ 397</div>
-                    <div class="preco-parc">ou 12x de <strong>R$ 38,87</strong> no cartao</div>
-                </div>
-                <div class="preco-mid">
-                    <ul class="preco-list">
-                        <li>Design exclusivo personalizado</li>
-                        <li>Copy profissional de vendas</li>
-                        <li>WhatsApp + Analytics + Pixel</li>
-                        <li>Hospedagem 1 ano gratis</li>
-                        <li>Entrega em 7 dias uteis</li>
-                        <li>2 revisoes inclusas</li>
-                    </ul>
-                </div>
-                <div class="preco-bot">
-                    <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" target="_blank" class="btn btn-red">QUERO MINHA PAGINA AGORA</a>
-                    <span class="small" style="margin-top:12px">&#128274; Pagamento seguro &middot; 7 dias de garantia</span>
-                </div>
-            </div>
+      </div>
+    </div>
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p class="depo-text">"Não entendo nada de tecnologia, mas não precisei. Eles fizeram tudo. Só aprovei e divulguei. Valeu muito os R$397."</p>
+      <div class="depo-author">
+        <div class="depo-avatar">JF</div>
+        <div class="depo-name">
+          <strong>José F.</strong>
+          <span>Loja de móveis · Londrina/PR</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="stripe-bar"></div>
+<div class="divider"></div>
 
-    <section class="sec">
-        <div class="wrap">
-            <div class="tag r">Duvidas</div>
-            <h2>PERGUNTAS FREQUENTES</h2>
-            <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Em quanto tempo fica pronta?</div><div class="faq-a">Entregue em ate 7 dias uteis apos o envio das informacoes e materiais da sua loja.</div></div>
-            <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Preciso ter dominio proprio?</div><div class="faq-a">Nao. Podemos hospedar em subdominio nosso ou configurar no seu dominio. Hospedagem do primeiro ano inclusa.</div></div>
-            <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">A pagina e minha para sempre?</div><div class="faq-a">Sim. Apos a entrega e 100% sua. Voce pode usar, modificar e hospedar onde quiser.</div></div>
-            <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Funciona pra rodar anuncios?</div><div class="faq-a">Sim! Otimizada para Meta Ads e Google Ads com WhatsApp e formulario de captura.</div></div>
-            <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">E se eu nao gostar?</div><div class="faq-a">7 dias de garantia total. Devolvemos 100% do valor sem perguntas.</div></div>
-        </div>
-    </section>
+<!-- TECNOLOGIA -->
+<section style="padding:48px 24px;background:var(--bg)" class="fade">
+  <div class="tag">TECNOLOGIA</div>
+  <h2 class="section-title" style="margin-bottom:8px">Por dentro da sua landing page</h2>
+  <p class="section-sub" style="margin-bottom:24px">Não é template. É página construída com as melhores práticas do mercado.</p>
+  <div class="tech-grid">
+    <div class="tech-item">
+      <div class="tech-icon">⚡</div>
+      <span class="tech-label">Carregamento rápido</span>
+      <span class="tech-desc">Nota 90+ no Google PageSpeed. Cliente não espera e não vai embora.</span>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">📱</div>
+      <span class="tech-label">Mobile-first</span>
+      <span class="tech-desc">Projetada para o celular, onde 93% dos seus clientes estão.</span>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">🔍</div>
+      <span class="tech-label">SEO configurado</span>
+      <span class="tech-desc">Aparece no Google quando alguém busca "colchão em [sua cidade]".</span>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">📊</div>
+      <span class="tech-label">Pixel do Meta</span>
+      <span class="tech-desc">Rastreamento ativo. Quando quiser anunciar, já está pronto.</span>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">🔒</div>
+      <span class="tech-label">HTTPS seguro</span>
+      <span class="tech-desc">Certificado SSL incluso. Confiança para o Google e para o cliente.</span>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">💬</div>
+      <span class="tech-label">WhatsApp integrado</span>
+      <span class="tech-desc">Cada clique vira uma conversa. Lead quente direto no seu celular.</span>
+    </div>
+  </div>
+</section>
 
-    <div class="stripe-bar"></div>
+<div class="divider"></div>
 
-    <section class="final">
-        <div class="wrap">
-            <h2>PARE DE PERDER <span class="r">VENDAS</span> PARA SUA <span class="b">CONCORRENCIA</span></h2>
-            <p>Sua loja merece presenca digital que converte. Por R$397 voce tem uma pagina profissional pronta pra vender hoje.</p>
-            <div class="btn-stack">
-                <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" target="_blank" class="btn btn-red">FALAR COM ESPECIALISTA</a>
-                <a href="#preco" class="btn btn-blue">VER OFERTA COMPLETA</a>
-            </div>
-            <span class="small" style="margin-top:14px">Resposta em ate 5 minutos no WhatsApp</span>
-        </div>
-    </section>
+<!-- COMPARATIVO -->
+<section style="padding:48px 24px;background:var(--card)" class="fade">
+  <div class="tag">COMPARATIVO</div>
+  <h2 class="section-title" style="margin-bottom:20px">Sua loja com ou sem landing page?</h2>
+  <div class="compare-table">
+    <div class="compare-header">
+      <div></div>
+      <div style="color:var(--muted)">Sem página</div>
+      <div class="col-veon">Com VEON</div>
+    </div>
+    <div class="compare-row">
+      <div class="col-feat">Aparece no Google</div>
+      <div><span class="no">✗</span></div>
+      <div class="col-veon"><span class="yes">✓</span></div>
+    </div>
+    <div class="compare-row">
+      <div class="col-feat">Capta leads 24h</div>
+      <div><span class="no">✗</span></div>
+      <div class="col-veon"><span class="yes">✓</span></div>
+    </div>
+    <div class="compare-row">
+      <div class="col-feat">Profissional no celular</div>
+      <div><span class="no">✗</span></div>
+      <div class="col-veon"><span class="yes">✓</span></div>
+    </div>
+    <div class="compare-row">
+      <div class="col-feat">Pronto para anúncios</div>
+      <div><span class="no">✗</span></div>
+      <div class="col-veon"><span class="yes">✓</span></div>
+    </div>
+    <div class="compare-row">
+      <div class="col-feat">Custo mensal</div>
+      <div style="font-size:12px;color:var(--muted)">R$0*</div>
+      <div class="col-veon" style="font-size:12px;color:#22c55e">R$0*</div>
+    </div>
+    <div class="compare-row">
+      <div class="col-feat">Investimento único</div>
+      <div style="font-size:12px;color:var(--muted)">—</div>
+      <div class="col-veon" style="color:var(--red);font-weight:700;font-size:15px">R$397</div>
+    </div>
+  </div>
+  <p style="font-size:11px;color:#444;margin-top:8px;padding:0 4px">*Hospedagem gratuita por 12 meses incluída</p>
+</section>
 
-    <footer>INSTITUTO VEON &mdash; Assessoria Comercial Especializada no Varejo</footer>
+<div class="divider"></div>
 
-    <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" target="_blank" class="wpp-float">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </a>
+<!-- PARA QUEM É -->
+<section style="padding:48px 24px;background:var(--bg)" class="fade">
+  <div class="tag">PARA QUEM É</div>
+  <h2 class="section-title" style="margin-bottom:8px">Isso é para você se...</h2>
+  <p class="section-sub" style="margin-bottom:24px">Você se identifica com pelo menos uma dessas situações:</p>
+  <div class="quem-grid">
+    <div class="quem-card">
+      <div class="quem-icon">🏪</div>
+      <div class="quem-text">
+        <strong>É dono de loja física</strong>
+        <span>Tem loja de colchão, móveis ou cama, mesa e banho e quer atrair clientes que buscam online.</span>
+      </div>
+    </div>
+    <div class="quem-card">
+      <div class="quem-icon">🤝</div>
+      <div class="quem-text">
+        <strong>É franqueado</strong>
+        <span>Trabalha com marcas como Ortobom, Castor, Plumatex e quer se destacar dentro da rede.</span>
+      </div>
+    </div>
+    <div class="quem-card">
+      <div class="quem-icon">📣</div>
+      <div class="quem-text">
+        <strong>Já faz anúncios no Meta</strong>
+        <span>Está investindo em tráfego pago mas não tem para onde mandar o cliente. Está perdendo dinheiro.</span>
+      </div>
+    </div>
+    <div class="quem-card">
+      <div class="quem-icon">📈</div>
+      <div class="quem-text">
+        <strong>Quer escalar as vendas</strong>
+        <span>Quer crescer sem contratar mais vendedor. Uma página bem feita trabalha para você 24h por dia.</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-    var obs=new IntersectionObserver(function(e){e.forEach(function(i){if(i.isIntersecting){i.target.classList.add('show');obs.unobserve(i.target)}})},{threshold:0.12});
-    document.querySelectorAll('.fade').forEach(function(el){obs.observe(el)});
-    </script>
+<div class="divider"></div>
+
+<!-- FUNDADOR -->
+<section style="padding:48px 24px;background:var(--card)" class="fade">
+  <div class="tag">QUEM FAZ</div>
+  <h2 class="section-title" style="margin-bottom:20px">Por que confiar na VEON?</h2>
+  <div class="fundador-card">
+    <div class="fundador-img">👤</div>
+    <div class="fundador-body">
+      <div class="fundador-name">Henrique Veon</div>
+      <div class="fundador-role">Fundador · VEON Instituto</div>
+      <p class="fundador-bio">Especialista em marketing digital para o varejo físico, com foco em lojas de colchão e móveis no Sul do Brasil. Já estruturou a presença online de mais de 80 lojas, incluindo franqueados Ortobom e Castor. Criou o VEON Instituto para democratizar o acesso a ferramentas de marketing profissional para pequenos e médios lojistas que não têm tempo nem equipe para isso.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PREÇO -->
+<section style="padding:48px 24px;background:var(--bg)" class="fade">
+  <div class="tag">INVESTIMENTO</div>
+  <h2 class="section-title" style="margin-bottom:20px;text-align:center">Uma vez. Sem mensalidade.</h2>
+  <div class="price-card">
+    <div class="price-header">
+      <div class="price-name">LANDING PAGE PROFISSIONAL</div>
+      <div class="price-de">De R$897</div>
+      <div class="price-val"><sup>R$</sup>397</div>
+      <div class="price-pix">à vista no Pix ou cartão</div>
+    </div>
+    <div class="price-body">
+      <ul class="price-features">
+        <li class="price-feature"><span class="price-feature-check">✅</span> Landing page responsiva (mobile-first)</li>
+        <li class="price-feature"><span class="price-feature-check">✅</span> Botão WhatsApp integrado</li>
+        <li class="price-feature"><span class="price-feature-check">✅</span> Hospedagem 12 meses grátis</li>
+        <li class="price-feature"><span class="price-feature-check">✅</span> SEO básico configurado</li>
+        <li class="price-feature"><span class="price-feature-check">✅</span> Pixel do Meta pré-configurado</li>
+        <li class="price-feature"><span class="price-feature-check">✅</span> Design personalizado para sua loja</li>
+        <li class="price-feature"><span class="price-feature-check">✅</span> 2 revisões sem custo</li>
+        <li class="price-feature"><span class="price-feature-check">✅</span> Entrega em 7 dias úteis</li>
+        <li class="price-feature"><span class="price-feature-check">✅</span> Suporte por WhatsApp após entrega</li>
+      </ul>
+      <div class="price-guarantee">
+        <div class="price-guarantee-icon">🛡️</div>
+        <div class="price-guarantee-text"><strong style="color:#22c55e">Garantia incondicional de 7 dias.</strong><br>Se não gostar do resultado por qualquer motivo, devolvemos 100% do valor pago. Sem burocracia, sem perguntas.</div>
+      </div>
+      <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main">QUERO COMEÇAR AGORA</a>
+      <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20antes%20de%20contratar" class="btn-sec">Tirar uma dúvida antes</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section style="padding:48px 24px;background:var(--card)" class="fade">
+  <div class="tag">PERGUNTAS FREQUENTES</div>
+  <h2 class="section-title" style="margin-bottom:24px">Tire suas dúvidas</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Quanto tempo leva para ficar pronta?
+        <span class="arrow">+</span>
+      </button>
+      <div class="faq-a">7 dias úteis após aprovação do briefing e confirmação do pagamento. Se precisar com urgência, fale conosco e analisamos a possibilidade.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Preciso ter domínio ou hospedagem?
+        <span class="arrow">+</span>
+      </button>
+      <div class="faq-a">Não. Cuidamos de tudo. Hospedagem gratuita por 12 meses incluída. Se quiser usar um domínio próprio, configuramos gratuitamente.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Funciona para franquias como Ortobom e Castor?
+        <span class="arrow">+</span>
+      </button>
+      <div class="faq-a">Sim. Temos experiência com franqueados de Ortobom, Castor, Plumatex e outras redes. Desenvolvemos dentro das diretrizes de marca quando necessário.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        E se eu não gostar? Tem garantia?
+        <span class="arrow">+</span>
+      </button>
+      <div class="faq-a">Sim. Garantia incondicional de 7 dias. Se não gostar do resultado por qualquer motivo, devolvemos 100% do valor pago. Sem perguntas, sem burocracia.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Não entendo de tecnologia. Funciona para mim?
+        <span class="arrow">+</span>
+      </button>
+      <div class="faq-a">É feito exatamente para você. Não precisa saber nada de tecnologia. Você responde um formulário simples sobre sua loja, e nós fazemos todo o resto.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Posso integrar com meu WhatsApp?
+        <span class="arrow">+</span>
+      </button>
+      <div class="faq-a">Sim. Todos os botões direcionam para o seu WhatsApp, com mensagem pré-preenchida. Cada clique vira uma conversa qualificada no seu celular.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Qual a diferença de uma landing page para um site?
+        <span class="arrow">+</span>
+      </button>
+      <div class="faq-a">Um site tem muitas páginas e distrai o cliente. A landing page tem um único objetivo: fazer o cliente entrar em contato. Por isso converte muito mais para lojas físicas.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA FINAL -->
+<section class="cta-final fade">
+  <div class="tag">OFERTA LIMITADA</div>
+  <h2 class="section-title">Sua loja merece estar <span class="red">online</span></h2>
+  <p class="cta-final-sub">Enquanto você lê isso, um cliente da sua cidade está pesquisando no Google e sendo atendido pelo seu concorrente. Não deixe isso acontecer mais.</p>
+  <div class="cta-urgency">
+    <span class="cta-pulse"></span>
+    Vagas limitadas · Atendemos 5 lojas por semana
+  </div>
+  <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main" style="font-size:20px;padding:20px">QUERO MINHA LANDING PAGE — R$397</a>
+  <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20sobre%20a%20landing%20page" class="btn-sec">Tirar uma dúvida pelo WhatsApp</a>
+  <div style="margin-top:24px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--muted)">
+    <span>🛡️</span> Garantia incondicional de 7 dias · Entrega em 7 dias úteis
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2026 VEON Instituto · Todos os direitos reservados</p>
+  <p style="margin-top:6px"><a href="https://assessoriaveon.com">assessoriaveon.com</a></p>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
+}, {threshold:0.1})
+document.querySelectorAll('.fade').forEach(el => obs.observe(el))
+
+function toggleFaq(btn) {
+  const a = btn.nextElementSibling
+  const isOpen = a.classList.contains('open')
+  document.querySelectorAll('.faq-a.open').forEach(el => el.classList.remove('open'))
+  document.querySelectorAll('.faq-q.open').forEach(el => el.classList.remove('open'))
+  if(!isOpen){ a.classList.add('open'); btn.classList.add('open') }
+}
+</script>
 </body>
 </html>
