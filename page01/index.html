@@ -750,16 +750,16 @@ function handleFormSubmit(){
   fetch(trackUrl).catch(function(){});
 
   // Mensagem WhatsApp
-  const msg=encodeURIComponent(
-    '🟢 *Novo Lead — Landing Page PAGE01*\n\n'+
-    '👤 Nome: '+nome+'\n'+
-    '📱 WhatsApp: '+whatsapp+'\n'+
-    '📧 Email: '+email+'\n'+
-    '📸 Instagram: '+(instagram||'Não informou')+'\n'+
-    '📍 Cidade: '+cidade+'\n\n'+
-    '🔗 Origem: page01\n'+
-    '📊 UTM: '+(p.get('utm_source')||'direto')+' / '+(p.get('utm_campaign')||'-')+' / '+(p.get('utm_content')||'-')
-  );
+  var nl=String.fromCharCode(10);
+  var msgText='*Novo Lead — Landing Page PAGE01*'+nl+nl+
+    'Nome: '+nome+nl+
+    'WhatsApp: '+whatsapp+nl+
+    'Email: '+email+nl+
+    'Instagram: '+(instagram||'Não informou')+nl+
+    'Cidade: '+cidade+nl+nl+
+    'Origem: page01'+nl+
+    'UTM: '+(p.get('utm_source')||'direto')+' / '+(p.get('utm_campaign')||'-')+' / '+(p.get('utm_content')||'-');
+  var msg=encodeURIComponent(msgText);
 
   document.getElementById('form-box').style.display='none';
   document.getElementById('form-success').style.display='block';
