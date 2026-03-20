@@ -402,8 +402,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
       <h1 class="hero-title">SUA LOJA VENDENDO <span>24H/7</span> NO CELULAR</h1>
       <p class="hero-sub">Landing page profissional que capta clientes enquanto você dorme — sem contratos, sem mensalidade, pronta em 48 horas.</p>
       <div class="hero-btns">
-        <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main ripple-wrap">QUERO MINHA LANDING PAGE AGORA</a>
-        <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20sobre%20a%20landing%20page" class="btn-sec">Tenho uma dúvida antes</a>
+        <a href="#formulario" class="btn-main ripple-wrap">QUERO MINHA LANDING PAGE AGORA</a>
       </div>
       <div class="hero-stats">
         <div class="hero-stat"><div class="hero-stat-num">48H</div><div class="hero-stat-label">Prazo de entrega</div></div>
@@ -491,8 +490,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
               <li class="price-feat"><span class="pfc">✅</span> Design personalizado</li>
               <li class="price-feat"><span class="pfc">✅</span> Entrega em 48 horas</li>
             </ul>
-            <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main ripple-wrap">QUERO COMEÇAR AGORA</a>
-            <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20antes%20de%20contratar" class="btn-sec">Tirar uma dúvida antes</a>
+            <a href="#formulario" class="btn-main ripple-wrap">QUERO COMEÇAR AGORA</a>
 
             <div class="fundador-row">
               <div class="fundador-av">👤</div>
@@ -548,13 +546,51 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
     <p class="cta-final-sub">Enquanto você lê isso, um cliente da sua cidade está pesquisando no Google e sendo atendido pelo concorrente. Não deixe isso acontecer mais.</p>
     <div class="cta-urgency"><span class="pulse"></span> Vagas limitadas · Atendemos 5 lojas por semana</div>
     <div class="cta-btns">
-      <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main btn-shake" style="font-size:20px;padding:20px">QUERO MINHA LANDING PAGE — R$397</a>
-      <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20sobre%20a%20landing%20page" class="btn-sec">Tirar uma dúvida pelo WhatsApp</a>
+      <a href="#formulario" class="btn-main btn-shake" style="font-size:20px;padding:20px">QUERO MINHA LANDING PAGE — R$397</a>
       <div style="margin-top:20px;font-size:13px;color:var(--muted)">⚡ Entrega em 48 horas após aprovação do briefing</div>
     </div>
   </div>
 </section>
 
+<!-- ══ FORMULÁRIO ══ -->
+<section id="formulario" class="sec anim" style="background:var(--bg);padding:60px 0">
+  <div class="wrap-sm">
+    <div style="text-align:center;margin-bottom:32px">
+      <div class="tag">PREENCHA E FALE CONOSCO</div>
+      <h2 class="section-title">Solicite sua Landing Page</h2>
+      <p class="section-sub">Preencha abaixo que nossa equipe entra em contato pelo WhatsApp em até 1 hora.</p>
+    </div>
+    <div id="form-box" style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:28px 24px">
+      <div class="form-group" style="margin-bottom:16px">
+        <label style="display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px">Seu nome *</label>
+        <input type="text" id="f-nome" placeholder="Ex: João da Silva" style="width:100%;padding:14px;background:#1a1a1a;border:1px solid #333;border-radius:4px;color:#fff;font-size:15px" required>
+      </div>
+      <div class="form-group" style="margin-bottom:16px">
+        <label style="display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px">WhatsApp *</label>
+        <input type="tel" id="f-whatsapp" placeholder="(00) 00000-0000" style="width:100%;padding:14px;background:#1a1a1a;border:1px solid #333;border-radius:4px;color:#fff;font-size:15px" required>
+      </div>
+      <div class="form-group" style="margin-bottom:16px">
+        <label style="display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px">E-mail *</label>
+        <input type="email" id="f-email" placeholder="seu@email.com" style="width:100%;padding:14px;background:#1a1a1a;border:1px solid #333;border-radius:4px;color:#fff;font-size:15px" required>
+      </div>
+      <div class="form-group" style="margin-bottom:16px">
+        <label style="display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px">Instagram da loja</label>
+        <input type="text" id="f-instagram" placeholder="@sualoja" style="width:100%;padding:14px;background:#1a1a1a;border:1px solid #333;border-radius:4px;color:#fff;font-size:15px">
+      </div>
+      <div class="form-group" style="margin-bottom:20px">
+        <label style="display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px">Cidade *</label>
+        <input type="text" id="f-cidade" placeholder="Ex: Cascavel - PR" style="width:100%;padding:14px;background:#1a1a1a;border:1px solid #333;border-radius:4px;color:#fff;font-size:15px" required>
+      </div>
+      <button id="f-submit" class="btn-main ripple-wrap" style="font-size:20px;padding:18px" onclick="handleFormSubmit()">QUERO MINHA LANDING PAGE AGORA</button>
+      <p style="text-align:center;font-size:12px;color:#666;margin-top:12px">🔒 Seus dados estão seguros. Sem spam.</p>
+    </div>
+    <div id="form-success" style="display:none;text-align:center;padding:40px 20px">
+      <div style="font-size:48px;margin-bottom:16px">✅</div>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:28px;margin-bottom:12px">Recebemos seus dados!</h3>
+      <p style="color:var(--muted);font-size:15px">Você será redirecionado ao WhatsApp. Nossa equipe entrará em contato em breve.</p>
+    </div>
+  </div>
+</section>
 
 <footer class="footer">
   <p>© 2026 VEON Instituto · Todos os direitos reservados</p>
@@ -665,6 +701,63 @@ document.querySelectorAll('.step').forEach(s=>{
   s.addEventListener('mouseenter',()=>{n.style.transform='scale(1.2)';n.style.boxShadow='0 0 20px rgba(228,10,45,.6)'})
   s.addEventListener('mouseleave',()=>{n.style.transform='';n.style.boxShadow=''})
 });
+
+// ── FORM SUBMIT ──
+function handleFormSubmit(){
+  const nome=document.getElementById('f-nome').value.trim();
+  const whatsapp=document.getElementById('f-whatsapp').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const instagram=document.getElementById('f-instagram').value.trim();
+  const cidade=document.getElementById('f-cidade').value.trim();
+  const btn=document.getElementById('f-submit');
+
+  if(!nome||!whatsapp||!email||!cidade){alert('Preencha todos os campos obrigatórios.');return}
+
+  btn.disabled=true;btn.textContent='Enviando...';
+
+  const p=new URLSearchParams(window.location.search);
+  const utmData={
+    nome,whatsapp,email,instagram,cidade,
+    origem:'page01',
+    utm_source:p.get('utm_source')||'',
+    utm_campaign:p.get('utm_campaign')||'',
+    utm_content:p.get('utm_content')||'',
+    utm_adset:p.get('utm_adset')||'',
+    utm_placement:p.get('utm_placement')||'',
+    fbclid:p.get('fbclid')||''
+  };
+
+  if(typeof fbq!=='undefined'){
+    fbq('track','Lead',{content_name:'page01-formulario'});
+    fbq('trackCustom','FormSubmit_PAGE01',utmData);
+  }
+
+  // Webhook Supabase
+  fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_page01',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(utmData)
+  }).catch(function(){});
+
+  // Mensagem WhatsApp
+  const msg=encodeURIComponent(
+    '🟢 *Novo Lead — Landing Page PAGE01*\n\n'+
+    '👤 Nome: '+nome+'\n'+
+    '📱 WhatsApp: '+whatsapp+'\n'+
+    '📧 Email: '+email+'\n'+
+    '📸 Instagram: '+(instagram||'Não informou')+'\n'+
+    '📍 Cidade: '+cidade+'\n\n'+
+    '🔗 Origem: page01\n'+
+    '📊 UTM: '+(p.get('utm_source')||'direto')+' / '+(p.get('utm_campaign')||'-')+' / '+(p.get('utm_content')||'-')
+  );
+
+  document.getElementById('form-box').style.display='none';
+  document.getElementById('form-success').style.display='block';
+
+  setTimeout(function(){
+    window.open('https://wa.me/5545991294761?text='+msg,'_blank');
+  },1000);
+}
 
 // ── FAQ ──
 function toggleFaq(btn){
