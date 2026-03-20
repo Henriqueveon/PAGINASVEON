@@ -739,6 +739,16 @@ function handleFormSubmit(){
     body:JSON.stringify(utmData)
   }).catch(function(){});
 
+  // Track URL Supabase (UTM)
+  var trackUrl='https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/track/unidade-start/captacao-lppage01'+
+    '?utm_source='+encodeURIComponent(p.get('utm_source')||'')+
+    '&utm_campaign='+encodeURIComponent(p.get('utm_campaign')||'')+
+    '&utm_content='+encodeURIComponent(p.get('utm_content')||'')+
+    '&utm_adset='+encodeURIComponent(p.get('utm_adset')||'')+
+    '&utm_placement='+encodeURIComponent(p.get('utm_placement')||'')+
+    '&fbclid='+encodeURIComponent(p.get('fbclid')||'');
+  fetch(trackUrl).catch(function(){});
+
   // Mensagem WhatsApp
   const msg=encodeURIComponent(
     '🟢 *Novo Lead — Landing Page PAGE01*\n\n'+
