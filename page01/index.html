@@ -20,6 +20,19 @@
 <script type="application/ld+json">
 </script>
 
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);
+t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1459060829132519');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1459060829132519&ev=PageView&noscript=1"/></noscript>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -372,22 +385,6 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 .stg.visible>*:nth-child(4){opacity:1;transform:none;transition-delay:.35s}
 .stg.visible>*:nth-child(5){opacity:1;transform:none;transition-delay:.45s}
 
-/* ── MODAL FORM ── */
-#modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center;padding:16px}
-#modal-overlay.show{display:flex}
-#modal-box{background:#111;border:1px solid #2a2a2a;border-radius:10px;padding:32px 28px;width:100%;max-width:420px;position:relative;max-height:90vh;overflow-y:auto}
-#modal-box h3{font-family:'Bebas Neue',sans-serif;font-size:26px;color:#fff;margin-bottom:4px;letter-spacing:1px}
-#modal-box .msub{font-size:13px;color:var(--muted);margin-bottom:22px}
-.mfg{margin-bottom:14px}
-.mfg label{display:block;font-size:11px;font-weight:700;color:#888;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
-.mfg input{width:100%;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:5px;padding:12px 14px;color:#fff;font-size:15px;outline:none;transition:border-color .2s}
-.mfg input:focus{border-color:var(--red)}
-.mfg input::placeholder{color:#555}
-#modal-submit{width:100%;background:var(--red);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;padding:16px;border:none;border-radius:5px;cursor:pointer;margin-top:6px;transition:filter .2s}
-#modal-submit:hover{filter:brightness(1.1)}
-#modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:#666;font-size:22px;cursor:pointer;line-height:1}
-#modal-close:hover{color:#fff}
-.msafe{font-size:12px;color:#555;text-align:center;margin-top:10px}
 </style>
 </head>
 <body>
@@ -405,7 +402,8 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
       <h1 class="hero-title">SUA LOJA VENDENDO <span>24H/7</span> NO CELULAR</h1>
       <p class="hero-sub">Landing page profissional que capta clientes enquanto você dorme — sem contratos, sem mensalidade, pronta em 48 horas.</p>
       <div class="hero-btns">
-        <button onclick="openForm()" class="btn-main ripple-wrap">QUERO MINHA LANDING PAGE AGORA</button>
+        <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main ripple-wrap">QUERO MINHA LANDING PAGE AGORA</a>
+        <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20sobre%20a%20landing%20page" class="btn-sec">Tenho uma dúvida antes</a>
       </div>
       <div class="hero-stats">
         <div class="hero-stat"><div class="hero-stat-num">48H</div><div class="hero-stat-label">Prazo de entrega</div></div>
@@ -493,7 +491,8 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
               <li class="price-feat"><span class="pfc">✅</span> Design personalizado</li>
               <li class="price-feat"><span class="pfc">✅</span> Entrega em 48 horas</li>
             </ul>
-            <button onclick="openForm()" class="btn-main ripple-wrap">QUERO COMEÇAR AGORA</button>
+            <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main ripple-wrap">QUERO COMEÇAR AGORA</a>
+            <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20antes%20de%20contratar" class="btn-sec">Tirar uma dúvida antes</a>
 
             <div class="fundador-row">
               <div class="fundador-av">👤</div>
@@ -549,30 +548,13 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
     <p class="cta-final-sub">Enquanto você lê isso, um cliente da sua cidade está pesquisando no Google e sendo atendido pelo concorrente. Não deixe isso acontecer mais.</p>
     <div class="cta-urgency"><span class="pulse"></span> Vagas limitadas · Atendemos 5 lojas por semana</div>
     <div class="cta-btns">
-      <button onclick="openForm()" class="btn-main btn-shake" style="font-size:20px;padding:20px">QUERO MINHA LANDING PAGE — R$397</button>
+      <a href="https://wa.me/5545999999999?text=Quero%20minha%20landing%20page%20por%20R%24397" class="btn-main btn-shake" style="font-size:20px;padding:20px">QUERO MINHA LANDING PAGE — R$397</a>
+      <a href="https://wa.me/5545999999999?text=Tenho%20uma%20d%C3%BAvida%20sobre%20a%20landing%20page" class="btn-sec">Tirar uma dúvida pelo WhatsApp</a>
       <div style="margin-top:20px;font-size:13px;color:var(--muted)">⚡ Entrega em 48 horas após aprovação do briefing</div>
     </div>
   </div>
 </section>
 
-
-<!-- MODAL FORMULÁRIO -->
-<div id="modal-overlay">
-  <div id="modal-box">
-    <button id="modal-close" onclick="closeForm()">✕</button>
-    <h3>ÚLTIMAS VAGAS DESTA SEMANA</h3>
-    <p class="msub">Preencha abaixo e nossa equipe entra em contato em até 1 hora.</p>
-    <form id="leadForm" onsubmit="return sendForm(event)">
-      <div class="mfg"><label>Seu nome</label><input type="text" id="f-nome" placeholder="Como você se chama?" required></div>
-      <div class="mfg"><label>WhatsApp</label><input type="tel" id="f-whatsapp" placeholder="(XX) XXXXX-XXXX" required></div>
-      <div class="mfg"><label>E-mail</label><input type="email" id="f-email" placeholder="seu@email.com" required></div>
-      <div class="mfg"><label>Instagram da loja</label><input type="text" id="f-instagram" placeholder="@sualoja" required></div>
-      <div class="mfg"><label>Cidade</label><input type="text" id="f-cidade" placeholder="Ex: Cascavel/PR" required></div>
-      <button type="submit" id="modal-submit">QUERO MINHA LANDING PAGE →</button>
-    </form>
-    <p class="msafe">🔒 Seus dados estão seguros. Sem spam.</p>
-  </div>
-</div>
 
 <footer class="footer">
   <p>© 2026 VEON Instituto · Todos os direitos reservados</p>
@@ -693,79 +675,63 @@ function toggleFaq(btn){
 }
 
 // ── UTM CAPTURE ──
-const _utms=(function(){
-  const p=new URLSearchParams(location.search);
-  return{
-    source:p.get('utm_source')||'',
-    medium:p.get('utm_medium')||'',
-    campaign:p.get('utm_campaign')||'',
-    content:p.get('utm_content')||'',
-    term:p.get('utm_term')||''
-  };
-})();
-// Persiste em sessionStorage para não perder ao navegar
-if(_utms.source)sessionStorage.setItem('_utms',JSON.stringify(_utms));
-const storedUtms=JSON.parse(sessionStorage.getItem('_utms')||'{}');
+const urlP=new URLSearchParams(window.location.search);
+const utm={
+  source:urlP.get('utm_source')||'',
+  campaign:urlP.get('utm_campaign')||'',
+  content:urlP.get('utm_content')||'',
+  adset:urlP.get('utm_adset')||'',
+  placement:urlP.get('utm_placement')||'',
+  fbclid:urlP.get('fbclid')||''
+};
 
-// ── MODAL ──
-function openForm(){
-  document.getElementById('modal-overlay').classList.add('show');
-  document.body.style.overflow='hidden';
-}
-function closeForm(){
-  document.getElementById('modal-overlay').classList.remove('show');
-  document.body.style.overflow='';
-}
-document.getElementById('modal-overlay').addEventListener('click',function(e){
-  if(e.target===this)closeForm();
+// ── SCROLL DEPTH TRACKING ──
+const scrollMilestones={25:false,50:false,75:false,100:false};
+window.addEventListener('scroll',function(){
+  const pct=Math.round(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100);
+  [25,50,75,100].forEach(function(m){
+    if(pct>=m&&!scrollMilestones[m]){
+      scrollMilestones[m]=true;
+      fbq('trackCustom','Scroll_PAGE01',{profundidade:m+'%',...utm});
+    }
+  });
+},{passive:true});
+
+// ── TEMPO NA PÁGINA ──
+const tempoMilestones={15:false,30:false,60:false,120:false};
+let tempoInicio=Date.now();
+setInterval(function(){
+  const seg=Math.floor((Date.now()-tempoInicio)/1000);
+  [15,30,60,120].forEach(function(t){
+    if(seg>=t&&!tempoMilestones[t]){
+      tempoMilestones[t]=true;
+      fbq('trackCustom','TempoNaPagina_PAGE01',{segundos:t,...utm});
+    }
+  });
+},5000);
+
+// ── CTA CLICKS ──
+document.querySelectorAll('.btn-main').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    fbq('track','Lead',{content_name:'PAGE01_CTA',...utm});
+    fbq('trackCustom','CTA_PAGE01',{botao:this.textContent.trim(),...utm});
+  });
 });
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeForm()});
 
-// Máscara WhatsApp
-document.getElementById('f-whatsapp').addEventListener('input',function(){
-  let v=this.value.replace(/\D/g,'');
-  if(v.length>11)v=v.slice(0,11);
-  if(v.length>6)v=`(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
-  else if(v.length>2)v=`(${v.slice(0,2)}) ${v.slice(2)}`;
-  else if(v.length>0)v=`(${v}`;
-  this.value=v;
+// ── WHATSAPP CLICK ──
+document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
+  link.addEventListener('click',function(){
+    fbq('track','Contact',{content_name:'WhatsApp_PAGE01'});
+    fbq('trackCustom','WhatsApp_PAGE01',{origem:'botao',...utm});
+  });
 });
 
-// ── ENVIO DO FORMULÁRIO → WHATSAPP ──
-function sendForm(e){
-  e.preventDefault();
-  const nome=document.getElementById('f-nome').value.trim();
-  const whats=document.getElementById('f-whatsapp').value.trim();
-  const email=document.getElementById('f-email').value.trim();
-  const insta=document.getElementById('f-instagram').value.trim();
-  const cidade=document.getElementById('f-cidade').value.trim();
-  const u=storedUtms.source?storedUtms:_utms;
-  const utmInfo=[
-    u.source?`Origem: ${u.source}`:'',
-    u.medium?`Mídia: ${u.medium}`:'',
-    u.campaign?`Campanha: ${u.campaign}`:'',
-    u.content?`Criativo: ${u.content}`:'',
-    u.term?`Termo: ${u.term}`:''
-  ].filter(Boolean).join(' | ');
-
-  const msg=`Olá! Tenho interesse na landing page por R$397.
-
-*Nome:* ${nome}
-*WhatsApp:* ${whats}
-*E-mail:* ${email}
-*Instagram da loja:* ${insta}
-*Cidade:* ${cidade}${utmInfo?`\n\n📊 ${utmInfo}`:''}`;
-
-  const btn=document.getElementById('modal-submit');
-  btn.disabled=true;btn.textContent='ABRINDO WHATSAPP...';
-  setTimeout(()=>{
-    window.open(`https://wa.me/5545991294761?text=${encodeURIComponent(msg)}`,'_blank');
-    closeForm();
-    btn.disabled=false;btn.textContent='QUERO MINHA LANDING PAGE →';
-    document.getElementById('leadForm').reset();
-  },400);
-  return false;
-}
+// ── FAQ INTERACTION ──
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    fbq('trackCustom','FAQ_PAGE01',{pergunta:this.textContent.trim(),...utm});
+  });
+});
 </script>
 </body>
 </html>
