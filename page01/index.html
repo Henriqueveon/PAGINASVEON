@@ -739,7 +739,7 @@ function handleFormSubmit(){
     body:JSON.stringify(utmData)
   }).catch(function(){});
 
-  // Track URL Supabase (UTM)
+  // Track URL Supabase → redireciona pro WhatsApp
   var trackUrl='https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/track/unidade-start/captacao-lppage01'+
     '?utm_source='+encodeURIComponent(p.get('utm_source')||'')+
     '&utm_campaign='+encodeURIComponent(p.get('utm_campaign')||'')+
@@ -747,25 +747,12 @@ function handleFormSubmit(){
     '&utm_adset='+encodeURIComponent(p.get('utm_adset')||'')+
     '&utm_placement='+encodeURIComponent(p.get('utm_placement')||'')+
     '&fbclid='+encodeURIComponent(p.get('fbclid')||'');
-  fetch(trackUrl).catch(function(){});
-
-  // Mensagem WhatsApp
-  var nl=String.fromCharCode(10);
-  var msgText='*Novo Lead — Landing Page PAGE01*'+nl+nl+
-    'Nome: '+nome+nl+
-    'WhatsApp: '+whatsapp+nl+
-    'Email: '+email+nl+
-    'Instagram: '+(instagram||'Não informou')+nl+
-    'Cidade: '+cidade+nl+nl+
-    'Origem: page01'+nl+
-    'UTM: '+(p.get('utm_source')||'direto')+' / '+(p.get('utm_campaign')||'-')+' / '+(p.get('utm_content')||'-');
-  var msg=encodeURIComponent(msgText);
 
   document.getElementById('form-box').style.display='none';
   document.getElementById('form-success').style.display='block';
 
   setTimeout(function(){
-    window.open('https://wa.me/5545991294761?text='+msg,'_blank');
+    window.open(trackUrl,'_blank');
   },1000);
 }
 
