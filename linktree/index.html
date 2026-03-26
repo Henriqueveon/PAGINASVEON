@@ -244,7 +244,7 @@
       display: block;
       object-fit: cover;
       object-position: center 15%;
-      max-height: 480px;
+      max-height: 520px;
     }
 
     .hero-img-wrapper::after {
@@ -253,8 +253,40 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 80px;
+      height: 120px;
       background: linear-gradient(to top, #0a2a42, transparent);
+    }
+
+    .hero-img-overlay-stats {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      padding: 0 24px 20px;
+      z-index: 2;
+    }
+
+    .hero-img-overlay-stats .ws {
+      text-align: center;
+    }
+
+    .hero-img-overlay-stats .ws-val {
+      font-size: 26px;
+      font-weight: 900;
+      color: #e40a2d;
+      text-shadow: 0 0 20px rgba(228,10,45,0.4);
+      line-height: 1;
+    }
+
+    .hero-img-overlay-stats .ws-lbl {
+      font-size: 10px;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
     }
 
     /* ===== WELCOME STEP ===== */
@@ -420,12 +452,12 @@
           <h1>A maior assessoria <span>especializada no varejo</span> do Brasil</h1>
           <div class="hero-img-wrapper">
             <img src="fundadores.png" alt="Fundadores do Instituto Veon">
+            <div class="hero-img-overlay-stats">
+              <div class="ws"><div class="ws-val">250+</div><div class="ws-lbl">Empresários</div></div>
+              <div class="ws"><div class="ws-val">2x</div><div class="ws-lbl">Faturamento</div></div>
+              <div class="ws"><div class="ws-val">180d</div><div class="ws-lbl">Garantia</div></div>
+            </div>
           </div>
-        </div>
-        <div class="welcome-stats">
-          <div class="ws"><div class="ws-val">250+</div><div class="ws-lbl">Empresários</div></div>
-          <div class="ws"><div class="ws-val">2x</div><div class="ws-lbl">Faturamento</div></div>
-          <div class="ws"><div class="ws-val">180d</div><div class="ws-lbl">Garantia</div></div>
         </div>
         <button class="btn-start" onclick="goStep(1)">Conheça Nossa Assessoria e Entre na Comunidade Exclusiva →</button>
         <div class="depo">
