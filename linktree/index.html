@@ -624,9 +624,22 @@
       fbq('track','Lead');
       fbq('trackCustom','FormularioLinktree',{lp:'linktree',nome:d.nome,source:U.source,campaign:U.campaign});
 
+      // Track URL Supabase → redireciona pro WhatsApp
+      var trackUrl='https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/track/unidade-start/lp-bioinstagram'+
+        '?utm_source='+encodeURIComponent(U.source)+
+        '&utm_campaign='+encodeURIComponent(U.campaign)+
+        '&utm_content='+encodeURIComponent(U.content)+
+        '&utm_adset='+encodeURIComponent(U.adset)+
+        '&utm_placement='+encodeURIComponent(U.placement)+
+        '&fbclid='+encodeURIComponent(U.fbclid);
+
       document.getElementById('progressFill').style.width = '100%';
       document.getElementById('stepCount').textContent = '';
       goStep(5);
+
+      setTimeout(function(){
+        window.open(trackUrl,'_blank');
+      },1000);
     }
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1459060829132519&ev=PageView&noscript=1"></noscript>
