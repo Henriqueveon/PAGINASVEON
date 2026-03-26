@@ -9,6 +9,9 @@
     { "source": "/apresentacao/:path*", "destination": "/apresentacao/:path*" },
     { "source": "/page01", "destination": "/page01/index.html" },
     { "source": "/page01/", "destination": "/page01/index.html" },
-    { "source": "/page01/:path*", "destination": "/page01/:path*" }
+    { "source": "/page01/:path*", "destination": "/page01/:path*" },
+    { "source": "/caderno-de-marca", "destination": "/caderno-de-marca/index.html" },
+    { "source": "/caderno-de-marca/", "destination": "/caderno-de-marca/index.html" },
+    { "source": "/caderno-de-marca/:path*", "destination": "/caderno-de-marca/:path*" }
   ]
 }
