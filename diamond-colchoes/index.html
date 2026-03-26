@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instituto Veon | Diamond Colchões — Dashboard Meta Ads</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--gold:#3a9fd8;--gold-light:#5ec2ff;--gold-dark:#0c3c5f;
+--accent:#e40a2d;--accent-light:#ff3352;--accent-dark:#b8081f;
+--veon-blue:#0c3c5f;--veon-red:#e40a2d;
+--bg-primary:#060d18;--bg-secondary:#0b1929;--bg-card:#0f2440;--bg-card-hover:#163458;
+--text-primary:#f0f4fa;--text-secondary:#a0b4d0;--text-muted:#6b82a8;
+--glass:rgba(15,36,64,0.65);--glass-border:rgba(58,159,216,0.2);
+--green:#22c55e;--red:#e40a2d;--blue:#2d8cf0;--purple:#a855f7;--orange:#f97316;--cyan:#06b6d4;
+--radius:16px;--radius-sm:10px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 20% 0%,rgba(12,60,95,0.15) 0%,transparent 50%),radial-gradient(ellipse at 80% 100%,rgba(228,10,45,0.06) 0%,transparent 50%);pointer-events:none;z-index:0}
+
+.container{max-width:1440px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+/* Header */
+.header{padding:32px 0 24px;border-bottom:1px solid var(--glass-border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.brand{display:flex;align-items:center;gap:20px}
+.brand-logo{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--veon-blue));display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:#fff;font-family:'Barlow Condensed',sans-serif;box-shadow:0 0 30px rgba(58,159,216,0.4),0 0 60px rgba(12,60,95,0.3);position:relative;overflow:hidden;border:2px solid rgba(94,194,255,0.3)}
+.brand-logo::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 40%,rgba(255,255,255,0.2) 50%,transparent 60%);animation:shimmer 3s infinite}
+@keyframes shimmer{0%{transform:translateX(-100%) rotate(45deg)}100%{transform:translateX(100%) rotate(45deg)}}
+.brand-info h1{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:800;background:linear-gradient(135deg,#ffffff,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px}
+.brand-info p{color:var(--text-secondary);font-size:13px;margin-top:2px}
+.header-meta{display:flex;gap:24px;flex-wrap:wrap}
+.header-tag{background:var(--glass);border:1px solid var(--glass-border);border-radius:8px;padding:8px 16px;font-size:12px;color:var(--text-secondary);backdrop-filter:blur(10px)}
+.header-tag span{color:var(--gold-light);font-weight:600}
+.status-active{display:inline-flex;align-items:center;gap:6px}
+.status-active::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.4)}50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+
+/* KPI Cards */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:32px 0}
+.kpi-card{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px;position:relative;overflow:hidden;transition:all 0.3s ease}
+.kpi-card:hover{transform:translateY(-4px);border-color:rgba(58,159,216,0.4);box-shadow:0 12px 40px rgba(12,60,95,0.4),0 0 20px rgba(58,159,216,0.1)}
+.kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--accent));opacity:0;transition:opacity 0.3s}
+.kpi-card:hover::before{opacity:1}
+.kpi-label{font-size:12px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.kpi-value{font-size:28px;font-weight:800;color:var(--text-primary);line-height:1.1}
+.kpi-value.gold{background:linear-gradient(135deg,#ffffff,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.kpi-sub{font-size:12px;color:var(--text-muted);margin-top:6px;display:flex;align-items:center;gap:4px}
+.kpi-sub .up{color:var(--green)}
+.kpi-sub .down{color:var(--red)}
+
+/* Sections */
+.section{margin:48px 0}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.section-title::before{content:'';width:4px;height:28px;background:linear-gradient(180deg,var(--gold-light),var(--accent));border-radius:2px}
+
+/* Chart containers */
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.chart-box{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px;transition:border-color 0.3s}
+.chart-box:hover{border-color:rgba(58,159,216,0.3)}
+.chart-box h3{font-size:16px;font-weight:600;margin-bottom:16px;color:var(--text-secondary)}
+.chart-box.full{grid-column:1/-1}
+.chart-wrapper{position:relative;width:100%;max-height:360px}
+
+/* Tables */
+.table-wrap{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--radius);overflow:hidden}
+.table-wrap table{width:100%;border-collapse:collapse;font-size:13px}
+.table-wrap thead{background:rgba(58,159,216,0.08)}
+.table-wrap th{padding:14px 16px;text-align:left;font-weight:600;color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:0.5px;cursor:pointer;user-select:none;white-space:nowrap;position:relative}
+.table-wrap th:hover{color:var(--gold-light)}
+.table-wrap th .sort-icon{margin-left:4px;opacity:0.4;font-size:10px}
+.table-wrap th.sorted .sort-icon{opacity:1}
+.table-wrap td{padding:12px 16px;border-top:1px solid var(--glass-border);white-space:nowrap}
+.table-wrap tr:hover td{background:rgba(58,159,216,0.06)}
+.table-scroll{overflow-x:auto}
+.cell-campaign{max-width:200px;overflow:hidden;text-overflow:ellipsis;font-weight:500}
+.cell-value{font-variant-numeric:tabular-nums}
+.cell-good{color:var(--green)}
+.cell-bad{color:var(--red)}
+.cell-warn{color:var(--orange)}
+
+/* Problem / Recommendation cards */
+.insight-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.insight-card{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px;transition:all 0.3s}
+.insight-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,0.2)}
+.insight-card.problem{border-left:4px solid var(--red)}
+.insight-card.opportunity{border-left:4px solid var(--green)}
+.insight-card.strategy{border-left:4px solid var(--gold)}
+.insight-card .icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px}
+.insight-card.problem .icon{background:rgba(239,68,68,0.1);color:var(--red)}
+.insight-card.opportunity .icon{background:rgba(34,197,94,0.1);color:var(--green)}
+.insight-card.strategy .icon{background:rgba(58,159,216,0.15);color:var(--gold-light)}
+.insight-card h4{font-size:15px;font-weight:700;margin-bottom:8px}
+.insight-card p{font-size:13px;color:var(--text-secondary);line-height:1.7}
+
+/* Roadmap */
+.roadmap{display:flex;flex-direction:column;gap:0;position:relative;padding-left:40px}
+.roadmap::before{content:'';position:absolute;left:15px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--gold),var(--gold-dark),var(--gold))}
+.roadmap-step{position:relative;padding:20px 24px;background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);margin-bottom:16px;transition:all 0.3s}
+.roadmap-step:hover{border-color:rgba(58,159,216,0.3);transform:translateX(4px)}
+.roadmap-step::before{content:'';position:absolute;left:-33px;top:24px;width:16px;height:16px;border-radius:50%;background:var(--gold);border:3px solid var(--bg-primary);box-shadow:0 0 12px rgba(58,159,216,0.5)}
+.roadmap-step .phase{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:4px}
+.roadmap-step h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.roadmap-step p{font-size:13px;color:var(--text-secondary)}
+
+/* Targeting */
+.targeting-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.targeting-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px}
+.targeting-card h4{font-size:14px;font-weight:700;color:var(--gold);margin-bottom:12px}
+.targeting-card ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.targeting-card li{font-size:13px;color:var(--text-secondary);padding-left:16px;position:relative}
+.targeting-card li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+/* Copy Analysis */
+.copy-box{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px;margin-bottom:16px}
+.copy-box blockquote{font-style:italic;color:var(--text-secondary);border-left:3px solid var(--gold);padding-left:16px;margin:12px 0;line-height:1.8}
+
+/* Consultant mini table */
+.consultant-highlight{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.consultant-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;display:flex;flex-direction:column;gap:8px;cursor:pointer;transition:all 0.3s}
+.consultant-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,0.3);border-color:rgba(58,159,216,0.4)}
+.consultant-card .name{font-weight:700;font-size:14px}
+.consultant-card .click-hint{font-size:10px;color:var(--text-muted);text-align:center;margin-top:4px;opacity:0.6}
+.consultant-card .metric{display:flex;justify-content:space-between;font-size:12px;color:var(--text-secondary)}
+.consultant-card .metric span:last-child{font-weight:600;color:var(--text-primary)}
+.consultant-card.top-performer{border-color:rgba(34,197,94,0.3)}
+.consultant-card.top-performer .name{color:var(--green)}
+.consultant-card.under-performer{border-color:rgba(239,68,68,0.2)}
+.consultant-card.under-performer .name{color:var(--red)}
+
+/* Modal */
+.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
+.modal-overlay.active{display:flex}
+.modal{background:var(--bg-card);border:1px solid rgba(58,159,216,0.25);border-radius:var(--radius);max-width:680px;width:100%;max-height:90vh;overflow-y:auto;padding:32px;position:relative;animation:fadeUp 0.3s ease}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:1px solid var(--glass-border);border-radius:8px;color:var(--text-secondary);font-size:18px;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.modal-close:hover{border-color:var(--red);color:var(--red)}
+.modal-header{margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--glass-border)}
+.modal-header h3{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;margin-bottom:4px}
+.modal-header .modal-badge{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 12px;border-radius:6px;margin-top:8px}
+.modal-badge.good{background:rgba(34,197,94,0.15);color:var(--green)}
+.modal-badge.bad{background:rgba(239,68,68,0.15);color:var(--red)}
+.modal-section{margin-bottom:24px}
+.modal-section h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.modal-section h4::before{content:'';width:3px;height:14px;background:var(--gold);border-radius:2px}
+.modal-metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.modal-metric{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:14px 16px}
+.modal-metric .label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+.modal-metric .value{font-size:20px;font-weight:800;color:var(--text-primary)}
+.modal-metric .value.good{color:var(--green)}
+.modal-metric .value.bad{color:var(--red)}
+.modal-metric .desc{font-size:11px;color:var(--text-muted);margin-top:4px;line-height:1.4}
+.modal-metric.full{grid-column:1/-1}
+.modal-verdict{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;line-height:1.8;font-size:13px;color:var(--text-secondary)}
+.modal-verdict strong{color:var(--text-primary)}
+.modal-bar{height:8px;background:rgba(255,255,255,0.06);border-radius:4px;margin-top:6px;overflow:hidden}
+.modal-bar-fill{height:100%;border-radius:4px;transition:width 0.6s ease}
+@media(max-width:600px){.modal-metrics{grid-template-columns:1fr}.modal{padding:20px}}
+
+/* Tabs */
+.tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.tab-btn{background:var(--glass);border:1px solid var(--glass-border);border-radius:8px;padding:8px 20px;font-size:13px;font-weight:500;color:var(--text-secondary);cursor:pointer;transition:all 0.2s;font-family:inherit}
+.tab-btn.active,.tab-btn:hover{background:rgba(58,159,216,0.12);border-color:var(--gold);color:var(--gold-light)}
+
+/* Scroll to top */
+.scroll-top{position:fixed;bottom:32px;right:32px;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--veon-blue));color:#fff;border:none;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(58,159,216,0.4);z-index:100;transition:transform 0.2s}
+.scroll-top:hover{transform:scale(1.1)}
+.scroll-top.show{display:flex}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.animate{animation:fadeUp 0.6s ease forwards;opacity:0}
+.animate:nth-child(1){animation-delay:0.05s}
+.animate:nth-child(2){animation-delay:0.1s}
+.animate:nth-child(3){animation-delay:0.15s}
+.animate:nth-child(4){animation-delay:0.2s}
+.animate:nth-child(5){animation-delay:0.25s}
+.animate:nth-child(6){animation-delay:0.3s}
+
+/* Nav */
+.nav-bar{position:sticky;top:0;z-index:50;background:rgba(6,13,24,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);padding:12px 0}
+.nav-inner{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav-link{font-size:12px;font-weight:500;color:var(--text-muted);padding:6px 14px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all 0.2s}
+.nav-link:hover,.nav-link.active{color:var(--gold-light);background:rgba(58,159,216,0.1)}
+
+/* ROI Simulator */
+.sim-container{background:var(--glass);border:1px solid rgba(58,159,216,0.25);border-radius:var(--radius);padding:32px;position:relative;overflow:hidden}
+.sim-container::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold))}
+.sim-slider-wrap{margin:24px 0}
+.sim-slider-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.sim-slider-label span{font-size:13px;color:var(--text-secondary)}
+.sim-slider-label .sim-val{font-size:24px;font-weight:800;color:var(--gold)}
+.sim-range{-webkit-appearance:none;width:100%;height:8px;border-radius:4px;background:rgba(255,255,255,0.08);outline:none;cursor:pointer}
+.sim-range::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));cursor:pointer;box-shadow:0 0 16px rgba(58,159,216,0.5);transition:transform 0.2s}
+.sim-range::-webkit-slider-thumb:hover{transform:scale(1.2)}
+.sim-range::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));cursor:pointer;border:none;box-shadow:0 0 16px rgba(58,159,216,0.5)}
+.sim-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:24px}
+.sim-card{background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;transition:all 0.3s}
+.sim-card .sim-card-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:8px}
+.sim-card .sim-card-value{font-size:28px;font-weight:800;transition:all 0.3s}
+.sim-card .sim-card-value.gold{background:linear-gradient(135deg,#ffffff,var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sim-card .sim-card-value.green{color:var(--green)}
+.sim-card .sim-card-sub{font-size:11px;color:var(--text-muted);margin-top:6px}
+.sim-card.highlight{border-color:rgba(58,159,216,0.35);background:rgba(58,159,216,0.08)}
+.sim-note{font-size:12px;color:var(--text-muted);margin-top:20px;padding-top:16px;border-top:1px solid var(--glass-border);line-height:1.7;text-align:center}
+
+/* Quick Wins */
+.quickwin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.quickwin-card{background:var(--glass);border:1px solid rgba(34,197,94,0.3);border-radius:var(--radius);padding:24px;position:relative;overflow:hidden;transition:all 0.3s}
+.quickwin-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(34,197,94,0.1)}
+.quickwin-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--cyan))}
+.quickwin-number{width:36px;height:36px;border-radius:50%;background:rgba(34,197,94,0.15);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;margin-bottom:12px}
+.quickwin-card h4{font-size:15px;font-weight:700;margin-bottom:8px;color:var(--green)}
+.quickwin-card p{font-size:13px;color:var(--text-secondary);line-height:1.7}
+.quickwin-card .quickwin-impact{margin-top:12px;padding-top:12px;border-top:1px solid var(--glass-border);font-size:12px;font-weight:600;color:var(--gold)}
+
+/* Footer */
+.footer{text-align:center;padding:48px 0 32px;border-top:1px solid var(--glass-border);margin-top:64px}
+.footer p{font-size:12px;color:var(--text-muted)}
+.footer .gold{color:var(--gold)}
+
+/* Responsive */
+@media(max-width:900px){
+.chart-grid{grid-template-columns:1fr}
+.header-inner{flex-direction:column;align-items:flex-start}
+.brand-info h1{font-size:24px}
+.kpi-value{font-size:22px}
+.kpi-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+}
+@media(max-width:600px){
+.container{padding:0 12px}
+.kpi-grid{grid-template-columns:1fr 1fr}
+.insight-grid{grid-template-columns:1fr}
+}
+/* Password Gate */
+.pw-gate{position:fixed;top:0;left:0;width:100%;height:100%;background:#060d18;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.pw-gate.hidden{display:none}
+.pw-box{background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius);padding:48px 40px;max-width:420px;width:90%;text-align:center;animation:fadeUp 0.5s ease}
+.pw-box h2{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;letter-spacing:2px;background:linear-gradient(135deg,#ffffff,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+.pw-box .pw-sub{font-size:13px;color:var(--text-muted);margin-bottom:28px}
+.pw-box input{width:100%;padding:14px 18px;border-radius:var(--radius-sm);border:1px solid var(--glass-border);background:rgba(255,255,255,0.04);color:var(--text-primary);font-size:15px;font-family:inherit;outline:none;transition:border-color 0.2s;text-align:center;letter-spacing:1px}
+.pw-box input:focus{border-color:var(--gold)}
+.pw-box input::placeholder{color:var(--text-muted);letter-spacing:0}
+.pw-box button{margin-top:16px;width:100%;padding:14px;border:none;border-radius:var(--radius-sm);background:linear-gradient(135deg,var(--gold),var(--veon-blue));color:#fff;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:all 0.2s;letter-spacing:1px}
+.pw-box button:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(58,159,216,0.3)}
+.pw-error{color:var(--accent);font-size:12px;margin-top:12px;min-height:18px}
+.pw-lock-icon{font-size:40px;margin-bottom:16px;opacity:0.6}
+.content-locked{display:none}
+.content-unlocked{display:block}
+</style>
+</head>
+<body>
+
+<!-- Password Gate -->
+<div class="pw-gate" id="pwGate">
+<div class="pw-box">
+<div class="pw-lock-icon">🔒</div>
+<h2>INSTITUTO VEON</h2>
+<p class="pw-sub">Área restrita — Dados confidenciais do cliente</p>
+<input type="password" id="pwInput" placeholder="Digite a senha de acesso" autocomplete="off">
+<button onclick="checkPassword()">Acessar Dashboard</button>
+<div class="pw-error" id="pwError"></div>
+</div>
+</div>
+
+<div id="dashContent" class="content-locked">
+
+<!-- Sticky Nav -->
+<nav class="nav-bar">
+<div class="container">
+<div class="nav-inner">
+<a href="#top" class="nav-link active">Visão Geral</a>
+<a href="#organizacao" class="nav-link">Organização</a>
+<a href="#monthly" class="nav-link">Mensal</a>
+<a href="#campaigns" class="nav-link">Campanhas</a>
+<a href="#ads" class="nav-link">Anúncios</a>
+<a href="#consultants" class="nav-link">Consultores</a>
+<a href="#conversions" class="nav-link">Conversões</a>
+<a href="#targeting" class="nav-link">Segmentação</a>
+<a href="#problems" class="nav-link">Problemas</a>
+<a href="#strategy" class="nav-link">Estratégia</a>
+<a href="#quickwins" class="nav-link">Ações Imediatas</a>
+<a href="#simulator" class="nav-link">Simulador</a>
+<a href="#roadmap" class="nav-link">Plano de Ação</a>
+</div>
+</div>
+</nav>
+
+<div class="container" id="top">
+
+<!-- Header -->
+<header class="header">
+<div class="header-inner">
+<div class="brand">
+<div class="brand-info">
+<h1>INSTITUTO VEON</h1>
+<p style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted)">A Escola do Varejo &mdash; Análise Meta Ads</p>
+<p style="margin-top:4px;font-size:14px;font-weight:600;color:var(--gold-light)">Cliente: Diamond Colchões</p>
+</div>
+</div>
+<div class="header-meta">
+<div class="header-tag">Conta: <span>act_7381017585292687</span></div>
+<div class="header-tag">Período Analisado: <span>Setembro/2025 a Março/2026 (7 meses)</span></div>
+<div class="header-tag"><span class="status-active">Ativa</span></div>
+</div>
+</div>
+</header>
+
+<!-- KPI Cards -->
+<div class="kpi-grid" id="kpi-section">
+<div class="kpi-card animate">
+<div class="kpi-label">Investimento Total (Histórico)</div>
+<div class="kpi-value gold" data-counter="3.36" data-prefix="R$ " data-suffix="M" data-decimals="2">R$ 0</div>
+<div class="kpi-sub">Desde a criação da conta: R$ 3.360.201,81</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Investido no Período Analisado</div>
+<div class="kpi-value" data-counter="1.23" data-prefix="R$ " data-suffix="M" data-decimals="2">R$ 0</div>
+<div class="kpi-sub">Set/2025 a Mar/2026 · Média: R$ 175.698/mês</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Pessoas Alcançadas</div>
+<div class="kpi-value" data-counter="17.98" data-suffix="M" data-decimals="2">0</div>
+<div class="kpi-sub">Quantas pessoas viram os anúncios</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Vezes que o Anúncio Apareceu</div>
+<div class="kpi-value" data-counter="49.5" data-suffix="M" data-decimals="1">0</div>
+<div class="kpi-sub">Cada pessoa viu em média ~2,75 vezes</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Custo por Clique (CPC)</div>
+<div class="kpi-value" data-counter="1.82" data-prefix="R$ " data-decimals="2">R$ 0</div>
+<div class="kpi-sub">Quanto custa cada clique no anúncio · Melhor mês: Jan R$ 1,45</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Taxa de Cliques (CTR)</div>
+<div class="kpi-value" data-counter="1.37" data-suffix="%" data-decimals="2">0%</div>
+<div class="kpi-sub">% de quem viu e clicou · Média do mercado: 0,90%</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Cadastros / Leads Gerados</div>
+<div class="kpi-value" data-counter="4483" data-separator="true">0</div>
+<div class="kpi-sub">Pessoas que preencheram formulário · Custo por lead: R$ 274,43</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Faturamento 2025 (Real)</div>
+<div class="kpi-value gold" data-counter="29.2" data-prefix="R$ " data-suffix="M" data-decimals="1">R$ 0</div>
+<div class="kpi-sub">Faturamento real confirmado: R$ 29.203.400</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Faturamento Jan-Fev/2026 (Real)</div>
+<div class="kpi-value gold" data-counter="3.53" data-prefix="R$ " data-suffix="M" data-decimals="2">R$ 0</div>
+<div class="kpi-sub">2 meses · Média: R$ 1.765.000/mês</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Retorno Real sobre Investimento</div>
+<div class="kpi-value gold" data-counter="11.08" data-suffix="x" data-decimals="2">0x</div>
+<div class="kpi-sub">A cada R$ 1 investido, faturou R$ 11,08 · Período: Set/25-Fev/26</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Vendas Rastreadas pela Meta</div>
+<div class="kpi-value" data-counter="980">0</div>
+<div class="kpi-sub">A Meta só rastreia ~30% das vendas reais · 70% são "invisíveis"</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Respostas no WhatsApp</div>
+<div class="kpi-value" data-counter="69579" data-separator="true">0</div>
+<div class="kpi-sub">Pessoas que responderam a 1ª mensagem · Custo: R$ 17,68 cada</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Conversas Iniciadas no WhatsApp</div>
+<div class="kpi-value" data-counter="76244" data-separator="true">0</div>
+<div class="kpi-sub">Pessoas que clicaram para conversar · 91,3% responderam</div>
+</div>
+<div class="kpi-card animate">
+<div class="kpi-label">Total de Campanhas no Período</div>
+<div class="kpi-value" data-counter="89">0</div>
+<div class="kpi-sub"><span class="down">Excesso de campanhas prejudica o resultado</span></div>
+</div>
+</div>
+
+<!-- Diagnóstico de Organização da Conta -->
+<div class="section" id="organizacao">
+<h2 class="section-title">Diagnóstico de Organização da Conta</h2>
+<p style="font-size:14px;color:var(--text-secondary);margin-bottom:24px;line-height:1.7">Análise completa de como a conta de anúncios está estruturada. Uma conta bem organizada facilita a otimização, reduz desperdício e melhora a performance do algoritmo.</p>
+
+<div class="insight-grid">
+
+<!-- PONTOS NEGATIVOS -->
+<div class="insight-card problem">
+<div class="icon">🏷</div>
+<h4>Nomenclatura Sem Padrão</h4>
+<p>As campanhas não seguem um padrão de nomenclatura. Exemplos encontrados: <strong>"Jaque 16/05"</strong>, <strong>"Suelen NOVA 07.08"</strong>, <strong>"Vanessa1nova 25/07"</strong>, <strong>"MARA"</strong>, <strong>"HELOISA"</strong>. Problemas:<br><br>
+• Formatos de data misturados (16/05 vs 07.08 vs 25/07 vs 21.10)<br>
+• Maiúsculas inconsistentes (NOVA vs Novo vs nova)<br>
+• Algumas sem data, sem objetivo, sem público-alvo<br>
+• Nenhum prefixo indicando objetivo, etapa do funil ou região<br><br>
+<strong>Padrão recomendado:</strong> [Objetivo]_[Público]_[Consultor]_[Data] — Ex: MSG_Aposentados_Fernanda_2025-05</p>
+</div>
+
+<div class="insight-card problem">
+<div class="icon">📁</div>
+<h4>Nomenclatura dos Anúncios Caótica</h4>
+<p>Os anúncios usam nomes como <strong>"ADS2"</strong>, <strong>"ADS8 - NOVO"</strong>, <strong>"ADS9"</strong>, <strong>"03ADD03"</strong>, <strong>"04ADD4"</strong>, <strong>"00ADD00 — Cópia"</strong>, <strong>"VIDEO"</strong>. Não há como saber o que cada anúncio contém sem abrir um por um. Nomes devem indicar o formato (vídeo/imagem), o ângulo de comunicação e a versão.</p>
+</div>
+
+<div class="insight-card problem">
+<div class="icon">🧪</div>
+<h4>Campanhas de "TESTE" Gastando Verba Real</h4>
+<p>A campanha <strong>"Adriana Pires TESTE"</strong> já gastou <strong>R$ 34.810</strong> e gerou apenas <strong>4 vendas</strong> (custo de R$ 8.702 por venda). Campanhas de teste devem ter verba limitada e prazo definido. Quando um teste não performa, deve ser pausado rapidamente — não continuar rodando gastando verba como se fosse uma campanha definitiva.</p>
+</div>
+
+<div class="insight-card problem">
+<div class="icon">🎯</div>
+<h4>Públicos: Sem Diversidade Visível</h4>
+<p>Todas as 15 campanhas ativas usam o mesmo objetivo (Mensagens/WhatsApp) e aparentam mirar públicos semelhantes. Não foram identificados:<br><br>
+• Públicos personalizados (visitantes do site, engajadores do Instagram)<br>
+• Públicos semelhantes (Lookalike) baseados em compradores reais<br>
+• Segmentação por perfil demográfico (idade, gênero, interesse)<br>
+• Exclusão de quem já comprou (para evitar gastar com quem já é cliente)<br><br>
+<strong>Impacto:</strong> o algoritmo disputa o mesmo público entre todas as campanhas, inflacionando o custo.</p>
+</div>
+
+<div class="insight-card problem">
+<div class="icon">📊</div>
+<h4>Pixel e Rastreamento Incompleto</h4>
+<p>A Meta registrou apenas <strong>980 vendas</strong> enquanto o faturamento real indica ~3.315 vendas. Isso significa que o Pixel e a API de Conversões <strong>não estão configurados para rastrear vendas corretamente</strong>. Sem esse dado, o algoritmo não consegue otimizar para compradores — apenas para quem clica ou responde no WhatsApp. É o maior gargalo técnico da conta.</p>
+</div>
+
+<div class="insight-card problem">
+<div class="icon">🗂</div>
+<h4>89 Campanhas Ativas — Sem Estrutura de Pastas</h4>
+<p>A conta tem 89 campanhas sem organização por categoria, etapa do funil ou período. Isso torna a gestão impossível de escalar. O ideal é uma estrutura clara: <strong>Topo de Funil</strong> (reconhecimento), <strong>Meio</strong> (consideração), <strong>Fundo</strong> (conversão) e <strong>Remarketing</strong>, com no máximo 8-12 campanhas ativas.</p>
+</div>
+
+<!-- PONTOS POSITIVOS -->
+<div class="insight-card opportunity">
+<div class="icon">✅</div>
+<h4>Campanhas Separadas por Consultor</h4>
+<p>Cada consultor(a) tem sua própria campanha, o que permite <strong>medir a performance individual</strong> com clareza. Isso é um diferencial importante: sabe-se exatamente quanto cada vendedor custa e quanto gera. Poucos negócios têm essa visibilidade. Manter essa rastreabilidade na reorganização.</p>
+</div>
+
+<div class="insight-card opportunity">
+<div class="icon">✅</div>
+<h4>Foco em WhatsApp é Coerente com o Modelo</h4>
+<p>O modelo de venda da Diamond é via WhatsApp com atendimento consultivo. Ter campanhas de mensagens como principal objetivo <strong>faz sentido para o negócio</strong>. O problema não é o canal, mas sim a <strong>falta de funil complementar</strong> (topo e remarketing) para alimentar esse canal com leads mais qualificados.</p>
+</div>
+
+<div class="insight-card opportunity">
+<div class="icon">✅</div>
+<h4>Volume de Dados Robusto para Otimização</h4>
+<p>Com <strong>R$ 1,23M investidos</strong>, <strong>69.579 respostas no WhatsApp</strong> e <strong>980+ vendas rastreadas</strong>, a conta tem dados suficientes para criar <strong>públicos semelhantes de altíssima qualidade</strong>. Um Lookalike baseado nos compradores reais pode reduzir drasticamente o custo por venda. Esse volume de dados é um ativo valioso que ainda não está sendo aproveitado.</p>
+</div>
+
+<div class="insight-card opportunity">
+<div class="icon">✅</div>
+<h4>CPC Competitivo (R$ 1,82)</h4>
+<p>O custo por clique médio de R$ 1,82 está <strong>abaixo da média do mercado de e-commerce</strong> (R$ 2,50-4,00). Isso indica que os criativos (imagens/vídeos) geram interesse. O problema está nas etapas seguintes do funil (qualificação e conversão), não na atração inicial.</p>
+</div>
+
+</div>
+</div>
+
+<!-- Monthly Charts -->
+<div class="section" id="monthly">
+<h2 class="section-title">Resultados Mês a Mês (Set/2025 a Mar/2026)</h2>
+<div class="chart-grid">
+<div class="chart-box">
+<h3>Quanto foi investido por mês em anúncios (R$)</h3>
+<div class="chart-wrapper"><canvas id="chartSpend"></canvas></div>
+</div>
+<div class="chart-box">
+<h3>Custo por Clique (CPC), Custo por Mil Impressões (CPM) e Taxa de Cliques (CTR)</h3>
+<div class="chart-wrapper"><canvas id="chartMetrics"></canvas></div>
+</div>
+<div class="chart-box">
+<h3>Pessoas Alcançadas vs. Vezes que o Anúncio Apareceu</h3>
+<div class="chart-wrapper"><canvas id="chartReach"></canvas></div>
+</div>
+<div class="chart-box">
+<h3>Cliques por Mês</h3>
+<div class="chart-wrapper"><canvas id="chartClicks"></canvas></div>
+</div>
+</div>
+</div>
+
+<!-- Conversions -->
+<div class="section" id="conversions">
+<h2 class="section-title">Funil de Vendas — Do Clique à Compra</h2>
+<div class="chart-grid">
+<div class="chart-box full">
+<h3>Conversas Iniciadas → Respostas no WhatsApp → Cadastros (Leads) → Vendas Fechadas</h3>
+<div class="chart-wrapper"><canvas id="chartConversions"></canvas></div>
+</div>
+</div>
+</div>
+
+<!-- Campaign Table -->
+<div class="section" id="campaigns">
+<h2 class="section-title">As 15 Campanhas que Mais Gastaram (Set/2025 a Mar/2026)</h2>
+<div class="table-wrap">
+<div class="table-scroll">
+<table id="campaignTable">
+<thead>
+<tr>
+<th data-col="0">Campanha <span class="sort-icon">▲▼</span></th>
+<th data-col="1" data-type="num">Investimento <span class="sort-icon">▲▼</span></th>
+<th data-col="2" data-type="num">Respostas WhatsApp <span class="sort-icon">▲▼</span></th>
+<th data-col="3" data-type="num">Custo/Resposta <span class="sort-icon">▲▼</span></th>
+<th data-col="4" data-type="num">Leads <span class="sort-icon">▲▼</span></th>
+<th data-col="5" data-type="num">Compras <span class="sort-icon">▲▼</span></th>
+<th data-col="6" data-type="num">Custo/Clique <span class="sort-icon">▲▼</span></th>
+<th data-col="7" data-type="num">Taxa Cliques% <span class="sort-icon">▲▼</span></th>
+<th data-col="8" data-type="num">Custo/Lead <span class="sort-icon">▲▼</span></th>
+<th data-col="9" data-type="num">Custo/Compra <span class="sort-icon">▲▼</span></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!-- Top Ads Table -->
+<div class="section" id="ads">
+<h2 class="section-title">Top Anúncios por Investimento</h2>
+<div class="table-wrap">
+<div class="table-scroll">
+<table id="adsTable">
+<thead>
+<tr>
+<th>Anúncio</th>
+<th>Campanha</th>
+<th>Investimento</th>
+<th>Custo por Clique</th>
+<th>Taxa de Cliques (%)</th>
+<th>Custo por 1.000 Exibições</th>
+<th>Respostas WhatsApp</th>
+<th>Custo por Resposta</th>
+<th>Leads</th>
+<th>Compras</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+
+<!-- Copy Analysis -->
+<div style="margin-top:32px">
+<h3 style="font-size:16px;font-weight:600;margin-bottom:16px;color:var(--text-secondary)">Análise dos Textos dos Anúncios</h3>
+<div class="copy-box">
+<span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--orange)">Texto 1 — Usado em múltiplas campanhas</span>
+<blockquote>"O primeiro colchão magnético com ciclo infinito de massagens + bioquântico + cromoterapia + infravermelho, agora disponível!"</blockquote>
+</div>
+<div class="copy-box">
+<span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--orange)">Texto 2 — Usado em múltiplas campanhas</span>
+<blockquote>"O primeiro colchão magnético com CICLO DO SONO, vibromassagens e tecnologia premium! Agora disponível direto da fábrica!"</blockquote>
+</div>
+<div class="insight-card problem" style="margin-top:16px">
+<div class="icon">⚠</div>
+<h4>Textos Repetitivos — Sem Teste de Variações</h4>
+<p>Praticamente todos os anúncios utilizam as mesmas duas variações de texto. Sem teste estruturado, não há como descobrir qual mensagem realmente converte. Recomendamos 5 ângulos distintos: saúde, sono, dor, tecnologia e luxo.</p>
+</div>
+</div>
+</div>
+
+<!-- Consultant Performance -->
+<div class="section" id="consultants">
+<h2 class="section-title">Análise por Consultor (Campanhas)</h2>
+<p style="color:var(--text-secondary);font-size:13px;margin-bottom:20px">Cada campanha representa um consultor PJ. Abaixo, os destaques positivos e negativos baseados em eficiência (custo por venda e custo por resposta no WhatsApp).</p>
+<div class="consultant-highlight">
+<div class="consultant-card top-performer" data-consultant="fernanda">
+<div class="name">🏆 Fernanda Abrão — Melhor Eficiência</div>
+<div class="metric"><span>Investimento</span><span>R$ 34.041</span></div>
+<div class="metric"><span>Custo por Resposta</span><span style="color:var(--green)">R$ 12,36</span></div>
+<div class="metric"><span>Compras</span><span>52</span></div>
+<div class="metric"><span>Custo por Venda</span><span style="color:var(--green)">R$ 654,64</span></div>
+<div class="click-hint">Clique para ver detalhes completos</div>
+</div>
+<div class="consultant-card top-performer" data-consultant="delcio">
+<div class="name">🏆 Delcio Estado — Maior Volume de Respostas</div>
+<div class="metric"><span>Investimento</span><span>R$ 38.244</span></div>
+<div class="metric"><span>Respostas WhatsApp</span><span style="color:var(--green)">2.776</span></div>
+<div class="metric"><span>Custo por Resposta</span><span>R$ 13,78</span></div>
+<div class="metric"><span>Taxa de Cliques</span><span>1,55%</span></div>
+<div class="click-hint">Clique para ver detalhes completos</div>
+</div>
+<div class="consultant-card top-performer" data-consultant="inez">
+<div class="name">🏆 Inez Boaz — Melhor Conversão</div>
+<div class="metric"><span>Investimento</span><span>R$ 50.664</span></div>
+<div class="metric"><span>Compras</span><span style="color:var(--green)">118</span></div>
+<div class="metric"><span>Custo por Venda</span><span style="color:var(--green)">R$ 429,36</span></div>
+<div class="metric"><span>Leads</span><span>126</span></div>
+<div class="click-hint">Clique para ver detalhes completos</div>
+</div>
+<div class="consultant-card top-performer" data-consultant="mara">
+<div class="name">🏆 MARA — Alta Eficiência</div>
+<div class="metric"><span>Investimento</span><span>R$ 37.309</span></div>
+<div class="metric"><span>Compras</span><span>66</span></div>
+<div class="metric"><span>Custo por Venda</span><span style="color:var(--green)">R$ 565,29</span></div>
+<div class="metric"><span>Taxa de Cliques</span><span>1,79%</span></div>
+<div class="click-hint">Clique para ver detalhes completos</div>
+</div>
+<div class="consultant-card under-performer" data-consultant="jaque">
+<div class="name">⚠ Jaque 16/05 — Pior Custo por Venda</div>
+<div class="metric"><span>Investimento</span><span>R$ 69.612</span></div>
+<div class="metric"><span>Custo por Resposta</span><span style="color:var(--red)">R$ 28,25</span></div>
+<div class="metric"><span>Compras</span><span style="color:var(--red)">6</span></div>
+<div class="metric"><span>Custo por Venda</span><span style="color:var(--red)">R$ 11.602</span></div>
+<div class="click-hint">Clique para ver detalhes completos</div>
+</div>
+<div class="consultant-card under-performer" data-consultant="andressa">
+<div class="name">⚠ Andressa NOVA — Custo por Clique Altíssimo</div>
+<div class="metric"><span>Investimento</span><span>R$ 51.251</span></div>
+<div class="metric"><span>Custo por Clique</span><span style="color:var(--red)">R$ 5,62</span></div>
+<div class="metric"><span>Custo por Resposta</span><span style="color:var(--red)">R$ 24,81</span></div>
+<div class="metric"><span>Compras</span><span>76</span></div>
+<div class="click-hint">Clique para ver detalhes completos</div>
+</div>
+<div class="consultant-card under-performer" data-consultant="juliane">
+<div class="name">⚠ Juliane NOVA — Alto Custo por Resposta</div>
+<div class="metric"><span>Investimento</span><span>R$ 33.039</span></div>
+<div class="metric"><span>Custo por Resposta</span><span style="color:var(--red)">R$ 21,54</span></div>
+<div class="metric"><span>Compras</span><span>15</span></div>
+<div class="metric"><span>Custo por Venda</span><span style="color:var(--red)">R$ 2.202</span></div>
+<div class="click-hint">Clique para ver detalhes completos</div>
+</div>
+<div class="consultant-card under-performer" data-consultant="ines">
+<div class="name">⚠ Ines NOVA — Baixíssima Conversão</div>
+<div class="metric"><span>Investimento</span><span>R$ 38.140</span></div>
+<div class="metric"><span>Respostas WhatsApp</span><span>2.139</span></div>
+<div class="metric"><span>Compras</span><span style="color:var(--red)">3</span></div>
+<div class="metric"><span>Custo por Venda</span><span style="color:var(--red)">R$ 12.713</span></div>
+<div class="click-hint">Clique para ver detalhes completos</div>
+</div>
+</div>
+
+<div class="chart-grid" style="margin-top:32px">
+<div class="chart-box full">
+<h3>Custo por Resposta no WhatsApp vs. Compras — Top 15 Campanhas</h3>
+<div class="chart-wrapper"><canvas id="chartConsultant"></canvas></div>
+</div>
+</div>
+</div>
+
+<!-- Targeting Analysis -->
+<div class="section" id="targeting">
+<h2 class="section-title">Análise de Segmentação</h2>
+<div class="targeting-grid">
+<div class="targeting-card">
+<h4>Públicos Lookalike</h4>
+<ul>
+<li>1% dos compradores</li>
+<li>3% dos compradores</li>
+<li>5% dos compradores</li>
+</ul>
+<p style="font-size:12px;color:var(--text-muted);margin-top:12px">Observação: sem públicos de interesse, comportamento ou remarketing identificados.</p>
+</div>
+<div class="targeting-card">
+<h4>Regiões Alvo</h4>
+<ul>
+<li>Paraná (PR) — principal</li>
+<li>Santa Catarina (SC)</li>
+<li>São Paulo (SP)</li>
+<li>Rio Grande do Sul (RS)</li>
+<li>Rio de Janeiro (RJ)</li>
+</ul>
+<p style="font-size:12px;color:var(--text-muted);margin-top:12px">Limitação: 5 estados de 26. Potencial de expansão para MG, BA, GO, DF, PE.</p>
+</div>
+<div class="targeting-card">
+<h4>Idade e Gênero</h4>
+<ul>
+<li>Faixa: 18–65 (algumas 25–65)</li>
+<li>Gênero: Sem segmentação</li>
+<li>Plataforma: Mix Instagram-only e todas</li>
+</ul>
+<p style="font-size:12px;color:var(--text-muted);margin-top:12px">Problema: sem segmentação por gênero. Mulheres 35-55 provavelmente são o público principal.</p>
+</div>
+<div class="targeting-card">
+<h4>Estrutura de Funil</h4>
+<ul>
+<li>Topo: Inexistente</li>
+<li>Meio: Inexistente</li>
+<li>Fundo: 100% Engajamento (mensagens)</li>
+<li>Remarketing: Não identificado</li>
+</ul>
+<p style="font-size:12px;color:var(--text-muted);margin-top:12px">Crítico: todo investimento focado em um único estágio do funil.</p>
+</div>
+</div>
+</div>
+
+<!-- Problems & Opportunities -->
+<div class="section" id="problems">
+<h2 class="section-title">Problemas Identificados</h2>
+<div class="insight-grid">
+<div class="insight-card problem">
+<div class="icon">📉</div>
+<h4>Crash de Fevereiro 2026</h4>
+<p>Leads caíram <strong>50%</strong> (de 730 para 363) e compras despencaram <strong>64%</strong> (de 144 para 52). Possível fadiga criativa, saturação de público ou mudanças no algoritmo. Necessita investigação urgente.</p>
+</div>
+<div class="insight-card problem">
+<div class="icon">📋</div>
+<h4>89 Campanhas — Fragmentação Extrema</h4>
+<p>Uma campanha por consultor impede a otimização do algoritmo (fase de aprendizado). O Facebook precisa de 50+ conversões/semana por conjunto de anúncios. Com 89 campanhas, nenhuma atinge volume suficiente.</p>
+</div>
+<div class="insight-card problem">
+<div class="icon">🔄</div>
+<h4>Textos Repetitivos — Sem Teste de Variações</h4>
+<p>Apenas 2 variações de texto em toda a conta. Sem diversificação de ângulos, o público satura rapidamente, aumentando o custo por exibição e reduzindo a taxa de cliques ao longo do tempo.</p>
+</div>
+<div class="insight-card problem">
+<div class="icon">🎯</div>
+<h4>Zero Segmentação por Gênero</h4>
+<p>Anúncios são exibidos para todos os gêneros sem diferenciação. Mulheres 35-55 provavelmente convertem melhor para colchões magnéticos (saúde, bem-estar). Desperdício significativo de verba.</p>
+</div>
+<div class="insight-card problem">
+<div class="icon">💸</div>
+<h4>Campanhas com Custo por Lead &gt; R$ 2.000</h4>
+<p>Várias campanhas apresentam custo por lead acima de R$ 2.000, como Jaque 16/05 (custo por venda: R$ 11.602) e Ines NOVA (custo por venda: R$ 12.713). Verba sendo queimada sem retorno.</p>
+</div>
+<div class="insight-card problem">
+<div class="icon">🗺</div>
+<h4>Cobertura Geográfica Limitada</h4>
+<p>Apenas 5 estados sendo atingidos de 26. Minas Gerais, Bahia, Goiás e DF representam mercados inexplorados com alto potencial.</p>
+</div>
+<div class="insight-card problem">
+<div class="icon">🔁</div>
+<h4>Zero Remarketing</h4>
+<p>Nenhuma campanha de remarketing identificada. Visitantes do site, engajadores do Instagram e leads que não compraram não estão sendo reimpactados. Retorno sobre investimento sendo desperdiçado.</p>
+</div>
+<div class="insight-card problem">
+<div class="icon">⚡</div>
+<h4>Funil Único (Engajamento)</h4>
+<p>100% da verba alocada em campanhas de engajamento/mensagens. Sem campanhas de reconhecimento (topo do funil), consideração (meio) ou conversão otimizada (fundo). Limita o crescimento.</p>
+</div>
+<div class="insight-card problem">
+<div class="icon">👻</div>
+<h4>70% das Vendas São Invisíveis para a Meta</h4>
+<p>A Meta rastreou apenas 980 vendas no período, mas o faturamento real (R$ 13,26M em 6 meses) indica aproximadamente 3.315 vendas reais. Ou seja, <strong>70% das vendas não são atribuídas aos anúncios</strong>. Isso acontece porque as vendas são fechadas pelo WhatsApp sem integração de dados. Sem esse rastreamento, o algoritmo da Meta não consegue otimizar para quem realmente compra — ele otimiza apenas para quem responde no WhatsApp, não para quem paga.</p>
+</div>
+</div>
+</div>
+
+<!-- Strategic Recommendations -->
+<div class="section" id="strategy">
+<h2 class="section-title">Recomendações Estratégicas</h2>
+<div class="insight-grid">
+<div class="insight-card strategy">
+<div class="icon">🏗</div>
+<h4>Consolidar para 5-8 Campanhas com Verba Otimizada</h4>
+<p>Migrar de 89 campanhas para 5-8 campanhas com Otimização de Verba por Campanha (CBO). Permitir que o algoritmo otimize a distribuição de verba entre conjuntos de anúncios, saindo mais rápido da fase de aprendizado.</p>
+</div>
+<div class="insight-card strategy">
+<div class="icon">✍</div>
+<h4>Diversificar Textos dos Anúncios — 5 Ângulos</h4>
+<p><strong>Saúde:</strong> benefícios magnéticos e infravermelho. <strong>Sono:</strong> qualidade do sono e ciclo. <strong>Dor:</strong> alívio de dores crônicas. <strong>Tecnologia:</strong> inovação e engenharia. <strong>Luxo:</strong> premium, direto da fábrica.</p>
+</div>
+<div class="insight-card strategy">
+<div class="icon">🔗</div>
+<h4>Implementar Funil Completo</h4>
+<p>Hoje 100% da verba está em um único objetivo (mensagens). A distribuição ideal para escalar com inteligência:<br><br>
+<strong>30% — Reconhecimento (Topo):</strong> Vídeos institucionais, depoimentos de clientes, conteúdos educativos sobre tecnologia magnética. Objetivo: alcançar pessoas novas e construir autoridade.<br>
+<strong>30% — Consideração (Meio):</strong> Retargeting de quem assistiu vídeos, engajou no Instagram ou visitou o site. Conteúdo comparativo, provas sociais, bastidores da fábrica.<br>
+<strong>30% — Conversão (Fundo):</strong> Ofertas diretas para quem já demonstrou interesse. Campanhas de mensagens para WhatsApp com público aquecido (não frio). Desconto por tempo limitado, frete grátis.<br>
+<strong>10% — Remarketing:</strong> Reimpactar leads que não compraram, visitantes do site, quem adicionou ao carrinho mas não fechou. Público mais quente = menor custo por venda.</p>
+</div>
+<div class="insight-card strategy">
+<div class="icon">👥</div>
+<h4>Segmentação por Perfil de Cliente</h4>
+<p>Hoje os anúncios falam com todo mundo igual. A solução é criar campanhas com linguagem específica para cada perfil de comprador:<br><br>
+<strong>Empresários/Executivos:</strong> foco em produtividade, sono reparador para alta performance e status premium.<br>
+<strong>Aposentados/Idosos:</strong> foco em alívio de dores, saúde articular, infravermelho e bem-estar na terceira idade.<br>
+<strong>Agricultores/Trabalhadores braçais:</strong> foco em recuperação muscular, dores nas costas e descanso após jornadas pesadas.<br>
+<strong>Mulheres 35-55 (saúde):</strong> foco em qualidade do sono, cromoterapia e autocuidado.<br>
+<strong>Casais:</strong> foco em conforto a dois, tecnologia premium e investimento no lar.<br><br>
+Cada perfil deve ter anúncio, texto e página de destino próprios. Potencial de redução de 30-40% no custo por venda ao falar a língua de cada público.</p>
+</div>
+<div class="insight-card strategy">
+<div class="icon">🤖</div>
+<h4>CRM + Modelo Aquário no WhatsApp</h4>
+<p>Hoje cada consultor tem seu próprio número e recebe leads direto. O problema: sem controle, sem padronização e leads desperdiçados. A solução é um <strong>modelo aquário com CRM integrado</strong>:<br><br>
+<strong>Opção 1 — Número único centralizado:</strong> Todos os leads caem em 1 número com chatbot de qualificação (pergunta interesse, orçamento, prazo). O CRM distribui automaticamente para o próximo consultor disponível, estilo "aquário" — quem pega primeiro, atende. Vantagem: controle total, métricas de atendimento, nenhum lead perdido.<br><br>
+<strong>Opção 2 — 1 campanha para cada 5-6 vendedores:</strong> Agrupar consultores em equipes. Ex: Campanha Sul (6 vendedores), Campanha Sudeste (6 vendedores), Campanha Nacional (6 vendedores). Cada campanha direciona para um número com rodízio entre os 6 do grupo. Vantagem: permite testar desempenho por equipe e região.<br><br>
+<strong>Em ambos os casos:</strong> implementar CRM (ex: Kommo, Hubspot, ou Evolvy) para registrar tempo de resposta, taxa de conversão por consultor, e repassar dados de venda para a Meta automaticamente — melhorando o rastreamento das 980 vendas.</p>
+</div>
+<div class="insight-card strategy">
+<div class="icon">📱</div>
+<h4>Páginas de Venda por Segmento</h4>
+<p>Criar páginas específicas: uma para dor crônica, uma para sono, uma para tecnologia. Cada uma com texto direcionado e botão de ação otimizado. Aumentar conversão antes do WhatsApp.</p>
+</div>
+<div class="insight-card strategy">
+<div class="icon">🔍</div>
+<h4>Testar Google Ads</h4>
+<p>Capturar demanda ativa (quem já busca "colchão magnético"). Google Search Ads para termos de marca e produto. Potencial de custo por venda mais baixo por capturar intenção de compra.</p>
+</div>
+<div class="insight-card strategy">
+<div class="icon">🎬</div>
+<h4>URGENTE: Parcerias com Influenciadores Regionais</h4>
+<p>Estratégia de alto impacto para expandir o topo e o meio do funil de forma orgânica e paga simultaneamente:<br><br>
+<strong>Perfil ideal:</strong> Microinfluenciadores regionais a partir de 50 mil seguidores. Nichos: saúde, bem-estar, casa/decoração, lifestyle 35+, terceira idade ativa.<br><br>
+<strong>Modelo de negociação:</strong> Permuta (colchão grátis) + remuneração por conteúdo. Começar com permuta para testar engajamento, depois remunerar os que melhor performarem.<br><br>
+<strong>Entregáveis mínimos por parceria:</strong><br>
+• 2 Reels mostrando o produto (unboxing, primeira noite dormindo, comparação antes/depois)<br>
+• 1 sequência de Stories (mínimo 5 stories) mostrando a experiência real de uso<br>
+• Todo conteúdo feito em <strong>Collab com o Instagram da marca</strong> — isso publica no perfil do influenciador E no perfil da Diamond simultaneamente, expandindo alcance orgânico e aumentando seguidores da marca<br><br>
+<strong>Impacto esperado:</strong> Aumento de seguidores, fortalecimento de marca, novos públicos personalizados (engajadores do conteúdo do influenciador) para usar nas campanhas pagas. Custo muito menor que anúncio pago por impacto gerado.</p>
+</div>
+<div class="insight-card strategy">
+<div class="icon">💰</div>
+<h4>Escalar Verba de R$ 200K para R$ 300K/mês</h4>
+<p>Hoje: R$ 199K/mês gera R$ 2,21M de faturamento (retorno de 11x). Com as otimizações + escala para R$ 300K/mês, projeção conservadora: R$ 3,3M/mês → <strong>R$ 40M/ano</strong>. O retorno real de 11x mostra que há muita margem para escalar com segurança.</p>
+</div>
+</div>
+</div>
+
+<!-- Quick Wins -->
+<div class="section" id="quickwins">
+<h2 class="section-title">Próximos Passos Imediatos (Semana 1)</h2>
+<p style="color:var(--text-secondary);font-size:13px;margin-bottom:24px">Ações que podem ser executadas nos primeiros 7 dias e já geram resultado visível. Não dependem de grandes mudanças estruturais.</p>
+<div class="quickwin-grid">
+<div class="quickwin-card">
+<div class="quickwin-number">1</div>
+<h4>Pausar as 5 Campanhas que Queimam Verba</h4>
+<p>Jaque 16/05 (custo por venda: R$ 11.602), Ines NOVA (R$ 12.713), Juliane NOVA (R$ 2.202) e outras com custo por venda acima de R$ 3.000 devem ser pausadas imediatamente. Isso libera R$ 30-40K/mês para redistribuir nas campanhas que realmente vendem.</p>
+<div class="quickwin-impact">Economia estimada: R$ 35.000/mês em verba desperdiçada</div>
+</div>
+<div class="quickwin-card">
+<div class="quickwin-number">2</div>
+<h4>Dobrar a Verba das 3 Melhores Campanhas</h4>
+<p>Inez Boaz (custo por venda: R$ 429), MARA (R$ 565) e Fernanda Abrão (R$ 654) são as campeãs. Aumentar o orçamento diário de R$ 200-400 para R$ 500-800. Se mantiverem a eficiência, isso sozinho pode gerar +50 vendas/mês.</p>
+<div class="quickwin-impact">Projeção: +50 vendas/mês (R$ 200K em faturamento)</div>
+</div>
+<div class="quickwin-card">
+<div class="quickwin-number">3</div>
+<h4>Criar 3 Novos Criativos em Vídeo</h4>
+<p>A conta usa os mesmos 2 textos há meses. Gravar 3 vídeos curtos (15-30s) com ângulos diferentes: um focado em dor nas costas, um em tecnologia do colchão e um depoimento real de cliente. Subir como novos anúncios nas campanhas top 3. Criativos novos renovam o interesse e reduzem o custo por clique.</p>
+<div class="quickwin-impact">Potencial: reduzir custo por clique em 20-30% nas primeiras 2 semanas</div>
+</div>
+</div>
+</div>
+
+<!-- ROI Simulator -->
+<div class="section" id="simulator">
+<h2 class="section-title">Simulador de Resultados</h2>
+<p style="color:var(--text-secondary);font-size:13px;margin-bottom:24px">Arraste o controle abaixo para simular o que acontece ao aumentar a verba mensal em anúncios. Os cálculos usam as métricas reais da conta com melhoria de 20% na eficiência (resultado esperado com as otimizações sugeridas).</p>
+<div class="sim-container">
+<div class="sim-slider-wrap">
+<div class="sim-slider-label">
+<span>Verba Mensal em Anúncios</span>
+<span class="sim-val" id="simBudgetLabel">R$ 175.000</span>
+</div>
+<input type="range" class="sim-range" id="simSlider" min="100000" max="500000" step="10000" value="175000">
+<div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:6px">
+<span>R$ 100K</span>
+<span>R$ 200K</span>
+<span>R$ 300K</span>
+<span>R$ 400K</span>
+<span>R$ 500K</span>
+</div>
+</div>
+<div class="sim-results">
+<div class="sim-card">
+<div class="sim-card-label">Conversas no WhatsApp</div>
+<div class="sim-card-value" id="simConversas">10.886</div>
+<div class="sim-card-sub">Pessoas que vão responder no WhatsApp</div>
+</div>
+<div class="sim-card">
+<div class="sim-card-label">Leads Gerados</div>
+<div class="sim-card-value" id="simLeads">640</div>
+<div class="sim-card-sub">Cadastros / formulários preenchidos</div>
+</div>
+<div class="sim-card">
+<div class="sim-card-label">Vendas Estimadas</div>
+<div class="sim-card-value green" id="simVendas">553</div>
+<div class="sim-card-sub">Baseado no faturamento real ÷ ticket médio R$ 4.000</div>
+</div>
+<div class="sim-card highlight">
+<div class="sim-card-label">Faturamento Mensal Projetado</div>
+<div class="sim-card-value gold" id="simFaturamento">R$ 2,2M</div>
+<div class="sim-card-sub">Baseado no faturamento real da empresa</div>
+</div>
+<div class="sim-card highlight">
+<div class="sim-card-label">Retorno sobre Investimento</div>
+<div class="sim-card-value gold" id="simROAS">3,2x</div>
+<div class="sim-card-sub">Para cada R$ 1 investido, retorna esse valor</div>
+</div>
+<div class="sim-card">
+<div class="sim-card-label">Faturamento Anual Projetado</div>
+<div class="sim-card-value gold" id="simAnual">R$ 6,7M</div>
+<div class="sim-card-sub">Projeção de 12 meses nesta verba</div>
+</div>
+</div>
+<div class="sim-note">
+Os cálculos usam o <strong>faturamento real confirmado</strong> da empresa (R$ 29,2M em 2025 + R$ 3,53M Jan-Fev/2026) com melhoria de 15% na eficiência após otimizações.<br>
+<strong>Dados reais atuais:</strong> R$ 199K/mês em anúncios → R$ 2,21M/mês faturamento → Retorno real: 11,08x sobre o investimento
+</div>
+</div>
+</div>
+
+<!-- Roadmap -->
+<div class="section" id="roadmap">
+<h2 class="section-title">Plano de Ação: de R$ 30M para R$ 40M</h2>
+<div class="roadmap">
+<div class="roadmap-step">
+<div class="phase">Fase 1 — Semanas 1-4</div>
+<h4>Reestruturação de Conta</h4>
+<p>Consolidar 89 campanhas em 5-8 com verba otimizada. Pausar campanhas com custo por venda &gt; R$ 3.000. Configurar pixel e API de Conversões para rastreamento correto. Configurar remarketing dinâmico (reimpactar quem já visitou).</p>
+</div>
+<div class="roadmap-step">
+<div class="phase">Fase 2 — Semanas 5-8</div>
+<h4>Diversificação Criativa</h4>
+<p>Produzir 15-20 novos criativos com 5 ângulos. Implementar testes de variações estruturados. Criar 3 páginas de venda segmentadas. Testar conteúdo de clientes reais e depoimentos em vídeo.</p>
+</div>
+<div class="roadmap-step">
+<div class="phase">Fase 3 — Semanas 9-12</div>
+<h4>Funil Completo + Automação</h4>
+<p>Implementar campanhas de topo e meio de funil. Configurar chatbot WhatsApp. Remarketing para visitantes e leads. Sequência de nutrição automatizada.</p>
+</div>
+<div class="roadmap-step">
+<div class="phase">Fase 4 — Mês 4-6</div>
+<h4>Escala + Novos Canais</h4>
+<p>Escalar verba para R$ 250K/mês. Lançar Google Ads (Search + Shopping). Intensificar parcerias com influenciadores regionais. Testar YouTube Ads e TikTok.</p>
+</div>
+<div class="roadmap-step">
+<div class="phase">Fase 5 — Mês 7-12</div>
+<h4>Otimização Contínua + Meta R$ 40M</h4>
+<p>Verba em R$ 300K/mês com retorno otimizado. Todos os canais ativos. Meta: 825+ vendas/mês (vs. ~553 atual). Faturamento projetado: R$ 40M/ano (vs. R$ 29,2M em 2025).</p>
+</div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+<p style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:2px;color:var(--gold);margin-bottom:8px">INSTITUTO VEON</p>
+<p style="font-size:13px;color:var(--text-secondary);margin-bottom:4px">A Escola do Varejo</p>
+<p>Elaborado por <span class="gold">Instituto Veon</span> para <span class="gold">Diamond Colchões LTDA</span></p>
+<p style="margin-top:8px">Dados: Meta Ads API | Período: Set/2025 — Mar/2026 | Conta: act_7381017585292687</p>
+</footer>
+
+</div>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// ──── DATA ────
+const months = ['Set/25','Out/25','Nov/25','Dez/25','Jan/26','Fev/26','Mar/26*'];
+const spend = [195811.52,204469.19,255792.73,186082.49,184168.95,170564.33,32998.14];
+const impressions = [9274778,7565440,8446761,6206624,9001578,7670597,1370049];
+const clicks = [113875,94125,125261,88141,126797,109750,19052];
+const cpc = [1.72,2.17,2.04,2.11,1.45,1.55,1.73];
+const cpm = [21.11,27.03,30.28,29.98,20.46,22.24,24.09];
+const ctr = [1.23,1.24,1.48,1.42,1.41,1.43,1.39];
+const reach = [3541165,2543421,2903255,2324291,3383104,2545062,740568];
+const msgConn = [14050,12127,14490,10121,13029,10400,2027];
+const firstReply = [12853,10979,13218,9279,12045,9428,1777];
+const leads = [747,1010,915,638,730,363,80];
+const purchases = [231,185,253,102,144,52,13];
+
+const campaigns = [
+{name:'Jaque 16/05',spend:69612.71,reply:2464,costReply:28.25,leads:11,purchases:6,cpc:3.01,ctr:0.95},
+{name:'Suelen NOVA 07.08',spend:53246.24,reply:2893,costReply:18.41,leads:510,purchases:76,cpc:1.77,ctr:1.29},
+{name:'Andressa NOVA',spend:51251.44,reply:2066,costReply:24.81,leads:253,purchases:76,cpc:5.62,ctr:0.82},
+{name:'Inez Boaz',spend:50664.40,reply:2631,costReply:19.26,leads:126,purchases:118,cpc:1.82,ctr:1.43},
+{name:'Augusto Novo 25/06',spend:40195.96,reply:2016,costReply:19.94,leads:180,purchases:64,cpc:3.62,ctr:1.07},
+{name:'Delcio Estado',spend:38244.97,reply:2776,costReply:13.78,leads:14,purchases:4,cpc:1.52,ctr:1.55},
+{name:'Ines NOVA',spend:38140.04,reply:2139,costReply:17.83,leads:10,purchases:3,cpc:1.62,ctr:1.10},
+{name:'MARA',spend:37309.08,reply:2118,costReply:17.62,leads:144,purchases:66,cpc:1.65,ctr:1.79},
+{name:'Vanessa1nova 25/07',spend:36855.01,reply:2056,costReply:17.93,leads:61,purchases:53,cpc:2.50,ctr:0.75},
+{name:'Adriana Pires TESTE',spend:34810.57,reply:1705,costReply:20.42,leads:7,purchases:4,cpc:1.56,ctr:1.38},
+{name:'Adriana Sampaio 21.10',spend:34758.03,reply:1999,costReply:17.39,leads:98,purchases:2,cpc:1.30,ctr:1.39},
+{name:'Fernanda Abrão',spend:34041.45,reply:2755,costReply:12.36,leads:82,purchases:52,cpc:1.39,ctr:1.74},
+{name:'Juliane NOVA',spend:33039.77,reply:1534,costReply:21.54,leads:19,purchases:15,cpc:2.42,ctr:1.01},
+{name:'Miriam NOVA',spend:32630.89,reply:1866,costReply:17.49,leads:11,purchases:7,cpc:1.69,ctr:1.49},
+{name:'HELOISA',spend:31561.63,reply:1911,costReply:16.52,leads:13,purchases:4,cpc:1.92,ctr:1.56}
+];
+
+const ads = [
+{name:'AD - VÍDEO',campaign:'Suelen NOVA 07.08',spend:33671.85,cpc:1.61,ctr:1.31,cpm:20.99,reply:2005,costReply:16.79,leads:422,purchases:62},
+{name:'ADS8 - NOVO',campaign:'Augusto Novo 25/06',spend:27851.40,cpc:3.31,ctr:1.09,cpm:36.20,reply:1558,costReply:17.88,leads:148,purchases:53},
+{name:'ADS9',campaign:'Vanessa1nova 25/07',spend:27647.08,cpc:2.31,ctr:0.74,cpm:17.03,reply:1676,costReply:16.50,leads:51,purchases:44},
+{name:'VIDEO',campaign:'Adriana Sampaio 21.10',spend:22644.74,cpc:1.48,ctr:1.37,cpm:20.24,reply:1291,costReply:17.54,leads:70,purchases:1},
+{name:'00ADD00 — Cópia',campaign:'KARLA',spend:22332.45,cpc:1.25,ctr:3.26,cpm:40.80,reply:1901,costReply:11.75,leads:46,purchases:22},
+{name:'03ADD03',campaign:'Andressa NOVA',spend:21838.07,cpc:5.47,ctr:0.66,cpm:36.00,reply:925,costReply:23.61,leads:123,purchases:35},
+{name:'ADS2',campaign:'Jaque 16/05',spend:20447.65,cpc:3.56,ctr:0.64,cpm:22.93,reply:801,costReply:25.53,leads:1,purchases:1},
+{name:'04ADD4',campaign:'Inez Boaz',spend:10791.71,cpc:0.98,ctr:2.21,cpm:21.71,reply:754,costReply:14.31,leads:55,purchases:42}
+];
+
+// ──── CHART DEFAULTS ────
+Chart.defaults.color = '#8a9bc0';
+Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
+Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
+Chart.defaults.font.size = 12;
+Chart.defaults.plugins.legend.labels.usePointStyle = true;
+Chart.defaults.plugins.legend.labels.pointStyleWidth = 10;
+Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(20,20,50,0.95)';
+Chart.defaults.plugins.tooltip.borderColor = 'rgba(58,159,216,0.3)';
+Chart.defaults.plugins.tooltip.borderWidth = 1;
+Chart.defaults.plugins.tooltip.cornerRadius = 8;
+Chart.defaults.plugins.tooltip.padding = 12;
+
+const goldGrad = (ctx, h) => {
+  const g = ctx.createLinearGradient(0,0,0,h||300);
+  g.addColorStop(0,'rgba(58,159,216,0.6)');
+  g.addColorStop(1,'rgba(58,159,216,0.05)');
+  return g;
+};
+
+// ──── SPEND CHART ────
+new Chart(document.getElementById('chartSpend'), {
+  type:'bar',
+  data:{
+    labels:months,
+    datasets:[{
+      label:'Investimento (R$)',
+      data:spend,
+      backgroundColor: function(ctx) {
+        const c = ctx.chart.ctx;
+        return goldGrad(c, 300);
+      },
+      borderColor:'rgba(58,159,216,0.8)',
+      borderWidth:1,
+      borderRadius:6,
+      borderSkipped:false
+    }]
+  },
+  options:{
+    responsive:true,
+    maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'R$ '+c.raw.toLocaleString('pt-BR',{minimumFractionDigits:2})}}},
+    scales:{y:{ticks:{callback:v=>'R$ '+(v/1000).toFixed(0)+'K'},grid:{color:'rgba(255,255,255,0.04)'}},x:{grid:{display:false}}}
+  }
+});
+
+// ──── METRICS CHART ────
+new Chart(document.getElementById('chartMetrics'), {
+  type:'line',
+  data:{
+    labels:months,
+    datasets:[
+      {label:'Custo por Clique (R$)',data:cpc,borderColor:'#1a7ab5',backgroundColor:'rgba(12,60,95,0.15)',tension:0.4,pointRadius:5,pointHoverRadius:8,yAxisID:'y'},
+      {label:'Custo por 1.000 Exibições (R$)',data:cpm,borderColor:'#3b82f6',backgroundColor:'rgba(59,130,246,0.1)',tension:0.4,pointRadius:5,pointHoverRadius:8,yAxisID:'y1'},
+      {label:'Taxa de Cliques (%)',data:ctr,borderColor:'#22c55e',backgroundColor:'rgba(34,197,94,0.1)',tension:0.4,pointRadius:5,pointHoverRadius:8,yAxisID:'y2'}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    interaction:{mode:'index',intersect:false},
+    scales:{
+      y:{position:'left',title:{display:true,text:'Custo por Clique (R$)'},grid:{color:'rgba(255,255,255,0.04)'}},
+      y1:{position:'right',title:{display:true,text:'Custo/1.000 Exibições (R$)'},grid:{display:false}},
+      y2:{position:'right',title:{display:true,text:'Taxa de Cliques (%)'},grid:{display:false},ticks:{callback:v=>v+'%'}}
+    }
+  }
+});
+
+// ──── REACH CHART ────
+new Chart(document.getElementById('chartReach'), {
+  type:'bar',
+  data:{
+    labels:months,
+    datasets:[
+      {label:'Impressões',data:impressions,backgroundColor:'rgba(59,130,246,0.3)',borderColor:'rgba(59,130,246,0.7)',borderWidth:1,borderRadius:4,borderSkipped:false},
+      {label:'Alcance',data:reach,backgroundColor:'rgba(168,85,247,0.3)',borderColor:'rgba(168,85,247,0.7)',borderWidth:1,borderRadius:4,borderSkipped:false}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{tooltip:{callbacks:{label:c=>c.dataset.label+': '+(c.raw/1e6).toFixed(2)+'M'}}},
+    scales:{y:{ticks:{callback:v=>(v/1e6).toFixed(1)+'M'},grid:{color:'rgba(255,255,255,0.04)'}},x:{grid:{display:false}}}
+  }
+});
+
+// ──── CLICKS CHART ────
+new Chart(document.getElementById('chartClicks'), {
+  type:'line',
+  data:{
+    labels:months,
+    datasets:[{
+      label:'Cliques',data:clicks,
+      borderColor:'#06b6d4',backgroundColor:'rgba(6,182,212,0.1)',
+      fill:true,tension:0.4,pointRadius:5,pointHoverRadius:8
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{tooltip:{callbacks:{label:c=>c.raw.toLocaleString('pt-BR')+' cliques'}}},
+    scales:{y:{ticks:{callback:v=>(v/1000).toFixed(0)+'K'},grid:{color:'rgba(255,255,255,0.04)'}},x:{grid:{display:false}}}
+  }
+});
+
+// ──── CONVERSIONS CHART ────
+new Chart(document.getElementById('chartConversions'), {
+  type:'line',
+  data:{
+    labels:months,
+    datasets:[
+      {label:'Conversas Iniciadas (WhatsApp)',data:msgConn,borderColor:'#a855f7',backgroundColor:'rgba(168,85,247,0.08)',fill:true,tension:0.4,pointRadius:5,pointHoverRadius:8},
+      {label:'Respostas no WhatsApp',data:firstReply,borderColor:'#3b82f6',backgroundColor:'rgba(59,130,246,0.08)',fill:true,tension:0.4,pointRadius:5,pointHoverRadius:8},
+      {label:'Cadastros / Leads',data:leads,borderColor:'#1a7ab5',backgroundColor:'rgba(12,60,95,0.08)',fill:true,tension:0.4,pointRadius:5,pointHoverRadius:8},
+      {label:'Vendas Fechadas',data:purchases,borderColor:'#22c55e',backgroundColor:'rgba(34,197,94,0.08)',fill:true,tension:0.4,pointRadius:5,pointHoverRadius:8}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    interaction:{mode:'index',intersect:false},
+    scales:{y:{grid:{color:'rgba(255,255,255,0.04)'}},x:{grid:{display:false}}}
+  }
+});
+
+// ──── CONSULTANT CHART ────
+new Chart(document.getElementById('chartConsultant'), {
+  type:'bar',
+  data:{
+    labels:campaigns.map(c=>c.name),
+    datasets:[
+      {label:'Custo por Resposta (R$)',data:campaigns.map(c=>c.costReply),backgroundColor:'rgba(239,68,68,0.4)',borderColor:'rgba(239,68,68,0.8)',borderWidth:1,borderRadius:4,yAxisID:'y'},
+      {label:'Compras',data:campaigns.map(c=>c.purchases),backgroundColor:'rgba(34,197,94,0.4)',borderColor:'rgba(34,197,94,0.8)',borderWidth:1,borderRadius:4,yAxisID:'y1'}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'top'}},
+    scales:{
+      y:{position:'left',title:{display:true,text:'Custo por Resposta (R$)'},grid:{color:'rgba(255,255,255,0.04)'}},
+      y1:{position:'right',title:{display:true,text:'Compras'},grid:{display:false}},
+      x:{ticks:{maxRotation:45,minRotation:45,font:{size:10}},grid:{display:false}}
+    }
+  }
+});
+
+// ──── CAMPAIGN TABLE ────
+function fmt(v,d=2){return typeof v==='number'?v.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d}):v}
+function renderCampaigns(data){
+  const tbody=document.querySelector('#campaignTable tbody');
+  tbody.innerHTML='';
+  data.forEach(c=>{
+    const cpl=c.leads>0?(c.spend/c.leads):0;
+    const cpa=c.purchases>0?(c.spend/c.purchases):0;
+    const cplClass=cpl>1000?'cell-bad':cpl>500?'cell-warn':'cell-good';
+    const cpaClass=cpa>3000?'cell-bad':cpa>1500?'cell-warn':'cell-good';
+    tbody.innerHTML+=`<tr>
+      <td class="cell-campaign">${c.name}</td>
+      <td class="cell-value">R$ ${fmt(c.spend)}</td>
+      <td class="cell-value">${c.reply.toLocaleString('pt-BR')}</td>
+      <td class="cell-value">R$ ${fmt(c.costReply)}</td>
+      <td class="cell-value">${c.leads.toLocaleString('pt-BR')}</td>
+      <td class="cell-value">${c.purchases.toLocaleString('pt-BR')}</td>
+      <td class="cell-value">R$ ${fmt(c.cpc)}</td>
+      <td class="cell-value">${fmt(c.ctr)}%</td>
+      <td class="cell-value ${cplClass}">R$ ${c.leads>0?fmt(cpl):'—'}</td>
+      <td class="cell-value ${cpaClass}">R$ ${c.purchases>0?fmt(cpa):'—'}</td>
+    </tr>`;
+  });
+}
+renderCampaigns(campaigns);
+
+// Sorting
+let sortCol=-1, sortAsc=true;
+document.querySelectorAll('#campaignTable th').forEach(th=>{
+  th.addEventListener('click',()=>{
+    const col=parseInt(th.dataset.col);
+    if(col===undefined||isNaN(col))return;
+    if(sortCol===col)sortAsc=!sortAsc; else{sortCol=col;sortAsc=true}
+    document.querySelectorAll('#campaignTable th').forEach(h=>h.classList.remove('sorted'));
+    th.classList.add('sorted');
+    const keys=['name','spend','reply','costReply','leads','purchases','cpc','ctr'];
+    const sorted=[...campaigns].sort((a,b)=>{
+      if(col===8){const va=a.leads>0?a.spend/a.leads:Infinity;const vb=b.leads>0?b.spend/b.leads:Infinity;return sortAsc?va-vb:vb-va}
+      if(col===9){const va=a.purchases>0?a.spend/a.purchases:Infinity;const vb=b.purchases>0?b.spend/b.purchases:Infinity;return sortAsc?va-vb:vb-va}
+      const k=keys[col];
+      if(typeof a[k]==='string')return sortAsc?a[k].localeCompare(b[k]):b[k].localeCompare(a[k]);
+      return sortAsc?a[k]-b[k]:b[k]-a[k];
+    });
+    renderCampaigns(sorted);
+  });
+});
+
+// ──── ADS TABLE ────
+(function(){
+  const tbody=document.querySelector('#adsTable tbody');
+  ads.forEach(a=>{
+    tbody.innerHTML+=`<tr>
+      <td class="cell-campaign">${a.name}</td>
+      <td style="font-size:12px;color:var(--text-muted)">${a.campaign}</td>
+      <td class="cell-value">R$ ${fmt(a.spend)}</td>
+      <td class="cell-value">R$ ${fmt(a.cpc)}</td>
+      <td class="cell-value">${fmt(a.ctr)}%</td>
+      <td class="cell-value">R$ ${fmt(a.cpm)}</td>
+      <td class="cell-value">${a.reply.toLocaleString('pt-BR')}</td>
+      <td class="cell-value">R$ ${fmt(a.costReply)}</td>
+      <td class="cell-value">${a.leads.toLocaleString('pt-BR')}</td>
+      <td class="cell-value">${a.purchases.toLocaleString('pt-BR')}</td>
+    </tr>`;
+  });
+})();
+
+// ──── SCROLL TO TOP BUTTON ────
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('show',window.scrollY>400);
+});
+
+// ──── NAV ACTIVE STATE ────
+const sections=document.querySelectorAll('.section[id]');
+const navLinks=document.querySelectorAll('.nav-link');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(l=>l.classList.remove('active'));
+      const link=document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+      if(link)link.classList.add('active');
+    }
+  });
+},{threshold:0.2,rootMargin:'-80px 0px -50% 0px'});
+sections.forEach(s=>observer.observe(s));
+
+// ──── ANIMATE ON SCROLL ────
+const animObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('animate');animObserver.unobserve(e.target)}});
+},{threshold:0.1});
+document.querySelectorAll('.insight-card,.roadmap-step,.targeting-card,.consultant-card,.chart-box,.quickwin-card,.sim-container').forEach(el=>animObserver.observe(el));
+
+// ──── ANIMATED COUNTERS ────
+function animateCounter(el) {
+  const target = parseFloat(el.dataset.counter);
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const decimals = parseInt(el.dataset.decimals) || 0;
+  const useSeparator = el.dataset.separator === 'true';
+  const duration = 2000;
+  const startTime = performance.now();
+
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = target * eased;
+
+    let display;
+    if (decimals > 0) {
+      display = current.toFixed(decimals).replace('.', ',');
+    } else if (useSeparator) {
+      display = Math.round(current).toLocaleString('pt-BR');
+    } else {
+      display = Math.round(current).toString();
+    }
+
+    el.textContent = prefix + display + suffix;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+  requestAnimationFrame(update);
+}
+
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCounter(e.target);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observe(el));
+
+// ──── ROI SIMULATOR ────
+const simSlider = document.getElementById('simSlider');
+const simBudgetLabel = document.getElementById('simBudgetLabel');
+
+function updateSimulator() {
+  const budget = parseInt(simSlider.value);
+  const currentBudget = 199481;
+  const currentReplies = 11580;
+  const currentLeads = 747;
+  const currentRevenue = 2210744;
+  const realROAS = 11.08;
+  const efficiencyBoost = 1.15;
+
+  const scale = budget / currentBudget;
+  const replies = Math.round(currentReplies * scale * efficiencyBoost);
+  const leads = Math.round(currentLeads * scale * efficiencyBoost);
+  const revenue = Math.round(currentRevenue * scale * efficiencyBoost);
+  const purchases = Math.round(revenue / 4000);
+  const roas = revenue / budget;
+  const annual = revenue * 12;
+
+  simBudgetLabel.textContent = 'R$ ' + (budget/1000).toFixed(0) + '.000';
+  document.getElementById('simConversas').textContent = replies.toLocaleString('pt-BR');
+  document.getElementById('simLeads').textContent = leads.toLocaleString('pt-BR');
+  document.getElementById('simVendas').textContent = purchases.toLocaleString('pt-BR');
+  document.getElementById('simFaturamento').textContent = revenue >= 1000000
+    ? 'R$ ' + (revenue/1000000).toFixed(1).replace('.',',') + 'M'
+    : 'R$ ' + (revenue/1000).toFixed(0) + 'K';
+  document.getElementById('simROAS').textContent = roas.toFixed(1).replace('.',',') + 'x';
+  document.getElementById('simAnual').textContent = annual >= 1000000
+    ? 'R$ ' + (annual/1000000).toFixed(1).replace('.',',') + 'M'
+    : 'R$ ' + (annual/1000).toFixed(0) + 'K';
+}
+
+simSlider.addEventListener('input', updateSimulator);
+updateSimulator();
+
+// ──── CONSULTANT MODAL ────
+const consultantData = {
+  fernanda: {
+    name: 'Fernanda Abrão',
+    campaign: '[START] [MEN] [GERAL] Fernanda Abrão',
+    status: 'Ativa',
+    badge: 'good',
+    badgeText: 'Melhor Eficiência da Conta',
+    objective: 'Mensagens (WhatsApp)',
+    dailyVerba: 'R$ 200/dia',
+    startDate: '01/10/2025',
+    spend: 34041.45,
+    impressions: 1955000,
+    reach: 710000,
+    clicks: 24490,
+    cpc: 1.39,
+    ctr: 1.74,
+    cpm: 17.41,
+    msgConn: 3020,
+    replies: 2755,
+    costReply: 12.36,
+    leads: 82,
+    costLead: 415.14,
+    purchases: 52,
+    costPurchase: 654.64,
+    replyRate: 91.2,
+    leadToSale: 63.4,
+    verdict: 'Fernanda é a <strong>consultora mais eficiente</strong> da conta. Tem o menor custo por resposta (R$ 12,36) e um custo por venda muito competitivo (R$ 654,64). Sua taxa de cliques de 1,74% está acima da média da conta (1,37%). A taxa de conversão de lead para venda é de 63,4%, a mais alta entre todos os consultores. <strong>Recomendação:</strong> aumentar o orçamento diário desta campanha de R$ 200 para R$ 350-400/dia para escalar os resultados mantendo a eficiência.'
+  },
+  delcio: {
+    name: 'Delcio Estado',
+    campaign: '[START] [MEN] [GERAL] Delcio Estado',
+    status: 'Ativa',
+    badge: 'good',
+    badgeText: 'Maior Volume de Respostas',
+    objective: 'Mensagens (WhatsApp)',
+    dailyVerba: 'R$ 200/dia',
+    startDate: '12/05/2025',
+    spend: 38244.97,
+    impressions: 2520000,
+    reach: 860000,
+    clicks: 25160,
+    cpc: 1.52,
+    ctr: 1.55,
+    cpm: 15.18,
+    msgConn: 3050,
+    replies: 2776,
+    costReply: 13.78,
+    leads: 14,
+    costLead: 2731.78,
+    purchases: 4,
+    costPurchase: 9561.24,
+    replyRate: 91.0,
+    leadToSale: 28.6,
+    verdict: 'Delcio gera o <strong>maior volume de conversas</strong> no WhatsApp (2.776 respostas) com um custo por resposta baixo (R$ 13,78). Porém, a conversão para venda é muito baixa: apenas 4 compras em R$ 38K investidos. Isso indica que o atendimento ou a qualificação do público pode ser um gargalo. <strong>Recomendação:</strong> revisar o script de atendimento do Delcio e verificar se o público que chega é qualificado. O volume é excelente, mas precisa converter melhor.'
+  },
+  inez: {
+    name: 'Inez Boaz',
+    campaign: '[START] [MEN] [GERAL] Inez boaz',
+    status: 'Ativa',
+    badge: 'good',
+    badgeText: 'Melhor Conversão em Vendas',
+    objective: 'Mensagens (WhatsApp)',
+    dailyVerba: 'R$ 400/dia',
+    startDate: '29/09/2025',
+    spend: 50664.40,
+    impressions: 2780000,
+    reach: 950000,
+    clicks: 27830,
+    cpc: 1.82,
+    ctr: 1.43,
+    cpm: 18.22,
+    msgConn: 2890,
+    replies: 2631,
+    costReply: 19.26,
+    leads: 126,
+    costLead: 402.10,
+    purchases: 118,
+    costPurchase: 429.36,
+    replyRate: 91.0,
+    leadToSale: 93.7,
+    verdict: 'Inez tem a <strong>melhor taxa de conversão em vendas</strong> de toda a conta. Das 126 leads, 118 viraram compra — uma taxa absurda de 93,7%. Custo por venda de R$ 429 é o mais baixo e gera o maior volume de vendas (118). <strong>Recomendação:</strong> esta é a campanha mais importante da conta. Escalar urgentemente o orçamento. Se mantiver essa eficiência com R$ 600-800/dia, pode gerar 200+ vendas por período.'
+  },
+  mara: {
+    name: 'MARA',
+    campaign: '[START] [MEN] [GERAL] MARA',
+    status: 'Ativa',
+    badge: 'good',
+    badgeText: 'Alta Eficiência',
+    objective: 'Mensagens (WhatsApp)',
+    dailyVerba: 'R$ 200/dia',
+    startDate: '13/05/2025',
+    spend: 37309.08,
+    impressions: 2080000,
+    reach: 730000,
+    clicks: 22620,
+    cpc: 1.65,
+    ctr: 1.79,
+    cpm: 17.94,
+    msgConn: 2330,
+    replies: 2118,
+    costReply: 17.62,
+    leads: 144,
+    costLead: 259.09,
+    purchases: 66,
+    costPurchase: 565.29,
+    replyRate: 90.9,
+    leadToSale: 45.8,
+    verdict: 'MARA tem a <strong>melhor taxa de cliques</strong> da conta (1,79%) e custo por venda saudável (R$ 565). Com 66 compras, está entre as top 3 em volume de vendas. O custo por lead é o mais barato (R$ 259), mostrando boa qualidade de público. <strong>Recomendação:</strong> campanha consistente e eficiente. Aumentar orçamento para R$ 300/dia e testar novas variações de criativos para manter a performance.'
+  },
+  jaque: {
+    name: 'Jaque 16/05',
+    campaign: '[start] jaque 16/05',
+    status: 'Pausada',
+    badge: 'bad',
+    badgeText: 'Pior Custo por Venda da Conta',
+    objective: 'Mensagens (WhatsApp)',
+    dailyVerba: 'R$ 500/dia',
+    startDate: '15/05/2025',
+    spend: 69612.71,
+    impressions: 3040000,
+    reach: 1050000,
+    clicks: 23120,
+    cpc: 3.01,
+    ctr: 0.95,
+    cpm: 22.90,
+    msgConn: 2720,
+    replies: 2464,
+    costReply: 28.25,
+    leads: 11,
+    costLead: 6328.43,
+    purchases: 6,
+    costPurchase: 11602.12,
+    replyRate: 90.6,
+    leadToSale: 54.5,
+    verdict: 'Jaque é a campanha com <strong>pior resultado da conta</strong>. Gastou R$ 69.612 (a maior verba) e gerou apenas 6 vendas — custo de R$ 11.602 por venda. O custo por clique (R$ 3,01) é o dobro da média, e a taxa de cliques (0,95%) está abaixo do mínimo aceitável. O custo por resposta (R$ 28,25) é o mais alto. <strong>Recomendação:</strong> esta campanha já foi pausada corretamente. Não reativar sem reformular completamente os criativos, públicos e abordagem.'
+  },
+  andressa: {
+    name: 'Andressa NOVA',
+    campaign: '[START] [MEN] [GERAL] ANDRESSA',
+    status: 'Ativa',
+    badge: 'bad',
+    badgeText: 'Custo por Clique Altíssimo',
+    objective: 'Mensagens (WhatsApp)',
+    dailyVerba: 'R$ 200/dia',
+    startDate: '21/09/2025',
+    spend: 51251.44,
+    impressions: 1420000,
+    reach: 490000,
+    clicks: 9120,
+    cpc: 5.62,
+    ctr: 0.82,
+    cpm: 36.09,
+    msgConn: 2280,
+    replies: 2066,
+    costReply: 24.81,
+    leads: 253,
+    costLead: 202.57,
+    purchases: 76,
+    costPurchase: 674.36,
+    replyRate: 90.6,
+    leadToSale: 30.0,
+    verdict: 'Andressa tem o <strong>custo por clique mais alto</strong> de toda a conta: R$ 5,62 (a média é R$ 1,82). Isso significa que o criativo não atrai cliques, e a Meta cobra mais caro para cada interação. A taxa de cliques (0,82%) é a mais baixa. Apesar disso, tem 76 compras, mostrando que quem chega até o WhatsApp converte. <strong>Recomendação:</strong> trocar urgentemente os criativos desta campanha. O público está correto (gera vendas), mas os anúncios estão saturados ou pouco atrativos.'
+  },
+  juliane: {
+    name: 'Juliane NOVA',
+    campaign: '[START] [MEN] JULIANE - NOVA',
+    status: 'Pausada',
+    badge: 'bad',
+    badgeText: 'Alto Custo por Resposta',
+    objective: 'Mensagens (WhatsApp)',
+    dailyVerba: 'R$ 150/dia',
+    startDate: '25/07/2025',
+    spend: 33039.77,
+    impressions: 1370000,
+    reach: 480000,
+    clicks: 13650,
+    cpc: 2.42,
+    ctr: 1.01,
+    cpm: 24.12,
+    msgConn: 1690,
+    replies: 1534,
+    costReply: 21.54,
+    leads: 19,
+    costLead: 1738.93,
+    purchases: 15,
+    costPurchase: 2202.65,
+    replyRate: 90.8,
+    leadToSale: 78.9,
+    verdict: 'Juliane tem custo por resposta alto (R$ 21,54) e custo por venda de R$ 2.202 — quase 4x acima do ideal. Foram apenas 15 vendas em R$ 33K investidos. O custo por clique (R$ 2,42) e a taxa de cliques (1,01%) mostram criativos pouco performantes. <strong>Recomendação:</strong> campanha já pausada. Se for reativar, precisa de novos criativos, novos ângulos de texto e possivelmente novo público-alvo para reduzir custos.'
+  },
+  ines: {
+    name: 'Ines NOVA',
+    campaign: '[START] [MEN] [GERAL] Ines NOVA',
+    status: 'Ativa',
+    badge: 'bad',
+    badgeText: 'Baixíssima Conversão em Vendas',
+    objective: 'Mensagens (WhatsApp)',
+    dailyVerba: 'R$ 200/dia',
+    startDate: '17/11/2025',
+    spend: 38140.04,
+    impressions: 2350000,
+    reach: 820000,
+    clicks: 23540,
+    cpc: 1.62,
+    ctr: 1.10,
+    cpm: 16.23,
+    msgConn: 2340,
+    replies: 2139,
+    costReply: 17.83,
+    leads: 10,
+    costLead: 3814.00,
+    purchases: 3,
+    costPurchase: 12713.35,
+    replyRate: 91.4,
+    leadToSale: 30.0,
+    verdict: 'Ines gera um bom volume de respostas (2.139) com custo aceitável (R$ 17,83), mas a conversão em vendas é <strong>praticamente inexistente</strong>: apenas 3 compras em R$ 38K. Custo por venda de R$ 12.713 é insustentável. O problema não parece ser o anúncio (o custo por resposta está na média), mas sim o <strong>atendimento ou qualificação</strong> do público. <strong>Recomendação:</strong> avaliar se a consultora Ines está fazendo o atendimento correto. Se o script e abordagem estiverem bons, revisar o público da campanha.'
+  }
+};
+
+function openConsultantModal(key) {
+  const d = consultantData[key];
+  if (!d) return;
+  const avgCostReply = 17.68;
+  const avgCPC = 1.82;
+  const avgCTR = 1.37;
+  const avgCostPurchase = 1254.99;
+  const maxSpend = 69612.71;
+
+  const modal = document.getElementById('consultantModal');
+  modal.querySelector('.modal-content').innerHTML = `
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div class="modal-header">
+      <h3>${d.name}</h3>
+      <div style="font-size:12px;color:var(--text-muted);margin-top:4px">${d.campaign}</div>
+      <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+        <span class="modal-badge ${d.badge}">${d.badgeText}</span>
+        <span class="modal-badge" style="background:rgba(58,159,216,0.15);color:var(--gold-light)">${d.status}</span>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h4>Informações da Campanha</h4>
+      <div class="modal-metrics">
+        <div class="modal-metric">
+          <div class="label">Objetivo</div>
+          <div class="value" style="font-size:15px">${d.objective}</div>
+          <div class="desc">As pessoas veem o anúncio e clicam para conversar no WhatsApp</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Orçamento Diário</div>
+          <div class="value" style="font-size:15px">${d.dailyVerba}</div>
+          <div class="desc">Valor máximo que a Meta gasta por dia nesta campanha</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Início da Campanha</div>
+          <div class="value" style="font-size:15px">${d.startDate}</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Total Investido</div>
+          <div class="value" style="font-size:15px">R$ ${d.spend.toLocaleString('pt-BR',{minimumFractionDigits:2})}</div>
+          <div class="modal-bar"><div class="modal-bar-fill" style="width:${(d.spend/maxSpend*100).toFixed(0)}%;background:var(--gold)"></div></div>
+          <div class="desc">Quanto foi gasto no total desde o início</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h4>Alcance e Visibilidade</h4>
+      <div class="modal-metrics">
+        <div class="modal-metric">
+          <div class="label">Pessoas Alcançadas</div>
+          <div class="value">${(d.reach/1000).toFixed(0)}K</div>
+          <div class="desc">Quantas pessoas diferentes viram os anúncios</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Exibições do Anúncio</div>
+          <div class="value">${(d.impressions/1000000).toFixed(2)}M</div>
+          <div class="desc">Total de vezes que o anúncio apareceu (inclui repetições)</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Cliques no Anúncio</div>
+          <div class="value">${d.clicks.toLocaleString('pt-BR')}</div>
+          <div class="desc">Quantas vezes alguém clicou no anúncio</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Frequência Média</div>
+          <div class="value">${(d.impressions/d.reach).toFixed(1)}x</div>
+          <div class="desc">Cada pessoa viu o anúncio essa quantidade de vezes em média</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h4>Custos e Eficiência</h4>
+      <div class="modal-metrics">
+        <div class="modal-metric">
+          <div class="label">Custo por Clique</div>
+          <div class="value ${d.cpc <= avgCPC ? 'good' : 'bad'}">R$ ${d.cpc.toFixed(2).replace('.',',')}</div>
+          <div class="desc">Quanto custa cada clique · Média da conta: R$ ${avgCPC.toFixed(2).replace('.',',')}</div>
+          <div class="modal-bar"><div class="modal-bar-fill" style="width:${Math.min(d.cpc/6*100,100).toFixed(0)}%;background:${d.cpc<=avgCPC?'var(--green)':'var(--red)'}"></div></div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Taxa de Cliques</div>
+          <div class="value ${d.ctr >= avgCTR ? 'good' : 'bad'}">${d.ctr.toFixed(2).replace('.',',')}%</div>
+          <div class="desc">% de quem viu e clicou · Média da conta: ${avgCTR.toFixed(2).replace('.',',')}%</div>
+          <div class="modal-bar"><div class="modal-bar-fill" style="width:${Math.min(d.ctr/2.5*100,100).toFixed(0)}%;background:${d.ctr>=avgCTR?'var(--green)':'var(--red)'}"></div></div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Custo por 1.000 Exibições</div>
+          <div class="value">R$ ${d.cpm.toFixed(2).replace('.',',')}</div>
+          <div class="desc">Quanto custa para o anúncio aparecer 1.000 vezes</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Custo por Resposta no WhatsApp</div>
+          <div class="value ${d.costReply <= avgCostReply ? 'good' : 'bad'}">R$ ${d.costReply.toFixed(2).replace('.',',')}</div>
+          <div class="desc">Quanto custa cada resposta · Média da conta: R$ ${avgCostReply.toFixed(2).replace('.',',')}</div>
+          <div class="modal-bar"><div class="modal-bar-fill" style="width:${Math.min(d.costReply/30*100,100).toFixed(0)}%;background:${d.costReply<=avgCostReply?'var(--green)':'var(--red)'}"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h4>Conversões (WhatsApp, Leads e Vendas)</h4>
+      <div class="modal-metrics">
+        <div class="modal-metric">
+          <div class="label">Conversas Iniciadas no WhatsApp</div>
+          <div class="value">${d.msgConn.toLocaleString('pt-BR')}</div>
+          <div class="desc">Pessoas que clicaram para abrir conversa no WhatsApp</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Respostas no WhatsApp</div>
+          <div class="value">${d.replies.toLocaleString('pt-BR')}</div>
+          <div class="desc">Pessoas que de fato responderam a primeira mensagem</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Taxa de Resposta</div>
+          <div class="value">${d.replyRate.toFixed(1).replace('.',',')}%</div>
+          <div class="desc">% de quem abriu o chat e realmente respondeu</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Leads (Cadastros)</div>
+          <div class="value">${d.leads.toLocaleString('pt-BR')}</div>
+          <div class="desc">Custo por lead: R$ ${d.costLead.toFixed(2).replace('.',',')}</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Vendas Realizadas</div>
+          <div class="value ${d.purchases >= 20 ? 'good' : 'bad'}" style="font-size:28px">${d.purchases}</div>
+          <div class="desc">Total de compras atribuídas a esta campanha</div>
+        </div>
+        <div class="modal-metric">
+          <div class="label">Custo por Venda</div>
+          <div class="value ${d.costPurchase <= avgCostPurchase ? 'good' : 'bad'}" style="font-size:28px">R$ ${d.costPurchase.toLocaleString('pt-BR',{minimumFractionDigits:2})}</div>
+          <div class="desc">Média da conta: R$ ${avgCostPurchase.toLocaleString('pt-BR',{minimumFractionDigits:2})}</div>
+          <div class="modal-bar"><div class="modal-bar-fill" style="width:${Math.min(d.costPurchase/13000*100,100).toFixed(0)}%;background:${d.costPurchase<=avgCostPurchase?'var(--green)':'var(--red)'}"></div></div>
+        </div>
+        <div class="modal-metric full">
+          <div class="label">Taxa de Conversão Lead → Venda</div>
+          <div class="value ${d.leadToSale >= 40 ? 'good' : 'bad'}">${d.leadToSale.toFixed(1).replace('.',',')}%</div>
+          <div class="desc">De cada 100 leads, ${d.leadToSale.toFixed(0)} viraram compra. ${d.leadToSale >= 50 ? 'Excelente taxa de fechamento!' : d.leadToSale >= 30 ? 'Taxa razoável, pode melhorar.' : 'Taxa baixa — revisar atendimento ou qualificação do público.'}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h4>Análise e Recomendação</h4>
+      <div class="modal-verdict">${d.verdict}</div>
+    </div>
+  `;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('consultantModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.consultant-card[data-consultant]').forEach(card => {
+  card.addEventListener('click', () => openConsultantModal(card.dataset.consultant));
+});
+
+document.getElementById('consultantModal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+</script>
+
+<!-- Consultant Modal -->
+<div class="modal-overlay" id="consultantModal">
+<div class="modal">
+<div class="modal-content"></div>
+</div>
+</div>
+
+</div><!-- /dashContent -->
+
+<script>
+async function hashPassword(pwd){
+  const enc = new TextEncoder().encode(pwd);
+  const buf = await crypto.subtle.digest('SHA-256', enc);
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+const HASH = '3031692f3f69ab3e69f50d1de582c10ec3f8ddcc90ef2eb2edeaa2bfc49f61c8';
+
+async function checkPassword(){
+  const input = document.getElementById('pwInput').value;
+  const hash = await hashPassword(input);
+  if(hash === HASH){
+    sessionStorage.setItem('veon_auth','1');
+    unlockDash();
+  } else {
+    document.getElementById('pwError').textContent = 'Senha incorreta. Tente novamente.';
+    document.getElementById('pwInput').value = '';
+    document.getElementById('pwInput').focus();
+  }
+}
+
+function unlockDash(){
+  document.getElementById('pwGate').classList.add('hidden');
+  document.getElementById('dashContent').classList.remove('content-locked');
+  document.getElementById('dashContent').classList.add('content-unlocked');
+}
+
+// Auto-unlock se já autenticou nesta sessão
+if(sessionStorage.getItem('veon_auth')==='1') unlockDash();
+
+// Enter para submeter
+document.getElementById('pwInput').addEventListener('keydown', e=>{
+  if(e.key==='Enter') checkPassword();
+});
+</script>
+</body>
+</html>

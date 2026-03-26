@@ -1,0 +1,14 @@
+{
+  "trailingSlash": true,
+  "rewrites": [
+    { "source": "/diamond", "destination": "/diamond-colchoes/index.html" },
+    { "source": "/diamond/", "destination": "/diamond-colchoes/index.html" },
+    { "source": "/diamond/:path*", "destination": "/diamond-colchoes/:path*" },
+    { "source": "/apresentacao", "destination": "/apresentacao/index.html" },
+    { "source": "/apresentacao/", "destination": "/apresentacao/index.html" },
+    { "source": "/apresentacao/:path*", "destination": "/apresentacao/:path*" },
+    { "source": "/page01", "destination": "/page01/index.html" },
+    { "source": "/page01/", "destination": "/page01/index.html" },
+    { "source": "/page01/:path*", "destination": "/page01/:path*" }
+  ]
+}

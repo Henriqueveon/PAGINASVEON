@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <base href="/iv01/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Instituto Veon | Dobre o Faturamento da Sua Loja em 180 Dias</title>
+  <meta name="description" content="Método comprovado para dobrar o faturamento de lojas de colchões em 6 meses. Garantia total ou trabalhamos de graça.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&display=swap" rel="stylesheet">
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1459060829132519');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1459060829132519&ev=PageView&noscript=1"/></noscript>
+
+  <!-- UTM Tracking -->
+  <script>
+  (function(){
+    var p = new URLSearchParams(window.location.search);
+    var src = p.get('utm_source')||'';
+    var camp = p.get('utm_campaign')||'';
+    var cont = p.get('utm_content')||'';
+    var adset = p.get('utm_adset')||'';
+    var plac = p.get('utm_placement')||'';
+    var fbc = p.get('fbclid')||'';
+    if(src || camp || fbc){
+      var u = 'https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/track/unidade-start/assessoriaiv01'
+        + '?utm_source=' + encodeURIComponent(src)
+        + '&utm_campaign=' + encodeURIComponent(camp)
+        + '&utm_content=' + encodeURIComponent(cont)
+        + '&utm_adset=' + encodeURIComponent(adset)
+        + '&utm_placement=' + encodeURIComponent(plac)
+        + '&fbclid=' + encodeURIComponent(fbc);
+      fetch(u, {method:'GET', mode:'no-cors'}).catch(function(){});
+    }
+  })();
+  </script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --azul: #0c3c5f;
+      --azul-escuro: #081e33;
+      --azul-medio: #0a2e4a;
+      --vermelho: #e40a2d;
+      --verde: #00E87B;
+      --branco: #FFFFFF;
+      --cinza-claro: #F4F6F9;
+      --cinza-texto: #8A96A8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--azul);
+      color: var(--branco);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ========== HERO - DOBRA 1 ========== */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      padding: 0 20px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        url('assets/expert.jpg') center 15% / cover no-repeat;
+      opacity: 0.1;
+      filter: grayscale(40%) brightness(0.5);
+    }
+
+    .hero-bg-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--azul) 0%, #0a2540 40%, #3d1520 70%, #5c1a1a 100%);
+      z-index: 0;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(to top, var(--azul) 10%, transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+      justify-content: center;
+      padding: 60px 0 30px;
+    }
+
+    .hero-logo {
+      width: 160px;
+      margin-bottom: 28px;
+      filter: brightness(0) invert(1) drop-shadow(0 2px 12px rgba(0,0,0,0.4));
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(228, 10, 45, 0.15);
+      border: 1px solid var(--vermelho);
+      color: var(--vermelho);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      max-width: 380px;
+    }
+
+    .hero h1 span {
+      color: var(--vermelho);
+    }
+
+    .hero h1 .verde {
+      color: var(--verde);
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--cinza-texto);
+      line-height: 1.5;
+      max-width: 340px;
+      margin-bottom: 28px;
+    }
+
+    .hero-sub strong {
+      color: var(--branco);
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--vermelho);
+      color: var(--branco);
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 18px 40px;
+      border: none;
+      border-radius: 60px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 30px rgba(228, 10, 45, 0.4);
+      width: 100%;
+      max-width: 360px;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px rgba(228, 10, 45, 0.5);
+    }
+
+    .cta-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .hero-garantia {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding-bottom: 24px;
+      font-size: 12px;
+      color: var(--cinza-texto);
+      letter-spacing: 0.5px;
+    }
+
+    .hero-garantia svg {
+      width: 14px;
+      height: 14px;
+      vertical-align: -2px;
+      margin-right: 4px;
+    }
+
+    /* ========== DOBRA 2 - PROBLEMA + MÉTODO ========== */
+    .metodo {
+      background: var(--branco);
+      color: var(--azul);
+      padding: 56px 20px;
+    }
+
+    .metodo-problema {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .metodo-problema p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #4A5568;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    .metodo-problema p strong {
+      color: var(--azul);
+    }
+
+    .metodo-problema p .red {
+      color: var(--vermelho);
+      font-weight: 700;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--vermelho);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    /* Título Ponto G destaque */
+    .ponto-g-title {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .ponto-g-title .g-highlight {
+      background: linear-gradient(135deg, var(--vermelho), #ff4d5e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+
+    .ponto-g-title .g-highlight::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--vermelho), #ff4d5e);
+      border-radius: 2px;
+    }
+
+    .ponto-g-sub {
+      font-size: 13px;
+      color: #6B7B8D;
+      text-align: center;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+
+    .metodo-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--vermelho), var(--verde));
+      border-radius: 3px;
+      margin: 0 auto 28px;
+    }
+
+    .pilares {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .pilar {
+      background: var(--cinza-claro);
+      border-radius: 16px;
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #E8ECF1;
+    }
+
+    .pilar::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+    }
+
+    .pilar:nth-child(1)::before { background: var(--vermelho); }
+    .pilar:nth-child(2)::before { background: var(--azul); }
+    .pilar:nth-child(3)::before { background: var(--verde); }
+
+    .pilar-numero {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .pilar:nth-child(1) .pilar-numero { color: var(--vermelho); }
+    .pilar:nth-child(2) .pilar-numero { color: var(--azul-medio); }
+    .pilar:nth-child(3) .pilar-numero { color: #00B865; }
+
+    .pilar h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--azul);
+      margin-bottom: 8px;
+    }
+
+    .pilar p {
+      font-size: 13px;
+      color: #6B7B8D;
+      line-height: 1.5;
+    }
+
+    .pilar-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .pilar-item {
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--branco);
+      border: 1px solid #E0E5EC;
+      color: var(--azul);
+      padding: 6px 12px;
+      border-radius: 20px;
+    }
+
+    /* ========== DOBRA 3 - PROVA SOCIAL + DEPOIMENTOS ========== */
+    .prova {
+      background: var(--azul);
+      padding: 56px 20px;
+    }
+
+    .prova .section-tag { color: var(--verde); }
+
+    .prova .section-title {
+      color: var(--branco);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .prova-sub {
+      text-align: center;
+      font-size: 14px;
+      color: var(--cinza-texto);
+      margin-bottom: 32px;
+    }
+
+    .resultados-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .resultado-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 20px 12px;
+      text-align: center;
+    }
+
+    .resultado-card .numero {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--verde);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .resultado-card .label {
+      font-size: 10px;
+      color: var(--cinza-texto);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.3;
+    }
+
+    /* Depoimentos em imagem */
+    .depoimentos-scroll {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 16px;
+      margin-bottom: 32px;
+    }
+
+    .depoimentos-scroll::-webkit-scrollbar { display: none; }
+
+    .depoimento-img-card {
+      flex: 0 0 260px;
+      scroll-snap-align: start;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .depoimento-img-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Videos YouTube */
+    .videos-titulo {
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 16px;
+      color: var(--cinza-texto);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .video-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 9/16;
+      background: #000;
+      cursor: pointer;
+    }
+
+    .video-card iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Garantia */
+    .garantia-box {
+      background: linear-gradient(135deg, rgba(0, 232, 123, 0.08), rgba(0, 232, 123, 0.02));
+      border: 1px solid rgba(0, 232, 123, 0.2);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .garantia-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(0, 232, 123, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .garantia-icon svg {
+      width: 24px;
+      height: 24px;
+      color: var(--verde);
+    }
+
+    .garantia-box h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--verde);
+    }
+
+    .garantia-box p {
+      font-size: 14px;
+      color: var(--cinza-texto);
+      line-height: 1.6;
+    }
+
+    .garantia-box p strong {
+      color: var(--branco);
+    }
+
+    /* ========== DOBRA 4 - FORMULÁRIO ========== */
+    .formulario {
+      background: linear-gradient(135deg, var(--azul) 0%, #0a2540 40%, #3d1520 100%);
+      padding: 56px 20px 40px;
+    }
+
+    .form-wrapper {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .formulario .section-tag {
+      color: var(--vermelho);
+      text-align: center;
+      display: block;
+    }
+
+    .formulario .section-title {
+      color: var(--branco);
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .form-sub {
+      text-align: center;
+      font-size: 14px;
+      color: var(--cinza-texto);
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--cinza-texto);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-group input {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 16px 18px;
+      font-size: 15px;
+      color: var(--branco);
+      font-family: inherit;
+      transition: border-color 0.3s;
+      outline: none;
+    }
+
+    .form-group input::placeholder {
+      color: rgba(255,255,255,0.25);
+    }
+
+    .form-group input:focus {
+      border-color: var(--vermelho);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .form-submit {
+      margin-top: 20px;
+    }
+
+    .form-submit .cta-btn {
+      width: 100%;
+      max-width: 100%;
+      font-size: 16px;
+      padding: 20px;
+    }
+
+    .form-nota {
+      text-align: center;
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+
+    .form-nota svg {
+      width: 12px;
+      height: 12px;
+      vertical-align: -2px;
+      margin-right: 2px;
+    }
+
+    /* Urgência */
+    .urgencia {
+      background: var(--vermelho);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Footer */
+    .footer {
+      background: #061425;
+      text-align: center;
+      padding: 24px 20px;
+    }
+
+    .footer-logo {
+      width: 100px;
+      opacity: 0.35;
+      margin-bottom: 10px;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer p {
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ========== ÍCONES FLUTUANTES ========== */
+    .floating-icons {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .floating-icon {
+      position: absolute;
+      opacity: 0.06;
+      color: var(--branco);
+      animation: floatMove linear infinite;
+    }
+
+    .floating-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    @keyframes floatMove {
+      0% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-15px) rotate(5deg); }
+      50% { transform: translateY(-25px) rotate(-3deg); }
+      75% { transform: translateY(-10px) rotate(4deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+
+    @keyframes floatSlow {
+      0% { transform: translateY(0) rotate(0deg) scale(1); }
+      50% { transform: translateY(-20px) rotate(-8deg) scale(1.05); }
+      100% { transform: translateY(0) rotate(0deg) scale(1); }
+    }
+
+    @keyframes floatDrift {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(10px, -18px) rotate(6deg); }
+      66% { transform: translate(-8px, -10px) rotate(-4deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+
+    .fi-1 { top: 12%; left: 5%; width: 40px; animation: floatSlow 7s ease-in-out infinite; opacity: 0.05; }
+    .fi-2 { top: 25%; right: 8%; width: 28px; animation: floatDrift 9s ease-in-out infinite; opacity: 0.04; }
+    .fi-3 { top: 55%; left: 10%; width: 22px; animation: floatMove 8s ease-in-out infinite; opacity: 0.04; }
+    .fi-4 { top: 70%; right: 12%; width: 34px; animation: floatSlow 11s ease-in-out infinite; opacity: 0.05; }
+    .fi-5 { top: 40%; left: 80%; width: 18px; animation: floatDrift 6s ease-in-out infinite; opacity: 0.03; }
+
+    /* Ícones na seção prova */
+    .prova { position: relative; }
+    .prova .floating-icons .floating-icon { opacity: 0.04; }
+
+    /* Ícones na seção formulário */
+    .formulario { position: relative; overflow: hidden; }
+
+    /* ========== LINHA DECORATIVA VERMELHA ========== */
+    .red-line {
+      width: 40px;
+      height: 3px;
+      background: var(--vermelho);
+      border-radius: 3px;
+      margin: 0 auto 20px;
+    }
+
+    /* ========== ANIMAÇÕES ========== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate {
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+
+    /* ========== PULSE NO CTA ========== */
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 4px 30px rgba(228, 10, 45, 0.4); }
+      50% { box-shadow: 0 4px 50px rgba(228, 10, 45, 0.7); }
+    }
+
+    .cta-btn { animation: pulse 2s infinite; }
+
+    /* ========== DESKTOP (opcional) ========== */
+    @media (min-width: 768px) {
+      .hero h1 { font-size: 42px; max-width: 600px; }
+      .hero-sub { font-size: 18px; max-width: 500px; }
+      .pilares { flex-direction: row; }
+      .pilar { flex: 1; }
+      .resultados-grid { max-width: 500px; margin-left: auto; margin-right: auto; }
+      .videos-grid { max-width: 500px; margin-left: auto; margin-right: auto; }
+      .form-wrapper { max-width: 450px; }
+      .depoimentos-scroll { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE URGÊNCIA -->
+  <div class="urgencia">
+    Vagas limitadas para assessoria em Março
+  </div>
+
+  <!-- ========== DOBRA 1: HERO ========== -->
+  <section class="hero" id="topo">
+    <div class="hero-bg-gradient"></div>
+    <!-- Ícones flutuantes hero -->
+    <div class="floating-icons">
+      <div class="floating-icon fi-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="12,2 14.5,9.5 12,7 9.5,9.5" fill="currentColor" stroke="none"/></svg></div>
+      <div class="floating-icon fi-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg></div>
+      <div class="floating-icon fi-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <div class="floating-icon fi-4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg></div>
+      <div class="floating-icon fi-5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="currentColor" opacity="0.3"/></svg></div>
+    </div>
+    <div class="hero-content">
+      <img src="assets/logo.png" alt="Instituto Veon" class="hero-logo animate delay-1" loading="eager">
+
+      <div class="hero-badge animate delay-2">Assessoria Comercial para o Varejo</div>
+
+      <h1 class="animate delay-2">
+        Dobre o faturamento da sua loja de colchões<br>
+        <span>ou trabalhamos de graça</span><br>
+        <span class="verde">pra você.</span>
+      </h1>
+
+      <p class="hero-sub animate delay-3">
+        O método que já <strong>transformou lojas de colchões em máquinas de vendas</strong> — com tráfego pago, CRM, gestão comercial e acompanhamento lado a lado por <strong>6 meses</strong>.
+      </p>
+
+      <a href="#formulario" class="cta-btn animate delay-4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Falar com Time Veon
+      </a>
+    </div>
+
+    <div class="hero-garantia animate delay-4">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Garantia blindada: não dobrou? Trabalhamos de graça.
+    </div>
+  </section>
+
+  <!-- ========== DOBRA 2: MÉTODO ========== -->
+  <section class="metodo">
+    <div class="metodo-problema">
+      <div class="red-line"></div>
+      <span class="section-tag">O problema</span>
+      <p>
+        Você investe em anúncios, mas <span class="red">não converte</span>. Tem vendedores, mas <span class="red">não batem meta</span>. Sente que sua loja de colchões podia vender <strong>o dobro</strong> — mas falta direção.
+      </p>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 24px;">
+      <span class="section-tag">A solução</span>
+      <h2 class="ponto-g-title">O <span class="g-highlight">Ponto G</span> do Varejo</h2>
+      <div class="metodo-divider"></div>
+      <p class="ponto-g-sub">3 pilares. 6 meses. O faturamento que sua loja merece.</p>
+    </div>
+
+    <div class="pilares">
+      <!-- Pilar 1 -->
+      <div class="pilar">
+        <div class="pilar-numero">1o G</div>
+        <h3><span style="color: var(--vermelho);">G</span>eração de Demanda</h3>
+        <p>Lotamos sua loja de colchões de clientes prontos para comprar com tráfego pago estratégico.</p>
+        <div class="pilar-items">
+          <span class="pilar-item">Tráfego Pago</span>
+          <span class="pilar-item">Criativos</span>
+          <span class="pilar-item">Ofertas</span>
+        </div>
+      </div>
+      <!-- Pilar 2 -->
+      <div class="pilar">
+        <div class="pilar-numero">2o G</div>
+        <h3><span style="color: var(--azul-medio);">G</span>estão Comercial</h3>
+        <p>Transformamos cada lead interessado em colchão em venda com CRM, follow-up e metas inteligentes.</p>
+        <div class="pilar-items">
+          <span class="pilar-item">CRM</span>
+          <span class="pilar-item">Follow-up</span>
+          <span class="pilar-item">Metas</span>
+        </div>
+      </div>
+      <!-- Pilar 3 -->
+      <div class="pilar">
+        <div class="pilar-numero">3o G</div>
+        <h3><span style="color: #00B865;">G</span>estão de Pessoas</h3>
+        <p>Construímos uma equipe que vende sem depender de você o tempo todo.</p>
+        <div class="pilar-items">
+          <span class="pilar-item">Cultura</span>
+          <span class="pilar-item">DISC</span>
+          <span class="pilar-item">Contratação</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DOBRA 3: PROVA SOCIAL ========== -->
+  <section class="prova">
+    <div class="floating-icons">
+      <div class="floating-icon" style="top:8%;right:6%;width:30px;animation:floatDrift 10s ease-in-out infinite;opacity:0.04;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg></div>
+      <div class="floating-icon" style="top:50%;left:4%;width:24px;animation:floatSlow 8s ease-in-out infinite;opacity:0.03;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="12,2 14.5,9.5 12,7 9.5,9.5" fill="currentColor" stroke="none"/></svg></div>
+    </div>
+    <div style="text-align: center;">
+      <div class="red-line"></div>
+      <span class="section-tag">Resultados reais</span>
+      <h2 class="section-title">Quem aplicou, vendeu mais.</h2>
+      <p class="prova-sub">Veja os números de quem confiou no Ponto G do Varejo.</p>
+    </div>
+
+    <!-- Números -->
+    <div class="resultados-grid">
+      <div class="resultado-card">
+        <div class="numero">+R$100k</div>
+        <div class="label">em vendas<br>adicionais</div>
+      </div>
+      <div class="resultado-card">
+        <div class="numero">&lt;24h</div>
+        <div class="label">para a 1a<br>venda</div>
+      </div>
+      <div class="resultado-card">
+        <div class="numero">2x</div>
+        <div class="label">faturamento<br>em 90 dias</div>
+      </div>
+    </div>
+
+    <!-- Screenshots WhatsApp -->
+    <div class="depoimentos-scroll">
+      <div class="depoimento-img-card">
+        <img src="assets/depoimento1.jpg" alt="Prova social - resultado real" loading="lazy">
+      </div>
+      <div class="depoimento-img-card">
+        <img src="assets/depoimento2.jpg" alt="Prova social - resultado real" loading="lazy">
+      </div>
+      <div class="depoimento-img-card">
+        <img src="assets/depoimento3.jpg" alt="Prova social - resultado real" loading="lazy">
+      </div>
+      <div class="depoimento-img-card">
+        <img src="assets/depoimento4.jpg" alt="Prova social - resultado real" loading="lazy">
+      </div>
+      <div class="depoimento-img-card">
+        <img src="assets/depoimento5.jpg" alt="Prova social - resultado real" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Vídeos YouTube -->
+    <div class="videos-titulo">Depoimentos em vídeo</div>
+    <div class="videos-grid">
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/Da41i-aU7TQ" title="Depoimento 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/FhXbibfAvF4" title="Depoimento 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/DSFbLhEsjOk" title="Depoimento 3" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Garantia -->
+    <div class="garantia-box">
+      <div class="garantia-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Garantia Blindada de 180 Dias</h3>
+      <p>Se o seu faturamento <strong>não dobrar em 6 meses</strong>, nós trabalhamos de graça até dobrar. Sem letras miúdas. <strong>O risco é todo nosso.</strong></p>
+    </div>
+  </section>
+
+  <!-- ========== DOBRA 4: FORMULÁRIO ========== -->
+  <section class="formulario" id="formulario">
+    <div class="floating-icons">
+      <div class="floating-icon" style="top:15%;right:5%;width:32px;animation:floatSlow 9s ease-in-out infinite;opacity:0.05;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="12,2 14.5,9.5 12,7 9.5,9.5" fill="currentColor" stroke="none"/></svg></div>
+      <div class="floating-icon" style="bottom:20%;left:3%;width:20px;animation:floatDrift 7s ease-in-out infinite;opacity:0.04;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+    </div>
+    <div class="form-wrapper">
+      <span class="section-tag">Últimas vagas</span>
+      <h2 class="section-title">Candidate sua loja de colchões agora</h2>
+      <p class="form-sub">Preencha abaixo e nossa equipe entrará em contato para uma análise gratuita do seu negócio.</p>
+
+      <form id="leadForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="nome">Seu nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Como prefere ser chamado?" required autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp</label>
+          <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required autocomplete="tel">
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="instagram">Instagram da loja</label>
+          <input type="text" id="instagram" name="instagram" placeholder="@sualoja" required>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="cta-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Falar com Time Veon
+          </button>
+        </div>
+      </form>
+
+      <p class="form-nota">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Seus dados estão seguros. Não compartilhamos com terceiros.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <img src="assets/logo.png" alt="Instituto Veon" class="footer-logo" loading="lazy">
+    <p>Instituto Veon &copy; 2026 — A Escola do Varejo</p>
+    <p>Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Máscara WhatsApp
+    document.getElementById('whatsapp').addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 6) {
+        v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+      } else if (v.length > 2) {
+        v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+      } else if (v.length > 0) {
+        v = '(' + v;
+      }
+      e.target.value = v;
+    });
+
+    // Submit do form
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+
+      btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg> Enviando...';
+      btn.disabled = true;
+
+      const p = new URLSearchParams(window.location.search);
+      const payload = {
+        nome: document.getElementById('nome').value,
+        whatsapp: document.getElementById('whatsapp').value,
+        email: document.getElementById('email').value,
+        instagram: document.getElementById('instagram').value,
+        utm_source: p.get('utm_source')||'',
+        utm_medium: p.get('utm_medium')||'',
+        utm_campaign: p.get('utm_campaign')||'',
+        utm_content: p.get('utm_content')||'',
+        utm_adset: p.get('utm_adset')||'',
+        utm_placement: p.get('utm_placement')||'',
+        fbclid: p.get('fbclid')||'',
+      };
+
+      try {
+        fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_iv01', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        }).catch(function(){});
+
+        if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'iv01-formulario' });
+
+        btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Enviado com sucesso!';
+        btn.style.background = '#00B865';
+        btn.style.boxShadow = '0 4px 30px rgba(0, 184, 101, 0.4)';
+        btn.style.animation = 'none';
+
+        var trackUrl = 'https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/track/unidade-start/assessoriaiv01'
+          + '?utm_source=' + encodeURIComponent(p.get('utm_source')||'')
+          + '&utm_campaign=' + encodeURIComponent(p.get('utm_campaign')||'')
+          + '&utm_content=' + encodeURIComponent(p.get('utm_content')||'')
+          + '&utm_adset=' + encodeURIComponent(p.get('utm_adset')||'')
+          + '&utm_placement=' + encodeURIComponent(p.get('utm_placement')||'')
+          + '&fbclid=' + encodeURIComponent(p.get('fbclid')||'');
+
+        setTimeout(function(){
+          window.location.href = trackUrl;
+        }, 1200);
+      } catch (err) {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        alert('Erro ao enviar. Tente novamente.');
+      }
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Intersection Observer para animações
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.pilar, .resultado-card, .garantia-box').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+
+    /* ===== EVENTOS DE CONVERSÃO META PIXEL ===== */
+    (function(){
+      /* Scroll depth tracking: 25%, 50%, 75%, 100% */
+      var scrollFired = {};
+      var thresholds = [25, 50, 75, 100];
+      window.addEventListener('scroll', function(){
+        var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        thresholds.forEach(function(t){
+          if(scrollPct >= t && !scrollFired[t]){
+            scrollFired[t] = true;
+            if(typeof fbq !== 'undefined') fbq('trackCustom', 'ScrollDepth', { percent: t, page: 'iv01' });
+          }
+        });
+      }, {passive:true});
+
+      /* Lead — dispara no submit do formulário */
+      var form = document.querySelector('form');
+      if(form){
+        form.addEventListener('submit', function(){
+          if(typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'iv01-formulario' });
+        });
+      }
+
+      /* Contact — dispara nos links de WhatsApp */
+      document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){
+        a.addEventListener('click', function(){
+          if(typeof fbq !== 'undefined') fbq('track', 'Contact', { content_name: 'iv01-whatsapp' });
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
