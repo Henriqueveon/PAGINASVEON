@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <base href="/menteblindada/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Protocolo Mente Blindada | Pare de Devolver Lucro no Mercado</title>
+  <meta name="description" content="O protocolo que ja transformou +4.500 traders. Elimine overtrading, Dias de Furia e autossabotagem com 3 pilares comprovados em 22 anos de mercado.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --dark:#0a0a0f; --dark-card:#12121a; --dark-surface:#1a1a26; --gold:#d4a853; --gold-light:#f0d48a; --gold-dark:#b8862d; --red:#e63946; --green:#2ecc71; --white:#f5f5f5; --gray:#8a8a9a; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; background:var(--dark); color:var(--white); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+    @keyframes floatSlow { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-12px) rotate(2deg)} }
+    @keyframes pulse { 0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(212,168,83,0.4)} 50%{transform:scale(1.03);box-shadow:0 0 30px 10px rgba(212,168,83,0.2)} }
+    @keyframes slideUp { from{opacity:0;transform:translateY(60px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+    @keyframes shimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
+    @keyframes glow { 0%,100%{box-shadow:0 0 20px rgba(212,168,83,0.3),0 0 60px rgba(212,168,83,0.1)} 50%{box-shadow:0 0 40px rgba(212,168,83,0.5),0 0 80px rgba(212,168,83,0.2)} }
+    @keyframes orbFloat1 { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(30px,-30px) scale(1.1)} 66%{transform:translate(-20px,20px) scale(0.9)} }
+    @keyframes orbFloat2 { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(-40px,20px) scale(0.95)} 66%{transform:translate(20px,-40px) scale(1.05)} }
+    @keyframes tickerScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .animate-on-scroll{opacity:0;transform:translateY(40px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+    .animate-on-scroll.visible{opacity:1;transform:translateY(0)}
+    .orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0}
+    .orb-gold{background:radial-gradient(circle,rgba(212,168,83,0.15),transparent);width:400px;height:400px;animation:orbFloat1 15s ease-in-out infinite}
+    .orb-blue{background:radial-gradient(circle,rgba(100,140,255,0.08),transparent);width:350px;height:350px;animation:orbFloat2 18s ease-in-out infinite}
+    .ticker-bar{background:var(--gold);color:var(--dark);padding:10px 0;overflow:hidden;white-space:nowrap;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:2px}
+    .ticker-content{display:inline-block;animation:tickerScroll 20s linear infinite}
+    .ticker-content span{margin:0 40px}
+    .hero{min-height:100svh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:60px 20px 40px}
+    .hero-bg-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(212,168,83,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(212,168,83,0.03) 1px,transparent 1px);background-size:60px 60px;z-index:0}
+    .hero-content{max-width:900px;text-align:center;position:relative;z-index:2}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,168,83,0.1);border:1px solid rgba(212,168,83,0.3);border-radius:50px;padding:8px 20px;font-size:13px;font-weight:600;color:var(--gold-light);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:30px;animation:fadeIn 0.6s ease,floatSlow 4s ease-in-out infinite}
+    .hero-badge::before{content:'';width:8px;height:8px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,6vw,4.2rem);font-weight:900;line-height:1.1;margin-bottom:24px;animation:slideUp 0.8s ease}
+    .hero h1 .gold{background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-sub{font-size:clamp(1rem,2.5vw,1.25rem);color:var(--gray);line-height:1.7;max-width:700px;margin:0 auto 40px;animation:slideUp 1s ease 0.2s both}
+    .hero-sub strong{color:var(--white)}
+    .hero-stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:40px;animation:slideUp 1s ease 0.4s both}
+    .hero-stat{text-align:center}
+    .hero-stat-number{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:var(--gold);line-height:1}
+    .hero-stat-label{font-size:0.8rem;color:var(--gray);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+    .cta-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--dark);font-size:1.1rem;font-weight:800;padding:18px 48px;border:none;border-radius:60px;cursor:pointer;text-decoration:none;text-transform:uppercase;letter-spacing:1px;transition:all 0.3s ease;animation:pulse 3s infinite,slideUp 1s ease 0.6s both;position:relative;overflow:hidden}
+    .cta-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);background-size:200% 100%;animation:shimmer 3s infinite}
+    .cta-btn:hover{transform:scale(1.05);box-shadow:0 10px 40px rgba(212,168,83,0.4)}
+    .cta-sub{font-size:0.85rem;color:var(--gray);margin-top:14px;animation:fadeIn 1s ease 0.8s both}
+    .pain-section{padding:100px 20px;position:relative;overflow:hidden}
+    .container{max-width:1100px;margin:0 auto}
+    .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;text-align:center;margin-bottom:20px;line-height:1.2}
+    .section-subtitle{text-align:center;color:var(--gray);font-size:1.1rem;max-width:650px;margin:0 auto 60px;line-height:1.7}
+    .pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .pain-card{background:var(--dark-card);border:1px solid rgba(230,57,70,0.15);border-radius:16px;padding:28px;transition:all 0.4s ease;position:relative;overflow:hidden}
+    .pain-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),transparent);opacity:0;transition:opacity 0.3s}
+    .pain-card:hover::before{opacity:1}
+    .pain-card:hover{transform:translateY(-4px);border-color:rgba(230,57,70,0.3)}
+    .pain-icon{font-size:1.8rem;margin-bottom:14px;display:block}
+    .pain-card h3{font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--white)}
+    .pain-card p{font-size:0.9rem;color:var(--gray);line-height:1.6}
+    .pillars-section{padding:100px 20px;position:relative;background:linear-gradient(180deg,var(--dark) 0%,var(--dark-surface) 50%,var(--dark) 100%)}
+    .pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:60px}
+    .pillar-card{background:var(--dark-card);border:1px solid rgba(212,168,83,0.12);border-radius:20px;padding:40px 30px;text-align:center;transition:all 0.5s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden}
+    .pillar-card::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60%;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity 0.4s}
+    .pillar-card:hover::after{opacity:1}
+    .pillar-card:hover{transform:translateY(-8px);border-color:rgba(212,168,83,0.3);box-shadow:0 20px 60px rgba(212,168,83,0.08)}
+    .pillar-number{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;background:linear-gradient(135deg,var(--gold-light),var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:16px}
+    .pillar-card h3{font-size:1.15rem;font-weight:700;margin-bottom:14px;color:var(--white)}
+    .pillar-card p{font-size:0.92rem;color:var(--gray);line-height:1.7}
+    .author-section{padding:100px 20px;position:relative}
+    .author-container{display:flex;align-items:center;gap:60px;max-width:1000px;margin:0 auto}
+    .author-image-wrap{flex-shrink:0;position:relative;animation:float 6s ease-in-out infinite}
+    .author-image-wrap::before{content:'';position:absolute;inset:-4px;border-radius:20px;background:linear-gradient(135deg,var(--gold),var(--gold-dark),var(--gold-light));z-index:0;animation:glow 4s ease-in-out infinite}
+    .author-image{width:280px;height:340px;object-fit:cover;border-radius:18px;position:relative;z-index:1;display:block}
+    .author-info h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;margin-bottom:8px}
+    .author-info .author-title{color:var(--gold);font-size:0.95rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px}
+    .author-info p{color:var(--gray);line-height:1.8;font-size:1rem;margin-bottom:14px}
+    .author-info p strong{color:var(--white)}
+    .author-credentials{display:flex;gap:30px;margin-top:24px;flex-wrap:wrap}
+    .credential{text-align:center}
+    .credential-number{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--gold);line-height:1}
+    .credential-label{font-size:0.75rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+    .offer-section{padding:100px 20px;position:relative;background:linear-gradient(180deg,var(--dark) 0%,#0d0d18 50%,var(--dark) 100%)}
+    .offer-box{max-width:700px;margin:0 auto;background:var(--dark-card);border:2px solid rgba(212,168,83,0.2);border-radius:24px;padding:50px 40px;text-align:center;position:relative;overflow:hidden;animation:glow 4s ease-in-out infinite}
+    .offer-box::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at center,rgba(212,168,83,0.04),transparent 50%);pointer-events:none}
+    .offer-badge{display:inline-block;background:var(--red);color:white;font-size:0.8rem;font-weight:800;padding:6px 20px;border-radius:30px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:30px;animation:pulse 2s infinite}
+    .offer-item{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .offer-item-name{font-weight:600;font-size:0.95rem;text-align:left}
+    .offer-item-price{font-weight:700;color:var(--gray);text-decoration:line-through;font-size:0.9rem}
+    .offer-item-free{font-weight:700;color:var(--green);font-size:0.9rem}
+    .offer-total{margin-top:30px;padding-top:30px;border-top:2px solid rgba(212,168,83,0.2)}
+    .offer-from{color:var(--gray);font-size:1rem}
+    .offer-from-price{text-decoration:line-through;color:var(--red);font-size:1.3rem;font-weight:700}
+    .offer-final-price{font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;color:var(--gold);line-height:1;margin:10px 0}
+    .offer-final-price small{font-size:1.5rem;vertical-align:super}
+    .offer-installments{color:var(--gray);font-size:0.95rem;margin-bottom:6px}
+    .offer-access{display:inline-flex;align-items:center;gap:6px;background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.3);border-radius:30px;padding:6px 16px;font-size:0.8rem;font-weight:600;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin:16px 0 30px}
+    .guarantee-box{display:flex;align-items:center;gap:16px;background:rgba(46,204,113,0.05);border:1px solid rgba(46,204,113,0.15);border-radius:14px;padding:18px 24px;margin-top:30px;text-align:left}
+    .guarantee-icon{font-size:2.5rem;flex-shrink:0}
+    .guarantee-box h4{font-size:0.95rem;font-weight:700;color:var(--green);margin-bottom:4px}
+    .guarantee-box p{font-size:0.85rem;color:var(--gray);line-height:1.6}
+    .choice-section{padding:80px 20px}
+    .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:40px auto 0}
+    .choice-card{border-radius:20px;padding:36px 30px}
+    .choice-card.bad{background:rgba(230,57,70,0.06);border:1px solid rgba(230,57,70,0.2)}
+    .choice-card.good{background:rgba(212,168,83,0.06);border:1px solid rgba(212,168,83,0.3)}
+    .choice-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:800;margin-bottom:20px}
+    .choice-card.bad h3{color:var(--red)}
+    .choice-card.good h3{color:var(--gold)}
+    .choice-card li{list-style:none;font-size:0.92rem;color:var(--gray);padding:6px 0;padding-left:26px;position:relative;line-height:1.5}
+    .choice-card.bad li::before{content:'\2715';position:absolute;left:0;color:var(--red);font-weight:700}
+    .choice-card.good li::before{content:'\2713';position:absolute;left:0;color:var(--gold);font-weight:700}
+    .final-cta{text-align:center;margin-top:50px}
+    .faq-section{padding:80px 20px}
+    .faq-list{max-width:700px;margin:40px auto 0}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.06)}
+    .faq-question{width:100%;background:none;border:none;color:var(--white);font-size:1rem;font-weight:600;padding:20px 0;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:inherit}
+    .faq-question::after{content:'+';font-size:1.5rem;color:var(--gold);transition:transform 0.3s}
+    .faq-item.open .faq-question::after{transform:rotate(45deg)}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
+    .faq-item.open .faq-answer{max-height:200px}
+    .faq-answer p{padding-bottom:20px;color:var(--gray);font-size:0.92rem;line-height:1.7}
+    footer{text-align:center;padding:40px 20px;color:var(--gray);font-size:0.8rem;border-top:1px solid rgba(255,255,255,0.05)}
+    .shape{position:absolute;pointer-events:none;z-index:0}
+    .shape-circle{width:12px;height:12px;border-radius:50%;border:2px solid rgba(212,168,83,0.2)}
+    .shape-cross{width:16px;height:16px;position:relative}
+    .shape-cross::before,.shape-cross::after{content:'';position:absolute;background:rgba(212,168,83,0.15)}
+    .shape-cross::before{width:16px;height:2px;top:7px;left:0}
+    .shape-cross::after{width:2px;height:16px;top:0;left:7px}
+    .shape-diamond{width:10px;height:10px;border:2px solid rgba(212,168,83,0.15);transform:rotate(45deg)}
+    @media(max-width:768px){.hero{padding:40px 16px 30px}.hero-stats{gap:24px}.hero-stat-number{font-size:2rem}.author-container{flex-direction:column;text-align:center;gap:30px}.author-image{width:220px;height:270px}.author-credentials{justify-content:center}.choice-grid{grid-template-columns:1fr}.offer-box{padding:36px 24px}.offer-final-price{font-size:3rem}.cta-btn{padding:16px 36px;font-size:1rem}.guarantee-box{flex-direction:column;text-align:center}.pillars-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="ticker-bar"><div class="ticker-content"><span>+4.500 TRADERS TRANSFORMADOS</span><span>22 ANOS DE MERCADO REAL</span><span>ACESSO VITALICIO</span><span>GARANTIA DE 15 DIAS</span><span>+4.500 TRADERS TRANSFORMADOS</span><span>22 ANOS DE MERCADO REAL</span><span>ACESSO VITALICIO</span><span>GARANTIA DE 15 DIAS</span><span>+4.500 TRADERS TRANSFORMADOS</span><span>22 ANOS DE MERCADO REAL</span><span>ACESSO VITALICIO</span><span>GARANTIA DE 15 DIAS</span></div></div>
+
+<section class="hero" id="topo">
+  <div class="hero-bg-lines"></div>
+  <div class="orb orb-gold" style="top:-100px;right:-100px"></div>
+  <div class="orb orb-blue" style="bottom:-100px;left:-100px"></div>
+  <div class="shape shape-circle" style="top:15%;left:8%;animation:float 5s ease-in-out infinite"></div>
+  <div class="shape shape-cross" style="top:25%;right:12%;animation:floatSlow 7s ease-in-out infinite"></div>
+  <div class="shape shape-diamond" style="bottom:20%;left:15%;animation:float 6s ease-in-out 1s infinite"></div>
+  <div class="shape shape-circle" style="bottom:30%;right:8%;animation:floatSlow 5.5s ease-in-out infinite"></div>
+  <div class="shape shape-cross" style="top:60%;left:5%;animation:float 8s ease-in-out infinite"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Protocolo Comprovado em 12 Anos</div>
+    <h1>Pare de <span class="gold">Devolver Lucro</span> e Elimine os 11 Padroes que Impedem <span class="gold">90% dos Traders</span> de Serem Consistentes</h1>
+    <p class="hero-sub">O mesmo protocolo usado por <strong>+4.500 traders</strong> para blindar a mente contra overtrading, Dias de Furia e autossabotagem &mdash; em <strong>3 passos simples</strong>, prontos para aplicar amanha no pregao.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-number">4.500+</div><div class="hero-stat-label">Traders Impactados</div></div>
+      <div class="hero-stat"><div class="hero-stat-number">22</div><div class="hero-stat-label">Anos de Mercado</div></div>
+      <div class="hero-stat"><div class="hero-stat-number">12+</div><div class="hero-stat-label">Anos Mentorando</div></div>
+      <div class="hero-stat"><div class="hero-stat-number">3</div><div class="hero-stat-label">Pilares do Protocolo</div></div>
+    </div>
+    <a href="#oferta" class="cta-btn">QUERO BLINDAR MINHA MENTE AGORA <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <p class="cta-sub"><svg width="14" height="14" fill="#2ecc71" viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-7l7.07-7.071-1.414-1.414L11 12.172 8.464 9.636 7.05 11.05 11 15z"/></svg> Garantia incondicional de 15 dias &bull; Acesso vitalicio</p>
+  </div>
+</section>
+
+<section class="pain-section" id="problema">
+  <div class="container">
+    <div class="animate-on-scroll">
+      <h2 class="section-title">Voce <span style="color:var(--red)">reconhece</span> algum destes padroes?</h2>
+      <p class="section-subtitle">Se voce opera ha 1, 2, 3 anos ou mais e ainda nao consegue consistencia, o problema nao e falta de conhecimento. E falta de estrutura interna.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card animate-on-scroll"><span class="pain-icon">&#128165;</span><h3>Dias de Furia</h3><p>Voce aumenta lote sem criterio, opera por desespero e devolve tudo num unico pregao. O sequestro emocional dominou.</p></div>
+      <div class="pain-card animate-on-scroll"><span class="pain-icon">&#128260;</span><h3>Overtrading</h3><p>"So mais uma..." e quando percebe ja fez 30 operacoes fora do plano. A decisao nasceu da emocao, nao da estrategia.</p></div>
+      <div class="pain-card animate-on-scroll"><span class="pain-icon">&#128561;</span><h3>Medo de Clicar</h3><p>Ve o setup perfeito, mas nao entra. O mercado anda sem voce. A frustracao cresce. E ai entra por impulso - e erra.</p></div>
+      <div class="pain-card animate-on-scroll"><span class="pain-icon">&#128200;</span><h3>Devolve o Lucro</h3><p>Comeca bem, ganha por dias. Mas basta um dia ruim para devolver tudo. A aversao a perda doi 2-3x mais que o ganho.</p></div>
+      <div class="pain-card animate-on-scroll"><span class="pain-icon">&#129504;</span><h3>Autossabotagem</h3><p>Voce SABE operar, mas na hora faz tudo errado. Vai bem no simulador, perde na conta real. E promete que amanha sera diferente.</p></div>
+      <div class="pain-card animate-on-scroll"><span class="pain-icon">&#128548;</span><h3>Vinganca no Stop</h3><p>Tomou stop e quer "recuperar". Aumenta o lote, reduz criterio, entra antecipado. O ego assumiu o comando.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pillars-section" id="protocolo">
+  <div class="container">
+    <div class="animate-on-scroll">
+      <h2 class="section-title">Os <span style="background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">3 Pilares</span> do Protocolo Mente Blindada</h2>
+      <p class="section-subtitle">Um checklist mastigado, sem enrolacao, para voce aplicar amanha mesmo e finalmente respeitar seu plano de trade.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card animate-on-scroll"><div class="pillar-number">01</div><h3>Plano de Trade</h3><p>Especifique sua estrategia com criterios tao claros que nao sobre espaco para improviso. Horarios, gatilhos, stops, limites &mdash; tudo definido ANTES do pregao.</p></div>
+      <div class="pillar-card animate-on-scroll"><div class="pillar-number">02</div><h3>Plano Mental</h3><p>Module suas emocoes com uma escala de 0 a 10 antes de abrir a plataforma. Postura, respiracao, meditacao e perguntas poderosas. Se nao esta acima de 7, nao opera.</p></div>
+      <div class="pillar-card animate-on-scroll"><div class="pillar-number">03</div><h3>Plano de Energia</h3><p>Alimentacao, sono e exercicio fisico nao sao "detalhes". Sao a base neurobiologica da sua disciplina. Cerebro cansado = impulso. Corpo regulado = clareza.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="author-section" id="autor">
+  <div class="container">
+    <div class="author-container animate-on-scroll">
+      <div class="author-image-wrap"><img src="assets/paulo-campos.jpg" alt="Paulo Campos - Tradermind Academy" class="author-image" loading="lazy"></div>
+      <div class="author-info">
+        <h2>Paulo Campos</h2>
+        <div class="author-title">Fundador da Tradermind Academy</div>
+        <p>Comecou no mercado financeiro em <strong>1981</strong>. Perdeu tudo em 2004 e reconstruiu do zero com R$10.000 emprestados do pai. Recuperou o prejuizo em 3 anos usando exatamente o que ensina neste protocolo.</p>
+        <p>Ha <strong>22 anos como trader ativo</strong> e mais de <strong>12 anos mentorando traders</strong>, ja impactou mais de <strong>4.500 alunos</strong> que aplicaram o Protocolo Mente Blindada e transformaram seus resultados.</p>
+        <div class="author-credentials">
+          <div class="credential"><div class="credential-number">42</div><div class="credential-label">Anos no Mercado</div></div>
+          <div class="credential"><div class="credential-number">4.500+</div><div class="credential-label">Alunos</div></div>
+          <div class="credential"><div class="credential-number">22</div><div class="credential-label">Anos Trader Ativo</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="offer-section" id="oferta">
+  <div class="container">
+    <div class="animate-on-scroll"><h2 class="section-title" style="margin-bottom:40px">Tudo que voce recebe <span style="background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">hoje</span></h2></div>
+    <div class="offer-box animate-on-scroll">
+      <div class="offer-badge">Oferta Especial de Lancamento</div>
+      <div class="offer-item"><span class="offer-item-name">Checklist - Protocolo Mente Blindada (E-book 69 pags)</span><span class="offer-item-price">R$ 97,00</span></div>
+      <div class="offer-item"><span class="offer-item-name">Aula ao Vivo Exclusiva - Plantao de Duvidas</span><span class="offer-item-free">GRATIS</span></div>
+      <div class="offer-item"><span class="offer-item-name">Grupo Exclusivo WhatsApp - Dicas Adicionais</span><span class="offer-item-free">GRATIS</span></div>
+      <div class="offer-item" style="border:none"><span class="offer-item-name">Exercicios Praticos com Formularios</span><span class="offer-item-free">GRATIS</span></div>
+      <div class="offer-total">
+        <div class="offer-from">De <span class="offer-from-price">R$ 297,00</span></div>
+        <div class="offer-installments">ou 9x no cartao</div>
+        <div class="offer-final-price"><small>R$</small> 87<small>,00</small></div>
+        <div class="offer-installments">a vista via PIX ou cartao de credito</div>
+        <div class="offer-access">&#9889; Acesso Vitalicio - Pague uma vez so</div>
+        <a href="#oferta" class="cta-btn" style="animation:pulse 3s infinite">SIM, EU QUERO O PROTOCOLO <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <p class="cta-sub" style="animation:none">PIX &bull; Cartao de Credito</p>
+        <div class="guarantee-box">
+          <div class="guarantee-icon">&#128737;&#65039;</div>
+          <div><h4>Garantia Incondicional de 15 Dias</h4><p>Se por qualquer motivo voce sentir que o protocolo nao fez sentido para a sua evolucao como trader, basta pedir o reembolso em ate 15 dias. Devolvemos 100% do valor. Sem perguntas, sem burocracia.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="choice-section">
+  <div class="container">
+    <div class="animate-on-scroll"><h2 class="section-title">Agora voce tem <span style="color:var(--gold)">2 caminhos</span></h2></div>
+    <div class="choice-grid animate-on-scroll">
+      <div class="choice-card bad"><h3>Zona de Conforto</h3><ul><li>Continuar perdendo dinheiro por impulso</li><li>Viver no ciclo vicioso de indisciplina</li><li>Devolver lucro em Dias de Furia</li><li>Operar com ansiedade e medo</li><li>Se sabotar toda hora</li><li>Ir bem no simulador, perder na real</li></ul></div>
+      <div class="choice-card good"><h3>Mudanca Definitiva</h3><ul><li>Operar como trader profissional</li><li>Ter disciplina e consistencia real</li><li>Blindar sua mente contra emocoes</li><li>Executar seu plano com clareza total</li><li>Respeitar seus limites de risco</li><li>Conquistar sua liberdade financeira</li></ul></div>
+    </div>
+    <div class="final-cta animate-on-scroll"><a href="#oferta" class="cta-btn">ESCOLHO A MUDANCA - QUERO O PROTOCOLO <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+  </div>
+</section>
+
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="animate-on-scroll"><h2 class="section-title">Perguntas Frequentes</h2></div>
+    <div class="faq-list">
+      <div class="faq-item animate-on-scroll"><button class="faq-question">Para quem e o Protocolo Mente Blindada?</button><div class="faq-answer"><p>Para qualquer trader (Day Trade, Swing, Scalper) que ja tem conhecimento tecnico mas sofre com indisciplina, overtrading, Dias de Furia, medo de clicar ou autossabotagem.</p></div></div>
+      <div class="faq-item animate-on-scroll"><button class="faq-question">Preciso de experiencia no mercado?</button><div class="faq-answer"><p>Recomendamos nocoes basicas de trading. O protocolo ensina como manter disciplina e estabilidade emocional para executar o que voce ja sabe.</p></div></div>
+      <div class="faq-item animate-on-scroll"><button class="faq-question">Em quanto tempo vejo resultados?</button><div class="faq-answer"><p>O protocolo e um checklist pratico aplicavel ja no proximo pregao. Muitos traders relatam mudanca perceptivel na primeira semana.</p></div></div>
+      <div class="faq-item animate-on-scroll"><button class="faq-question">Como funciona a garantia de 15 dias?</button><div class="faq-answer"><p>Se dentro de 15 dias nao ficar satisfeito, basta solicitar o reembolso. Devolvemos 100% do valor, sem perguntas e sem burocracia.</p></div></div>
+      <div class="faq-item animate-on-scroll"><button class="faq-question">Como recebo o material?</button><div class="faq-answer"><p>Apos confirmacao do pagamento, voce recebe acesso imediato ao e-book (69 paginas), exercicios, grupo WhatsApp e informacoes da aula ao vivo.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Tradermind Academy &mdash; Todos os direitos reservados.</p>
+  <p style="margin-top:6px">Este produto nao garante ganhos financeiros. Resultados dependem de dedicacao individual.</p>
+</footer>
+
+<script>
+var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.animate-on-scroll').forEach(function(el){observer.observe(el)});
+document.querySelectorAll('.faq-question').forEach(function(btn){btn.addEventListener('click',function(){var item=btn.parentElement;var wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});if(!wasOpen)item.classList.add('open')})});
+document.addEventListener('mousemove',function(e){var shapes=document.querySelectorAll('.shape');var x=(e.clientX/window.innerWidth-0.5)*2;var y=(e.clientY/window.innerHeight-0.5)*2;shapes.forEach(function(shape,i){var speed=(i+1)*8;shape.style.transform='translate('+(x*speed)+'px,'+(y*speed)+'px)'})});
+</script>
+</body>
+</html>

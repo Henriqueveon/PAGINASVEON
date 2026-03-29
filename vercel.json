@@ -12,6 +12,9 @@
     { "source": "/page01/:path*", "destination": "/page01/:path*" },
     { "source": "/caderno-de-marca", "destination": "/caderno-de-marca/index.html" },
     { "source": "/caderno-de-marca/", "destination": "/caderno-de-marca/index.html" },
-    { "source": "/caderno-de-marca/:path*", "destination": "/caderno-de-marca/:path*" }
+    { "source": "/caderno-de-marca/:path*", "destination": "/caderno-de-marca/:path*" },
+    { "source": "/menteblindada", "destination": "/menteblindada/index.html" },
+    { "source": "/menteblindada/", "destination": "/menteblindada/index.html" },
+    { "source": "/menteblindada/:path*", "destination": "/menteblindada/:path*" }
   ]
 }
