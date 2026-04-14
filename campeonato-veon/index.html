@@ -171,6 +171,39 @@
       .why-section,.steps-section,.prize-section,.faq-section{padding:70px 18px}
       .final-cta{padding:80px 18px}
     }
+
+    /* ===== MODAL FORMULÁRIO ===== */
+    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(6,24,42,0.78);z-index:999;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
+    .modal-overlay.open{display:flex;animation:modalFadeIn 0.25s ease}
+    @keyframes modalFadeIn{from{opacity:0}to{opacity:1}}
+    .modal{background:var(--dark-card);border-top:3px solid var(--red);border-radius:20px 20px 0 0;padding:28px 22px 36px;width:100%;max-width:520px;max-height:92svh;overflow-y:auto;position:relative;animation:modalSlideUp 0.35s cubic-bezier(0.16,1,0.3,1)}
+    @keyframes modalSlideUp{from{transform:translateY(80px);opacity:0}to{transform:none;opacity:1}}
+    @media (min-width:768px){
+      .modal-overlay{align-items:center}
+      .modal{border-radius:20px;border-top:none;border:1px solid rgba(228,10,45,0.3);max-height:90svh}
+    }
+    .modal-close{position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.08);border:none;color:#fff;font-size:18px;width:34px;height:34px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;transition:background 0.2s}
+    .modal-close:hover{background:rgba(255,255,255,0.16)}
+    .modal-tag{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:10px;display:block}
+    .modal-titulo{font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:600;color:#fff;line-height:1.25;margin-bottom:8px}
+    .modal-titulo span{color:var(--red)}
+    .modal-sub{font-size:0.95rem;color:var(--gray);line-height:1.6;margin-bottom:22px}
+    .modal-sub strong{color:#fff}
+    .modal .form-group{margin-bottom:14px}
+    .modal .form-group label{display:block;font-size:11px;font-weight:600;color:rgba(255,255,255,0.78);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px}
+    .modal .form-group input{width:100%;background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.22);border-radius:10px;padding:14px 15px;font-size:16px;font-family:inherit;color:#fff;outline:none;transition:border-color 0.15s, background 0.15s;-webkit-appearance:none}
+    .modal .form-group input:focus{border-color:var(--red);background:rgba(255,255,255,0.1)}
+    .modal .form-group input::placeholder{color:rgba(255,255,255,0.36)}
+    .modal .cta-submit{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--red),var(--red-dark));color:#fff;font-family:'Poppins',sans-serif;font-size:1rem;font-weight:600;padding:16px 20px;border:none;border-radius:12px;cursor:pointer;text-transform:uppercase;letter-spacing:1px;margin-top:8px;transition:transform 0.2s}
+    .modal .cta-submit:hover{transform:translateY(-2px)}
+    .modal .cta-submit:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+    .modal .cta-submit svg{width:18px;height:18px}
+    .modal-success{display:none;text-align:center;padding:24px 0 8px}
+    .modal-success.show{display:block}
+    .modal-success .s-icon{width:56px;height:56px;border-radius:50%;background:#00aa55;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+    .modal-success .s-icon svg{width:28px;height:28px;color:#fff}
+    .modal-success .s-title{font-family:'Poppins',sans-serif;font-size:1.25rem;font-weight:600;color:#fff;margin-bottom:8px}
+    .modal-success .s-sub{font-size:0.9rem;color:var(--gray);line-height:1.6}
   </style>
 </head>
 <body>
@@ -214,7 +247,7 @@
         </div>
       </div>
 
-      <a href="#inscricao" class="cta-btn">Quero entrar na disputa →</a>
+      <a href="#" class="cta-btn" onclick="event.preventDefault(); abrirModal()">Quero entrar na disputa →</a>
       <p class="cta-sub">Exclusivo para Tripulantes Veon. Quem vender mais, leva.</p>
     </div>
   </section>
@@ -332,10 +365,50 @@
     <div class="container" style="position:relative;z-index:2">
       <h2>O iPhone 15 vai pra quem <span style="background:linear-gradient(135deg,var(--red-light),var(--red-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">começar antes.</span></h2>
       <p>Cada dia fora da Tripulação é um dia a menos de vendas no seu placar. O campeonato não para — e os que já estão dentro estão vendendo agora.</p>
-      <a href="#" class="cta-btn" id="ctaFinal">Quero entrar pra Tripulação →</a>
+      <a href="#" class="cta-btn" id="ctaFinal" onclick="event.preventDefault(); abrirModal()">Quero entrar pra Tripulação →</a>
       <p class="cta-sub">A disputa pelo iPhone 15 começa no momento em que você entra.</p>
     </div>
   </section>
+
+  <!-- MODAL FORMULÁRIO -->
+  <div class="modal-overlay" id="modalOverlay" onclick="fecharModal(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="fecharModalForce()" aria-label="Fechar">✕</button>
+
+      <span class="modal-tag">Entre para a Tripulação Veon</span>
+      <h2 class="modal-titulo">Um iPhone 15 te espera.<br><span>Dê o primeiro passo.</span></h2>
+      <p class="modal-sub">Deixe seus dados — nosso time entra em contato pelo WhatsApp e <strong>te coloca oficialmente dentro do campeonato.</strong></p>
+
+      <form id="modalForm" onsubmit="handleModalSubmit(event)">
+        <div class="form-group">
+          <label for="m-nome">Seu nome</label>
+          <input type="text" id="m-nome" name="nome" placeholder="Como prefere ser chamado?" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="m-whatsapp">WhatsApp</label>
+          <input type="tel" id="m-whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required autocomplete="tel">
+        </div>
+        <div class="form-group">
+          <label for="m-email">E-mail</label>
+          <input type="email" id="m-email" name="email" placeholder="seu@email.com" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="m-instagram">Instagram</label>
+          <input type="text" id="m-instagram" name="instagram" placeholder="@seuinstagram" required>
+        </div>
+        <button type="submit" class="cta-submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Quero entrar na disputa
+        </button>
+      </form>
+
+      <div class="modal-success" id="modalSuccess">
+        <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="s-title">Você está dentro!</div>
+        <div class="s-sub">Nosso time entra em contato pelo WhatsApp em até 1 hora para te colocar oficialmente no campeonato.</div>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <p>© <span id="year"></span> <strong>Veon</strong> — Todos os direitos reservados.</p>
@@ -348,6 +421,71 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.animate-on-scroll').forEach(el => io.observe(el));
+
+    // ===== MODAL FORMULÁRIO =====
+    function abrirModal() {
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function fecharModalForce() {
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function fecharModal(e) {
+      if (e.target === document.getElementById('modalOverlay')) fecharModalForce();
+    }
+
+    // Máscara WhatsApp
+    document.getElementById('m-whatsapp').addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 6) v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+      else if (v.length > 2) v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+      else if (v.length > 0) v = '(' + v;
+      e.target.value = v;
+    });
+
+    function handleModalSubmit(e) {
+      e.preventDefault();
+      const nome = document.getElementById('m-nome').value.trim();
+      const whatsapp = document.getElementById('m-whatsapp').value.trim();
+      const email = document.getElementById('m-email').value.trim();
+      const instagram = document.getElementById('m-instagram').value.trim();
+      const btn = e.target.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      const params = new URLSearchParams(window.location.search);
+      const payload = {
+        nome, whatsapp, email, instagram,
+        origem: 'lp_campeonato_veon',
+        utm_source: params.get('utm_source') || '',
+        utm_campaign: params.get('utm_campaign') || '',
+        utm_content: params.get('utm_content') || '',
+        utm_adset: params.get('utm_adset') || '',
+        utm_placement: params.get('utm_placement') || '',
+        fbclid: params.get('fbclid') || ''
+      };
+
+      // Pixel Meta (se carregado)
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', { content_name: 'campeonato-veon' });
+      }
+
+      fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_campeonato_veon', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).catch(function () {});
+
+      document.getElementById('modalForm').style.display = 'none';
+      document.getElementById('modalSuccess').classList.add('show');
+    }
+
+    // ESC fecha modal
+    document.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape') fecharModalForce();
+    });
   </script>
 </body>
 </html>
