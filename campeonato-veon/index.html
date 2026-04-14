@@ -76,12 +76,14 @@
     .hero-sub strong{color:var(--white)}
 
     .prize-showcase{display:flex;align-items:center;justify-content:center;gap:40px;margin:40px auto 50px;flex-wrap:wrap;animation:slideUp 1s ease 0.3s both}
-    .prize-visual{position:relative;width:480px;max-width:92vw;height:auto;display:flex;align-items:center;justify-content:center;padding:30px 0}
-    /* Halo base azul + halo vermelho pulsante */
-    .prize-visual::before{content:'';position:absolute;inset:-5% -5% -5% -5%;border-radius:50%;background:radial-gradient(ellipse at center,rgba(228,10,45,0.5) 0%,rgba(228,10,45,0.2) 40%,transparent 70%);filter:blur(25px);z-index:0;animation:haloPulse 2.8s ease-in-out infinite}
-    .prize-visual::after{content:'';position:absolute;inset:-15%;border-radius:50%;background:radial-gradient(ellipse at center,rgba(12,60,95,0.55) 0%,rgba(12,60,95,0.2) 45%,transparent 75%);filter:blur(35px);z-index:0}
-    @keyframes haloPulse{0%,100%{opacity:0.75;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
-    .iphone-emoji{width:460px;max-width:88vw;height:auto;display:block;position:relative;z-index:2;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.5)) drop-shadow(0 0 35px rgba(228,10,45,0.35))}
+    /* Card retangular envolvendo o iPhone */
+    .prize-visual{position:relative;width:440px;max-width:92vw;height:auto;display:flex;align-items:center;justify-content:center;padding:40px 30px;border-radius:28px;background:linear-gradient(135deg,rgba(228,10,45,0.22) 0%,rgba(12,60,95,0.55) 55%,rgba(12,60,95,0.35) 100%);border:1px solid rgba(228,10,45,0.35);box-shadow:0 25px 70px rgba(0,0,0,0.5), 0 0 80px rgba(228,10,45,0.18), inset 0 1px 0 rgba(255,255,255,0.08);overflow:hidden}
+    /* Brilho vermelho pulsante por tras do aparelho */
+    .prize-visual::before{content:'';position:absolute;left:50%;top:50%;width:85%;height:60%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(ellipse at center,rgba(228,10,45,0.55) 0%,rgba(228,10,45,0.22) 45%,transparent 75%);filter:blur(25px);z-index:0;animation:haloPulse 2.8s ease-in-out infinite}
+    /* Highlight sutil no topo do card */
+    .prize-visual::after{content:'';position:absolute;top:0;left:0;right:0;height:40%;background:linear-gradient(180deg,rgba(228,10,45,0.18),transparent);pointer-events:none;z-index:0}
+    @keyframes haloPulse{0%,100%{opacity:0.7;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
+    .iphone-emoji{width:320px;max-width:100%;height:auto;display:block;position:relative;z-index:2;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.55)) drop-shadow(0 0 30px rgba(228,10,45,0.3))}
     .prize-info{text-align:left;max-width:340px}
     .prize-info .label{font-size:0.85rem;color:var(--red);text-transform:uppercase;letter-spacing:2px;font-weight:500;margin-bottom:10px}
     .prize-info .name{font-family:'Poppins',sans-serif;font-size:2.6rem;font-weight:600;color:var(--white);line-height:1;margin-bottom:12px}
@@ -124,7 +126,10 @@
     .prize-big{max-width:900px;margin:0 auto;background:linear-gradient(135deg,var(--dark-card),var(--dark-surface));border:2px solid rgba(228,10,45,0.3);border-radius:28px;padding:60px 40px;text-align:center;position:relative;overflow:hidden;animation:glow 5s ease-in-out infinite}
     .prize-big::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at center,rgba(228,10,45,0.1),transparent 50%);pointer-events:none}
     .prize-ribbon{display:inline-block;background:var(--red);color:white;font-size:0.8rem;font-weight:600;padding:6px 22px;border-radius:30px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:24px;animation:pulse 2s infinite}
-    .prize-big .iphone-big{width:380px;max-width:100%;height:auto;display:block;margin:20px auto;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 25px 60px rgba(228,10,45,0.55)) drop-shadow(0 0 40px rgba(228,10,45,0.32))}
+    .prize-big-frame{position:relative;max-width:440px;margin:20px auto 30px;padding:40px 30px;border-radius:28px;background:linear-gradient(135deg,rgba(228,10,45,0.22) 0%,rgba(12,60,95,0.55) 55%,rgba(12,60,95,0.35) 100%);border:1px solid rgba(228,10,45,0.35);box-shadow:0 25px 70px rgba(0,0,0,0.5), 0 0 80px rgba(228,10,45,0.18), inset 0 1px 0 rgba(255,255,255,0.08);overflow:hidden}
+    .prize-big-frame::before{content:'';position:absolute;left:50%;top:50%;width:85%;height:60%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(ellipse at center,rgba(228,10,45,0.55) 0%,rgba(228,10,45,0.22) 45%,transparent 75%);filter:blur(25px);z-index:0;animation:haloPulse 2.8s ease-in-out infinite}
+    .prize-big-frame::after{content:'';position:absolute;top:0;left:0;right:0;height:40%;background:linear-gradient(180deg,rgba(228,10,45,0.18),transparent);pointer-events:none;z-index:0}
+    .prize-big .iphone-big{width:320px;max-width:100%;height:auto;display:block;margin:0 auto;position:relative;z-index:2;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.55)) drop-shadow(0 0 30px rgba(228,10,45,0.3))}
     .prize-big h2{font-family:'Poppins',sans-serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:600;margin-bottom:16px;line-height:1.1}
     .prize-big p{color:var(--gray);font-size:1.1rem;line-height:1.7;max-width:620px;margin:0 auto 30px}
     .prize-features{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:30px}
@@ -160,11 +165,10 @@
       .prize-info .name{font-size:2rem}
       .prize-info .desc{font-size:0.95rem}
       .prize-big{padding:40px 22px}
-      .prize-big .iphone-big{width:260px}
-      .iphone-emoji{width:280px}
-      .prize-visual{width:300px;padding:20px 0}
-      .prize-visual::before{filter:blur(20px);background:radial-gradient(ellipse at center,rgba(228,10,45,0.5) 0%,rgba(228,10,45,0.18) 45%,transparent 72%)}
-      .prize-visual::after{filter:blur(28px);background:radial-gradient(ellipse at center,rgba(12,60,95,0.45) 0%,rgba(12,60,95,0.15) 45%,transparent 75%)}
+      .prize-big-frame{max-width:320px;padding:28px 22px;margin:16px auto 24px}
+      .prize-big .iphone-big{width:220px}
+      .iphone-emoji{width:240px}
+      .prize-visual{width:320px;padding:28px 22px}
       .cta-btn{padding:16px 36px;font-size:1rem}
       .section-title{font-size:clamp(1.6rem,6vw,2.2rem)}
       .section-subtitle{font-size:1rem}
@@ -316,7 +320,9 @@
     <div class="container">
       <div class="prize-big animate-on-scroll">
         <div class="prize-ribbon">🏆 Prêmio do Campeão</div>
-        <img class="iphone-big" src="assets/iphone15.png" alt="iPhone 15 - Prêmio do campeão">
+        <div class="prize-big-frame">
+          <img class="iphone-big" src="assets/iphone15.png" alt="iPhone 15 - Prêmio do campeão">
+        </div>
         <h2>Um <span style="background:linear-gradient(135deg,var(--red-light),var(--red-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">iPhone 15</span> pro Tripulante que mais vender</h2>
         <p>Não é sorteio. Não é brinde. É o prêmio do Tripulante que abriu mais portas, fechou mais vendas e correu mais que os outros no período. <strong>E esse Tripulante pode ser você.</strong></p>
         <div class="prize-features">
