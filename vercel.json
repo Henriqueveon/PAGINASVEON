@@ -15,6 +15,9 @@
     { "source": "/caderno-de-marca/:path*", "destination": "/caderno-de-marca/:path*" },
     { "source": "/menteblindada", "destination": "/menteblindada/index.html" },
     { "source": "/menteblindada/", "destination": "/menteblindada/index.html" },
-    { "source": "/menteblindada/:path*", "destination": "/menteblindada/:path*" }
+    { "source": "/menteblindada/:path*", "destination": "/menteblindada/:path*" },
+    { "source": "/campeonato-veon", "destination": "/campeonato-veon/index.html" },
+    { "source": "/campeonato-veon/", "destination": "/campeonato-veon/index.html" },
+    { "source": "/campeonato-veon/:path*", "destination": "/campeonato-veon/:path*" }
   ]
 }
