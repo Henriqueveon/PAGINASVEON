@@ -405,7 +405,11 @@
       <div class="modal-success" id="modalSuccess">
         <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div class="s-title">Você está dentro!</div>
-        <div class="s-sub">Nosso time entra em contato pelo WhatsApp em até 1 hora para te colocar oficialmente no campeonato.</div>
+        <div class="s-sub">Estamos te levando pro WhatsApp pra finalizar sua entrada no Campeonato. Se a aba não abrir, clique no botão abaixo.</div>
+        <a href="#" id="successWppBtn" onclick="event.preventDefault(); window.open(buildTrackUrl(), '_blank')" class="cta-submit" style="margin-top:20px; text-decoration:none;">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.522 3.659 1.432 5.17L2.05 22l4.952-1.354A9.954 9.954 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 0 1-4.29-1.253l-.308-.183-3.168.866.85-3.082-.2-.316A7.954 7.954 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+          Ir pro WhatsApp agora
+        </a>
       </div>
     </div>
   </div>
@@ -445,6 +449,18 @@
       e.target.value = v;
     });
 
+    // Monta URL de tracking -> redireciona para WhatsApp (Supabase resolve o destino)
+    function buildTrackUrl() {
+      var p = new URLSearchParams(window.location.search);
+      return 'https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/track/unidade-start/lp-campeonato-veon'
+        + '?utm_source=' + encodeURIComponent(p.get('utm_source') || '')
+        + '&utm_campaign=' + encodeURIComponent(p.get('utm_campaign') || '')
+        + '&utm_content=' + encodeURIComponent(p.get('utm_content') || '')
+        + '&utm_adset=' + encodeURIComponent(p.get('utm_adset') || '')
+        + '&utm_placement=' + encodeURIComponent(p.get('utm_placement') || '')
+        + '&fbclid=' + encodeURIComponent(p.get('fbclid') || '');
+    }
+
     function handleModalSubmit(e) {
       e.preventDefault();
       const nome = document.getElementById('m-nome').value.trim();
@@ -467,17 +483,23 @@
         fbclid: params.get('fbclid') || ''
       };
 
-      // Pixel Meta (se carregado)
       if (typeof fbq !== 'undefined') {
         fbq('track', 'Lead', { content_name: 'campeonato-veon' });
+        fbq('track', 'Contact', { content_name: 'campeonato-veon-whatsapp' });
       }
 
+      // Webhook (fire-and-forget) — nao bloqueia o redirecionamento
       fetch('https://lqvcsgkcavkighxgteel.supabase.co/functions/v1/webhook/unidade-start/lp_campeonato_veon', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        keepalive: true
       }).catch(function () {});
 
+      // Abre o tracker (que redireciona pro WhatsApp) em nova aba
+      window.open(buildTrackUrl(), '_blank');
+
+      // Estado de sucesso fica como fallback caso popup seja bloqueado
       document.getElementById('modalForm').style.display = 'none';
       document.getElementById('modalSuccess').classList.add('show');
     }
