@@ -123,29 +123,32 @@
   }
   .section-title span{color:var(--accent-2)}
 
-  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .pillars{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:10px}
+  .pillars::-webkit-scrollbar{display:none}
   .pillar{
-    background:var(--bg-2);padding:24px 18px;border-radius:16px;
+    background:var(--bg-2);padding:28px 22px;border-radius:16px;
     border:1px solid rgba(255,255,255,.06);transition:transform .2s,border-color .2s;
+    min-width:75vw;scroll-snap-align:center;flex-shrink:0;
   }
-  .pillar:hover{transform:translateY(-6px);border-color:var(--accent)}
+  .pillar:hover{border-color:var(--accent)}
   .pillar .num{
-    font-size:2.2rem;font-weight:900;
+    font-size:2.8rem;font-weight:900;
     background:linear-gradient(90deg,var(--accent),var(--accent-2));
     -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-    margin-bottom:6px;
+    margin-bottom:8px;
   }
-  .pillar h3{font-size:1.1rem;margin-bottom:8px}
-  .pillar .pillar-subtitle{color:#fff;font-weight:600;font-size:.85rem;margin-bottom:6px}
-  .pillar .pillar-text{color:var(--muted);font-size:.9rem;display:none}
+  .pillar h3{font-size:1.3rem;margin-bottom:10px}
+  .pillar .pillar-subtitle{color:#fff;font-weight:600;font-size:.95rem;margin-bottom:8px}
+  .pillar .pillar-text{color:var(--muted);font-size:.95rem;display:none;line-height:1.6}
   .pillar .pillar-text.open{display:block}
   .pillar .reveal-btn{
-    display:inline-block;margin-top:12px;padding:8px 18px;border-radius:30px;
-    border:1px solid rgba(255,255,255,.15);background:transparent;color:var(--muted);
-    font-size:.8rem;cursor:pointer;transition:all .2s;font-weight:600;
+    display:inline-block;margin-top:14px;padding:10px 22px;border-radius:30px;
+    border:1px solid rgba(255,255,255,.2);background:transparent;color:var(--muted);
+    font-size:.85rem;cursor:pointer;transition:all .2s;font-weight:600;
   }
   .pillar .reveal-btn:hover{border-color:var(--accent);color:#fff}
   .pillar .reveal-btn.active{border-color:var(--accent-2);color:var(--accent-2)}
+  .scroll-hint{text-align:center;color:var(--muted);font-size:.8rem;margin-top:12px;opacity:.6}
 
   .bonus-card{
     background:var(--bg);padding:30px;border-radius:14px;
@@ -265,7 +268,10 @@
     .pillar .pillar-text{display:block!important;font-size:1.05rem}
     .pillar .reveal-btn{display:none}
     .pillar .num{font-size:3.5rem}
-    .pillars{gap:30px;grid-template-columns:repeat(3,1fr)}
+    .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;overflow:visible;scroll-snap-type:none}
+    .pillar{min-width:unset;flex-shrink:1}
+    .pillar:hover{transform:translateY(-6px)}
+    .scroll-hint{display:none}
     .bonus-card{padding:36px}
     .bonus-card h4{font-size:1.25rem}
     .price-box{padding:60px 40px;max-width:620px}
@@ -333,6 +339,7 @@
         <button class="reveal-btn" onclick="togglePillar(this)">Saiba mais</button>
       </div>
     </div>
+    <p class="scroll-hint">Deslize para ver os 3 G's →</p>
     <p class="animate fade-up" style="text-align:center;color:#fff;font-size:1.15rem;font-weight:700;max-width:680px;margin:50px auto 0">Quando esses 3 G's se encontram no seu negócio, o Ponto G é ativado. E é aí que tudo muda — pra você e pra sua família.</p>
   </div>
 </section>
