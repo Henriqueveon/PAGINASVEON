@@ -123,32 +123,20 @@
   }
   .section-title span{color:var(--accent-2)}
 
-  .pillars{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:10px}
-  .pillars::-webkit-scrollbar{display:none}
+  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
   .pillar{
-    background:var(--bg-2);padding:28px 22px;border-radius:16px;
+    background:var(--bg-2);padding:40px 30px;border-radius:16px;
     border:1px solid rgba(255,255,255,.06);transition:transform .2s,border-color .2s;
-    min-width:75vw;scroll-snap-align:center;flex-shrink:0;
   }
-  .pillar:hover{border-color:var(--accent)}
+  .pillar:hover{transform:translateY(-6px);border-color:var(--accent)}
   .pillar .num{
-    font-size:2.8rem;font-weight:900;
+    font-size:3rem;font-weight:900;
     background:linear-gradient(90deg,var(--accent),var(--accent-2));
     -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-    margin-bottom:8px;
+    margin-bottom:10px;
   }
-  .pillar h3{font-size:1.3rem;margin-bottom:10px}
-  .pillar .pillar-subtitle{color:#fff;font-weight:600;font-size:.95rem;margin-bottom:8px}
-  .pillar .pillar-text{color:var(--muted);font-size:.95rem;display:none;line-height:1.6}
-  .pillar .pillar-text.open{display:block}
-  .pillar .reveal-btn{
-    display:inline-block;margin-top:14px;padding:10px 22px;border-radius:30px;
-    border:1px solid rgba(255,255,255,.2);background:transparent;color:var(--muted);
-    font-size:.85rem;cursor:pointer;transition:all .2s;font-weight:600;
-  }
-  .pillar .reveal-btn:hover{border-color:var(--accent);color:#fff}
-  .pillar .reveal-btn.active{border-color:var(--accent-2);color:var(--accent-2)}
-  .scroll-hint{text-align:center;color:var(--muted);font-size:.8rem;margin-top:12px;opacity:.6}
+  .pillar h3{font-size:1.4rem;margin-bottom:12px}
+  .pillar p{color:var(--muted)}
 
   .bonus-card{
     background:var(--bg);padding:30px;border-radius:14px;
@@ -264,14 +252,8 @@
     .pillar{padding:50px 36px}
     .pillar h3{font-size:1.6rem}
     .pillar p{font-size:1.05rem}
-    .pillar .pillar-subtitle{font-size:1.05rem}
-    .pillar .pillar-text{display:block!important;font-size:1.05rem}
-    .pillar .reveal-btn{display:none}
     .pillar .num{font-size:3.5rem}
-    .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;overflow:visible;scroll-snap-type:none}
-    .pillar{min-width:unset;flex-shrink:1}
-    .pillar:hover{transform:translateY(-6px)}
-    .scroll-hint{display:none}
+    .pillars{gap:30px}
     .bonus-card{padding:36px}
     .bonus-card h4{font-size:1.25rem}
     .price-box{padding:60px 40px;max-width:620px}
@@ -320,26 +302,22 @@
       <div class="pillar animate fade-up" style="border-top:3px solid var(--accent)">
         <div class="num">G1</div>
         <h3>Geração de Demanda</h3>
-        <p class="pillar-subtitle">Sem cliente entrando, não existe negócio.</p>
-        <p class="pillar-text">A maioria dos empresários reclama que o movimento caiu, mas nunca aprendeu a gerar demanda de verdade. Você vai entender como atrair clientes qualificados todos os dias — sem depender da sorte, do ponto ou do boca a boca.</p>
-        <button class="reveal-btn" onclick="togglePillar(this)">Saiba mais</button>
+        <p style="color:#fff;font-weight:600;margin-bottom:10px">Sem cliente entrando, não existe negócio.</p>
+        <p style="color:var(--muted)">A maioria dos empresários reclama que o movimento caiu, mas nunca aprendeu a gerar demanda de verdade. Você vai entender como atrair clientes qualificados todos os dias — sem depender da sorte, do ponto ou do boca a boca.</p>
       </div>
       <div class="pillar animate fade-up" style="animation-delay:.15s;border-top:3px solid var(--gold)">
         <div class="num" style="background:linear-gradient(90deg,var(--gold),#ffd84a);-webkit-background-clip:text">G2</div>
         <h3>Gestão Comercial</h3>
-        <p class="pillar-subtitle">Cliente entrou. E agora?</p>
-        <p class="pillar-text">De nada adianta encher a loja se o atendimento é fraco, não tem follow-up e a meta é só um número no mural. Você vai descobrir como transformar oportunidade em venda — com processo, controle e previsibilidade.</p>
-        <button class="reveal-btn" onclick="togglePillar(this)">Saiba mais</button>
+        <p style="color:#fff;font-weight:600;margin-bottom:10px">Cliente entrou. E agora?</p>
+        <p style="color:var(--muted)">De nada adianta encher a loja se o atendimento é fraco, não tem follow-up e a meta é só um número no mural. Você vai descobrir como transformar oportunidade em venda — com processo, controle e previsibilidade.</p>
       </div>
       <div class="pillar animate fade-up" style="animation-delay:.3s;border-top:3px solid #fff">
         <div class="num" style="background:linear-gradient(90deg,#fff,#ccc);-webkit-background-clip:text">G3</div>
         <h3>Gestão de Pessoas</h3>
-        <p class="pillar-subtitle">Você não vai crescer sozinho.</p>
-        <p class="pillar-text">O empresário que faz tudo é o mesmo que não cresce nunca. Você vai aprender a montar um time que veste a camisa, entrega resultado e funciona com ou sem você na operação. É assim que se muda de vida.</p>
-        <button class="reveal-btn" onclick="togglePillar(this)">Saiba mais</button>
+        <p style="color:#fff;font-weight:600;margin-bottom:10px">Você não vai crescer sozinho.</p>
+        <p style="color:var(--muted)">O empresário que faz tudo é o mesmo que não cresce nunca. Você vai aprender a montar um time que veste a camisa, entrega resultado e funciona com ou sem você na operação. É assim que se muda de vida.</p>
       </div>
     </div>
-    <p class="scroll-hint">Deslize para ver os 3 G's →</p>
     <p class="animate fade-up" style="text-align:center;color:#fff;font-size:1.15rem;font-weight:700;max-width:680px;margin:50px auto 0">Quando esses 3 G's se encontram no seu negócio, o Ponto G é ativado. E é aí que tudo muda — pra você e pra sua família.</p>
   </div>
 </section>
@@ -431,14 +409,6 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, {threshold:0.15});
 document.querySelectorAll('.animate').forEach(el => observer.observe(el));
-
-// Toggle pillar text
-function togglePillar(btn){
-  const text = btn.previousElementSibling;
-  text.classList.toggle('open');
-  btn.classList.toggle('active');
-  btn.textContent = text.classList.contains('open') ? 'Fechar' : 'Saiba mais';
-}
 
 // Form submit → redirect to checkout
 document.getElementById('leadForm').addEventListener('submit', function(e){
