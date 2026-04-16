@@ -19,11 +19,11 @@
     { "source": "/campeonato-veon", "destination": "/campeonato-veon/index.html" },
     { "source": "/campeonato-veon/", "destination": "/campeonato-veon/index.html" },
     { "source": "/campeonato-veon/:path*", "destination": "/campeonato-veon/:path*" },
-    { "source": "/ponto-g-do-varejo", "destination": "/ponto-g-do-varejo/index.html" },
-    { "source": "/ponto-g-do-varejo/", "destination": "/ponto-g-do-varejo/index.html" },
-    { "source": "/ponto-g-do-varejo/:path*", "destination": "/ponto-g-do-varejo/:path*" },
-    { "source": "/ponto-g-do-varejo-02", "destination": "/ponto-g-do-varejo-02/index.html" },
-    { "source": "/ponto-g-do-varejo-02/", "destination": "/ponto-g-do-varejo-02/index.html" },
-    { "source": "/ponto-g-do-varejo-02/:path*", "destination": "/ponto-g-do-varejo-02/:path*" }
+    { "source": "/pg01", "destination": "/pg01/index.html" },
+    { "source": "/pg01/", "destination": "/pg01/index.html" },
+    { "source": "/pg01/:path*", "destination": "/pg01/:path*" },
+    { "source": "/pg02", "destination": "/pg02/index.html" },
+    { "source": "/pg02/", "destination": "/pg02/index.html" },
+    { "source": "/pg02/:path*", "destination": "/pg02/:path*" }
   ]
 }
