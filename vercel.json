@@ -21,6 +21,9 @@
     { "source": "/campeonato-veon/:path*", "destination": "/campeonato-veon/:path*" },
     { "source": "/ponto-g-do-varejo", "destination": "/ponto-g-do-varejo/index.html" },
     { "source": "/ponto-g-do-varejo/", "destination": "/ponto-g-do-varejo/index.html" },
-    { "source": "/ponto-g-do-varejo/:path*", "destination": "/ponto-g-do-varejo/:path*" }
+    { "source": "/ponto-g-do-varejo/:path*", "destination": "/ponto-g-do-varejo/:path*" },
+    { "source": "/ponto-g-do-varejo-02", "destination": "/ponto-g-do-varejo-02/index.html" },
+    { "source": "/ponto-g-do-varejo-02/", "destination": "/ponto-g-do-varejo-02/index.html" },
+    { "source": "/ponto-g-do-varejo-02/:path*", "destination": "/ponto-g-do-varejo-02/:path*" }
   ]
 }
