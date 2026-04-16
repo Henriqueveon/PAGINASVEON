@@ -6,523 +6,426 @@
 <title>O Ponto G do Varejo | Instituto Veon</title>
 <meta name="description" content="O evento que revela o ponto exato que muda tudo no seu varejo. Toledo - PR."/>
 <link rel="icon" type="image/png" href="favicon.png"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Event","name":"O Ponto G do Varejo","description":"Evento presencial de imersão em Marketing, Vendas e Liderança para empresários do varejo.","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":{"@type":"Place","name":"Toledo - PR","address":{"@type":"PostalAddress","addressLocality":"Toledo","addressRegion":"PR","addressCountry":"BR"}},"organizer":{"@type":"Organization","name":"Instituto Veon","url":"https://assessoriaveon.com"}}
+{"@context":"https://schema.org","@type":"Event","name":"O Ponto G do Varejo","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":{"@type":"Place","name":"Toledo - PR","address":{"@type":"PostalAddress","addressLocality":"Toledo","addressRegion":"PR","addressCountry":"BR"}},"organizer":{"@type":"Organization","name":"Instituto Veon","url":"https://assessoriaveon.com"}}
 </script>
 <style>
-  :root{
-    --bg:#ffffff;
-    --bg-2:#f5f5f7;
-    --white:#111111;
-    --blue:#0000ff;
-    --blue-light:#2222ff;
-    --red:#ff0000;
-    --muted:#666666;
-    --muted-light:#444444;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.7}
-  .container{max-width:1080px;margin:0 auto;padding:0 24px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#fff;color:#1a1a2e;line-height:1.7}
 
-  @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-  @keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-  @keyframes pulseBlue{
-    0%,100%{box-shadow:0 0 8px rgba(0,0,255,.3)}
-    50%{box-shadow:0 0 25px rgba(0,0,255,.7)}
-  }
-  @keyframes pulseRed{
-    0%,100%{box-shadow:0 0 8px rgba(255,0,0,.3)}
-    50%{box-shadow:0 0 25px rgba(255,0,0,.7)}
-  }
-  @keyframes blinkRed{
-    0%,100%{color:#ff0000}
-    50%{color:#ff4444;text-shadow:0 0 10px rgba(255,0,0,.6)}
-  }
-  @keyframes blinkBlue{
-    0%,100%{color:#0000ff}
-    50%{color:#4444ff;text-shadow:0 0 10px rgba(0,0,255,.6)}
-  }
-  @keyframes borderPulseRed{
-    0%,100%{border-color:#ff0000;box-shadow:0 0 10px rgba(255,0,0,.2)}
-    50%{border-color:#ff3333;box-shadow:0 0 25px rgba(255,0,0,.5)}
-  }
-  @keyframes borderPulseBlue{
-    0%,100%{border-color:#0000ff;box-shadow:0 0 10px rgba(0,0,255,.2)}
-    50%{border-color:#3333ff;box-shadow:0 0 25px rgba(0,0,255,.5)}
-  }
-  .anim{opacity:0}
-  .anim.show{animation:fadeUp .7s ease forwards}
+:root{
+  --navy:#1a1a2e;
+  --navy-light:#16213e;
+  --accent:#c0392b;
+  --accent-hover:#e74c3c;
+  --blue:#2471a3;
+  --light:#f7f8fc;
+  --border:#e8eaf0;
+  --text:#2c3e50;
+  --text-light:#7f8c8d;
+}
 
-  /* Hero */
-  header{
-    min-height:100vh;display:flex;align-items:center;justify-content:center;
-    text-align:center;padding:60px 24px;position:relative;
-    background:linear-gradient(180deg,#fff 0%,#f0f2f5 50%,#fff 100%);
-  }
-  header::after{
-    content:"";position:absolute;top:50%;left:50%;
-    width:500px;height:500px;transform:translate(-50%,-50%);
-    background:radial-gradient(circle,rgba(0,68,204,.08),transparent 70%);
-    pointer-events:none;
-  }
-  .hero-logo{width:70px;margin-bottom:24px;opacity:.8}
-  .hero-eyebrow{
-    font-size:.75rem;letter-spacing:4px;text-transform:uppercase;
-    color:var(--red);margin-bottom:20px;font-weight:600;animation:blinkRed 2s infinite;
-  }
-  .hero-title{
-    font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,4.5rem);
-    font-weight:900;line-height:1.05;margin-bottom:24px;
-  }
-  .hero-title em{
-    font-style:normal;
-    background:linear-gradient(90deg,#0000ff,#4466ff,#0000ff);
-    background-size:200% auto;
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-    animation:shimmer 4s linear infinite;
-  }
-  .hero-sub{
-    font-size:clamp(1rem,2vw,1.15rem);color:var(--muted-light);
-    max-width:520px;margin:0 auto 40px;font-weight:400;
-  }
-  .hero-cta{
-    display:inline-block;padding:16px 44px;
-    background:var(--blue);color:#fff;font-weight:800;
-    font-size:1rem;text-transform:uppercase;letter-spacing:2px;
-    text-decoration:none;transition:all .3s;border:none;cursor:pointer;
-    animation:pulseBlue 2s infinite;
-  }
-  .hero-cta:hover{background:var(--blue-light);transform:translateY(-2px);color:#fff}
-  .hero-details{
-    margin-top:40px;display:flex;justify-content:center;gap:30px;flex-wrap:wrap;
-    font-size:.85rem;color:var(--muted);
-  }
-  .hero-details span{display:flex;align-items:center;gap:6px}
-  .hero-details strong{color:var(--white)}
+/* Animations */
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.a{opacity:0}.a.on{animation:up .5s ease forwards}
 
-  .red-line{width:60px;height:3px;background:var(--red);margin:0 auto 50px;box-shadow:0 0 15px rgba(255,0,0,.5)}
+/* ====== HERO ====== */
+.hero{
+  background:var(--navy);color:#fff;padding:100px 0 80px;
+  position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;bottom:0;left:0;right:0;height:120px;
+  background:linear-gradient(to top,rgba(26,26,46,.0),rgba(26,26,46,0));
+}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+.hero .wrap{position:relative;z-index:1}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  padding:8px 18px;border-radius:100px;font-size:.8rem;
+  color:rgba(255,255,255,.7);margin-bottom:28px;font-weight:500;
+}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.hero h1{
+  font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,5.5vw,3.8rem);
+  line-height:1.12;margin-bottom:22px;font-weight:400;max-width:700px;
+}
+.hero h1 span{color:var(--accent)}
+.hero p{
+  font-size:clamp(1rem,2vw,1.15rem);color:rgba(255,255,255,.65);
+  max-width:520px;margin-bottom:36px;
+}
+.hero p strong{color:#fff}
+.cta{
+  display:inline-block;padding:16px 40px;background:var(--accent);
+  color:#fff;font-weight:700;font-size:.95rem;letter-spacing:.5px;
+  text-decoration:none;border-radius:6px;border:none;cursor:pointer;
+  transition:background .2s,transform .2s;
+}
+.cta:hover{background:var(--accent-hover);transform:translateY(-1px)}
+.hero-meta{
+  display:flex;gap:28px;flex-wrap:wrap;margin-top:36px;
+  padding-top:28px;border-top:1px solid rgba(255,255,255,.1);
+}
+.hero-meta div{font-size:.85rem;color:rgba(255,255,255,.45)}
+.hero-meta div b{display:block;color:rgba(255,255,255,.9);font-size:.95rem;font-weight:600}
+.hero-meta div.urg b{color:var(--accent)}
 
-  section{padding:80px 0;display:flex;align-items:center}
-  section>.container{width:100%}
+/* ====== SECTION ====== */
+section{padding:80px 0}
+.sec-title{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,4vw,2.5rem);
+  line-height:1.15;margin-bottom:16px;font-weight:400;
+}
+.sec-title span{color:var(--accent)}
+.sec-sub{color:var(--text-light);font-size:1.05rem;max-width:580px;margin-bottom:48px}
 
-  /* Story / Bridge */
-  .story{background:var(--bg)}
-  .story-text{max-width:680px;margin:0 auto;text-align:center}
-  .story-text h2{
-    font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.6rem);
-    font-weight:700;margin-bottom:30px;line-height:1.2;
-  }
-  .story-text h2 em{font-style:normal;color:var(--blue)}
-  .story-text p{color:var(--muted-light);font-size:1.05rem;margin-bottom:20px}
-  .story-text p strong{color:var(--white)}
+/* ====== DOBRA 2: CONTEÚDO ====== */
+.content{background:var(--light)}
+.content .intro{text-align:center;max-width:640px;margin:0 auto 56px}
+.content .intro .sec-sub{margin-left:auto;margin-right:auto}
 
-  /* 3 G's */
-  .gs{background:var(--bg-2)}
-  .gs-header{text-align:center;margin-bottom:60px}
-  .gs-header h2{
-    font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.6rem);
-    font-weight:700;line-height:1.2;margin-bottom:16px;
-  }
-  .gs-header h2 em{font-style:normal;color:var(--blue)}
-  .gs-header p{color:var(--muted-light);max-width:580px;margin:0 auto;font-size:1rem}
-  .g-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-  .g-card{
-    padding:36px 28px;border:1px solid #e0e0e0;
-    border-radius:4px;background:#fff;position:relative;
-    box-shadow:0 4px 20px rgba(0,0,0,.08);transition:border-color .3s;
-  }
-  .g-card:hover{border-color:var(--blue);box-shadow:0 4px 20px rgba(0,0,255,.15)}
-  .g-card .g-num{
-    font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;
-    color:var(--red);opacity:.35;margin-bottom:12px;
-  }
-  .g-card h3{font-size:1.2rem;margin-bottom:8px;font-weight:700}
-  .g-card .g-hook{color:var(--red);font-weight:700;font-size:1rem;margin-bottom:12px;animation:blinkRed 2.5s infinite}
-  .g-card p{color:var(--muted-light);font-size:.95rem}
+.g-row{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;
+}
+.g-item{
+  background:#fff;padding:32px 28px;border-radius:10px;
+  box-shadow:0 1px 3px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);
+  border-left:4px solid var(--navy);transition:border-color .2s;
+}
+.g-item:nth-child(2){border-left-color:var(--accent)}
+.g-item:nth-child(3){border-left-color:var(--blue)}
+.g-item .g-label{
+  font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-light);margin-bottom:10px;
+}
+.g-item h3{font-size:1.2rem;font-weight:700;margin-bottom:6px;color:var(--navy)}
+.g-item .hook{color:var(--accent);font-weight:600;font-size:.95rem;margin-bottom:14px}
+.g-item ul{padding-left:18px;color:var(--text);display:grid;gap:6px;font-size:.95rem}
+.g-item ul li::marker{color:var(--blue)}
 
-  /* Not this */
-  .not-this{background:var(--bg);text-align:center}
-  .not-this h2{
-    font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2.2rem);
-    margin-bottom:30px;
-  }
-  .not-this h2 em{font-style:normal;color:var(--red)}
-  .not-grid{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:16px;max-width:700px;margin:0 auto;
-  }
-  .not-item{
-    padding:18px;border:1px solid #e0e0e0;border-radius:4px;background:#fff;
-    box-shadow:0 2px 10px rgba(0,0,0,.05);color:var(--muted);font-size:.95rem;
-  }
-  .not-item span{color:var(--red);font-weight:700;margin-right:6px;animation:blinkRed 2s infinite}
+.qualify{
+  margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  background:var(--navy);border-radius:10px;padding:36px 32px;color:#fff;
+}
+.qualify h4{font-size:1rem;font-weight:700;margin-bottom:14px}
+.qualify h4.yes{color:#27ae60}.qualify h4.no{color:var(--accent)}
+.qualify ul{list-style:none;display:grid;gap:8px}
+.qualify li{font-size:.95rem;color:rgba(255,255,255,.7)}
+.qualify li b{margin-right:6px;font-weight:700}
+.qualify li b.ck{color:#27ae60}.qualify li b.cr{color:var(--accent)}
 
-  /* For who */
-  .for-who{background:var(--bg-2)}
-  .for-who h2{
-    font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2.2rem);
-    text-align:center;margin-bottom:40px;
-  }
-  .for-who h2 em{font-style:normal;color:var(--blue)}
-  .for-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:780px;margin:0 auto}
-  .for-card{
-    padding:28px;border:1px solid #e0e0e0;border-radius:4px;background:#fff;
-    box-shadow:0 2px 14px rgba(0,0,0,.06);
-  }
-  .for-card h4{font-size:1rem;margin-bottom:14px;color:var(--white)}
-  .for-card li{color:var(--muted-light);font-size:.95rem;margin-bottom:8px;padding-left:4px}
-  .for-card.yes{border-top:3px solid var(--blue)}
-  .for-card.no{border-top:3px solid var(--red)}
+/* ====== DOBRA 3: OFERTA ====== */
+.oferta{background:#fff;text-align:center}
+.oferta .intro{max-width:600px;margin:0 auto 48px}
+.oferta .intro .sec-sub{margin-left:auto;margin-right:auto}
 
-  /* Offer */
-  .offer{
-    background:linear-gradient(180deg,#fff 0%,#f0f2f5 50%,#fff 100%);
-    text-align:center;
-  }
-  .offer h2{
-    font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.6rem);
-    font-weight:700;margin-bottom:16px;
-  }
-  .offer h2 em{font-style:normal;color:var(--blue)}
-  .offer>div>.sub{color:var(--muted-light);max-width:560px;margin:0 auto 50px;font-size:1.05rem}
+.bonus-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:760px;margin:0 auto 48px}
+.b-card{
+  padding:24px;background:var(--light);border-radius:8px;text-align:left;
+  border:1px solid var(--border);
+}
+.b-card h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.b-card p{font-size:.9rem;color:var(--text-light)}
+.b-card.feat{border:2px solid var(--accent);position:relative;background:#fff}
+.b-card.feat::after{
+  content:"5 primeiros";position:absolute;top:-10px;right:12px;
+  background:var(--accent);color:#fff;padding:3px 10px;border-radius:4px;
+  font-size:.65rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+}
+.b-card.feat h4{color:var(--accent)}
 
-  .offer-box{
-    max-width:500px;margin:0 auto;padding:48px 32px;
-    border:2px solid var(--red);position:relative;
-    background:#fff;animation:borderPulseRed 2s infinite;
-  }
-  .offer-box::before{
-    content:"1º LOTE";position:absolute;top:-14px;left:50%;transform:translateX(-50%);
-    background:var(--red);color:#fff;padding:6px 20px;
-    font-size:.75rem;font-weight:800;letter-spacing:2px;
-  }
-  .offer-box .secret{font-size:1.1rem;color:var(--muted-light);margin-bottom:8px}
-  .offer-box .secret-red{color:var(--red);font-weight:700;font-size:1rem;margin-bottom:28px}
-  .offer-box .duo{
-    display:inline-block;padding:10px 20px;border:1px solid var(--red);
-    color:var(--red);font-weight:700;font-size:.9rem;margin-bottom:28px;
-  }
-  .offer-cta{
-    display:block;width:100%;padding:18px;background:var(--blue);
-    color:#fff;font-weight:800;font-size:1rem;text-transform:uppercase;
-    letter-spacing:2px;border:none;cursor:pointer;transition:all .3s;
-    animation:pulseBlue 2s infinite;
-  }
-  .offer-cta:hover{background:var(--blue-light)}
-  .offer-box .seats{color:var(--red);font-size:.9rem;margin-top:20px;font-weight:600}
+.offer-card{
+  max-width:460px;margin:0 auto;padding:44px 32px;
+  background:var(--navy);color:#fff;border-radius:10px;position:relative;
+}
+.offer-card .badge{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--accent);color:#fff;padding:5px 20px;border-radius:100px;
+  font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+}
+.offer-card .line{font-size:1.05rem;color:rgba(255,255,255,.6);margin-bottom:6px}
+.offer-card .hl{color:var(--accent);font-weight:700;font-size:1rem;margin-bottom:24px}
+.offer-card .duo{
+  display:inline-block;padding:8px 20px;border:1px solid rgba(255,255,255,.2);
+  border-radius:6px;color:rgba(255,255,255,.8);font-size:.9rem;font-weight:600;margin-bottom:24px;
+}
+.offer-card .cta{width:100%;display:block;text-align:center;border-radius:6px;font-size:1rem;padding:16px}
+.offer-card .limited{margin-top:16px;color:var(--accent);font-weight:700;font-size:.95rem}
 
-  .bonus-row{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:16px;max-width:740px;margin:50px auto 0;
-  }
-  .bonus-item{
-    padding:20px;border:1px solid #e0e0e0;text-align:center;
-    background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.08);border-radius:4px;
-  }
-  .bonus-item h4{font-size:.95rem;margin-bottom:6px;color:var(--blue)}
-  .bonus-item p{font-size:.85rem;color:var(--muted)}
-  .bonus-item.highlight{border:2px solid var(--red);position:relative}
-  .bonus-item.highlight::after{
-    content:"5 PRIMEIROS";position:absolute;top:-10px;right:10px;
-    background:var(--red);color:#fff;padding:3px 10px;border-radius:2px;
-    font-size:.65rem;font-weight:800;letter-spacing:1px;
-  }
+.info-row{
+  display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:48px;
+}
+.info-row div{text-align:center}
+.info-row .label{font-size:.7rem;font-weight:700;letter-spacing:2px;color:var(--text-light);text-transform:uppercase;margin-bottom:4px}
+.info-row .val{font-size:1.05rem;font-weight:600;color:var(--navy)}
 
-  .event-strip{
-    display:flex;justify-content:center;gap:40px;flex-wrap:wrap;
-    margin-top:50px;font-size:.9rem;color:var(--muted-light);
-  }
-  .event-strip div{text-align:center}
-  .event-strip strong{display:block;color:var(--red);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+/* ====== DOBRA 4: FAQ ====== */
+.faq-sec{background:var(--light);padding:80px 0}
+.faq-sec .wrap{max-width:720px}
+.faq-sec .sec-title{text-align:center;margin-bottom:36px}
+.q{
+  background:#fff;border-radius:8px;margin-bottom:10px;
+  box-shadow:0 1px 3px rgba(0,0,0,.04);
+}
+.q summary{
+  padding:18px 22px;cursor:pointer;font-weight:600;font-size:1rem;
+  list-style:none;display:flex;justify-content:space-between;align-items:center;
+  color:var(--navy);
+}
+.q summary::after{content:"+";font-size:1.2rem;color:var(--accent);font-weight:600}
+.q[open] summary::after{content:"−"}
+.q[open] summary{color:var(--accent)}
+.q p{padding:0 22px 18px;color:var(--text-light);font-size:.95rem}
+.faq-close{text-align:center;margin-top:48px}
+.faq-close p{color:var(--text-light);font-size:1.05rem;margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto}
+.faq-close p strong{color:var(--navy)}
+.faq-close .urg{color:var(--accent);font-weight:700;font-size:.95rem;margin-top:12px}
 
-  /* FAQ */
-  .faq{background:var(--bg-2)}
-  .faq h2{
-    font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);
-    text-align:center;margin-bottom:50px;
-  }
-  .faq h2 em{font-style:normal;color:var(--blue)}
-  .faq-list{max-width:680px;margin:0 auto;display:grid;gap:12px}
-  .faq-item{
-    border:1px solid #e0e0e0;padding:18px 20px;border-radius:4px;
-    box-shadow:0 2px 10px rgba(0,0,0,.05);background:#fff;
-  }
-  .faq-item summary{
-    cursor:pointer;font-weight:600;color:var(--white);font-size:1rem;
-    list-style:none;display:flex;justify-content:space-between;align-items:center;
-  }
-  .faq-item summary::after{content:"+";font-size:1.4rem;color:var(--red);transition:transform .2s;animation:blinkRed 2s infinite}
-  .faq-item[open] summary::after{content:"−"}
-  .faq-item p{color:var(--muted-light);margin-top:12px;font-size:.95rem}
-  .faq-cta{text-align:center;margin-top:50px}
-  .faq-closing{text-align:center;color:var(--muted-light);max-width:560px;margin:0 auto 40px;font-size:1.05rem}
-  .faq-closing strong{color:var(--white)}
+/* Footer */
+footer{background:var(--navy);color:rgba(255,255,255,.4);padding:36px 28px;text-align:center;font-size:.85rem}
+footer strong{color:rgba(255,255,255,.7)}
+footer img{width:36px;margin-bottom:8px;filter:brightness(10);opacity:.4}
 
-  footer{padding:40px 0;text-align:center;color:var(--muted);border-top:3px solid var(--red);box-shadow:0 -4px 15px rgba(255,0,0,.15)}
-  footer strong{color:var(--muted-light)}
+/* Sticky */
+.sticky{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;
+  padding:10px 16px;background:var(--navy);border-top:1px solid rgba(255,255,255,.1);
+}
+.sticky a{
+  display:block;padding:14px;background:var(--accent);color:#fff;
+  font-weight:700;font-size:.9rem;text-align:center;border-radius:6px;
+  text-decoration:none;letter-spacing:.5px;
+}
 
-  /* Sticky CTA mobile */
-  .sticky-bar{
-    display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;
-    padding:12px 20px;background:#fff;border-top:2px solid var(--red);
-    box-shadow:0 -4px 20px rgba(0,0,0,.1);text-align:center;
-  }
-  .sticky-bar a{
-    display:block;padding:14px;background:var(--blue);color:#fff;
-    font-weight:800;font-size:.9rem;text-transform:uppercase;letter-spacing:2px;
-    text-decoration:none;animation:pulseBlue 2s infinite;
-  }
+/* Modal */
+.mo{
+  display:none;position:fixed;inset:0;background:rgba(26,26,46,.7);
+  z-index:1000;align-items:center;justify-content:center;backdrop-filter:blur(4px);
+}
+.mo.active{display:flex}
+.mo-box{
+  background:#fff;border-radius:12px;padding:40px 28px;max-width:420px;width:92%;
+  position:relative;box-shadow:0 20px 60px rgba(0,0,0,.2);
+}
+.mo-box h3{font-family:'DM Serif Display',serif;text-align:center;font-size:1.4rem;margin-bottom:6px;font-weight:400}
+.mo-box .ms{text-align:center;color:var(--text-light);margin-bottom:20px;font-size:.9rem}
+.mo-box input{
+  width:100%;padding:13px 16px;border:1px solid var(--border);border-radius:6px;
+  background:#fff;color:var(--navy);font-size:.95rem;margin-bottom:10px;outline:none;
+  font-family:'DM Sans',sans-serif;
+}
+.mo-box input:focus{border-color:var(--navy)}
+.mo-box input::placeholder{color:#bbb}
+.mo-box button[type="submit"]{
+  width:100%;padding:14px;background:var(--accent);color:#fff;
+  font-weight:700;font-size:.95rem;cursor:pointer;border:none;
+  border-radius:6px;letter-spacing:.5px;transition:background .2s;
+}
+.mo-box button[type="submit"]:hover{background:var(--accent-hover)}
+.mo-box .x{position:absolute;top:14px;right:16px;color:#ccc;cursor:pointer;font-size:1.3rem;background:none;border:none}
+.mo-box .lgpd{font-size:.7rem;color:#bbb;text-align:center;margin-top:10px}
 
-  /* Modal */
-  .modal-overlay{
-    display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);
-    z-index:1000;align-items:center;justify-content:center;
-    backdrop-filter:blur(6px);
-  }
-  .modal-overlay.active{display:flex}
-  .modal{
-    background:#fff;border:2px solid var(--blue);
-    padding:44px 32px;max-width:440px;width:90%;position:relative;
-    box-shadow:0 10px 40px rgba(0,0,0,.15);
-  }
-  .modal h3{text-align:center;font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:8px}
-  .modal p.modal-sub{text-align:center;color:var(--muted);margin-bottom:24px;font-size:.9rem}
-  .modal input{
-    width:100%;padding:14px 16px;border:1px solid #ddd;
-    background:#fff;color:#111;font-size:.95rem;margin-bottom:12px;
-    outline:none;font-family:'Inter',sans-serif;
-  }
-  .modal input:focus{border-color:var(--blue)}
-  .modal input::placeholder{color:#999}
-  .modal button[type="submit"]{
-    width:100%;padding:16px;background:var(--blue);color:#fff;
-    font-weight:800;font-size:.95rem;cursor:pointer;border:none;
-    text-transform:uppercase;letter-spacing:2px;transition:all .3s;
-  }
-  .modal button[type="submit"]:hover{background:var(--blue-light)}
-  .modal .close{
-    position:absolute;top:12px;right:16px;color:var(--muted);
-    cursor:pointer;font-size:1.3rem;background:none;border:none;
-  }
-  .modal .lgpd{font-size:.7rem;color:var(--muted);text-align:center;margin-top:12px;line-height:1.4}
-
-  @media(max-width:768px){
-    .sticky-bar{display:block}
-    footer{padding-bottom:80px}
-    .not-this{min-height:auto}
-    .for-who{min-height:auto}
-  }
-  @media(min-width:1024px){
-    .container{max-width:1200px;padding:0 40px}
-    .hero-title{font-size:clamp(3rem,5.5vw,5rem)}
-    .hero-sub{font-size:1.2rem;max-width:580px}
-    section{padding:100px 0}
-    .story-text h2,.gs-header h2,.offer h2,.faq h2{font-size:clamp(2rem,4vw,3rem)}
-    .story-text p{font-size:1.1rem}
-    .g-card{padding:44px 32px}
-    .g-card h3{font-size:1.4rem}
-    .offer-box{padding:56px 40px;max-width:540px}
-    .hero-cta,.offer-cta{font-size:1.05rem;padding:18px 52px}
-    .modal{padding:52px 40px;max-width:480px}
-  }
+@media(max-width:768px){
+  .hero{padding:72px 0 56px}
+  .qualify{grid-template-columns:1fr;gap:28px}
+  .sticky{display:block}
+  footer{padding-bottom:76px}
+  .g-row{grid-template-columns:1fr}
+}
+@media(min-width:1024px){
+  .hero h1{font-size:3.6rem}
+  .hero p{font-size:1.2rem}
+  section{padding:100px 0}
+  .sec-title{font-size:2.6rem}
+  .g-item{padding:36px 32px}
+  .g-item h3{font-size:1.35rem}
+  .offer-card{padding:52px 40px;max-width:500px}
+}
 </style>
 </head>
 <body>
 
-<!-- HERO: Headline + Desejo -->
-<header>
-  <div style="position:relative;z-index:1">
-    <img src="logo.png" alt="Instituto Veon" class="hero-logo" style="filter:brightness(0)"/>
-    <div class="hero-eyebrow anim">Evento presencial em Toledo · PR</div>
-    <h1 class="hero-title anim">Você está a 4 horas<br>de <em>mudar a sua vida.</em></h1>
-    <p class="hero-sub anim">Clareza do que fazer. Time que funciona sozinho. Tempo e dinheiro pra viver — não só trabalhar. <strong>Em 4 horas você sai com o plano que a maioria leva 2 anos pra montar.</strong></p>
-    <a href="#inscricao" class="hero-cta anim">Quero participar</a>
-    <div class="hero-details anim">
-      <span><strong>4h</strong> de imersão</span>
-      <span>Início <strong>18:30</strong></span>
-      <span><strong>Coffee break</strong> incluso</span>
-      <span style="color:var(--red)"><strong>Apenas 50 vagas</strong></span>
+<div class="hero">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:28px">
+      <img src="logo.png" alt="Instituto Veon" style="width:60px;filter:brightness(10)"/>
+      <span style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:rgba(255,255,255,.85);letter-spacing:1px">Instituto Veon</span>
+    </div>
+    <div class="hero-badge a"><span class="dot"></span> Evento presencial em Toledo · PR</div>
+    <h1 class="a">Você está a 4 horas de <span>mudar a sua vida.</span></h1>
+    <p class="a">Clareza do que fazer. Time que funciona sozinho. <strong>Em 4 horas você sai com o plano que a maioria leva 2 anos pra montar.</strong></p>
+    <a href="#inscricao" class="cta a">Quero participar</a>
+    <div class="hero-meta a">
+      <div><b>4 horas</b>de imersão</div>
+      <div><b>18:30</b>início</div>
+      <div><b>Coffee break</b>incluso</div>
+      <div class="urg"><b>50 vagas</b>restantes</div>
     </div>
   </div>
-</header>
+</div>
 
-<!-- DOBRA 2: Bridge + 3 G's + O que não vai ter -->
-<section class="story" style="background:var(--bg-2)">
-  <div class="container">
-    <div class="story-text">
-      <div class="red-line"></div>
-      <h2 class="anim">Imagine ter a <em>chave</em> que faltava</h2>
-      <p class="anim" style="font-size:1.15rem">Você chega em casa tarde, o WhatsApp não para, o caixa fechou apertado de novo. No domingo já está pensando na segunda. <strong>Isso não é rotina — é sintoma de um dos 3 G's travados.</strong></p>
-      <p class="anim" style="font-size:1.15rem">Existe um grupo de empresários que encontrou o <strong style="color:var(--blue)">Ponto G do Varejo</strong> — o ponto onde 3 forças se cruzam e tudo começa a girar: cliente entrando, venda acontecendo, time funcionando. <strong>Em qual dos três está o gargalo do seu negócio?</strong></p>
+<section class="content">
+  <div class="wrap">
+    <div class="intro">
+      <h2 class="sec-title a">Imagine ter a <span>chave</span> que faltava</h2>
+      <p class="sec-sub a">Você chega em casa tarde, o caixa fechou apertado, o time não rende. <strong style="color:var(--navy)">Isso é sintoma de um dos 3 G's travados.</strong> Nesse evento você descobre qual — e sai com o mapa pra ativar.</p>
     </div>
 
-    <div class="g-cards" style="margin-top:60px">
-      <div class="g-card anim">
-        <div class="g-num">G1</div>
+    <div class="g-row">
+      <div class="g-item a">
+        <div class="g-label">Pilar 01</div>
         <h3>Geração de Demanda</h3>
-        <p class="g-hook">A loja cheia todo dia. Sem depender de sorte.</p>
-        <p style="font-size:1rem"><strong>Vai dominar:</strong></p>
-        <ul style="color:var(--muted);margin-top:8px;padding-left:18px;display:grid;gap:8px;font-size:1rem">
-          <li>Como atrair clientes qualificados com tráfego pago</li>
-          <li>Criativos, copys e ofertas que fazem o telefone tocar</li>
-          <li>O método pra parar de queimar verba em anúncio que não converte</li>
+        <p class="hook">A loja cheia todo dia. Sem depender de sorte.</p>
+        <p style="font-size:.95rem;margin-bottom:10px"><strong>Vai dominar:</strong></p>
+        <ul>
+          <li>Atrair clientes qualificados com tráfego pago</li>
+          <li>Criativos e ofertas que fazem o telefone tocar</li>
+          <li>Parar de queimar verba em anúncio que não converte</li>
         </ul>
       </div>
-      <div class="g-card anim">
-        <div class="g-num">G2</div>
+      <div class="g-item a">
+        <div class="g-label">Pilar 02</div>
         <h3>Gestão Comercial</h3>
-        <p class="g-hook">Cada cliente que entra, vira venda. Com processo.</p>
-        <p style="font-size:1rem"><strong>Leva pra casa:</strong></p>
-        <ul style="color:var(--muted);margin-top:8px;padding-left:18px;display:grid;gap:8px;font-size:1rem">
-          <li>Diagnóstico de atendimento (WhatsApp e presencial)</li>
-          <li>CRM, funil kanban e follow-up que fecha venda sozinho</li>
-          <li>Metas que fazem sentido e um método pra bater toda semana</li>
+        <p class="hook">Cada cliente que entra, vira venda.</p>
+        <p style="font-size:.95rem;margin-bottom:10px"><strong>Leva pra casa:</strong></p>
+        <ul>
+          <li>Diagnóstico de atendimento (WhatsApp + presencial)</li>
+          <li>CRM, funil kanban e follow-up automático</li>
+          <li>Metas reais e método pra bater toda semana</li>
         </ul>
       </div>
-      <div class="g-card anim">
-        <div class="g-num">G3</div>
+      <div class="g-item a">
+        <div class="g-label">Pilar 03</div>
         <h3>Gestão de Pessoas</h3>
-        <p class="g-hook">Um time que vende, entrega e cresce — sem depender de você.</p>
-        <p style="font-size:1rem"><strong>Sai com:</strong></p>
-        <ul style="color:var(--muted);margin-top:8px;padding-left:18px;display:grid;gap:8px;font-size:1rem">
-          <li>Cultura de resultado: rituais, valores e rotina que funcionam</li>
+        <p class="hook">Time que vende e cresce — sem depender de você.</p>
+        <p style="font-size:.95rem;margin-bottom:10px"><strong>Sai com:</strong></p>
+        <ul>
+          <li>Cultura de resultado: rituais, valores, rotina</li>
           <li>Perfil DISC — entender você e montar o time ideal</li>
           <li>Processo de contratação que atrai quem veste a camisa</li>
         </ul>
       </div>
     </div>
 
-    <div class="not-grid anim" style="margin-top:50px">
-      <div class="not-item"><span>✕</span> Mindset genérico</div>
-      <div class="not-item"><span>✕</span> Motivação vazia</div>
-      <div class="not-item"><span>✕</span> Fórmula mágica</div>
-      <div class="not-item"><span>✕</span> Teoria sem aplicação</div>
-    </div>
-    <p class="anim" style="text-align:center;color:var(--muted-light);margin-top:24px;font-size:1.05rem"><strong style="color:var(--white)">Aqui é método aplicado.</strong> Você sai com o funil do seu negócio mapeado e um plano claro de execução.</p>
-
-    <div class="for-grid" style="margin-top:60px">
-      <div class="for-card yes anim">
-        <h4 style="color:var(--blue);font-size:1.1rem">É pra você se:</h4>
-        <ul style="list-style:none;display:grid;gap:12px;font-size:1.05rem">
-          <li>✓ Tem empresa no varejo e sente que bateu um teto</li>
-          <li>✓ Trabalha mais que qualquer funcionário e lucra pouco</li>
-          <li>✓ Quer montar um time que funcione sem você no balcão</li>
-          <li>✓ Está disposto a aplicar o que aprender</li>
+    <div class="qualify a">
+      <div>
+        <h4 class="yes">É pra você se:</h4>
+        <ul>
+          <li><b class="ck">✓</b> Tem empresa no varejo e bateu um teto</li>
+          <li><b class="ck">✓</b> Trabalha demais e lucra pouco</li>
+          <li><b class="ck">✓</b> Quer um time que funcione sem você</li>
+          <li><b class="ck">✓</b> Está disposto a aplicar o que aprender</li>
         </ul>
       </div>
-      <div class="for-card no anim">
-        <h4 style="color:var(--red);font-size:1.1rem">Não é pra você se:</h4>
-        <ul style="list-style:none;display:grid;gap:12px;font-size:1.05rem">
-          <li>✕ Está começando do zero, sem operação rodando</li>
-          <li>✕ Busca fórmula mágica ou resultado sem esforço</li>
-          <li>✕ Não pretende executar nada depois do evento</li>
-          <li>✕ Quer palestra motivacional</li>
+      <div>
+        <h4 class="no">Não é pra você se:</h4>
+        <ul>
+          <li><b class="cr">✕</b> Está começando do zero</li>
+          <li><b class="cr">✕</b> Busca fórmula mágica</li>
+          <li><b class="cr">✕</b> Não pretende executar depois</li>
+          <li><b class="cr">✕</b> Quer palestra motivacional</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DOBRA 3: Oferta + Bônus + CTA -->
-<section class="offer" id="inscricao">
-  <div class="container">
-    <h2 class="anim">Conteúdo sem ferramenta não vira resultado.<br><em>Por isso você também leva:</em></h2>
-    <p class="sub anim" style="font-size:1.1rem">Tudo incluído no seu ingresso. Sem upsell, sem surpresa.</p>
+<section class="oferta" id="inscricao">
+  <div class="wrap">
+    <div class="intro">
+      <h2 class="sec-title a">Conteúdo sem ferramenta não vira resultado. <span>Por isso você também leva:</span></h2>
+      <p class="sec-sub a">Tudo incluído no ingresso. Sem upsell.</p>
+    </div>
 
-    <div class="bonus-row anim">
-      <div class="bonus-item">
-        <h4 style="font-size:1.05rem">CRM grátis por 2 meses</h4>
-        <p style="font-size:.95rem">Organize seu comercial e pare de perder venda no escuro.</p>
+    <div class="bonus-row a">
+      <div class="b-card">
+        <h4>CRM grátis por 2 meses</h4>
+        <p>Organize seu comercial e pare de perder venda.</p>
       </div>
-      <div class="bonus-item">
-        <h4 style="font-size:1.05rem">Perfil Comportamental</h4>
-        <p style="font-size:.95rem">Entenda como você lidera, decide e contrata.</p>
+      <div class="b-card">
+        <h4>Perfil Comportamental</h4>
+        <p>Entenda como você lidera, decide e contrata.</p>
       </div>
-      <div class="bonus-item highlight">
-        <h4 style="color:var(--red);font-size:1.05rem">Landing Page profissional</h4>
-        <p style="font-size:.95rem">Uma página pronta pra vender por você.<br><strong style="color:var(--white)">Valor de mercado: R$ 1.500</strong></p>
+      <div class="b-card feat">
+        <h4>Landing Page profissional</h4>
+        <p>Página pronta pra vender. <strong>Valor: R$ 1.500</strong></p>
       </div>
     </div>
 
-    <div class="offer-box anim">
-      <p class="secret" style="font-size:1.15rem">O investimento? Você descobre na próxima página.</p>
-      <p class="secret-red" style="font-size:1.05rem">Custa menos do que 1 dia de operação mal feita.</p>
-      <div class="duo" style="font-size:1rem">INGRESSO DUPLO — Leve seu sócio, gerente ou braço direito</div><br>
-      <button class="offer-cta" onclick="document.getElementById('formModal').classList.add('active')">Quero garantir minha vaga</button>
-      <p class="seats" style="font-size:1rem">50 vagas. Quando acabar, acabou.</p>
+    <div class="offer-card a">
+      <div class="badge">1º Lote</div>
+      <p class="line">O investimento? Você descobre na próxima página.</p>
+      <p class="hl">Custa menos do que 1 dia de operação mal feita.</p>
+      <div class="duo">Ingresso duplo — leve seu sócio ou braço direito</div><br>
+      <button class="cta" style="width:100%;display:block;text-align:center" onclick="document.getElementById('fm').classList.add('active')">Quero garantir minha vaga</button>
+      <p class="limited">50 vagas. Quando acabar, acabou.</p>
     </div>
 
-    <div class="event-strip anim">
-      <div><strong>Duração</strong><span style="font-size:1rem">4 horas</span></div>
-      <div><strong>Local</strong><span style="font-size:1rem">Toledo - PR</span></div>
-      <div><strong>Início</strong><span style="font-size:1rem">18:30</span></div>
-      <div><strong>Inclui</strong><span style="font-size:1rem">Coffee break</span></div>
+    <div class="info-row a">
+      <div><div class="label">Duração</div><div class="val">4 horas</div></div>
+      <div><div class="label">Local</div><div class="val">Toledo - PR</div></div>
+      <div><div class="label">Início</div><div class="val">18:30</div></div>
+      <div><div class="label">Inclui</div><div class="val">Coffee break</div></div>
     </div>
   </div>
 </section>
 
-<!-- DOBRA 4: FAQ + Fechamento + CTA Final -->
-<section class="faq">
-  <div class="container">
-    <h2 class="anim">Dúvidas <em>frequentes</em></h2>
-    <div class="faq-list">
-      <details class="faq-item anim"><summary style="font-size:1.05rem">Posso levar alguém comigo?</summary><p style="font-size:1rem">O ingresso é duplo. Leve seu sócio, gerente ou braço direito. Resultado vem mais rápido quando dois aplicam juntos.</p></details>
-      <details class="faq-item anim"><summary style="font-size:1.05rem">Serve pra quem não é do varejo tradicional?</summary><p style="font-size:1rem">Se você tem um negócio que precisa atrair clientes, vender e liderar pessoas — serve. Os 3 G's se aplicam a qualquer negócio comercial.</p></details>
-      <details class="faq-item anim"><summary style="font-size:1.05rem">É palestra ou tem aplicação prática?</summary><p style="font-size:1rem">É imersão. Você sai com o funil do seu negócio mapeado e um plano de ação pra executar já na segunda-feira.</p></details>
-      <details class="faq-item anim"><summary style="font-size:1.05rem">Vou conseguir aplicar sozinho depois?</summary><p style="font-size:1rem">Vai. Sai com plano de ação + 2 meses de CRM grátis pra implementar na hora. Mas lembre: só funciona se você decidir agir.</p></details>
-    </div>
-    <p class="faq-closing anim" style="margin-top:40px;font-size:1.1rem">Daqui a 6 meses você pode estar no mesmo lugar — ou olhar pra trás e pensar: <strong>"aquela noite em Toledo mudou tudo."</strong></p>
-    <div class="faq-cta anim">
-      <a href="#inscricao" class="hero-cta">Quero estar lá</a>
-      <p style="margin-top:16px;color:var(--red);font-size:1rem;font-weight:600">Vagas esgotando. Não vai ter 2ª chance.</p>
+<section class="faq-sec">
+  <div class="wrap">
+    <h2 class="sec-title a">Dúvidas <span>frequentes</span></h2>
+    <details class="q a"><summary>Posso levar alguém comigo?</summary><p>O ingresso é duplo. Leve seu sócio, gerente ou braço direito. Resultado vem mais rápido quando dois aplicam juntos.</p></details>
+    <details class="q a"><summary>Serve pra quem não é do varejo?</summary><p>Se você precisa atrair clientes, vender e liderar pessoas — serve. Os 3 G's se aplicam a qualquer negócio comercial.</p></details>
+    <details class="q a"><summary>É palestra ou aplicação prática?</summary><p>Imersão. Você sai com o funil mapeado e um plano de ação pra executar na segunda-feira.</p></details>
+    <details class="q a"><summary>Vou conseguir aplicar depois?</summary><p>Sai com plano + 2 meses de CRM grátis. Só funciona se você decidir agir.</p></details>
+    <div class="faq-close a">
+      <p>Daqui a 6 meses você pode estar no mesmo lugar — ou pensar: <strong>"aquela noite em Toledo mudou tudo."</strong></p>
+      <a href="#inscricao" class="cta">Quero estar lá</a>
+      <p class="urg">Vagas esgotando.</p>
     </div>
   </div>
 </section>
 
 <footer>
-  <img src="logo.png" alt="Instituto Veon" style="width:40px;margin-bottom:10px;filter:brightness(0);opacity:.4"/>
-  <p><strong>Instituto Veon</strong> — A Escola do Varejo</p>
-  <p style="margin-top:6px;font-size:.8rem">© 2026</p>
+  <div style="display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:8px">
+    <img src="logo.png" alt="Instituto Veon" style="margin:0"/>
+    <span style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:rgba(255,255,255,.6)">Instituto Veon</span>
+  </div>
+  <p>A Escola do Varejo</p>
+  <p style="margin-top:4px">© 2026</p>
 </footer>
 
-<!-- Sticky CTA Mobile -->
-<div class="sticky-bar">
-  <a href="#inscricao">Garantir minha vaga →</a>
-</div>
+<div class="sticky"><a href="#inscricao">Garantir minha vaga →</a></div>
 
-<!-- Modal Formulário -->
-<div class="modal-overlay" id="formModal">
-  <div class="modal">
-    <button class="close" onclick="document.getElementById('formModal').classList.remove('active')">&times;</button>
+<div class="mo" id="fm">
+  <div class="mo-box">
+    <button class="x" onclick="document.getElementById('fm').classList.remove('active')">&times;</button>
     <h3>Falta pouco</h3>
-    <p class="modal-sub">Preencha para seguir ao checkout.</p>
-    <form id="leadForm">
+    <p class="ms">Preencha para seguir ao checkout.</p>
+    <form id="lf">
       <input type="text" name="nome" placeholder="Seu nome completo" required/>
       <input type="tel" name="telefone" placeholder="WhatsApp com DDD" required/>
       <input type="email" name="email" placeholder="Seu Gmail" required/>
       <input type="text" name="instagram" placeholder="Seu @ do Instagram" required/>
       <button type="submit">Ir para o checkout</button>
     </form>
-    <p class="lgpd">Ao preencher, você concorda com nossa política de privacidade. Seus dados estão protegidos e não serão compartilhados com terceiros.</p>
+    <p class="lgpd">Ao preencher, você concorda com nossa política de privacidade.</p>
   </div>
 </div>
 
 <script>
-const obs=new IntersectionObserver(e=>{
-  e.forEach(el=>{
-    if(el.isIntersecting) el.target.classList.add('show');
-    else el.target.classList.remove('show');
-  });
-},{threshold:.15});
-document.querySelectorAll('.anim').forEach(el=>obs.observe(el));
-
-document.getElementById('leadForm').addEventListener('submit',function(e){
+const o=new IntersectionObserver(e=>{e.forEach(el=>{
+  if(el.isIntersecting)el.target.classList.add('on');
+  else el.target.classList.remove('on');
+})},{threshold:.1});
+document.querySelectorAll('.a').forEach(el=>o.observe(el));
+document.getElementById('lf').addEventListener('submit',e=>{
   e.preventDefault();
   window.location.href='https://LINK-DO-CHECKOUT-AQUI.com';
 });
 </script>
-
 </body>
 </html>
