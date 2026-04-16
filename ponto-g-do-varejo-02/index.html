@@ -7,14 +7,17 @@
 <meta name="description" content="O evento que revela o ponto exato que muda tudo no seu varejo. Toledo - PR."/>
 <link rel="icon" type="image/png" href="favicon.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Event","name":"O Ponto G do Varejo","description":"Evento presencial de imersão em Marketing, Vendas e Liderança para empresários do varejo.","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":{"@type":"Place","name":"Toledo - PR","address":{"@type":"PostalAddress","addressLocality":"Toledo","addressRegion":"PR","addressCountry":"BR"}},"organizer":{"@type":"Organization","name":"Instituto Veon","url":"https://assessoriaveon.com"}}
+</script>
 <style>
   :root{
     --bg:#ffffff;
     --bg-2:#f5f5f7;
-    --bg-3:#eaeaed;
     --white:#111111;
-    --gold:#0044cc;
-    --gold-light:#1a6aff;
+    --blue:#0044cc;
+    --blue-light:#1a6aff;
+    --red:#e60000;
     --muted:#666666;
     --muted-light:#444444;
   }
@@ -23,10 +26,8 @@
   body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.7}
   .container{max-width:1080px;margin:0 auto;padding:0 24px}
 
-  /* Animations */
   @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-  @keyframes goldShimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-  @keyframes breathe{0%,100%{opacity:.4}50%{opacity:1}}
+  @keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
   .anim{opacity:0}
   .anim.show{animation:fadeUp .7s ease forwards}
 
@@ -39,13 +40,13 @@
   header::after{
     content:"";position:absolute;top:50%;left:50%;
     width:500px;height:500px;transform:translate(-50%,-50%);
-    background:radial-gradient(circle,rgba(26,58,92,.25),transparent 70%);
+    background:radial-gradient(circle,rgba(0,68,204,.08),transparent 70%);
     pointer-events:none;
   }
   .hero-logo{width:70px;margin-bottom:24px;opacity:.8}
   .hero-eyebrow{
     font-size:.75rem;letter-spacing:4px;text-transform:uppercase;
-    color:#e60000;margin-bottom:20px;font-weight:600;
+    color:var(--red);margin-bottom:20px;font-weight:600;
   }
   .hero-title{
     font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,4.5rem);
@@ -53,22 +54,22 @@
   }
   .hero-title em{
     font-style:normal;
-    background:linear-gradient(90deg,#3399ff,#66bbff,#3399ff);
+    background:linear-gradient(90deg,var(--blue),var(--blue-light),var(--blue));
     background-size:200% auto;
     -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-    animation:goldShimmer 4s linear infinite;
+    animation:shimmer 4s linear infinite;
   }
   .hero-sub{
-    font-size:clamp(1rem,2vw,1.2rem);color:var(--muted-light);
-    max-width:560px;margin:0 auto 40px;font-weight:400;
+    font-size:clamp(1rem,2vw,1.15rem);color:var(--muted-light);
+    max-width:520px;margin:0 auto 40px;font-weight:400;
   }
   .hero-cta{
     display:inline-block;padding:16px 44px;
-    background:var(--gold);color:#fff;font-weight:800;
+    background:var(--blue);color:#fff;font-weight:800;
     font-size:1rem;text-transform:uppercase;letter-spacing:2px;
     text-decoration:none;transition:all .3s;border:none;cursor:pointer;
   }
-  .hero-cta:hover{background:var(--gold-light);transform:translateY(-2px);color:#fff}
+  .hero-cta:hover{background:var(--blue-light);transform:translateY(-2px);color:#fff}
   .hero-details{
     margin-top:40px;display:flex;justify-content:center;gap:30px;flex-wrap:wrap;
     font-size:.85rem;color:var(--muted);
@@ -76,21 +77,19 @@
   .hero-details span{display:flex;align-items:center;gap:6px}
   .hero-details strong{color:var(--white)}
 
-  /* Divider */
-  .gold-line{width:60px;height:2px;background:#e60000;margin:0 auto 50px;opacity:.8}
+  .red-line{width:60px;height:2px;background:var(--red);margin:0 auto 50px;opacity:.8}
 
-  /* Section */
   section{padding:100px 0;min-height:100vh;display:flex;align-items:center}
   section>.container{width:100%}
 
-  /* Story */
+  /* Story / Bridge */
   .story{background:var(--bg)}
   .story-text{max-width:680px;margin:0 auto;text-align:center}
   .story-text h2{
     font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.6rem);
     font-weight:700;margin-bottom:30px;line-height:1.2;
   }
-  .story-text h2 em{font-style:normal;color:var(--gold)}
+  .story-text h2 em{font-style:normal;color:var(--blue)}
   .story-text p{color:var(--muted-light);font-size:1.05rem;margin-bottom:20px}
   .story-text p strong{color:var(--white)}
 
@@ -101,23 +100,56 @@
     font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.6rem);
     font-weight:700;line-height:1.2;margin-bottom:16px;
   }
-  .gs-header h2 em{font-style:normal;color:var(--gold)}
+  .gs-header h2 em{font-style:normal;color:var(--blue)}
   .gs-header p{color:var(--muted-light);max-width:580px;margin:0 auto;font-size:1rem}
   .g-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
   .g-card{
     padding:36px 28px;border:1px solid #e0e0e0;
     border-radius:4px;background:#fff;position:relative;
-    box-shadow:0 4px 20px rgba(0,0,0,.08);
-    transition:border-color .3s;
+    box-shadow:0 4px 20px rgba(0,0,0,.08);transition:border-color .3s;
   }
-  .g-card:hover{border-color:#0044cc}
+  .g-card:hover{border-color:var(--blue)}
   .g-card .g-num{
-    font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;
-    color:#e60000;opacity:.2;position:absolute;top:16px;right:20px;line-height:1;
+    font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;
+    color:var(--red);opacity:.35;margin-bottom:12px;
   }
   .g-card h3{font-size:1.2rem;margin-bottom:8px;font-weight:700}
-  .g-card .g-hook{color:#e60000;font-weight:600;font-size:.95rem;margin-bottom:12px}
+  .g-card .g-hook{color:var(--red);font-weight:600;font-size:.95rem;margin-bottom:12px}
   .g-card p{color:var(--muted-light);font-size:.95rem}
+
+  /* Not this */
+  .not-this{background:var(--bg);text-align:center}
+  .not-this h2{
+    font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2.2rem);
+    margin-bottom:30px;
+  }
+  .not-this h2 em{font-style:normal;color:var(--red)}
+  .not-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:16px;max-width:700px;margin:0 auto;
+  }
+  .not-item{
+    padding:18px;border:1px solid #e0e0e0;border-radius:4px;background:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,.05);color:var(--muted);font-size:.95rem;
+  }
+  .not-item span{color:var(--red);font-weight:700;margin-right:6px}
+
+  /* For who */
+  .for-who{background:var(--bg-2)}
+  .for-who h2{
+    font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2.2rem);
+    text-align:center;margin-bottom:40px;
+  }
+  .for-who h2 em{font-style:normal;color:var(--blue)}
+  .for-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:780px;margin:0 auto}
+  .for-card{
+    padding:28px;border:1px solid #e0e0e0;border-radius:4px;background:#fff;
+    box-shadow:0 2px 14px rgba(0,0,0,.06);
+  }
+  .for-card h4{font-size:1rem;margin-bottom:14px;color:var(--white)}
+  .for-card li{color:var(--muted-light);font-size:.95rem;margin-bottom:8px;padding-left:4px}
+  .for-card.yes{border-top:3px solid var(--blue)}
+  .for-card.no{border-top:3px solid var(--red)}
 
   /* Offer */
   .offer{
@@ -128,50 +160,56 @@
     font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.6rem);
     font-weight:700;margin-bottom:16px;
   }
-  .offer h2 em{font-style:normal;color:var(--gold)}
-  .offer>div>.sub{color:var(--muted-light);max-width:520px;margin:0 auto 50px;font-size:1.05rem}
+  .offer h2 em{font-style:normal;color:var(--blue)}
+  .offer>div>.sub{color:var(--muted-light);max-width:560px;margin:0 auto 50px;font-size:1.05rem}
 
   .offer-box{
     max-width:500px;margin:0 auto;padding:48px 32px;
-    border:2px solid #e60000;position:relative;
-    background:#fff;box-shadow:0 4px 30px rgba(201,168,76,.2);
+    border:2px solid var(--red);position:relative;
+    background:#fff;box-shadow:0 4px 30px rgba(230,0,0,.1);
   }
   .offer-box::before{
     content:"1º LOTE";position:absolute;top:-14px;left:50%;transform:translateX(-50%);
-    background:#e60000;color:#fff;padding:6px 20px;
+    background:var(--red);color:#fff;padding:6px 20px;
     font-size:.75rem;font-weight:800;letter-spacing:2px;
   }
   .offer-box .secret{font-size:1.1rem;color:var(--muted-light);margin-bottom:8px}
-  .offer-box .secret-gold{color:#e60000;font-weight:700;font-size:1rem;margin-bottom:28px}
+  .offer-box .secret-red{color:var(--red);font-weight:700;font-size:1rem;margin-bottom:28px}
   .offer-box .duo{
-    display:inline-block;padding:10px 20px;border:1px solid #e60000;
-    color:#e60000;font-weight:700;font-size:.9rem;margin-bottom:28px;
+    display:inline-block;padding:10px 20px;border:1px solid var(--red);
+    color:var(--red);font-weight:700;font-size:.9rem;margin-bottom:28px;
   }
   .offer-cta{
-    display:block;width:100%;padding:18px;background:var(--gold);
+    display:block;width:100%;padding:18px;background:var(--blue);
     color:#fff;font-weight:800;font-size:1rem;text-transform:uppercase;
     letter-spacing:2px;border:none;cursor:pointer;transition:all .3s;
   }
-  .offer-cta:hover{background:var(--gold-light)}
-  .offer-box .seats{color:var(--muted);font-size:.85rem;margin-top:20px}
+  .offer-cta:hover{background:var(--blue-light)}
+  .offer-box .seats{color:var(--red);font-size:.9rem;margin-top:20px;font-weight:600}
 
   .bonus-row{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:16px;max-width:700px;margin:50px auto 0;
+    gap:16px;max-width:740px;margin:50px auto 0;
   }
   .bonus-item{
     padding:20px;border:1px solid #e0e0e0;text-align:center;
     background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.08);border-radius:4px;
   }
-  .bonus-item h4{font-size:.95rem;margin-bottom:6px;color:#3399ff}
+  .bonus-item h4{font-size:.95rem;margin-bottom:6px;color:var(--blue)}
   .bonus-item p{font-size:.85rem;color:var(--muted)}
+  .bonus-item.highlight{border:2px solid var(--red);position:relative}
+  .bonus-item.highlight::after{
+    content:"5 PRIMEIROS";position:absolute;top:-10px;right:10px;
+    background:var(--red);color:#fff;padding:3px 10px;border-radius:2px;
+    font-size:.65rem;font-weight:800;letter-spacing:1px;
+  }
 
   .event-strip{
     display:flex;justify-content:center;gap:40px;flex-wrap:wrap;
     margin-top:50px;font-size:.9rem;color:var(--muted-light);
   }
   .event-strip div{text-align:center}
-  .event-strip strong{display:block;color:#e60000;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+  .event-strip strong{display:block;color:var(--red);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
 
   /* FAQ */
   .faq{background:var(--bg-2)}
@@ -179,7 +217,7 @@
     font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);
     text-align:center;margin-bottom:50px;
   }
-  .faq h2 em{font-style:normal;color:var(--gold)}
+  .faq h2 em{font-style:normal;color:var(--blue)}
   .faq-list{max-width:680px;margin:0 auto;display:grid;gap:12px}
   .faq-item{
     border:1px solid #e0e0e0;padding:18px 20px;border-radius:4px;
@@ -189,15 +227,27 @@
     cursor:pointer;font-weight:600;color:var(--white);font-size:1rem;
     list-style:none;display:flex;justify-content:space-between;align-items:center;
   }
-  .faq-item summary::after{content:"+";font-size:1.4rem;color:#e60000;transition:transform .2s}
+  .faq-item summary::after{content:"+";font-size:1.4rem;color:var(--red);transition:transform .2s}
   .faq-item[open] summary::after{content:"−"}
   .faq-item p{color:var(--muted-light);margin-top:12px;font-size:.95rem}
   .faq-cta{text-align:center;margin-top:50px}
   .faq-closing{text-align:center;color:var(--muted-light);max-width:560px;margin:0 auto 40px;font-size:1.05rem}
   .faq-closing strong{color:var(--white)}
 
-  footer{padding:40px 0;text-align:center;color:var(--muted);border-top:2px solid #e60000}
+  footer{padding:40px 0;text-align:center;color:var(--muted);border-top:2px solid var(--red)}
   footer strong{color:var(--muted-light)}
+
+  /* Sticky CTA mobile */
+  .sticky-bar{
+    display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;
+    padding:12px 20px;background:#fff;border-top:2px solid var(--red);
+    box-shadow:0 -4px 20px rgba(0,0,0,.1);text-align:center;
+  }
+  .sticky-bar a{
+    display:block;padding:14px;background:var(--blue);color:#fff;
+    font-weight:800;font-size:.9rem;text-transform:uppercase;letter-spacing:2px;
+    text-decoration:none;
+  }
 
   /* Modal */
   .modal-overlay{
@@ -207,34 +257,41 @@
   }
   .modal-overlay.active{display:flex}
   .modal{
-    background:#fff;border:2px solid #0044cc;
+    background:#fff;border:2px solid var(--blue);
     padding:44px 32px;max-width:440px;width:90%;position:relative;
     box-shadow:0 10px 40px rgba(0,0,0,.15);
   }
   .modal h3{text-align:center;font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:8px}
-  .modal p{text-align:center;color:var(--muted);margin-bottom:24px;font-size:.9rem}
+  .modal p.modal-sub{text-align:center;color:var(--muted);margin-bottom:24px;font-size:.9rem}
   .modal input{
     width:100%;padding:14px 16px;border:1px solid #ddd;
     background:#fff;color:#111;font-size:.95rem;margin-bottom:12px;
     outline:none;font-family:'Inter',sans-serif;
   }
-  .modal input:focus{border-color:#0044cc}
+  .modal input:focus{border-color:var(--blue)}
   .modal input::placeholder{color:#999}
   .modal button[type="submit"]{
-    width:100%;padding:16px;background:var(--gold);color:#fff;
+    width:100%;padding:16px;background:var(--blue);color:#fff;
     font-weight:800;font-size:.95rem;cursor:pointer;border:none;
     text-transform:uppercase;letter-spacing:2px;transition:all .3s;
   }
-  .modal button[type="submit"]:hover{background:var(--gold-light)}
+  .modal button[type="submit"]:hover{background:var(--blue-light)}
   .modal .close{
     position:absolute;top:12px;right:16px;color:var(--muted);
     cursor:pointer;font-size:1.3rem;background:none;border:none;
   }
+  .modal .lgpd{font-size:.7rem;color:var(--muted);text-align:center;margin-top:12px;line-height:1.4}
 
+  @media(max-width:768px){
+    .sticky-bar{display:block}
+    footer{padding-bottom:80px}
+    .not-this{min-height:auto}
+    .for-who{min-height:auto}
+  }
   @media(min-width:1024px){
     .container{max-width:1200px;padding:0 40px}
     .hero-title{font-size:clamp(3rem,5.5vw,5rem)}
-    .hero-sub{font-size:1.3rem;max-width:640px}
+    .hero-sub{font-size:1.2rem;max-width:580px}
     section{padding:120px 0}
     .story-text h2,.gs-header h2,.offer h2,.faq h2{font-size:clamp(2rem,4vw,3rem)}
     .story-text p{font-size:1.1rem}
@@ -248,60 +305,62 @@
 </head>
 <body>
 
+<!-- HERO: Headline + Desejo -->
 <header>
   <div style="position:relative;z-index:1">
     <img src="logo.png" alt="Instituto Veon" class="hero-logo" style="filter:brightness(0)"/>
     <div class="hero-eyebrow anim">Evento presencial em Toledo · PR</div>
     <h1 class="hero-title anim">Você está a 4 horas<br>de <em>mudar a sua vida.</em></h1>
-    <p class="hero-sub anim">Imagine sair de um único evento com a clareza exata do que fazer pra sua empresa crescer, seu time funcionar sozinho e você finalmente ter tempo e dinheiro pra viver — não só trabalhar. <strong>Essa noite pode ser o divisor de águas que você vai contar pros seus netos.</strong></p>
+    <p class="hero-sub anim">Clareza do que fazer. Time que funciona sozinho. Tempo e dinheiro pra viver — não só trabalhar. <strong>Em 4 horas você sai com o plano que a maioria leva 2 anos pra montar.</strong></p>
     <a href="#inscricao" class="hero-cta anim">Quero participar</a>
     <div class="hero-details anim">
       <span><strong>4h</strong> de imersão</span>
       <span>Início <strong>18:30</strong></span>
       <span><strong>Coffee break</strong> incluso</span>
-      <span style="color:#e60000"><strong>Apenas 50 vagas</strong></span>
+      <span style="color:var(--red)"><strong>Apenas 50 vagas</strong></span>
     </div>
   </div>
 </header>
 
-<!-- DOBRA 2: Benefícios + O que é o Ponto G + Temas do evento -->
+<!-- BRIDGE EMOCIONAL: Dor → Solução -->
 <section class="story">
   <div class="container">
     <div class="story-text">
-      <div class="gold-line"></div>
+      <div class="red-line"></div>
       <h2 class="anim">Imagine ter a <em>chave</em> que faltava</h2>
-      <p class="anim">Enquanto a maioria dos empresários tenta adivinhar o que fazer, existe um grupo que já encontrou o <strong style="color:#0044cc">Ponto G do Varejo</strong> — o ponto exato onde 3 forças se cruzam e tudo começa a girar: cliente entrando, venda acontecendo, time funcionando e dinheiro sobrando.</p>
-      <p class="anim">Nesse evento, você vai conhecer essas 3 forças, entender qual delas está faltando no seu negócio e sair com o mapa completo pra ativar o seu Ponto G. <strong>É a diferença entre mais um ano igual e o ano que muda tudo.</strong></p>
+      <p class="anim">Você chega em casa tarde, o WhatsApp não para, o caixa fechou apertado de novo. No domingo você já está pensando na segunda. <strong>Isso não é rotina — é sintoma de um dos 3 G's travados.</strong></p>
+      <p class="anim">Existe um grupo de empresários que encontrou o <strong style="color:var(--blue)">Ponto G do Varejo</strong> — o ponto onde 3 forças se cruzam e tudo começa a girar: cliente entrando, venda acontecendo, time funcionando.</p>
+      <p class="anim">Nesse evento, você vai entender qual dessas forças está faltando no seu negócio e sair com o mapa completo pra ativar. <strong>É a diferença entre mais um ano igual e o ano que muda tudo.</strong></p>
     </div>
   </div>
 </section>
 
-<!-- DOBRA 3: Os 3 G's com temas detalhados -->
+<!-- 3 G's: Conteúdo completo do evento -->
 <section class="gs">
   <div class="container">
     <div class="gs-header">
       <h2 class="anim">Os <em>3 G's</em> que empresários de sucesso dominam</h2>
-      <p class="anim">Quem domina os três, para de sobreviver e começa a lucrar de verdade. Quem ignora um, fica preso no operacional pra sempre. Em qual dos três está o gargalo do seu negócio?</p>
+      <p class="anim">Quem domina os três, para de sobreviver e começa a lucrar de verdade. Em qual deles está o gargalo do seu negócio?</p>
     </div>
     <div class="g-cards">
       <div class="g-card anim">
         <div class="g-num">G1</div>
         <h3>Geração de Demanda</h3>
         <p class="g-hook">A loja cheia todo dia. Sem depender de sorte.</p>
-        <p><strong>Você vai sair sabendo:</strong></p>
+        <p><strong>Vai dominar:</strong></p>
         <ul style="color:var(--muted);margin-top:8px;padding-left:18px;display:grid;gap:6px;font-size:.95rem">
-          <li>Como atrair clientes qualificados todos os dias com tráfego pago</li>
+          <li>Como atrair clientes qualificados com tráfego pago</li>
           <li>Criativos, copys e ofertas que fazem o telefone tocar</li>
-          <li>O método pra nunca mais jogar dinheiro fora em anúncio</li>
+          <li>O método pra parar de queimar verba em anúncio que não converte</li>
         </ul>
       </div>
       <div class="g-card anim">
         <div class="g-num">G2</div>
         <h3>Gestão Comercial</h3>
         <p class="g-hook">Cada cliente que entra, vira venda. Com processo.</p>
-        <p><strong>Você vai sair sabendo:</strong></p>
+        <p><strong>Leva pra casa:</strong></p>
         <ul style="color:var(--muted);margin-top:8px;padding-left:18px;display:grid;gap:6px;font-size:.95rem">
-          <li>Como diagnosticar e corrigir falhas no atendimento</li>
+          <li>Diagnóstico de atendimento (WhatsApp e presencial)</li>
           <li>CRM, funil kanban e follow-up que fecha venda sozinho</li>
           <li>Metas que fazem sentido e um método pra bater toda semana</li>
         </ul>
@@ -310,23 +369,64 @@
         <div class="g-num">G3</div>
         <h3>Gestão de Pessoas</h3>
         <p class="g-hook">Um time que vende, entrega e cresce — sem depender de você.</p>
-        <p><strong>Você vai sair sabendo:</strong></p>
+        <p><strong>Sai com:</strong></p>
         <ul style="color:var(--muted);margin-top:8px;padding-left:18px;display:grid;gap:6px;font-size:.95rem">
-          <li>Como criar cultura de resultado: rituais, valores e rotina</li>
+          <li>Cultura de resultado: rituais, valores e rotina que funcionam</li>
           <li>Perfil DISC — entender você e montar o time ideal</li>
-          <li>O processo de contratação que atrai quem veste a camisa</li>
+          <li>Processo de contratação que atrai quem veste a camisa</li>
         </ul>
       </div>
     </div>
-    <p class="anim" style="text-align:center;color:var(--muted);margin-top:40px;font-size:.95rem">Aplicável em qualquer segmento do varejo — moda, alimentação, eletrônicos, serviços e mais.</p>
+    <p class="anim" style="text-align:center;color:var(--muted);margin-top:40px;font-size:.95rem">Aplicável em qualquer segmento — moda, alimentação, eletrônicos, serviços e mais.</p>
   </div>
 </section>
 
-<!-- DOBRA 4: Oferta + Urgência + CTA -->
+<!-- O QUE NÃO VAI TER -->
+<section class="not-this" style="min-height:auto;padding:80px 0">
+  <div class="container">
+    <h2 class="anim">O que você <em>não</em> vai ver nesse evento</h2>
+    <div class="not-grid anim">
+      <div class="not-item"><span>✕</span> Mindset genérico</div>
+      <div class="not-item"><span>✕</span> Motivação vazia</div>
+      <div class="not-item"><span>✕</span> Fórmula mágica</div>
+      <div class="not-item"><span>✕</span> Teoria sem aplicação</div>
+    </div>
+    <p class="anim" style="text-align:center;color:var(--muted-light);margin-top:30px;font-size:1rem"><strong style="color:var(--white)">Aqui é método aplicado.</strong> Você sai com o funil do seu negócio mapeado e um plano claro de execução.</p>
+  </div>
+</section>
+
+<!-- PRA QUEM É / NÃO É -->
+<section class="for-who" style="min-height:auto;padding:80px 0">
+  <div class="container">
+    <h2 class="anim">Esse evento é <em>pra você</em>?</h2>
+    <div class="for-grid">
+      <div class="for-card yes anim">
+        <h4 style="color:var(--blue)">É pra você se:</h4>
+        <ul style="list-style:none;display:grid;gap:10px">
+          <li>✓ Tem empresa no varejo e sente que bateu um teto</li>
+          <li>✓ Trabalha mais que qualquer funcionário e lucra pouco</li>
+          <li>✓ Quer montar um time que funcione sem você no balcão</li>
+          <li>✓ Está disposto a aplicar o que aprender</li>
+        </ul>
+      </div>
+      <div class="for-card no anim">
+        <h4 style="color:var(--red)">Não é pra você se:</h4>
+        <ul style="list-style:none;display:grid;gap:10px">
+          <li>✕ Está começando do zero, sem operação rodando</li>
+          <li>✕ Busca fórmula mágica ou resultado sem esforço</li>
+          <li>✕ Não pretende executar nada depois do evento</li>
+          <li>✕ Quer palestra motivacional</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA + URGÊNCIA + CTA -->
 <section class="offer" id="inscricao">
   <div class="container">
-    <h2 class="anim">Você vai sair com <em>tudo isso</em></h2>
-    <p class="sub anim">Não é só conteúdo. São ferramentas reais pra você aplicar na segunda-feira e começar a ver resultado antes do fim do mês.</p>
+    <h2 class="anim">Conteúdo sem ferramenta não vira resultado.<br><em>Por isso você também leva:</em></h2>
+    <p class="sub anim">Tudo incluído no seu ingresso. Sem upsell, sem surpresa.</p>
 
     <div class="bonus-row anim">
       <div class="bonus-item">
@@ -337,18 +437,18 @@
         <h4>Perfil Comportamental</h4>
         <p>Entenda como você lidera, decide e contrata.</p>
       </div>
-      <div class="bonus-item" style="border-color:#e60000">
-        <h4 style="color:#e60000">Landing Page — 5 primeiros</h4>
-        <p>Uma página profissional pronta pra vender por você.</p>
+      <div class="bonus-item highlight">
+        <h4 style="color:var(--red)">Landing Page profissional</h4>
+        <p>Uma página pronta pra vender por você.<br><strong style="color:var(--white)">Valor de mercado: R$ 1.500</strong></p>
       </div>
     </div>
 
     <div class="offer-box anim">
       <p class="secret">O investimento? Você descobre na próxima página.</p>
-      <p class="secret-gold">Mas saiba: custa menos do que 1 dia de operação mal feita.</p>
-      <div class="duo" style="border-color:#e60000;color:#e60000">INGRESSO DUPLO — Leve seu sócio, gerente ou braço direito</div><br>
+      <p class="secret-red">Custa menos do que 1 dia de operação mal feita.</p>
+      <div class="duo">INGRESSO DUPLO — Leve seu sócio, gerente ou braço direito</div><br>
       <button class="offer-cta" onclick="document.getElementById('formModal').classList.add('active')">Quero garantir minha vaga</button>
-      <p class="seats" style="color:#e60000;font-weight:600">50 vagas. Quando acabar, acabou.</p>
+      <p class="seats">50 vagas. Quando acabar, acabou.</p>
     </div>
 
     <div class="event-strip anim">
@@ -360,19 +460,20 @@
   </div>
 </section>
 
+<!-- FAQ + CTA FINAL -->
 <section class="faq">
   <div class="container">
     <h2 class="anim">Dúvidas <em>frequentes</em></h2>
     <div class="faq-list">
-      <details class="faq-item anim"><summary>Posso levar alguém comigo?</summary><p>O ingresso é duplo. Leve seu sócio, gerente ou a pessoa que vai te ajudar a executar. Resultado vem mais rápido quando dois aplicam juntos.</p></details>
+      <details class="faq-item anim"><summary>Posso levar alguém comigo?</summary><p>O ingresso é duplo. Leve seu sócio, gerente ou braço direito. Resultado vem mais rápido quando dois aplicam juntos.</p></details>
       <details class="faq-item anim"><summary>Serve pra quem não é do varejo tradicional?</summary><p>Se você tem um negócio que precisa atrair clientes, vender e liderar pessoas — serve. Os 3 G's se aplicam a qualquer negócio comercial.</p></details>
-      <details class="faq-item anim"><summary>É palestra ou tem aplicação prática?</summary><p>É imersão. Você sai com clareza do que está travado e um plano do que fazer primeiro. Zero teoria vazia.</p></details>
-      <details class="faq-item anim"><summary>Vou conseguir aplicar sozinho depois?</summary><p>Vai. Você sai com plano de ação prático e 2 meses de CRM pra implementar na hora. Mas lembre: só funciona se você decidir agir.</p></details>
+      <details class="faq-item anim"><summary>É palestra ou tem aplicação prática?</summary><p>É imersão. Você sai com o funil do seu negócio mapeado e um plano de ação pra executar já na segunda-feira.</p></details>
+      <details class="faq-item anim"><summary>Vou conseguir aplicar sozinho depois?</summary><p>Vai. Sai com plano de ação + 2 meses de CRM grátis pra implementar na hora. Mas lembre: só funciona se você decidir agir.</p></details>
     </div>
     <p class="faq-closing anim" style="margin-top:40px">Daqui a 6 meses você pode estar no mesmo lugar — ou olhar pra trás e pensar: <strong>"aquela noite em Toledo mudou tudo."</strong></p>
     <div class="faq-cta anim">
       <a href="#inscricao" class="hero-cta">Quero estar lá</a>
-      <p style="margin-top:16px;color:#e60000;font-size:.9rem;font-weight:600">Vagas esgotando. Não vai ter 2ª chance.</p>
+      <p style="margin-top:16px;color:var(--red);font-size:.9rem;font-weight:600">Vagas esgotando. Não vai ter 2ª chance.</p>
     </div>
   </div>
 </section>
@@ -383,11 +484,17 @@
   <p style="margin-top:6px;font-size:.8rem">© 2026</p>
 </footer>
 
+<!-- Sticky CTA Mobile -->
+<div class="sticky-bar">
+  <a href="#inscricao">Garantir minha vaga →</a>
+</div>
+
+<!-- Modal Formulário -->
 <div class="modal-overlay" id="formModal">
   <div class="modal">
     <button class="close" onclick="document.getElementById('formModal').classList.remove('active')">&times;</button>
-    <h3>Sua cadeira espera</h3>
-    <p>Preencha para seguir ao checkout.</p>
+    <h3>Falta pouco</h3>
+    <p class="modal-sub">Preencha para seguir ao checkout.</p>
     <form id="leadForm">
       <input type="text" name="nome" placeholder="Seu nome completo" required/>
       <input type="tel" name="telefone" placeholder="WhatsApp com DDD" required/>
@@ -395,6 +502,7 @@
       <input type="text" name="instagram" placeholder="Seu @ do Instagram" required/>
       <button type="submit">Ir para o checkout</button>
     </form>
+    <p class="lgpd">Ao preencher, você concorda com nossa política de privacidade. Seus dados estão protegidos e não serão compartilhados com terceiros.</p>
   </div>
 </div>
 
